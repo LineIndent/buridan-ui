@@ -63,7 +63,6 @@ def resize_menu(component_id: int):
             rx.button(
                 rx.icon(tag="proportions", size=18, color=rx.color("slate", 12)),
                 size="1",
-                # background=rx.color("gray", 2),
                 color=rx.color("slate", 12),
                 width="32px",
                 height="32px",
@@ -95,7 +94,6 @@ def view_source_code():
     return rx.button(
         rx.icon(tag="github", size=18, color=rx.color("slate", 12)),
         size="1",
-        # background=rx.color("gray", 2),
         color=rx.color("slate", 12),
         width="32px",
         height="32px",
