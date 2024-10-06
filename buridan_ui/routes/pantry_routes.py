@@ -3,7 +3,7 @@ PANTRY_ROUTES = [
     {"name": "Standard Forms", "path": "/pantry/standard-forms"},
     {"name": "Standard Tables", "path": "/pantry/standard-tables"},
     {"name": "Pricing Sections", "path": "/pantry/pricing-sections"},
-    {"name": "Dialogs", "path": "/pantry/dialogs"},
+    {"name": "Popups", "path": "/pantry/popups"},
     {"name": "Payments & Billing", "path": "/pantry/payments-and-billing"},
     {"name": "Table Pagination", "path": "/pantry/table-pagination"},
     {"name": "Onboarding & Progress", "path": "/pantry/onboarding-and-progress"},
@@ -12,6 +12,7 @@ PANTRY_ROUTES = [
     {"name": "Featured", "path": "/pantry/featured"},
     {"name": "Descriptive Lists", "path": "/pantry/descriptive-lists"},
     {"name": "Timeline", "path": "/pantry/timeline"},
+    {"name": "Animations", "path": "/pantry/animations"},
 ]
 
 PANTRY_ROUTES.sort(key=lambda x: x["name"])
