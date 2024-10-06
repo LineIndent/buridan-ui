@@ -1,10 +1,14 @@
 from ...styles.base import *
 from ..navlinks import navlinks
+from ...routes.pantry_routes import PANTRY_ROUTES
+
+from .drawbar import drawbar
+
 import reflex as rx
 
 NAVLINKS = [
     {"name": "Home", "path": "/"},
-    {"name": "Pantry", "path": "/pantry"},
+    {"name": "Pantry", "path": PANTRY_ROUTES[0]["path"]},
     {"name": "Getting Started", "path": "/getting-started"},
 ]
 
@@ -31,7 +35,14 @@ def left_items():
 
 def right_items():
     return rx.hstack(
-        *[navlinks(i["name"], i["path"]) for i in NAVLINKS],
+        rx.hstack(
+            *[navlinks(i["name"], i["path"]) for i in NAVLINKS],
+            display=["none", "none", "none", "none", "flex", "flex"],
+        ),
+        rx.hstack(
+            drawbar(),
+            display=["flex", "flex", "flex", "flex", "none", "none"],
+        ),
         rx.divider(orientation="vertical", height="20px", color=rx.color("slate", 12)),
         rx.icon(tag="github", size=16),
         rx.color_mode.switch(),
@@ -41,8 +52,4 @@ def right_items():
 
 
 def navbar():
-    return rx.hstack(
-        left_items(),
-        right_items(),
-        **NAVBAR,
-    )
+    return rx.hstack(left_items(), right_items(), **NAVBAR)

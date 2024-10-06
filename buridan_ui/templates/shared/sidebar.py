@@ -26,10 +26,11 @@ class Sidebar(rx.State):
     ]
 
     async def delta_page(self, data: dict[str, str]):
-        await asyncio.gather(
-            self.refresh_sidebar(self.pantry, data),
-            self.refresh_sidebar(self.getting_started, data),
-        )
+        if data is not None:
+            await asyncio.gather(
+                self.refresh_sidebar(self.pantry, data),
+                self.refresh_sidebar(self.getting_started, data),
+            )
 
     async def refresh_sidebar(self, menu: list[dict[str, str]], item: dict[str, str]):
         for index in menu:
@@ -43,7 +44,6 @@ class Sidebar(rx.State):
 
 
 MAP = {"Pantry": "component", "Getting Started": "play"}
-
 
 SIDEBAR = dict(
     top="0",
