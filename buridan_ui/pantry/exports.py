@@ -29,6 +29,11 @@ from .timeline.v1 import timeline_v1
 
 from .onboardings.v1 import onboardings_v1
 
+from .pricing.v1 import pricing_v1
+
+from .popups.v1 import popups_v1
+from .popups.v2 import popups_v2
+
 from ..wrappers.item import item
 
 
@@ -82,3 +87,10 @@ export_timeline_v1 = create_export(timeline_v1, "lists", 1)
 
 # Create exports for onboarding
 export_onboardings_v1 = create_export(onboardings_v1, "onboardings", 1)
+
+# Create exports or pricing
+export_pricing_v1 = create_export(pricing_v1, "pricing", 1)
+
+# Create exports or popups
+export_popups_v1 = create_export(popups_v1, "popups", 1)
+export_popups_v2 = create_export(popups_v2, "popups", 2)
