@@ -60,3 +60,13 @@ def timeline():
 @base("/pantry/onboarding-and-progress", "Onboarding & Progress")
 def onboarding():
     return [export_onboardings_v1()]
+
+
+@base("/pantry/pricing-sections", "Pricing")
+def onboarding():
+    return [export_pricing_v1()]
+
+
+@base("/pantry/popups", "Popups")
+def onboarding():
+    return [export_popups_v1(), export_popups_v2()]
