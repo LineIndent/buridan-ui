@@ -1,6 +1,7 @@
 from ...styles.base import *
 from ..navlinks import navlinks
 from ...routes.pantry_routes import PANTRY_ROUTES
+from ...routes.started_routes import GETTING_STARTED_ROUTES
 
 from .drawbar import drawbar
 
@@ -9,7 +10,7 @@ import reflex as rx
 NAVLINKS = [
     {"name": "Home", "path": "/"},
     {"name": "Pantry", "path": PANTRY_ROUTES[0]["path"]},
-    {"name": "Getting Started", "path": "/getting-started"},
+    {"name": "Getting Started", "path": GETTING_STARTED_ROUTES[0]["path"]},
 ]
 
 NAVBAR = dict(
@@ -51,5 +52,24 @@ def right_items():
     )
 
 
-def navbar():
+def navbar_type_v1():
     return rx.hstack(left_items(), right_items(), **NAVBAR)
+
+
+def navbar_type_v2():
+    return rx.box(
+        rx.hstack(
+            left_items(),
+            right_items(),
+            align="center",
+            justify="between",
+            padding="12px 0px",
+            border_bottom=f"1px solid {rx.color('slate', 7)}",
+        ),
+        width="100%",
+        top="0",
+        z_index="20",
+        max_width="80em",
+        position="absolute",
+        padding="12px",
+    )

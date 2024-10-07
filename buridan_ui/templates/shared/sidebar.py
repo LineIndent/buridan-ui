@@ -3,6 +3,7 @@ import asyncio
 from ...styles.base import *
 from ...routes.pantry_routes import PANTRY_ROUTES
 from ...routes.started_routes import GETTING_STARTED_ROUTES
+from ...routes.interactive_tables import INTERACTIVE_TABLES
 
 import reflex as rx
 
@@ -24,12 +25,18 @@ class Sidebar(rx.State):
     getting_started: list[dict[str, str]] = [
         {**item, **DESELECTED} for item in GETTING_STARTED_ROUTES
     ]
+    interactive_table: list[dict[str, str]] = [
+        {**item, **DESELECTED} for item in INTERACTIVE_TABLES
+    ]
+
+    beta_list: list[str] = ["Dashboard"]
 
     async def delta_page(self, data: dict[str, str]):
         if data is not None:
             await asyncio.gather(
                 self.refresh_sidebar(self.pantry, data),
                 self.refresh_sidebar(self.getting_started, data),
+                self.refresh_sidebar(self.interactive_table, data),
             )
 
     async def refresh_sidebar(self, menu: list[dict[str, str]], item: dict[str, str]):
@@ -43,7 +50,7 @@ class Sidebar(rx.State):
                 index["color"] = DESELECTED["color"]
 
 
-MAP = {"Pantry": "component", "Getting Started": "play"}
+MAP = {"Pantry": "component", "Getting Started": "play", "Interactive Tables": "table"}
 
 SIDEBAR = dict(
     top="0",
@@ -103,6 +110,11 @@ def item(data: dict[str, str]):
             href=data["path"],
             text_decoration="none",
         ),
+        rx.cond(
+            data["is_beta"],
+            rx.badge("BETA - DEMO", color_scheme="orange"),
+            rx.spacer(),
+        ),
         **ITEM,
         border_left=data["border"],
         background=data["bg"],
@@ -121,6 +133,7 @@ def sidebar_menu(name: str, routes: list[dict[str, str]]):
 def sidebar() -> rx.vstack:
     return rx.vstack(
         sidebar_menu("Getting Started", Sidebar.getting_started),
+        sidebar_menu("Interactive Tables", Sidebar.interactive_table),
         sidebar_menu("Pantry", Sidebar.pantry),
         **SIDEBAR,
     )

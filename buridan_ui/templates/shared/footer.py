@@ -1,13 +1,19 @@
 import reflex as rx
 
 
+personal: str = "https://github.com/lineindent"
+library: str = "https://github.com/LineIndent/buridan-ui"
+
+
 def footer():
     return rx.hstack(
         rx.text(
             "Built by ",
-            rx.chakra.span("Ahmad Hakim", as_="u"),
+            rx.link(
+                "Ahmad Hakim", color_scheme="gray", href=personal, is_external=True
+            ),
             " . More details is available on ",
-            rx.chakra.span("GitHub", as_="u"),
+            rx.link("GitHub", color_scheme="gray", href=library, is_external=True),
             " .",
             color_scheme="gray",
             font_size="11px",
@@ -26,7 +32,7 @@ def footer():
         right="0",
         left="0",
         bottom="0",
-        height="150px",
+        height="120px",
         background=rx.color("gray", 2),
         border_left=f"1px solid {rx.color('gray', 4)}",
     )
