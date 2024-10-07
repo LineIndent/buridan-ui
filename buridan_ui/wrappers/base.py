@@ -1,4 +1,4 @@
-from ..templates.shared.navbar import navbar
+from ..templates.shared.navbar import navbar_type_v1
 from ..templates.shared.sidebar import sidebar, Sidebar
 from ..templates.shared.footer import footer
 
@@ -53,7 +53,8 @@ HEADER = dict(
     spacing="2",
     width="100%",
     align="center",
-    padding=PADDING,
+    # padding=PADDING,
+    height="30vh",
     justify="center",
     position="sticky",
     background=rx.color("gray", 2),
@@ -154,14 +155,14 @@ def create_page_prev_and_next_navigation(path: str) -> rx.Component:
     return rx.spacer()
 
 
-def base(url: str, page_name: str):
+def base(url: str, page_name: str, **kwargs):
     def decorator(content: Callable[[], List[rx.Component]]):
         @wraps(content)
-        @rx.page(route=url, title=page_name)
+        @rx.page(route=url, **kwargs)
         def template(*args, **kwargs):
             contents = content(*args, **kwargs)
             return rx.vstack(
-                navbar(),
+                navbar_type_v1(),
                 rx.hstack(
                     sidebar(),
                     rx.vstack(
