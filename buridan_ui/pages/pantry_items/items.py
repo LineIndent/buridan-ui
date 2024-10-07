@@ -22,7 +22,7 @@ def menus():
     return [export_menus_v1()]
 
 
-@base("/pantry/backgrounds", "Backgrounds")
+@base("/pantry/backgrounds", "Backgrounds", title="Backgrounds - buridan/ui")
 def backgrounds():
     return [
         export_backgrounds_v1(),
