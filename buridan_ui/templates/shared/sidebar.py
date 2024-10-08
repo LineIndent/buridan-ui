@@ -29,7 +29,9 @@ class Sidebar(rx.State):
         {**item, **DESELECTED} for item in INTERACTIVE_TABLES
     ]
 
-    beta_list: list[str] = ["Dashboard"]
+    # ... testing vars
+    index: int = 0
+    position_y: str = "40px"
 
     async def delta_page(self, data: dict[str, str]):
         if data is not None:
@@ -38,6 +40,9 @@ class Sidebar(rx.State):
                 self.refresh_sidebar(self.getting_started, data),
                 self.refresh_sidebar(self.interactive_table, data),
             )
+
+        # ... testing position
+        # self.position_y = f"{40 + (index * 30)}px"
 
     async def refresh_sidebar(self, menu: list[dict[str, str]], item: dict[str, str]):
         for index in menu:
@@ -69,6 +74,7 @@ SIDEBAR = dict(
 )
 
 TITLE = dict(
+    # ... original
     width="100%",
     height="36px",
     align="center",
@@ -80,6 +86,7 @@ TITLE = dict(
 )
 
 ITEM = dict(
+    # ... original
     width="100%",
     height="36px",
     align="center",
@@ -122,11 +129,32 @@ def item(data: dict[str, str]):
 
 
 def sidebar_menu(name: str, routes: list[dict[str, str]]):
+    # need to insert seprate blips here...sepearte the title and insert in seperate vstack..
+    # ... pass in three diff State vars ....
+    # ... handle UI
+
     return rx.vstack(
         title(name, MAP[name]),
         rx.foreach(routes, item),
+        # ... testing for each
+        # rx.foreach(routes, lambda data, index: item(index, data)),
         width="100%",
         spacing="0",
+    )
+
+
+def blip():
+    return rx.box(
+        width="10px",
+        height="10px",
+        border_radius="10px",
+        border="1px solid hsl(160.1 84.1% 39.4%)",
+        bg="hsl(0, 0%, 15%)",
+        position="absolute",
+        left="-4.5px",
+        top=Sidebar.position_y,
+        # top="40px",
+        transition="all 200ms ease-out",
     )
 
 
