@@ -36,6 +36,8 @@ from .popups.v2 import popups_v2
 
 from ..wrappers.item import item
 
+BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/pantry/"
+
 
 def get_source(directory: str, filename: str):
     with open(os.path.join("buridan_ui", "pantry", directory, filename), "r") as file:
@@ -43,7 +45,7 @@ def get_source(directory: str, filename: str):
 
 
 def create_export(func, directory, version):
-    @item()
+    @item(f"{BASE_PATH}{directory}/v{version}.py")
     def export():
         return [func(), get_source(directory, f"v{version}.py"), randint(0, 100000)]
 
