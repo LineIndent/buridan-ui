@@ -11,6 +11,7 @@ NAVLINKS = [
     {"name": "Home", "path": "/"},
     {"name": "Pantry", "path": PANTRY_ROUTES[0]["path"]},
     {"name": "Getting Started", "path": GETTING_STARTED_ROUTES[0]["path"]},
+    {"name": "Interactive Table", "path": "/interactive-table/dashboard"},
 ]
 
 NAVBAR = dict(
@@ -29,7 +30,7 @@ NAVBAR = dict(
 
 def left_items():
     return rx.hstack(
-        rx.heading("buridan.ui", size="5", font_weight="900", color=ACTIVE),
+        rx.heading("buridan/ui", size="5", font_weight="900", color=ACTIVE),
         align="center",
     )
 
@@ -49,6 +50,7 @@ def right_items():
         rx.color_mode.switch(),
         align="center",
         spacing="4",
+        padding="0px 14px",
     )
 
 
