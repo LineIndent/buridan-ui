@@ -53,8 +53,8 @@ HEADER = dict(
     spacing="2",
     width="100%",
     align="center",
-    padding_top="50px",
-    height="25vh",
+    padding_top="60px",
+    height="20vh",
     justify="center",
     position="sticky",
     background=rx.color("gray", 2),
@@ -132,15 +132,19 @@ def render_prev_and_next_ui(routes: list[dict[str, str]]):
         else rx.spacer()
     )
 
-    return rx.hstack(
-        prev_button,
-        next_button,
+    return rx.badge(
+        rx.hstack(
+            prev_button,
+            next_button,
+            justify="between",
+            width="100%",
+            # background=rx.color("gray", 2),
+        ),
         position="absolute",
         bottom="0",
         width="100%",
         padding="14px 24px",
-        justify="between",
-        background=rx.color("gray", 2),
+        radius="none",
     )
 
 
