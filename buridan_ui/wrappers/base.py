@@ -1,6 +1,6 @@
 from ..templates.shared.navbar import navbar_type_v1
 from ..templates.shared.sidebar import sidebar, Sidebar
-from ..templates.shared.footer import footer
+from ..templates.shared.footer import footer, footer_v1
 
 from ..routes.pantry_routes import PANTRY_ROUTES
 
@@ -53,8 +53,8 @@ HEADER = dict(
     spacing="2",
     width="100%",
     align="center",
-    # padding=PADDING,
-    height="30vh",
+    padding_top="50px",
+    height="25vh",
     justify="center",
     position="sticky",
     background=rx.color("gray", 2),
@@ -176,7 +176,8 @@ def base(url: str, page_name: str, **kwargs):
                             create_page_prev_and_next_navigation(url),
                             **CONTENT,
                         ),
-                        footer(),
+                        # footer(),
+                        footer_v1(),
                         width="100%",
                         spacing="0",
                     ),
