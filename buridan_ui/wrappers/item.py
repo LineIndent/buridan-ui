@@ -90,9 +90,13 @@ def resize_menu(component_id: int):
     )
 
 
-def view_source_code():
+def view_source_code(path: str):
     return rx.button(
-        rx.icon(tag="github", size=18, color=rx.color("slate", 12)),
+        rx.link(
+            rx.icon(tag="github", size=18, color=rx.color("slate", 12)),
+            href=path,
+            is_external=True,
+        ),
         size="1",
         color=rx.color("slate", 12),
         width="32px",
@@ -111,7 +115,7 @@ class Item(rx.State):
         self.uuid[uuid] = size
 
 
-def item():
+def item(path):
     def decorator(func: Callable[[], List[rx.Component]]):
         @wraps(func)
         def wrapper(*args, **kwargs):
@@ -121,7 +125,7 @@ def item():
                     rx.hstack(
                         create_tabs_list(),
                         rx.hstack(
-                            view_source_code(),
+                            view_source_code(path),
                             rx.box(
                                 resize_menu(components[2]),
                                 display=[
