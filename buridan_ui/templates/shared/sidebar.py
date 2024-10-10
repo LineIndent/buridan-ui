@@ -9,8 +9,8 @@ import reflex as rx
 
 SELECTED: dict[str, str] = {
     "color": ACTIVE,
-    "border": f"1px solid {rx.color('indigo', 10)}",
-    "bg": rx.color("indigo", 5, True),
+    "border": f"1px solid {rx.color('blue', 10)}",
+    "bg": rx.color("blue", 5),
 }
 
 DESELECTED: dict[str, str] = {
@@ -29,10 +29,6 @@ class Sidebar(rx.State):
         {**item, **DESELECTED} for item in INTERACTIVE_TABLES
     ]
 
-    # ... testing vars
-    index: int = 0
-    position_y: str = "40px"
-
     async def delta_page(self, data: dict[str, str]):
         if data is not None:
             await asyncio.gather(
@@ -40,9 +36,6 @@ class Sidebar(rx.State):
                 self.refresh_sidebar(self.getting_started, data),
                 self.refresh_sidebar(self.interactive_table, data),
             )
-
-        # ... testing position
-        # self.position_y = f"{40 + (index * 30)}px"
 
     async def refresh_sidebar(self, menu: list[dict[str, str]], item: dict[str, str]):
         for index in menu:
@@ -119,7 +112,7 @@ def item(data: dict[str, str]):
         ),
         rx.cond(
             data["is_beta"],
-            rx.badge("BETA - DEMO", color_scheme="orange"),
+            rx.badge("In Progress", color_scheme="orange"),
             rx.spacer(),
         ),
         **ITEM,
