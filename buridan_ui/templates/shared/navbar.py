@@ -30,6 +30,14 @@ NAVBAR = dict(
 
 def left_items():
     return rx.hstack(
+        rx.image(
+            src="/logo.jpg",
+            width="22px",
+            height="22px",
+            border_radius="15%",
+            object_fit="fit",
+            border=f"1px solid {rx.color('slate', 12)}",
+        ),
         rx.heading("buridan/ui", size="5", font_weight="900", color=ACTIVE),
         align="center",
     )
