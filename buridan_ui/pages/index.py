@@ -1,7 +1,6 @@
 import asyncio
 
 import reflex as rx
-from reflex import color
 
 from .thumbnail_items.exports import export_thumbnail
 
@@ -75,14 +74,6 @@ def create_navigation():
     return rx.box(
         rx.hstack(
             rx.hstack(
-                rx.image(
-                    src="/logo.jpg",
-                    width="28px",
-                    height="28px",
-                    border_radius="49%",
-                    object_fit="fit",
-                    border=f"1px solid {rx.color('slate', 12)}",
-                ),
                 left_items(),
                 align="center",
                 padding="0px 14px",
@@ -135,20 +126,23 @@ def create_section_header(title: str, description: str):
         rx.heading(
             title,
             weight="bold",
-            size="8",
+            font_size=[f"{i}rem" for i in [2, 3, 3, 3, 3.5, 3.5]],
+            line_height="1.25",
             font_family="var(--chakra-fonts-serif)",
             color=rx.color("slate", 12),
         ),
         rx.text(
             description,
-            size="4",
+            font_size=[f"{i}px" for i in [14, 14, 16, 16, 18, 18]],
             weight="medium",
             max_width="45em",
             color=rx.color("slate", 11),
         ),
         width="100%",
-        text_align="start",
+        text_align="center",
         padding="14px 0px",
+        transition="all 350ms linear",
+        align="center",
     )
 
 
@@ -194,71 +188,67 @@ def index():
         create_navigation(),
         rx.vstack(
             rx.divider(height="10em", opacity="0"),
-            rx.hstack(
-                # rx.heading(
-                #     "Buridan UI",
-                #     weight="bold",
-                #     size="2",
-                #     letter_spacing="-1px",
-                #     font_family="var(--chakra-fonts-serif)",
-                #     color=rx.color("slate", 11),
-                # ),
-                # rx.separator(orientation="vertical", width="1.25px", height="30px"),
-                *[
-                    rx.badge(
-                        rx.heading(
-                            name,
-                            size="2",
-                            letter_spacing="-1px",
-                            font_family="var(--chakra-fonts-serif)",
-                            color=rx.color("slate", 11),
-                        ),
-                        variant="surface",
-                        color_scheme="gray",
-                    )
-                    for name in ["Accessible", "Modern", "Open Source"]
-                ],
-                align="center",
-                backdrop_filter="blur(24px)",
-                z_index="20",
-            ),
-            rx.heading(
-                "A Component Library Built With ",
-                rx.text.em("Reflex"),
-                weight="bold",
-                size="9",
-                font_family="var(--chakra-fonts-serif)",
-                color=rx.color("slate", 12),
-            ),
-            rx.text(
-                "Speed up your development with ready-made components designed for seamless integration. Create stunning applications effortlessly!",
-                size="5",
-                weight="medium",
-                color=rx.color("slate", 11),
-                max_width="45em",
-                align="center",
-            ),
-            rx.hstack(
-                rx.button(
-                    "Getting Started",
-                    variant="surface",
-                    flex="4",
-                    size="3",
-                    color_scheme="gray",
+            rx.vstack(
+                rx.hstack(
+                    *[
+                        rx.badge(
+                            rx.heading(
+                                name,
+                                size="2",
+                                letter_spacing="-1px",
+                                font_family="var(--chakra-fonts-serif)",
+                                color=rx.color("slate", 11),
+                            ),
+                            variant="surface",
+                            color_scheme="gray",
+                        )
+                        for name in ["Accessible", "Modern", "Open Source"]
+                    ],
+                    align="center",
                     z_index="20",
                 ),
-                rx.button(
-                    "Pantry",
-                    variant="soft",
-                    color_scheme="gray",
-                    flex="2",
-                    size="3",
-                    z_index="20",
+                rx.heading(
+                    "A Component Library Built With ",
+                    rx.text.em("Reflex"),
+                    weight="bold",
+                    font_family="var(--chakra-fonts-serif)",
+                    font_size=[f"{i}rem" for i in [2.5, 3, 3, 4, 4.5, 4.5]],
+                    line_height="1.25",
+                    color=rx.color("slate", 12),
+                ),
+                rx.text(
+                    "Speed up your development with ready-made components designed for seamless integration. Create stunning applications effortlessly!",
+                    font_size=[f"{i}px" for i in [14, 14, 16, 16, 18, 18]],
+                    weight="medium",
+                    color=rx.color("slate", 11),
+                    max_width="45em",
+                    align="center",
+                ),
+                rx.hstack(
+                    rx.button(
+                        "Getting Started",
+                        variant="surface",
+                        flex="4",
+                        size="3",
+                        color_scheme="gray",
+                        z_index="20",
+                    ),
+                    rx.button(
+                        "Pantry",
+                        variant="soft",
+                        color_scheme="gray",
+                        flex="2",
+                        size="3",
+                        z_index="20",
+                    ),
+                    width="100%",
+                    max_width="20em",
+                    justify="center",
+                    padding="24px 0px",
                 ),
                 width="100%",
-                max_width="20em",
-                justify="center",
-                padding="24px 0px",
+                align="center",
+                spacing="5",
             ),
             rx.divider(height="12em", opacity="0"),
             create_section_header(
@@ -337,11 +327,12 @@ def index():
                         cursor="pointer",
                         on_click=Index.toggle_icon,
                     ),
-                    max_width="25em",
-                    justify="start",
+                    width="100%",
+                    justify="center",
                     padding="24px 0px",
                 ),
                 width="100%",
+                max_width="25em",
             ),
             rx.divider(height="2.5em", opacity="0"),
             rx.vstack(
