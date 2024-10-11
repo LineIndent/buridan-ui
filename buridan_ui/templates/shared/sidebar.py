@@ -10,7 +10,8 @@ import reflex as rx
 SELECTED: dict[str, str] = {
     "color": ACTIVE,
     "border": f"1px solid {rx.color('blue', 10)}",
-    "bg": rx.color("blue", 5),
+    # "bg": rx.color("blue", 5),
+    "bg": "",
 }
 
 DESELECTED: dict[str, str] = {
@@ -62,12 +63,11 @@ SIDEBAR = dict(
     padding="80px 18px",
     scrollbar_width="none",
     background=rx.color("gray", 2),
-    display=["none" if i <= 3 else "flex" for i in range(6)],
-    mask="linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 90%, hsl(0, 0%, 0%, 0) 100%)",
+    display=["none" if i <= 4 else "flex" for i in range(6)],
+    mask="linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 94%, hsl(0, 0%, 0%, 0) 100%)",
 )
 
 TITLE = dict(
-    # ... original
     width="100%",
     height="36px",
     align="center",
@@ -90,10 +90,21 @@ ITEM = dict(
 
 
 def title(name: str, icon: str):
-    return rx.hstack(
-        rx.text(name, size="1", color=ACTIVE, weight="bold"),
-        rx.icon(tag=icon, size=15, color=ACTIVE),
-        **TITLE,
+    return rx.badge(
+        rx.hstack(
+            rx.text(name, size="1", color=ACTIVE, weight="bold"),
+            rx.icon(tag=icon, size=15, color=ACTIVE),
+            # **TITLE,
+            align="center",
+            justify="between",
+            width="100%",
+        ),
+        width="100%",
+        height="36px",
+        padding="0px 10px",
+        border_radius="0px 5px 5px 0px",
+        variant="soft",
+        border_left=f"1px solid {rx.color('blue')}",
     )
 
 
