@@ -34,6 +34,11 @@ from .pricing.v1 import pricing_v1
 from .popups.v1 import popups_v1
 from .popups.v2 import popups_v2
 
+from .animations.v1 import animation_v1
+from .animations.v2 import animation_v2
+from .animations.v3 import animation_v3
+from .animations.v4 import animation_v4
+
 from ..wrappers.item import item
 
 BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/pantry/"
@@ -96,3 +101,9 @@ export_pricing_v1 = create_export(pricing_v1, "pricing", 1)
 # Create exports or popups
 export_popups_v1 = create_export(popups_v1, "popups", 1)
 export_popups_v2 = create_export(popups_v2, "popups", 2)
+
+# Create exports or animations
+export_animation_v1 = create_export(animation_v1, "animations", 1)
+export_animation_v2 = create_export(animation_v2, "animations", 2)
+export_animation_v3 = create_export(animation_v3, "animations", 3)
+export_animation_v4 = create_export(animation_v4, "animations", 4)
