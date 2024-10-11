@@ -1,13 +1,13 @@
 import asyncio
 import reflex as rx
 
-fade: dict[str, str] = {
+right: dict[str, any] = {
     "position": "relative",
-    f"@keyframes opacity": {
-        "0%": {"opacity": "0"},
-        "100%": {"opacity": "1"},
+    "animation": "rightSlide 0.6s",
+    "@keyframes rightSlide": {
+        "from": {"right": "-300px", "opacity": "0"},
+        "to": {"right": "0px", "opacity": "1"},
     },
-    "animation": "opacity 1s",
 }
 
 
@@ -20,15 +20,15 @@ class Animation(rx.State):
             return
 
         self.is_disabled = True
-        self.animate = fade
+        self.animate = right
         yield  # Allow the animation to apply
 
-        await asyncio.sleep(1.1)  # Wait for the animation to finish
+        await asyncio.sleep(1)  # Wait for the animation to finish
         self.is_disabled = False
         self.animate = {}  # Reset animation after completion
 
 
-def animation_v1():
+def animation_v2():
     return rx.vstack(
         rx.heading("buridan/ui", size="5", font_weight="900", style=Animation.animate),
         rx.button(
