@@ -6,7 +6,7 @@ def blip():
         width="10px",
         height="10px",
         border_radius="10px",
-        background=rx.color("gray", 10),
+        background=rx.color("blue"),
         position="absolute",
         left="-5px",
     )
