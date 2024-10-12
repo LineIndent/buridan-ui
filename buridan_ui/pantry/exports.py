@@ -39,6 +39,9 @@ from .animations.v2 import animation_v2
 from .animations.v3 import animation_v3
 from .animations.v4 import animation_v4
 
+from .prompts.v1 import prompt_v1
+from .prompts.v2 import prompt_v2
+
 from ..wrappers.item import item
 
 BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/pantry/"
@@ -95,15 +98,19 @@ export_timeline_v1 = create_export(timeline_v1, "lists", 1)
 # Create exports for onboarding
 export_onboardings_v1 = create_export(onboardings_v1, "onboardings", 1)
 
-# Create exports or pricing
+# Create exports for pricing
 export_pricing_v1 = create_export(pricing_v1, "pricing", 1)
 
-# Create exports or popups
+# Create exports for popups
 export_popups_v1 = create_export(popups_v1, "popups", 1)
 export_popups_v2 = create_export(popups_v2, "popups", 2)
 
-# Create exports or animations
+# Create exports for animations
 export_animation_v1 = create_export(animation_v1, "animations", 1)
 export_animation_v2 = create_export(animation_v2, "animations", 2)
 export_animation_v3 = create_export(animation_v3, "animations", 3)
 export_animation_v4 = create_export(animation_v4, "animations", 4)
+
+# Create exports for prompts
+export_prompts_v1 = create_export(prompt_v1, "prompts", 1)
+export_prompts_v2 = create_export(prompt_v2, "prompts", 2)

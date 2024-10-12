@@ -3,7 +3,7 @@ import os
 from ...templates.thumbnail import thumbnail
 from ...routes.pantry_routes import PANTRY_ROUTES
 
-svg_files = [{"image": f} for f in os.listdir("assets") if f.endswith(".svg")]
+svg_files = [{"image": f} for f in os.listdir("./assets") if f.endswith(".svg")]
 svg_files.sort(key=lambda x: x["image"])
 
 qty_components = []
@@ -35,6 +35,7 @@ normalization_map = {
     "Payments & Billing": "payments",
     "Popups": "popups",
     "Pricing Sections": "pricing",
+    "Prompt Boxes": "prompts",
     "Standard Forms": "forms",
     "Standard Tables": "tables",
     "Timeline": "timeline",
