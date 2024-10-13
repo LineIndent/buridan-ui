@@ -13,7 +13,7 @@ Visit the [Pantry](https://buridan-ui.reflex.run/pantry/animations/) section to 
 
 ## Contributing
 
-Please read the [contributing guide](CONTRIBUTING.md) for more information on how to contribute. 
+Please read this [guide](CONTRIBUTING.md) for more information on how to contribute. 
 
 ## License
 
