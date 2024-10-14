@@ -43,9 +43,9 @@ def logins_v1():
         ),
         rx.text(
             "By clicking continue, you agree to our ",
-            rx.chakra.span("Terms of Service", as_="u"),
+            rx.text("Terms of Service", as_="u"),
             " and ",
-            rx.chakra.span("Privacy Policy", as_="u"),
+            rx.text("Privacy Policy", as_="u"),
             ".",
             font_size="11px",
             color_scheme="gray",
