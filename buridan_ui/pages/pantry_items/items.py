@@ -1,10 +1,19 @@
 from ...wrappers.base import base
-from ...pantry.exports import *
+from ...pantry.exports import exports_config
+
+
+def get_exports(directory):
+    return [export() for export in exports_config[directory]]
+
+
+@base("/pantry/cards", "Cards", title="Cards - buridan/ui")
+def cards():
+    return get_exports("cards")
 
 
 @base("/pantry/logins", "Logins", title="Logins - buridan/ui")
 def logins():
-    return [export_logins_v1(), export_logins_v2()]
+    return get_exports("logins")
 
 
 @base(
@@ -13,44 +22,39 @@ def logins():
     title="Table Pagination - buridan/ui",
 )
 def tables_1():
-    return [export_tables_v1()]
+    return get_exports("tables")[:1]
 
 
 @base("/pantry/standard-tables", "Standard Tables", title="Tables - buridan/ui")
 def tables_2():
-    return [export_tables_v2(), export_tables_v3()]
+    return get_exports("tables")[1:]
 
 
 @base("/pantry/menus", "Menus & Lists", title="Menus - buridan/ui")
 def menus():
-    return [export_menus_v1()]
+    return get_exports("menus")
 
 
 @base("/pantry/backgrounds", "Backgrounds", title="Backgrounds - buridan/ui")
 def backgrounds():
-    return [
-        export_backgrounds_v1(),
-        export_backgrounds_v2(),
-        export_backgrounds_v3(),
-        export_backgrounds_v4(),
-    ]
+    return get_exports("backgrounds")
 
 
 @base(
     "/pantry/payments-and-billing", "Payments & Billing", title="Payments - buridan/ui"
 )
 def payments_and_billing():
-    return [export_payments_v1()]
+    return get_exports("payments")
 
 
 @base("/pantry/standard-forms", "Standard Forms", title="Standard Forms - buridan/ui")
 def standard_forms():
-    return [export_forms_v1(), export_forms_v2(), export_forms_v3()]
+    return get_exports("forms")
 
 
 @base("/pantry/featured", "Featured Forms", title="Featured - buridan/ui")
 def featured():
-    return [export_featured_v1()]
+    return get_exports("featured")
 
 
 @base(
@@ -59,12 +63,12 @@ def featured():
     title="Descriptive Lists - buridan/ui",
 )
 def descriptive():
-    return [export_lists_v1()]
+    return get_exports("lists")
 
 
 @base("/pantry/timeline", "Timeline", title="Timeline - buridan/ui")
 def timeline():
-    return [export_timeline_v1()]
+    return get_exports("timeline")
 
 
 @base(
@@ -73,24 +77,24 @@ def timeline():
     title="Onboarding - buridan/ui",
 )
 def onboarding():
-    return [export_onboardings_v1()]
+    return get_exports("onboardings")
 
 
 @base("/pantry/pricing-sections", "Pricing", title="Pricing - buridan/ui")
 def pricing():
-    return [export_pricing_v1()]
+    return get_exports("pricing")
 
 
 @base("/pantry/popups", "Popups", title="Popups - buridan/ui")
 def popups():
-    return [export_popups_v1(), export_popups_v2()]
+    return get_exports("popups")
 
 
 @base("/pantry/animations", "Animations", title="Animations - buridan/ui")
 def animations():
-    return [
-        export_animation_v1(),
-        export_animation_v2(),
-        export_animation_v3(),
-        export_animation_v4(),
-    ]
+    return get_exports("animations")
+
+
+@base("/pantry/prompt-boxes", "Prompt Boxes", title="Prompts - buridan/ui")
+def prompts():
+    return get_exports("prompts")
