@@ -1,7 +1,11 @@
+import asyncio
+
 import reflex as rx
 
 from typing import Callable, List
 from functools import wraps
+
+from reflex.components.datadisplay.code import Theme
 
 ROOT = dict(
     width="100%",
@@ -28,16 +32,18 @@ PREVIEW = dict(
 
 CODE = dict(
     width="100%",
-    theme="vs-dark",
     font_size="12px",
-    language="python",
+    language="markup",
     wrap_long_lines=True,
     scrollbar_width="none",
     code_tag_props={"pre": "transparent"},
-    custom_style={"background_color": "transparent"},
+    custom_style={
+        "backgroundColor": "transparent",
+        "color": rx.color("gray", 12),
+    },
 )
 
-INNER_CODE = dict(**SHARED, align_items="start")
+INNER_CODE = dict(**SHARED, align_items="start", position="relative")
 
 
 def create_wrapper_tab(name: str, value: str):
@@ -111,6 +117,14 @@ def view_source_code(path: str):
 class Item(rx.State):
     uuid: dict[int, str]
 
+    default_icon: bool = True
+
+    async def toggle_icon(self):
+        self.default_icon = False
+        yield
+        await asyncio.sleep(1)
+        self.default_icon = True
+
     def resize(self, uuid: int, size: str):
         self.uuid[uuid] = size
 
@@ -154,8 +168,27 @@ def item(path):
                     ),
                     rx.tabs.content(
                         rx.hstack(
-                            rx.code_block(components[1], **CODE),
-                            # copy_button(ui),
+                            rx.code_block(components[1], theme=Theme.vs_dark, **CODE),
+                            rx.button(
+                                rx.cond(
+                                    Item.default_icon,
+                                    rx.icon(tag="clipboard-list", size=15),
+                                    rx.icon(
+                                        tag="check", size=15, color=rx.color("grass")
+                                    ),
+                                ),
+                                color_scheme="gray",
+                                variant="ghost",
+                                size="1",
+                                on_click=[
+                                    Item.toggle_icon,
+                                    rx.set_clipboard(components[1]),
+                                ],
+                                cursor="pointer",
+                                position="absolute",
+                                top="24px",
+                                right="24px",
+                            ),
                             padding_right="12px",
                             padding_top="12px",
                             width="100%",
@@ -166,7 +199,7 @@ def item(path):
                     **ROOT,
                 ),
                 width="100%",
-                padding="12px 22px",
+                padding=[f"12px {i}px" for i in [12, 12, 16, 18, 22, 24]],
             )
 
         return wrapper
