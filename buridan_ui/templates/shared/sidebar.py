@@ -10,8 +10,7 @@ import reflex as rx
 SELECTED: dict[str, str] = {
     "color": ACTIVE,
     "border": f"1px solid {rx.color('blue', 10)}",
-    # "bg": rx.color("blue", 5),
-    "bg": "",
+    "bg": rx.color("blue", 5),
 }
 
 DESELECTED: dict[str, str] = {
@@ -79,7 +78,6 @@ TITLE = dict(
 )
 
 ITEM = dict(
-    # ... original
     width="100%",
     height="36px",
     align="center",
@@ -104,7 +102,8 @@ def title(name: str, icon: str):
         padding="0px 10px",
         border_radius="0px 5px 5px 0px",
         variant="soft",
-        border_left=f"1px solid {rx.color('blue')}",
+        border_left=f"1px solid {rx.color('gray')}",
+        color_scheme="gray",
     )
 
 
@@ -117,6 +116,7 @@ def item(data: dict[str, str]):
                 color=data["color"],
                 weight="medium",
                 on_click=Sidebar.delta_page(data),
+                _hover={"color": rx.color("slate", 12)},
             ),
             href=data["path"],
             text_decoration="none",
@@ -133,32 +133,11 @@ def item(data: dict[str, str]):
 
 
 def sidebar_menu(name: str, routes: list[dict[str, str]]):
-    # need to insert seprate blips here...sepearte the title and insert in seperate vstack..
-    # ... pass in three diff State vars ....
-    # ... handle UI
-
     return rx.vstack(
         title(name, MAP[name]),
         rx.foreach(routes, item),
-        # ... testing for each
-        # rx.foreach(routes, lambda data, index: item(index, data)),
         width="100%",
         spacing="0",
-    )
-
-
-def blip():
-    return rx.box(
-        width="10px",
-        height="10px",
-        border_radius="10px",
-        border="1px solid hsl(160.1 84.1% 39.4%)",
-        bg="hsl(0, 0%, 15%)",
-        position="absolute",
-        left="-4.5px",
-        top=Sidebar.position_y,
-        # top="40px",
-        transition="all 200ms ease-out",
     )
 
 

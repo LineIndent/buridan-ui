@@ -1,81 +1,175 @@
 import reflex as rx
-from docutils.parsers.rst.directives.tables import align
-from reflex import color
 
 from ..shared.sidebar import Sidebar
 
 from ...routes.started_routes import GETTING_STARTED_ROUTES
 from ...routes.pantry_routes import PANTRY_ROUTES
 from ...routes.interactive_tables import INTERACTIVE_TABLES
+from ...styles.base import ACTIVE
 
 
-def create_menu_title(title: str, icon_name: str):
-    return rx.menu.item(
+class Drawbar(rx.State):
+    is_open: bool = False
+
+    def toggle_drawer(self):
+        self.is_open = not self.is_open
+
+
+ITEM = dict(
+    width="100%",
+    height="40px",
+    align="center",
+    justify="start",
+    padding="0.75em 1em",
+    border_top=f"1px solid {rx.color('gray', 5)}",
+)
+
+
+def title(name: str, icon: str):
+    return rx.badge(
         rx.hstack(
-            rx.text(title, color=rx.color("slate", 11), weight="bold", size="1"),
-            rx.icon(tag=icon_name, size=13, color=rx.color("slate", 11)),
-            width="100%",
-            justify="between",
+            rx.text(name, size="1", color=ACTIVE, weight="bold"),
+            rx.icon(tag=icon, size=15, color=ACTIVE),
+            # **TITLE,
             align="center",
+            justify="between",
+            width="100%",
         ),
-        padding_top="15px",
-        padding_bottom="15px",
-        margin_top="10px",
-        margin_bottom="10px",
-        _hover={
-            "bg": rx.color("gray", 3),
-        },
-        bg=rx.color("gray", 3),
+        width="100%",
+        height="36px",
+        padding="0px 10px",
+        border_radius="0px 5px 5px 0px",
+        variant="soft",
+        border_left=f"1px solid {rx.color('gray')}",
+        color_scheme="gray",
     )
 
 
-def create_menu_items(data: list[dict[str, str]]):
-    return [
-        rx.menu.item(
-            rx.hstack(
-                rx.link(
-                    rx.text(
-                        item["name"],
-                        color=rx.color("slate", 12),
-                        weight="medium",
-                        on_click=Sidebar.delta_page(item),
+def item(data: dict[str, str]):
+
+    return rx.hstack(
+        rx.link(
+            rx.text(
+                data["name"],
+                size="2",
+                color=rx.color("slate", 11),
+                weight="medium",
+                on_click=Sidebar.delta_page(data),
+                _hover={"color": rx.color("slate", 12)},
+            ),
+            href=data["path"],
+            text_decoration="none",
+        ),
+        rx.cond(
+            data.get("is_beta", ""),
+            rx.badge("In Progress", color_scheme="orange"),
+            rx.spacer(),
+        ),
+        **ITEM,
+    )
+
+
+def drawbar() -> rx.drawer:
+    return rx.drawer.root(
+        rx.drawer.overlay(z_index="999"),
+        rx.drawer.portal(
+            rx.drawer.content(
+                rx.vstack(
+                    rx.box(
+                        rx.hstack(
+                            rx.heading(
+                                rx.link(
+                                    "buridan/ui",
+                                    href="/",
+                                    text_decoration="none",
+                                    _hover={"color": ACTIVE},
+                                    color=ACTIVE,
+                                ),
+                                size="5",
+                                font_weight="900",
+                                color=ACTIVE,
+                            ),
+                            rx.image(
+                                src="/logo.jpg",
+                                width="22px",
+                                height="22px",
+                                border_radius="15%",
+                                object_fit="fit",
+                                border=f"1px solid {rx.color('slate', 12)}",
+                            ),
+                            justify="between",
+                            align="end",
+                            width="100%",
+                            padding="0.75em 1em",
+                            height="100px",
+                            bg=rx.color("gray", 1),
+                        ),
+                        width="100%",
                     ),
-                    href=item["path"],
+                    rx.badge(
+                        rx.hstack(
+                            rx.text(
+                                "Getting started", size="1", color=ACTIVE, weight="bold"
+                            ),
+                            rx.icon(tag="play", size=15, color=ACTIVE),
+                            align="center",
+                            justify="between",
+                            width="100%",
+                            padding="0.75em 1em",
+                        ),
+                        width="100%",
+                        height="40px",
+                        color_scheme="gray",
+                    ),
+                    *[item(data) for data in GETTING_STARTED_ROUTES],
+                    rx.badge(
+                        rx.hstack(
+                            rx.text(
+                                "Interactive Tables",
+                                size="1",
+                                color=ACTIVE,
+                                weight="bold",
+                            ),
+                            rx.icon(tag="play", size=15, color=ACTIVE),
+                            align="center",
+                            justify="between",
+                            width="100%",
+                            padding="0.75em 1em",
+                        ),
+                        width="100%",
+                        height="40px",
+                        color_scheme="gray",
+                    ),
+                    *[item(data) for data in INTERACTIVE_TABLES],
+                    rx.badge(
+                        rx.hstack(
+                            rx.text("Pantry", size="1", color=ACTIVE, weight="bold"),
+                            rx.icon(tag="component", size=15, color=ACTIVE),
+                            align="center",
+                            justify="between",
+                            width="100%",
+                            padding="0.75em 1em",
+                        ),
+                        width="100%",
+                        height="40px",
+                        color_scheme="gray",
+                    ),
+                    *[item(data) for data in PANTRY_ROUTES],
+                    width="100%",
+                    height="100%",
+                    spacing="0",
+                    padding_bottom="2em",
                 ),
-                (
-                    rx.badge("BETA - DEMO", color_scheme="orange")
-                    if item.get("is_beta", False)
-                    else rx.spacer()
-                ),
-                width="100%",
-                align="center",
+                top="auto",
+                right="auto",
+                height="100%",
+                overflow="scroll",
+                width="15em",
+                background=rx.color("gray", 2),
+                on_interact_outside=Drawbar.toggle_drawer(),
             ),
-            padding_top="2px",
-            padding_bottom="2px",
-            _hover={
-                "bg": rx.color("gray", 4),
-            },
-        )
-        for item in data
-    ]
-
-
-def drawbar():
-    return rx.menu.root(
-        rx.menu.trigger(
-            rx.button(
-                "Menu", variant="soft", size="1", color_scheme="gray", cursor="pointer"
-            ),
+            z_index="999",
         ),
-        rx.menu.content(
-            create_menu_title("Home", "home"),
-            create_menu_title("Getting Started", "play"),
-            *create_menu_items(GETTING_STARTED_ROUTES),
-            create_menu_title("Interactive Tables", "table"),
-            *create_menu_items(INTERACTIVE_TABLES),
-            create_menu_title("Pantry", "component"),
-            *create_menu_items(PANTRY_ROUTES),
-            size="1",
-            width="200px",
-        ),
+        direction="left",
+        open=Drawbar.is_open,
     )
