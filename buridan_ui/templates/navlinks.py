@@ -1,14 +1,25 @@
 from ..styles.base import *
 from ..templates.shared.sidebar import Sidebar
 from ..routes.pantry_routes import PANTRY_ROUTES
+from ..routes.started_routes import GETTING_STARTED_ROUTES
 import reflex as rx
+
+normalized_links = {
+    "Home": {"name": "Home", "path": "/"},
+    "Getting Started": {
+        "name": GETTING_STARTED_ROUTES[0]["name"],
+        "path": GETTING_STARTED_ROUTES[0]["path"],
+    },
+    "Pantry": {"name": PANTRY_ROUTES[0]["name"], "path": PANTRY_ROUTES[0]["path"]},
+    "Interactive Table": {
+        "name": "Interactive Table",
+        "path": "/interactive-table/dashboard",
+    },
+}
 
 
 def navlinks(name: str, path: str) -> rx.link:
-    data = next(
-        (route for route in PANTRY_ROUTES if route["path"] == path),
-        None,
-    )
+    data = normalized_links.get(name)
 
     return rx.link(
         rx.text(
@@ -19,6 +30,6 @@ def navlinks(name: str, path: str) -> rx.link:
             weight="bold",
             on_click=Sidebar.delta_page(data),
         ),
-        href=path,
+        href=data["path"],
         underline="none",
     )
