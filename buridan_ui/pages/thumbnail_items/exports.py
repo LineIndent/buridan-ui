@@ -50,6 +50,7 @@ NORMALIZATION_MAP = {
     "Popups": "popups",
     "Pricing Sections": "pricing",
     "Prompt Boxes": "prompts",
+    "Subscribe": "subscribe",
     "Standard Forms": "forms",
     "Standard Tables": "tables",
     "Timeline": "timeline",

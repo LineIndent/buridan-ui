@@ -6,6 +6,11 @@ def get_exports(directory):
     return [export() for export in exports_config[directory]]
 
 
+@base("/pantry/subscribe", "Subscribe", title="Subscribe - buridan/ui")
+def subscribe():
+    return get_exports("subscribe")
+
+
 @base("/pantry/cards", "Cards", title="Cards - buridan/ui")
 def cards():
     return get_exports("cards")

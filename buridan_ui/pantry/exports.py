@@ -45,6 +45,9 @@ from .prompts.v2 import prompt_v2
 from .cards.v1 import card_v1
 from .cards.v2 import card_v2
 
+from .subscribe.v1 import subscribe_v1
+from .subscribe.v2 import subscribe_v2
+
 from ..wrappers.item import item
 
 BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/pantry/"
@@ -108,5 +111,9 @@ exports_config = {
     "cards": [
         create_export(card_v1, "cards", 1),
         create_export(card_v2, "cards", 2),
+    ],
+    "subscribe": [
+        create_export(subscribe_v1, "subscribe", 1),
+        create_export(subscribe_v2, "subscribe", 2),
     ],
 }
