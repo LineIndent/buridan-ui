@@ -1,5 +1,3 @@
-
-
 # buridan/ui  
  
 Pre-designed UI components built with Reflex. Easily copy and paste into your own app. 
