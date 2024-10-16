@@ -1,6 +1,7 @@
 import reflex as rx
 
 from ..shared.sidebar import Sidebar
+from ...routes.chart_routes import CHART_ROUTES
 
 from ...routes.started_routes import GETTING_STARTED_ROUTES
 from ...routes.pantry_routes import PANTRY_ROUTES
@@ -30,7 +31,6 @@ def title(name: str, icon: str):
         rx.hstack(
             rx.text(name, size="1", color=ACTIVE, weight="bold"),
             rx.icon(tag=icon, size=15, color=ACTIVE),
-            # **TITLE,
             align="center",
             justify="between",
             width="100%",
@@ -54,7 +54,7 @@ def item(data: dict[str, str]):
                 size="2",
                 color=rx.color("slate", 11),
                 weight="medium",
-                on_click=Sidebar.delta_page(data),
+                on_click=[Drawbar.toggle_drawer, Sidebar.delta_page(data)],
                 _hover={"color": rx.color("slate", 12)},
             ),
             href=data["path"],
@@ -79,11 +79,14 @@ def drawbar() -> rx.drawer:
                         rx.hstack(
                             rx.heading(
                                 rx.link(
-                                    "buridan/ui",
+                                    rx.text(
+                                        "buridan/ui",
+                                        color=ACTIVE,
+                                    ),
                                     href="/",
                                     text_decoration="none",
                                     _hover={"color": ACTIVE},
-                                    color=ACTIVE,
+                                    on_click=Drawbar.toggle_drawer,
                                 ),
                                 size="5",
                                 font_weight="900",
@@ -141,6 +144,20 @@ def drawbar() -> rx.drawer:
                         color_scheme="gray",
                     ),
                     *[item(data) for data in INTERACTIVE_TABLES],
+                    rx.badge(
+                        rx.hstack(
+                            rx.text("Charts", size="1", color=ACTIVE, weight="bold"),
+                            rx.icon(tag="table-columns-split", size=15, color=ACTIVE),
+                            align="center",
+                            justify="between",
+                            width="100%",
+                            padding="0.75em 1em",
+                        ),
+                        width="100%",
+                        height="40px",
+                        color_scheme="gray",
+                    ),
+                    *[item(data) for data in CHART_ROUTES],
                     rx.badge(
                         rx.hstack(
                             rx.text("Pantry", size="1", color=ACTIVE, weight="bold"),

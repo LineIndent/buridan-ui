@@ -403,6 +403,25 @@ def table():
 def dashboard():
     return [
         rx.hstack(
+            rx.badge(
+                rx.hstack(
+                    rx.icon(tag="triangle-alert", size=18),
+                    rx.text(
+                        "Page in progress. Below is a working demo.",
+                        size="2",
+                        weight="medium",
+                    ),
+                    align="center",
+                ),
+                width="100%",
+                padding="8px 35px",
+                position="absolute",
+                top="-64px",
+                left="0",
+                variant="surface",
+                color_scheme="orange",
+                radius="none",
+            ),
             rx.vstack(
                 rx.vstack(
                     rx.heading(
@@ -483,7 +502,8 @@ def dashboard():
             width="100%",
             align="start",
             justify="between",
-            padding="35px",
+            padding="12px 35px 35px 35px",
             wrap="wrap",
+            position="relative",
         )
     ]
