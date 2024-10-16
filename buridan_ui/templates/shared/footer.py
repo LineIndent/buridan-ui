@@ -1,6 +1,7 @@
 import reflex as rx
 
 from .sidebar import Sidebar
+from ...routes.chart_routes import CHART_ROUTES
 from ...routes.pantry_routes import PANTRY_ROUTES
 from ...styles.base import ACTIVE
 
@@ -162,6 +163,11 @@ def footer_v1():
                             "is_beta": True,
                         },
                     ],
+                ),
+                rx.divider(height="1em", opacity="0"),
+                create_footer_item(
+                    "Charts",
+                    CHART_ROUTES,
                 ),
                 rx.divider(height="1em", opacity="0"),
                 create_footer_item(
