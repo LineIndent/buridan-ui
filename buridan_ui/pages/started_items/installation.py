@@ -36,7 +36,16 @@ def wrapper(title: str, instructions: str, components=None, **kwargs):
 
 def create_code_line(code_string: str):
     return rx.hstack(
-        rx.code_block(code_string, width="100%"),
+        rx.code_block(
+            code_string,
+            width="100%",
+            font_size="13px",
+            language="markup",
+            wrap_long_lines=True,
+            scrollbar_width="none",
+            code_tag_props={"pre": "transparent"},
+            custom_style={"color": rx.color("gray", 12)},
+        ),
         rx.button(
             rx.icon(tag="file", size=15),
             color_scheme="gray",
