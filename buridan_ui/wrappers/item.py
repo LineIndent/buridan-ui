@@ -6,6 +6,7 @@ from typing import Callable, List
 from functools import wraps
 
 from reflex.components.datadisplay.code import Theme
+from reflex.constants.colors import Color
 
 ROOT = dict(
     width="100%",
@@ -67,15 +68,16 @@ def resize_menu(component_id: int):
     return rx.menu.root(
         rx.menu.trigger(
             rx.button(
-                rx.icon(tag="proportions", size=18, color=rx.color("slate", 12)),
+                rx.icon(tag="proportions", size=18, color=rx.color("slate", 11)),
                 size="1",
-                color=rx.color("slate", 12),
+                color=rx.color("slate", 11),
                 width="32px",
                 height="32px",
                 outline="none",
                 cursor="pointer",
                 variant="soft",
                 color_scheme="gray",
+                border_radius="0px 10px 10px 0px",
             )
         ),
         rx.menu.content(
@@ -99,25 +101,128 @@ def resize_menu(component_id: int):
 def view_source_code(path: str):
     return rx.button(
         rx.link(
-            rx.icon(tag="github", size=18, color=rx.color("slate", 12)),
+            rx.icon(tag="github", size=18, color=rx.color("slate", 11)),
             href=path,
             is_external=True,
         ),
         size="1",
-        color=rx.color("slate", 12),
+        color=rx.color("slate", 11),
         width="32px",
         height="32px",
         outline="none",
         cursor="pointer",
         variant="soft",
         color_scheme="gray",
+        border_radius=[
+            "10px",
+            "10px",
+            "10px",
+            "10px",
+            "10px 0px 0px 10px",
+            "10px 0px 0px 10px",
+        ],
     )
+
+
+def create_color_box(color: str, name: str = "test"):
+    common_box_props = {
+        "width": "15px",
+        "height": "15px",
+    }
+
+    name_map = {
+        "blue": "Fayrouz فَيْرُوز",
+        "ruby": "Yaqout يَاقُوت",
+        "jade": "Zumurud زُمُرُّد",
+        "gray": "Hematite هَيْمَاتِيت",
+    }
+
+    return rx.hover_card.root(
+        rx.hover_card.trigger(
+            rx.vstack(
+                rx.hstack(
+                    rx.box(
+                        **common_box_props,
+                        bg=rx.color(color, 5),
+                        border_radius="7.5px 0 0 0",
+                    ),
+                    rx.box(
+                        **common_box_props,
+                        bg=rx.color(color, 6),
+                        border_radius="0 7.5px 0 0",
+                    ),
+                    spacing="0",
+                ),
+                rx.hstack(
+                    rx.box(
+                        **common_box_props,
+                        bg=rx.color(color, 7),
+                        border_radius="0 0 0 7.5px",
+                    ),
+                    rx.box(
+                        **common_box_props,
+                        bg=rx.color(color, 8),
+                        border_radius="0 0 7.5px 0",
+                    ),
+                    spacing="0",
+                ),
+                spacing="0",
+                padding="2.5px",
+                width="32px",
+                height="32px",
+                cursor="pointer",
+                opacity="0.71",
+                _hover={
+                    "opacity": "1",
+                    "filter": rx.color_mode_cond(
+                        "brightness(0.95)", "brightness(1.25)"
+                    ),
+                },
+                on_click=lambda: Item.toggle_theme(color),
+            )
+        ),
+        rx.hover_card.content(
+            rx.text(
+                f"{name_map[color]}",
+                size="1",
+                color=rx.color("slate", 12),
+                weight="bold",
+            ),
+            padding="10px",
+            border_radius="6px",
+        ),
+    )
+
+
+def toggle_chart_theme():
+    return rx.hstack(
+        *[create_color_box(color) for color in ["blue", "ruby", "jade", "gray"]],
+        spacing="1",
+        align="center",
+        padding="0px 24px",
+    )
+
+
+start: int = 8
+color_map = {
+    "blue": {i: rx.color("blue", i + start) for i in range(4)},
+    "ruby": {i: rx.color("ruby", i + start) for i in range(4)},
+    "jade": {i: rx.color("jade", i + start) for i in range(4)},
+    "gray": {i: rx.color("gray", i + start) for i in range(4)},
+}
 
 
 class Item(rx.State):
     uuid: dict[int, str]
 
     default_icon: bool = True
+
+    default_theme: dict[int, Color] = color_map["gray"]
+    selected_theme: str = "gray"
+
+    async def toggle_theme(self, color: str):
+        self.selected_theme = color
+        self.default_theme = color_map[color]
 
     async def toggle_icon(self):
         self.default_icon = False
@@ -129,7 +234,7 @@ class Item(rx.State):
         self.uuid[uuid] = size
 
 
-def item(path):
+def item(path: str, has_theme: bool = False):
     def decorator(func: Callable[[], List[rx.Component]]):
         @wraps(func)
         def wrapper(*args, **kwargs):
@@ -139,14 +244,16 @@ def item(path):
                     rx.hstack(
                         create_tabs_list(),
                         rx.hstack(
+                            toggle_chart_theme() if has_theme else rx.spacer(),
                             view_source_code(path),
                             rx.box(
                                 resize_menu(components[2]),
                                 display=[
                                     "none" if i <= 3 else "flex" for i in range(6)
                                 ],
+                                border_radius="0px 10px 10px 0px",
                             ),
-                            spacing="2",
+                            spacing="0",
                             align="center",
                         ),
                         align="center",
