@@ -3,9 +3,13 @@ import asyncio
 import reflex as rx
 
 from .thumbnail_items.exports import export_thumbnail
+from ..routes.chart_routes import CHART_ROUTES
+from ..styles.base import ACTIVE
+from ..templates.shared.drawbar import drawbar
 
-from ..templates.shared.navbar import right_items, left_items
+from ..templates.shared.navbar import right_items, left_items, NAVBAR
 from ..routes.pantry_routes import PANTRY_ROUTES
+from ..templates.shared.sidebar import Sidebar
 
 
 def wrapper(title: str, instructions: str, tag: str):
@@ -58,9 +62,7 @@ def create_background():
             "linear-gradient(to right, transparent 99%, hsl(0, 0%, 39%) 100%)"
         ),
         mask=(
-            # "radial-gradient(25% 25% at 75% 75%, hsl(0, 0%, 0%, 0.75), hsl(0, 0%, 0%, 0)), "
             "radial-gradient(45% 45% at 50% 50%, hsl(0, 0%, 0%, 0.60), hsl(0, 0%, 0%, 0)), "
-            # "radial-gradient(30% 50% at 50% 50%, hsl(0, 0%, 0%, 0.5), hsl(0, 0%, 0%, 0)), "
             "radial-gradient(60% 70% at 50% 50%, hsl(0, 0%, 0%, 0.35), hsl(0, 0%, 0%, 0))"
         ),
         width="100%",
@@ -71,31 +73,19 @@ def create_background():
 
 
 def create_navigation():
-    return rx.box(
-        rx.hstack(
-            rx.hstack(
-                left_items(),
-                align="center",
-                padding="0px 14px",
-            ),
-            rx.box(
-                right_items(),
-                padding="0px 14px",
-            ),
-            align="center",
-            justify="between",
-            padding="18px 0px",
-            backdrop_filter="blur(4px)",
-            max_width="75em",
-            width="100%",
-            position="fixed",
-        ),
-        width="100%",
-        z_index="100",
-        max_width="70em",
-        position="relative",
-        justify_content="center",
+    return rx.hstack(
+        left_items(),
+        right_items(),
         top="0",
+        width="100%",
+        max_width="70em",
+        z_index="100",
+        align="center",
+        position="fixed",
+        justify="between",
+        padding="13px 0px 12px 18px",
+        backdrop_filter="blur(2.5px)",
+        border_bottom=f"1px solid {rx.color('gray', 5)}",
     )
 
 
@@ -148,21 +138,34 @@ def create_section_header(title: str, description: str):
 
 def create_footer_item(title: str, item_list: list[dict[str, str]]):
     return rx.vstack(
-        rx.text(title, weight="bold", size="2", color=rx.color("slate", 11)),
+        rx.text(title, weight="bold", size="2", color=rx.color("slate", 12)),
         rx.hstack(
             *[
-                rx.text(
-                    item["name"],
-                    weight="bold",
-                    size="1",
-                    text_align="start",
-                    color=rx.color("slate", 12),
+                rx.hstack(
+                    rx.link(
+                        rx.text(
+                            item["name"],
+                            weight="bold",
+                            size="1",
+                            text_align="start",
+                            color=rx.color("slate", 11),
+                            on_click=Sidebar.delta_page(item),
+                        ),
+                        href=item["path"],
+                        is_external=True,
+                    ),
+                    rx.cond(
+                        item.get("is_beta", ""),
+                        rx.badge("Beta", color_scheme="orange"),
+                        rx.spacer(),
+                    ),
+                    align="center",
                 )
                 for item in item_list
             ],
             display="grid",
             grid_template_columns=[
-                f"repeat({i}, minmax(0, 1fr))" for i in [2, 2, 3, 4, 4]
+                f"repeat({i}, minmax(0, 1fr))" for i in [2, 2, 3, 3, 3, 4]
             ],
             justify="start",
             width="100%",
@@ -185,6 +188,7 @@ class Index(rx.State):
 @rx.page("/", "buridan-ui")
 def index():
     return rx.vstack(
+        drawbar(),
         create_navigation(),
         rx.vstack(
             rx.divider(height="10em", opacity="0"),
@@ -226,15 +230,27 @@ def index():
                 ),
                 rx.hstack(
                     rx.button(
-                        "Getting Started",
+                        rx.link(
+                            "Getting Started",
+                            href="/getting-started/introduction",
+                            text_decoration="none",
+                            _hover={"color": rx.color("slate", 12)},
+                        ),
                         variant="surface",
+                        cursor="pointer",
                         flex="4",
                         size="3",
                         color_scheme="gray",
                         z_index="20",
                     ),
                     rx.button(
-                        "Pantry",
+                        rx.link(
+                            "Pantry",
+                            href="/pantry/animations",
+                            text_decoration="none",
+                            _hover={"color": rx.color("slate", 12)},
+                        ),
+                        cursor="pointer",
                         variant="soft",
                         color_scheme="gray",
                         flex="2",
@@ -297,15 +313,21 @@ def index():
             ),
             rx.divider(height="10em", opacity="0"),
             create_section_header(
-                "You're One Step Away From Shipping Your Web Application",
+                "One Step Away From Shipping Your Web Application",
                 "Download and install Reflex to start building out your idea, or check our the get started pages for more information.",
             ),
             rx.box(
                 rx.hstack(
                     rx.button(
-                        "Get Started",
+                        rx.link(
+                            "Get Started",
+                            href="/getting-started/introduction",
+                            text_decoration="none",
+                            _hover={"color": rx.color("slate", 12)},
+                        ),
                         variant="surface",
                         color_scheme="gray",
+                        cursor="pointer",
                         flex="2",
                         size="3",
                         z_index="20",
@@ -315,7 +337,11 @@ def index():
                         rx.cond(
                             Index.default_icon,
                             rx.icon(tag="clipboard-list", size=14),
-                            rx.icon(tag="check", size=14, color=rx.color("grass", 12)),
+                            rx.icon(
+                                tag="check",
+                                size=14,
+                                color=rx.color("grass", 12),
+                            ),
                         ),
                         variant="soft",
                         color_scheme="gray",
@@ -325,7 +351,10 @@ def index():
                         display="flex",
                         justify_content="space-between",
                         cursor="pointer",
-                        on_click=Index.toggle_icon,
+                        on_click=[
+                            Index.toggle_icon,
+                            rx.set_clipboard("pip install reflex"),
+                        ],
                     ),
                     width="100%",
                     justify="center",
@@ -334,13 +363,15 @@ def index():
                 width="100%",
                 max_width="25em",
             ),
-            rx.divider(height="2.5em", opacity="0"),
+            rx.divider(height="5em", opacity="0"),
             rx.vstack(
                 rx.spacer(),
                 rx.divider(height="15em", opacity="0"),
                 rx.hstack(
                     rx.vstack(
-                        left_items(),
+                        rx.heading(
+                            "buridan/ui", size="5", font_weight="900", color=ACTIVE
+                        ),
                         rx.hstack(
                             rx.link(
                                 rx.icon(
@@ -348,7 +379,7 @@ def index():
                                     size=18,
                                     color=rx.color("slate", 11),
                                 ),
-                                href="#",
+                                href="https://github.com/LineIndent/buridan-ui",
                                 color_scheme="gray",
                                 bg=rx.color("gray", 4),
                                 border_radius="20%",
@@ -360,13 +391,20 @@ def index():
                                     size=18,
                                     color=rx.color("slate", 11),
                                 ),
-                                href="#",
+                                href="https://www.youtube.com/@lineindent",
                                 color_scheme="gray",
                                 bg=rx.color("gray", 4),
                                 border_radius="20%",
                                 padding="3.5px",
                             ),
                             align="center",
+                        ),
+                        rx.text(
+                            "Copyright © 2024 Ahmad Hakim.",
+                            size="1",
+                            color=rx.color("slate", 11),
+                            weight="bold",
+                            height="100%",
                         ),
                         justify="center",
                         flex=["100%", "100%", "100%", "20%", "20%"],
@@ -376,24 +414,49 @@ def index():
                         create_footer_item(
                             "Home",
                             [
-                                {"name": "Installation"},
-                                {"name": "Who is Buridan?"},
-                                {"name": "Interactive Tables"},
+                                {
+                                    "name": "Introduction",
+                                    "path": "/getting-started/introduction",
+                                },
+                                {
+                                    "name": "Installation",
+                                    "path": "/getting-started/installation",
+                                },
+                                {
+                                    "name": "Who is Buridan?",
+                                    "path": "/getting-started/who-is-buridan",
+                                },
+                                {
+                                    "name": "Interactive Tables",
+                                    "path": "/interactive-table/dashboard",
+                                    "is_beta": True,
+                                },
                             ],
                         ),
                         rx.divider(height="1em", opacity="0"),
-                        create_footer_item(
-                            "Pantry",
-                            PANTRY_ROUTES,
-                        ),
+                        create_footer_item("Charts", CHART_ROUTES),
+                        rx.divider(height="1em", opacity="0"),
+                        create_footer_item("Pantry", PANTRY_ROUTES),
                         rx.divider(height="1em", opacity="0"),
                         create_footer_item(
                             "Resources",
                             [
-                                {"name": "Reflex Framework"},
-                                {"name": "Source Code"},
-                                {"name": "GitHub"},
-                                {"name": "@LineIndent"},
+                                {
+                                    "name": "Reflex Framework",
+                                    "path": "https://reflex.dev/",
+                                },
+                                {
+                                    "name": "Source Code",
+                                    "path": "https://github.com/LineIndent/buridan-ui",
+                                },
+                                {
+                                    "name": "GitHub",
+                                    "path": "https://github.com/LineIndent",
+                                },
+                                {
+                                    "name": "@LineIndent",
+                                    "path": "https://www.youtube.com/@lineindent",
+                                },
                             ],
                         ),
                         rx.divider(height="1em", opacity="0"),
@@ -412,11 +475,12 @@ def index():
                 ),
                 width="100%",
                 border_top=f"1px solid {rx.color('gray', 12)}",
-                padding="32px 0px",
+                padding="64px 0px 32px 0px",
                 bg=rx.color("gray", 3),
                 mask="linear-gradient(to top, hsl(0, 0%, 0%, 1) 50%, hsl(0, 0%, 0%, 0))",
                 align="end",
                 justify="between",
+                z_index="50",
             ),
             **CONTENT,
         ),
