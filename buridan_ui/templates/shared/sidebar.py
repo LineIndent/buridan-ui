@@ -4,6 +4,7 @@ from ...styles.base import *
 from ...routes.pantry_routes import PANTRY_ROUTES
 from ...routes.started_routes import GETTING_STARTED_ROUTES
 from ...routes.interactive_tables import INTERACTIVE_TABLES
+from ...routes.chart_routes import CHART_ROUTES
 
 import reflex as rx
 
@@ -28,12 +29,14 @@ class Sidebar(rx.State):
     interactive_table: list[dict[str, str]] = [
         {**item, **DESELECTED} for item in INTERACTIVE_TABLES
     ]
+    charts: list[dict[str, str]] = [{**item, **DESELECTED} for item in CHART_ROUTES]
 
     async def delta_page(self, data: dict[str, str]):
         if data is not None:
             await asyncio.gather(
-                self.refresh_sidebar(self.pantry, data),
                 self.refresh_sidebar(self.getting_started, data),
+                self.refresh_sidebar(self.charts, data),
+                self.refresh_sidebar(self.pantry, data),
                 self.refresh_sidebar(self.interactive_table, data),
             )
 
@@ -48,7 +51,12 @@ class Sidebar(rx.State):
                 index["color"] = DESELECTED["color"]
 
 
-MAP = {"Pantry": "component", "Getting Started": "play", "Interactive Tables": "table"}
+MAP = {
+    "Pantry": "component",
+    "Getting Started": "play",
+    "Interactive Tables": "table",
+    "Charts": "table-columns-split",
+}
 
 SIDEBAR = dict(
     top="0",
@@ -145,6 +153,7 @@ def sidebar() -> rx.vstack:
     return rx.vstack(
         sidebar_menu("Getting Started", Sidebar.getting_started),
         sidebar_menu("Interactive Tables", Sidebar.interactive_table),
+        sidebar_menu("Charts", Sidebar.charts),
         sidebar_menu("Pantry", Sidebar.pantry),
         **SIDEBAR,
     )

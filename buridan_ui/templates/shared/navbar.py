@@ -1,3 +1,4 @@
+from ...routes.chart_routes import CHART_ROUTES
 from ...styles.base import *
 from ..navlinks import navlinks
 from ...routes.pantry_routes import PANTRY_ROUTES
@@ -12,6 +13,7 @@ NAVLINKS = [
     {"name": "Getting Started", "path": GETTING_STARTED_ROUTES[0]["path"]},
     {"name": "Pantry", "path": PANTRY_ROUTES[0]["path"]},
     {"name": "Interactive Table", "path": "/interactive-table/dashboard"},
+    {"name": "Charts", "path": CHART_ROUTES[0]["path"]},
 ]
 
 NAVBAR = dict(
@@ -53,11 +55,13 @@ def left_items():
             ),
             rx.heading(
                 rx.link(
-                    "buridan/ui",
+                    rx.text(
+                        "buridan/ui",
+                        color=ACTIVE,
+                    ),
                     href="/",
                     text_decoration="none",
-                    _hover={"color": ACTIVE},
-                    color=ACTIVE,
+                    _hover={"color": rx.color("slate", 12)},
                 ),
                 size="5",
                 font_weight="900",

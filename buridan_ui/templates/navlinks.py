@@ -1,3 +1,4 @@
+from ..routes.chart_routes import CHART_ROUTES
 from ..styles.base import *
 from ..templates.shared.sidebar import Sidebar
 from ..routes.pantry_routes import PANTRY_ROUTES
@@ -15,6 +16,7 @@ normalized_links = {
         "name": "Interactive Table",
         "path": "/interactive-table/dashboard",
     },
+    "Charts": {"name": CHART_ROUTES[0]["name"], "path": CHART_ROUTES[0]["path"]},
 }
 
 
