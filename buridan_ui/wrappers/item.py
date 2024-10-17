@@ -121,6 +121,7 @@ def view_source_code(path: str):
             "10px 0px 0px 10px",
             "10px 0px 0px 10px",
         ],
+        display=["none" if i <= 1 else "flex" for i in range(6)],
     )
 
 
@@ -199,7 +200,7 @@ def toggle_chart_theme():
         *[create_color_box(color) for color in ["blue", "ruby", "jade", "gray"]],
         spacing="1",
         align="center",
-        padding="0px 24px",
+        padding=["0px 0px" if i <= 1 else "0px 24px" for i in range(6)],
     )
 
 

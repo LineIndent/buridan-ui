@@ -7,5 +7,10 @@ def get_exports(directory):
 
 
 @base("/charts/bar-charts", "Bar Charts", title="Bar Charts - buridan/ui")
-def subscribe():
+def bar_charts():
     return get_exports("bar")
+
+
+@base("/charts/area-charts", "Area Charts", title="Area Charts - buridan/ui")
+def area_charts():
+    return get_exports("area")
