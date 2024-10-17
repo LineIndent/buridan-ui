@@ -40,9 +40,9 @@ def barchart_v4():
                 data=data,
                 width="100%",
                 height=400,
-                bar_size=40,
-                bar_gap=0,
-                bar_category_gap=-10,
+                bar_size=50,
+                bar_gap="1px",
+                bar_category_gap="1px",
             ),
             rx.vstack(
                 rx.heading("Trending up by 5.2% this month", size="3", weight="bold"),
@@ -58,5 +58,5 @@ def barchart_v4():
             max_width=["80em", "70em", "60em", "50em", "40em", "30em"],
         ),
         width="100%",
-        height="60vh",
+        padding="12px",
     )

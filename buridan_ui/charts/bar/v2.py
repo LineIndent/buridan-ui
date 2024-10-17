@@ -29,7 +29,6 @@ def barchart_v2():
                 rx.recharts.bar(
                     data_key="desktop",
                     fill=Item.default_theme[0],
-                    border_radius=10,
                 ),
                 rx.recharts.x_axis(type_="number", hide=True),
                 rx.recharts.y_axis(data_key="month", type_="category", axis_line=False),
@@ -55,5 +54,5 @@ def barchart_v2():
             max_width=["80em", "70em", "60em", "50em", "40em", "30em"],
         ),
         width="100%",
-        height="50vh",
+        padding="12px",
     )
