@@ -7,12 +7,14 @@ from .bar.v1 import barchart_v1
 from .bar.v2 import barchart_v2
 from .bar.v3 import barchart_v3
 from .bar.v4 import barchart_v4
-from .bar.v5 import barchart_v5
 
 from .area.v1 import areachart_v1
 from .area.v2 import areachart_v2
 from .area.v3 import areachart_v3
 from .area.v4 import areachart_v4
+
+from .line.v1 import linechart_v1
+from .line.v2 import linechart_v2
 
 BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/pantry/"
 
@@ -36,12 +38,15 @@ exports_config = {
         create_export(barchart_v2, "bar", 2),
         create_export(barchart_v3, "bar", 3),
         create_export(barchart_v4, "bar", 4),
-        # create_export(barchart_v5, "bar", 5),
     ],
     "area": [
         create_export(areachart_v1, "area", 1),
         create_export(areachart_v2, "area", 2),
         create_export(areachart_v3, "area", 3),
         create_export(areachart_v4, "area", 4),
+    ],
+    "line": [
+        create_export(linechart_v1, "line", 1),
+        create_export(linechart_v2, "line", 2),
     ],
 }

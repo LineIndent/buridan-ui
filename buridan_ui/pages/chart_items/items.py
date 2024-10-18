@@ -14,3 +14,8 @@ def bar_charts():
 @base("/charts/area-charts", "Area Charts", title="Area Charts - buridan/ui")
 def area_charts():
     return get_exports("area")
+
+
+@base("/charts/line-charts", "Line Charts", title="Line Charts - buridan/ui")
+def line_charts():
+    return get_exports("line")
