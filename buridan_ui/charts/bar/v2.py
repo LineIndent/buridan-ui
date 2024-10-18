@@ -36,7 +36,7 @@ def barchart_v2():
                 layout="vertical",
                 width="100%",
                 height=300,
-                bar_size=30,
+                bar_size=25,
                 bar_gap=2,
                 bar_category_gap=0,
                 margin={"left": -20},

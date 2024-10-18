@@ -38,7 +38,7 @@ def barchart_v1():
                 height=250,
                 bar_size=25,
                 bar_gap=2,
-                bar_category_gap=0,
+                bar_category_gap="0%",
             ),
             rx.vstack(
                 rx.heading("Trending up by 5.2% this month", size="3", weight="bold"),
