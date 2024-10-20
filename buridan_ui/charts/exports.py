@@ -16,7 +16,7 @@ from .area.v4 import areachart_v4
 from .line.v1 import linechart_v1
 from .line.v2 import linechart_v2
 
-BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/pantry/"
+BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/charts/"
 
 
 def get_source(directory: str, filename: str):
