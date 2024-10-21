@@ -24,11 +24,15 @@ data = [
 def forms_v3():
     return rx.vstack(
         rx.vstack(
-            rx.heading("Configure notifications", size="2", color="hsl(0 0% 75%)"),
+            rx.heading(
+                "Configure notifications",
+                size="2",
+                color=rx.color("slate", 12),
+            ),
             rx.text(
                 "Choose what notifications you want to receive",
                 font_size="10px",
-                color="hsl(0 0% 60%)",
+                color=rx.color("slate", 11),
             ),
             spacing="1",
         ),
@@ -39,13 +43,13 @@ def forms_v3():
                         rx.heading(
                             item["title"],
                             size="1",
-                            color="hsl(0 0% 80%)",
+                            color=rx.color("slate", 11),
                             weight="medium",
                         ),
                         rx.text(
                             item["description"],
                             font_size="10px",
-                            color="hsl(0 0% 60%)",
+                            color=rx.color("slate", 12),
                         ),
                         spacing="1",
                     ),
@@ -61,7 +65,6 @@ def forms_v3():
         max_width="26em",
         width="100%",
         padding="1em",
-        bg="hsla(0, 0%, 15%, 0.81)",
         border_radius="10px",
         border="1px solid hsla(0, 0%, 45%, 0.5)",
     )
