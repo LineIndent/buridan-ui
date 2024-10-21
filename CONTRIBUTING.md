@@ -27,7 +27,7 @@ git clone https://github.com/your-username/buridan-ui.git
 ### Navigate to project directory
 
 ```bash
-cd ui
+cd buridan-ui
 ```
 
 ### Create a new Branch
