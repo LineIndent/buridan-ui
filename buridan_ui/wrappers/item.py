@@ -276,7 +276,11 @@ def item(path: str, has_theme: bool = False):
                     ),
                     rx.tabs.content(
                         rx.hstack(
-                            rx.code_block(components[1], theme=Theme.vs_dark, **CODE),
+                            rx.code_block(
+                                components[1],
+                                theme=Theme.vs_dark,
+                                **CODE,
+                            ),
                             rx.button(
                                 rx.cond(
                                     Item.default_icon,
