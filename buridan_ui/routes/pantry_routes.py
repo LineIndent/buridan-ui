@@ -16,6 +16,10 @@ PANTRY_ROUTES = [
     {"name": "Prompt Boxes", "path": "/pantry/prompt-boxes"},
     {"name": "Cards", "path": "/pantry/cards"},
     {"name": "Subscribe", "path": "/pantry/subscribe"},
+    {
+        "name": "Frequently Asked Questions",
+        "path": "/pantry/frequently-asked-questions",
+    },
 ]
 
 PANTRY_ROUTES.sort(key=lambda x: x["name"])

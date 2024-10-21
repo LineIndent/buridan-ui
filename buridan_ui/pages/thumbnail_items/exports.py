@@ -41,6 +41,7 @@ NORMALIZATION_MAP = {
     "Animations": "animations",
     "Backgrounds": "backgrounds",
     "Cards": "cards",
+    "Frequently Asked Questions": "faq",
     "Descriptive Lists": "lists",
     "Featured": "featured",
     "Logins": "logins",
