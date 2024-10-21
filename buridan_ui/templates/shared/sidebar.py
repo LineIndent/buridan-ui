@@ -151,6 +151,16 @@ def sidebar_menu(name: str, routes: list[dict[str, str]]):
 
 def sidebar() -> rx.vstack:
     return rx.vstack(
+        rx.box(
+            top="0",
+            left="0",
+            position="fixed",
+            width="100%",
+            height="10%",
+            z_index="20",
+            background=rx.color("gray", 2),
+            mask="linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 45%, hsl(0, 0%, 0%, 0) 100%)",
+        ),
         sidebar_menu("Getting Started", Sidebar.getting_started),
         sidebar_menu("Interactive Tables", Sidebar.interactive_table),
         sidebar_menu("Charts", Sidebar.charts),
