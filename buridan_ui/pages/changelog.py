@@ -75,7 +75,11 @@ ChangelogStyle: ChangelogStyle = ChangelogStyle()
 
 def changelog_back_trigger():
     return rx.badge(
-        rx.text("<- home", size="1", weight="bold"),
+        rx.link(
+            rx.text("<- home", size="1", weight="bold", color="inherit"),
+            text_decoration="none",
+            href="/",
+        ),
         width="100%",
         height="30px",
         radius="none",
