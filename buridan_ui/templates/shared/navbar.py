@@ -11,10 +11,11 @@ import reflex as rx
 NAVLINKS = [
     {"name": "Home", "path": "/"},
     {"name": "Getting Started", "path": GETTING_STARTED_ROUTES[0]["path"]},
-    {"name": "Pantry", "path": PANTRY_ROUTES[0]["path"]},
     {"name": "Interactive Table", "path": "/interactive-table/dashboard"},
+    {"name": "Pantry", "path": PANTRY_ROUTES[0]["path"]},
     {"name": "Charts", "path": CHART_ROUTES[0]["path"]},
 ]
+
 
 NAVBAR = dict(
     top="0",
@@ -28,6 +29,9 @@ NAVBAR = dict(
     background=rx.color("gray", 3),
     border_bottom=f"1px solid {rx.color('gray', 5)}",
 )
+
+
+class Navbar(rx.State): ...
 
 
 def left_items():
@@ -105,7 +109,7 @@ def navbar_type_v1():
     return rx.hstack(left_items(), right_items(), **NAVBAR)
 
 
-def navbar_type_v2():
+def navbar_type_v2(has_border: bool = True):
     return rx.box(
         rx.hstack(
             left_items(),
@@ -113,7 +117,7 @@ def navbar_type_v2():
             align="center",
             justify="between",
             padding="8px 0px",
-            border_bottom=f"1px solid {rx.color('slate', 7)}",
+            border_bottom=f"1px solid {rx.color('slate', 7)}" if has_border else "none",
         ),
         width="100%",
         padding="6px",
