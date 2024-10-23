@@ -1,4 +1,6 @@
 from .index import index
+from .changelog import changelog
+
 
 from .started_items.introduction import introduction
 from .started_items.installation import installation
