@@ -1,15 +1,43 @@
+from dataclasses import dataclass, field
 import reflex as rx
-
 import asyncio
 
-fade: dict[str, str] = {
-    "position": "relative",
-    f"@keyframes opacity": {
-        "0%": {"opacity": "0"},
-        "100%": {"opacity": "1"},
-    },
-    "animation": "opacity 1s",
-}
+
+@dataclass
+class Style:
+    base: dict[str, str] = field(
+        default_factory=lambda: {
+            "width": "100%",
+            "height": "20em",
+            "align": "center",
+            "justify": "center",
+            "position": "relative",
+        }
+    )
+
+    button: dict[str, str] = field(
+        default_factory=lambda: {
+            "top": "-24px",
+            "right": "-12px",
+            "cursor": "pointer",
+            "position": "absolute",
+            "border_radius": "0px 0px 0px 8px",
+        }
+    )
+
+    fade: dict[str, str] = field(
+        default_factory=lambda: {
+            "position": "relative",
+            f"@keyframes opacity": {
+                "0%": {"opacity": "0"},
+                "100%": {"opacity": "1"},
+            },
+            "animation": "opacity 1s",
+        }
+    )
+
+
+Style: Style = Style()
 
 
 class Animation(rx.State):
@@ -21,7 +49,7 @@ class Animation(rx.State):
             return
 
         self.is_disabled = True
-        self.animate = fade
+        self.animate = Style.fade
         yield  # Allow the animation to apply
 
         await asyncio.sleep(1.1)  # Wait for the animation to finish
@@ -34,17 +62,9 @@ def animation_v1():
         rx.heading("buridan/ui", size="5", font_weight="900", style=Animation.animate),
         rx.button(
             "Run",
-            top="-24px",
-            right="-12px",
-            cursor="pointer",
-            position="absolute",
             loading=Animation.is_disabled,
-            border_radius="0px 0px 0px 8px",
             on_click=Animation.run_animation,
+            **Style.button,
         ),
-        width="100%",
-        height="20em",
-        align="center",
-        justify="center",
-        position="relative",
+        **Style.base,
     )
