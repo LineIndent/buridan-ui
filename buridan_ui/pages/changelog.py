@@ -166,6 +166,21 @@ def create_pantry_links(item_list: list[dict[str, str]]):
     )
 
 
+def create_link(name: str, path: str):
+    return rx.link(
+        rx.text(
+            name,
+            size="2",
+            weight="medium",
+            color=rx.color("slate", 10),
+            _hover={"color": rx.color("slate", 12)},
+            transition="color 350ms ease",
+        ),
+        href=path,
+        text_decoration="none",
+    )
+
+
 @rx.page("/pro/changelog", title="Changelog - buridan/ui")
 def changelog():
     return rx.vstack(
@@ -173,6 +188,17 @@ def changelog():
         changelog_header(),
         rx.box(
             rx.vstack(
+                wrapper(
+                    "New Interactive App: RAG AI Application",
+                    "October 30, 2024",
+                    [
+                        create_link(
+                            "RAG Application",
+                            "/intractive/retrieval-augmented-generation",
+                        ),
+                        changelog_badge("party-popper", "buridan/ui v0.1.0"),
+                    ],
+                ),
                 wrapper(
                     "New Components and Improvements to Pantry Items",
                     "October 21, 2024",
