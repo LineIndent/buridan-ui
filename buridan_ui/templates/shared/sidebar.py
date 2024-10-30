@@ -3,7 +3,7 @@ import asyncio
 from ...styles.base import *
 from ...routes.pantry_routes import PANTRY_ROUTES
 from ...routes.started_routes import GETTING_STARTED_ROUTES
-from ...routes.interactive_tables import INTERACTIVE_TABLES
+from ...routes.interactive import INTERACTIVE
 from ...routes.chart_routes import CHART_ROUTES
 
 import reflex as rx
@@ -27,7 +27,7 @@ class Sidebar(rx.State):
         {**item, **DESELECTED} for item in GETTING_STARTED_ROUTES
     ]
     interactive_table: list[dict[str, str]] = [
-        {**item, **DESELECTED} for item in INTERACTIVE_TABLES
+        {**item, **DESELECTED} for item in INTERACTIVE
     ]
     charts: list[dict[str, str]] = [{**item, **DESELECTED} for item in CHART_ROUTES]
 
@@ -54,7 +54,7 @@ class Sidebar(rx.State):
 MAP = {
     "Pantry": "component",
     "Getting Started": "play",
-    "Interactive Tables": "table",
+    "Interactive Apps": "table",
     "Charts": "table-columns-split",
 }
 
@@ -89,7 +89,7 @@ ITEM = dict(
     width="100%",
     height="36px",
     align="center",
-    justify="start",
+    justify="between",
     padding_left="10px",
     border_radius="0px 5px 5px 0px",
 )
@@ -100,7 +100,6 @@ def title(name: str, icon: str):
         rx.hstack(
             rx.text(name, size="1", color=ACTIVE, weight="bold"),
             rx.icon(tag=icon, size=15, color=ACTIVE),
-            # **TITLE,
             align="center",
             justify="between",
             width="100%",
@@ -132,7 +131,11 @@ def item(data: dict[str, str]):
         rx.cond(
             data["is_beta"],
             rx.badge("In Progress", color_scheme="orange"),
-            rx.spacer(),
+            rx.cond(
+                data["is_new"],
+                rx.badge("New", color_scheme="grass"),
+                rx.spacer(),
+            ),
         ),
         **ITEM,
         border_left=data["border"],
@@ -162,7 +165,7 @@ def sidebar() -> rx.vstack:
             mask="linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 45%, hsl(0, 0%, 0%, 0) 100%)",
         ),
         sidebar_menu("Getting Started", Sidebar.getting_started),
-        sidebar_menu("Interactive Tables", Sidebar.interactive_table),
+        sidebar_menu("Interactive Apps", Sidebar.interactive_table),
         sidebar_menu("Charts", Sidebar.charts),
         sidebar_menu("Pantry", Sidebar.pantry),
         **SIDEBAR,

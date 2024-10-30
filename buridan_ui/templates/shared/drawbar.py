@@ -5,7 +5,7 @@ from ...routes.chart_routes import CHART_ROUTES
 
 from ...routes.started_routes import GETTING_STARTED_ROUTES
 from ...routes.pantry_routes import PANTRY_ROUTES
-from ...routes.interactive_tables import INTERACTIVE_TABLES
+from ...routes.interactive import INTERACTIVE
 from ...styles.base import ACTIVE
 
 
@@ -20,7 +20,7 @@ ITEM = dict(
     width="100%",
     height="40px",
     align="center",
-    justify="start",
+    justify="between",
     padding="0.75em 1em",
     border_top=f"1px solid {rx.color('gray', 5)}",
 )
@@ -63,7 +63,11 @@ def item(data: dict[str, str]):
         rx.cond(
             data.get("is_beta", ""),
             rx.badge("In Progress", color_scheme="orange"),
-            rx.spacer(),
+            rx.cond(
+                data.get("is_new", ""),
+                rx.badge("New", color_scheme="grass"),
+                rx.spacer(),
+            ),
         ),
         **ITEM,
     )
@@ -143,7 +147,7 @@ def drawbar() -> rx.drawer:
                         height="40px",
                         color_scheme="gray",
                     ),
-                    *[item(data) for data in INTERACTIVE_TABLES],
+                    *[item(data) for data in INTERACTIVE],
                     rx.badge(
                         rx.hstack(
                             rx.text("Charts", size="1", color=ACTIVE, weight="bold"),

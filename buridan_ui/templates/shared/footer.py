@@ -2,6 +2,7 @@ import reflex as rx
 
 from .sidebar import Sidebar
 from ...routes.chart_routes import CHART_ROUTES
+from ...routes.interactive import INTERACTIVE
 from ...routes.pantry_routes import PANTRY_ROUTES
 from ...styles.base import ACTIVE
 
@@ -71,8 +72,12 @@ def create_footer_item(title: str, item_list: list[dict[str, str]]):
                     ),
                     rx.cond(
                         item.get("is_beta", ""),
-                        rx.badge("Beta", color_scheme="orange"),
-                        rx.spacer(),
+                        rx.badge("In Progress", color_scheme="orange"),
+                        rx.cond(
+                            item.get("is_new", ""),
+                            rx.badge("New", color_scheme="grass"),
+                            rx.spacer(),
+                        ),
                     ),
                     align="center",
                 )
@@ -158,11 +163,15 @@ def footer_v1():
                             "path": "/getting-started/who-is-buridan",
                         },
                         {
-                            "name": "Interactive Tables",
-                            "path": "/interactive-table/dashboard",
-                            "is_beta": True,
+                            "name": "Changelog",
+                            "path": "/pro/changelog",
                         },
                     ],
+                ),
+                rx.divider(height="1em", opacity="0"),
+                create_footer_item(
+                    "Interactive Apps",
+                    INTERACTIVE,
                 ),
                 rx.divider(height="1em", opacity="0"),
                 create_footer_item(
