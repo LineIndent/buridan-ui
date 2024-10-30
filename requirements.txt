@@ -1,2 +1,9 @@
-reflex==0.6.4
-
+astor==0.8.1
+black==24.8.0
+dill==0.3.8
+google-generativeai==0.8.3
+grpcio-status==1.67.1
+pandas==2.2.3
+reflex-agent==0.1.0a20
+watchdog==4.0.2
+watchfiles==0.24.0
