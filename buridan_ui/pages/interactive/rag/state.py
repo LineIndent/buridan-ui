@@ -3,7 +3,11 @@ import asyncio
 import reflex as rx
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyDL95naXdt1-QNVnnsv9R11OA4N9_j7SfY")
+import os
+
+
+key = os.getenv("KEY")
+genai.configure(api_key=key)
 
 generation_config = {
     "temperature": 1,
