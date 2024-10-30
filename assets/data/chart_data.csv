@@ -1,0 +1,332 @@
+ORDERNUMBER,QUANTITYORDERED,PRICEEACH,SALES,MONTH_ID,YEAR_ID,PRODUCTLINE,CITY,COUNTRY
+10107,30,95.7,2871,2,2003,Motorcycles,NYC,USA
+10107,39,99.91,3896.49,2,2003,Motorcycles,NYC,USA
+10107,27,100,6065.55,2,2003,Motorcycles,NYC,USA
+10107,21,100,3036.6,2,2003,Motorcycles,NYC,USA
+10107,29,70.87,2055.23,2,2003,Motorcycles,NYC,USA
+10107,25,100,2845.75,2,2003,Motorcycles,NYC,USA
+10107,38,83.03,3155.14,2,2003,Motorcycles,NYC,USA
+10107,20,92.9,1858,2,2003,Motorcycles,NYC,USA
+10108,43,67.77,2914.11,3,2003,Motorcycles,Makati City,Philippines
+10108,35,58.87,2060.45,3,2003,Motorcycles,Makati City,Philippines
+10108,27,43.45,1173.15,3,2003,Motorcycles,Makati City,Philippines
+10108,31,100,3669.78,3,2003,Motorcycles,Makati City,Philippines
+10108,34,82.99,2821.66,3,2003,Motorcycles,Makati City,Philippines
+10120,29,96.34,2793.86,4,2003,Motorcycles,Melbourne,Australia
+10120,46,100,9264.86,4,2003,Motorcycles,Melbourne,Australia
+10120,46,58.15,2674.9,4,2003,Motorcycles,Melbourne,Australia
+10120,35,98.05,3431.75,4,2003,Motorcycles,Melbourne,Australia
+10120,34,83.79,2848.86,4,2003,Motorcycles,Melbourne,Australia
+10120,22,100,2461.36,4,2003,Motorcycles,Melbourne,Australia
+10121,34,81.35,2765.9,5,2003,Motorcycles,Reims,France
+10121,50,100,8284,5,2003,Motorcycles,Reims,France
+10122,35,49.74,1740.9,5,2003,Motorcycles,Marseille,France
+10121,32,76.88,2460.16,5,2003,Motorcycles,Reims,France
+10122,31,44.66,1384.46,5,2003,Motorcycles,Marseille,France
+10121,25,86.74,2168.5,5,2003,Motorcycles,Reims,France
+10121,44,74.85,3293.4,5,2003,Motorcycles,Reims,France
+10133,23,100,2642.01,6,2003,Motorcycles,Madrid,Spain
+10134,41,94.74,3884.34,7,2003,Motorcycles,Paris,France
+10134,27,100,3307.77,7,2003,Motorcycles,Paris,France
+10134,31,100,7023.98,7,2003,Motorcycles,Paris,France
+10134,20,100,2711.2,7,2003,Motorcycles,Paris,France
+10134,30,61.78,1853.4,7,2003,Motorcycles,Paris,France
+10135,45,50.36,2266.2,7,2003,Motorcycles,San Rafael,USA
+10134,35,93.54,3273.9,7,2003,Motorcycles,Paris,France
+10134,43,83.03,3570.29,7,2003,Motorcycles,Paris,France
+10135,29,61.64,1787.56,7,2003,Motorcycles,San Rafael,USA
+10135,33,40.23,1327.59,7,2003,Motorcycles,San Rafael,USA
+10135,30,89.8,2694,7,2003,Motorcycles,San Rafael,USA
+10135,44,96,4224,7,2003,Motorcycles,San Rafael,USA
+10145,45,83.26,3746.7,8,2003,Motorcycles,Pasadena,USA
+10145,37,100,5192.95,8,2003,Motorcycles,Pasadena,USA
+10145,33,100,5176.38,8,2003,Motorcycles,Pasadena,USA
+10145,49,100,8339.8,8,2003,Motorcycles,Pasadena,USA
+10145,30,49.67,1490.1,8,2003,Motorcycles,Pasadena,USA
+10145,43,95.8,4119.4,8,2003,Motorcycles,Pasadena,USA
+10145,47,83.03,3902.41,8,2003,Motorcycles,Pasadena,USA
+10145,27,60.95,1645.65,8,2003,Motorcycles,Pasadena,USA
+10145,33,93.9,3098.7,8,2003,Motorcycles,Pasadena,USA
+10145,31,35.8,1109.8,8,2003,Motorcycles,Pasadena,USA
+10145,27,100,3251.34,8,2003,Motorcycles,Pasadena,USA
+10145,38,81.36,3091.68,8,2003,Motorcycles,Pasadena,USA
+10146,47,67.14,3155.58,9,2003,Motorcycles,Glendale,USA
+10159,49,100,5205.27,10,2003,Motorcycles,San Francisco,USA
+10168,36,96.66,3479.76,10,2003,Motorcycles,Burlingame,USA
+10159,37,100,5016.83,10,2003,Motorcycles,San Francisco,USA
+10168,27,100,3660.93,10,2003,Motorcycles,Burlingame,USA
+10159,22,100,4132.7,10,2003,Motorcycles,San Francisco,USA
+10168,20,100,4183,10,2003,Motorcycles,Burlingame,USA
+10159,38,100,6238.84,10,2003,Motorcycles,San Francisco,USA
+10159,42,51.48,2162.16,10,2003,Motorcycles,San Francisco,USA
+10168,46,61.18,2814.28,10,2003,Motorcycles,Burlingame,USA
+10159,21,64.66,1357.86,10,2003,Motorcycles,San Francisco,USA
+10159,44,100,5355.68,10,2003,Motorcycles,San Francisco,USA
+10168,50,100,5747.5,10,2003,Motorcycles,Burlingame,USA
+10158,22,67.03,1474.66,10,2003,Motorcycles,Stavern,Norway
+10168,29,75.41,2186.89,10,2003,Motorcycles,Burlingame,USA
+10159,27,80.34,2169.18,10,2003,Motorcycles,San Francisco,USA
+10168,28,100,3244.36,10,2003,Motorcycles,Burlingame,USA
+10159,35,35.4,1239,10,2003,Motorcycles,San Francisco,USA
+10159,23,100,2347.15,10,2003,Motorcycles,San Francisco,USA
+10159,31,71.6,2219.6,10,2003,Motorcycles,San Francisco,USA
+10180,29,86.13,2497.77,11,2003,Motorcycles,Lille,France
+10188,48,100,5512.32,11,2003,Motorcycles,Bergen,Norway
+10180,42,100,4695.6,11,2003,Motorcycles,Lille,France
+10188,38,96.34,3660.92,11,2003,Motorcycles,Bergen,Norway
+10180,41,100,8892.9,11,2003,Motorcycles,Lille,France
+10188,45,100,8714.7,11,2003,Motorcycles,Bergen,Norway
+10169,35,100,4639.25,11,2003,Motorcycles,North Sydney,Australia
+10180,40,100,6747.6,11,2003,Motorcycles,Lille,France
+10189,28,100,4512.48,11,2003,Motorcycles,Pasadena,USA
+10180,25,64.2,1605,11,2003,Motorcycles,Lille,France
+10188,32,65.42,2093.44,11,2003,Motorcycles,Bergen,Norway
+10169,38,68.39,2598.82,11,2003,Motorcycles,North Sydney,Australia
+10180,21,50.36,1057.56,11,2003,Motorcycles,Lille,France
+10191,43,72.74,3127.82,11,2003,Motorcycles,Koln,Germany
+10180,48,100,5355.36,11,2003,Motorcycles,Lille,France
+10188,25,100,2535.75,11,2003,Motorcycles,Bergen,Norway
+10180,28,68.55,1919.4,11,2003,Motorcycles,Lille,France
+10188,40,91.4,3656,11,2003,Motorcycles,Bergen,Norway
+10169,38,74.11,2816.18,11,2003,Motorcycles,North Sydney,Australia
+10180,35,72.03,2521.05,11,2003,Motorcycles,Lille,France
+10190,42,76.19,3199.98,11,2003,Motorcycles,Madrid,Spain
+10188,44,98.89,4351.16,11,2003,Motorcycles,Bergen,Norway
+10169,26,39.83,1035.58,11,2003,Motorcycles,North Sydney,Australia
+10180,34,45.46,1545.64,11,2003,Motorcycles,Lille,France
+10190,46,32.99,1517.54,11,2003,Motorcycles,Madrid,Spain
+10169,34,100,3920.88,11,2003,Motorcycles,North Sydney,Australia
+10180,22,100,2514.6,11,2003,Motorcycles,Lille,France
+10190,42,85.72,3600.24,11,2003,Motorcycles,Madrid,Spain
+10169,48,80.55,3866.4,11,2003,Motorcycles,North Sydney,Australia
+10180,21,93.56,1964.76,11,2003,Motorcycles,Lille,France
+10190,40,66.72,2668.8,11,2003,Motorcycles,Madrid,Spain
+10201,22,98.57,2168.54,12,2003,Motorcycles,San Francisco,USA
+10201,24,100,3025.92,12,2003,Motorcycles,San Francisco,USA
+10201,49,100,8065.89,12,2003,Motorcycles,San Francisco,USA
+10201,25,100,4029,12,2003,Motorcycles,San Francisco,USA
+10201,30,64.81,1944.3,12,2003,Motorcycles,San Francisco,USA
+10201,39,100,4351.23,12,2003,Motorcycles,San Francisco,USA
+10201,25,73.88,1847,12,2003,Motorcycles,San Francisco,USA
+10211,41,100,4708.44,1,2004,Motorcycles,Paris,France
+10210,23,100,3009.09,1,2004,Motorcycles,Osaka,Japan
+10210,34,100,6123.4,1,2004,Motorcycles,Osaka,Japan
+10211,36,100,4771.8,1,2004,Motorcycles,Paris,France
+10210,40,49.67,1986.8,1,2004,Motorcycles,Osaka,Japan
+10211,46,54.09,2488.14,1,2004,Motorcycles,Paris,France
+10211,25,90.16,2254,1,2004,Motorcycles,Paris,France
+10210,30,61.7,1851,1,2004,Motorcycles,Osaka,Japan
+10211,21,63.72,1338.12,1,2004,Motorcycles,Paris,France
+10210,46,79.91,3675.86,1,2004,Motorcycles,Osaka,Japan
+10211,41,42.24,1731.84,1,2004,Motorcycles,Paris,France
+10211,37,100,4040.03,1,2004,Motorcycles,Paris,France
+10211,40,80.55,3222,1,2004,Motorcycles,Paris,France
+10223,37,100,3965.66,2,2004,Motorcycles,Melbourne,Australia
+10223,47,100,5422.39,2,2004,Motorcycles,Melbourne,Australia
+10223,49,100,9774.03,2,2004,Motorcycles,Melbourne,Australia
+10224,43,100,6087.94,2,2004,Motorcycles,Lille,France
+10223,28,60.57,1695.96,2,2004,Motorcycles,Melbourne,Australia
+10224,38,58.44,2220.72,2,2004,Motorcycles,Lille,France
+10223,32,91.29,2921.28,2,2004,Motorcycles,Melbourne,Australia
+10223,38,69.31,2633.78,2,2004,Motorcycles,Melbourne,Australia
+10224,37,80.34,2972.58,2,2004,Motorcycles,Lille,France
+10223,21,100,2475.27,2,2004,Motorcycles,Melbourne,Australia
+10224,43,39.43,1695.49,2,2004,Motorcycles,Lille,France
+10224,30,100,3336.9,2,2004,Motorcycles,Lille,France
+10224,50,77.29,3864.5,2,2004,Motorcycles,Lille,France
+10237,23,100,2333.12,4,2004,Motorcycles,NYC,USA
+10236,22,100,2852.08,4,2004,Motorcycles,Philadelphia,USA
+10237,39,100,7023.9,4,2004,Motorcycles,NYC,USA
+10237,32,100,4193.28,4,2004,Motorcycles,NYC,USA
+10236,23,55.72,1281.56,4,2004,Motorcycles,Philadelphia,USA
+10237,26,52.22,1357.72,4,2004,Motorcycles,NYC,USA
+10237,20,100,2299,4,2004,Motorcycles,NYC,USA
+10236,36,87.6,3153.6,4,2004,Motorcycles,Philadelphia,USA
+10237,26,79.65,2070.9,4,2004,Motorcycles,NYC,USA
+10235,41,100,4177.49,4,2004,Motorcycles,Tsawassen,Canada
+10237,26,40.23,1045.98,4,2004,Motorcycles,NYC,USA
+10237,27,100,3113.64,4,2004,Motorcycles,NYC,USA
+10237,20,68.34,1366.8,4,2004,Motorcycles,NYC,USA
+10251,28,100,3188.64,5,2004,Motorcycles,Newark,USA
+10251,44,100,5756.52,5,2004,Motorcycles,Newark,USA
+10251,43,100,7078.23,5,2004,Motorcycles,Newark,USA
+10251,46,100,7552.28,5,2004,Motorcycles,Newark,USA
+10251,29,61.18,1774.22,5,2004,Motorcycles,Newark,USA
+10252,31,52.84,1638.04,5,2004,Motorcycles,Paris,France
+10251,26,100,2637.18,5,2004,Motorcycles,Newark,USA
+10250,32,87.6,2803.2,5,2004,Motorcycles,San Jose,USA
+10252,47,65.8,3092.6,5,2004,Motorcycles,Paris,France
+10250,31,100,3282.28,5,2004,Motorcycles,San Jose,USA
+10252,36,48.28,1738.08,5,2004,Motorcycles,Paris,France
+10252,25,100,2832,5,2004,Motorcycles,Paris,France
+10252,48,72.41,3475.68,5,2004,Motorcycles,Paris,France
+10263,34,100,3676.76,6,2004,Motorcycles,Bridgewater,USA
+10263,40,100,4472,6,2004,Motorcycles,Bridgewater,USA
+10263,41,100,8336.94,6,2004,Motorcycles,Bridgewater,USA
+10263,48,100,6434.4,6,2004,Motorcycles,Bridgewater,USA
+10263,34,58.75,1997.5,6,2004,Motorcycles,Bridgewater,USA
+10264,48,54.71,2626.08,6,2004,Motorcycles,Boston,USA
+10263,42,100,4307.52,6,2004,Motorcycles,Bridgewater,USA
+10263,37,62.46,2311.02,6,2004,Motorcycles,Bridgewater,USA
+10264,37,65.1,2408.7,6,2004,Motorcycles,Boston,USA
+10263,31,79.91,2477.21,6,2004,Motorcycles,Bridgewater,USA
+10264,20,32.59,651.8,6,2004,Motorcycles,Boston,USA
+10264,34,97.97,3330.98,6,2004,Motorcycles,Boston,USA
+10264,47,89.5,4206.5,6,2004,Motorcycles,Boston,USA
+10275,45,92.83,4177.35,7,2004,Motorcycles,Nantes,France
+10275,22,100,2904.44,7,2004,Motorcycles,Nantes,France
+10275,36,100,6901.92,7,2004,Motorcycles,Nantes,France
+10275,37,63.6,2353.2,7,2004,Motorcycles,Nantes,France
+10275,21,100,2153.76,7,2004,Motorcycles,Nantes,France
+10275,30,79.98,2399.4,7,2004,Motorcycles,Nantes,France
+10275,23,81.91,1883.93,7,2004,Motorcycles,Nantes,France
+10285,36,100,4099.68,8,2004,Motorcycles,Cambridge,USA
+10285,47,100,6484.59,8,2004,Motorcycles,Cambridge,USA
+10285,27,100,5438.07,8,2004,Motorcycles,Cambridge,USA
+10276,43,100,5181.5,8,2004,Motorcycles,Brickhaven,USA
+10285,49,100,6863.92,8,2004,Motorcycles,Cambridge,USA
+10285,20,49.06,981.2,8,2004,Motorcycles,Cambridge,USA
+10276,33,50.36,1661.88,8,2004,Motorcycles,Brickhaven,USA
+10286,38,57.2,2173.6,8,2004,Motorcycles,Paris,France
+10285,34,100,3716.88,8,2004,Motorcycles,Cambridge,USA
+10285,39,70.08,2733.12,8,2004,Motorcycles,Cambridge,USA
+10276,46,75.49,3472.54,8,2004,Motorcycles,Brickhaven,USA
+10285,38,59.56,2263.28,8,2004,Motorcycles,Cambridge,USA
+10285,37,98.89,3658.93,8,2004,Motorcycles,Cambridge,USA
+10276,27,36.61,988.47,8,2004,Motorcycles,Brickhaven,USA
+10285,37,41.03,1518.11,8,2004,Motorcycles,Cambridge,USA
+10276,38,100,4304.64,8,2004,Motorcycles,Brickhaven,USA
+10285,26,100,2600.26,8,2004,Motorcycles,Cambridge,USA
+10276,21,70.78,1486.38,8,2004,Motorcycles,Brickhaven,USA
+10285,39,78.92,3077.88,8,2004,Motorcycles,Cambridge,USA
+10299,23,100,2597.39,9,2004,Motorcycles,Helsinki,Finland
+10298,39,96.34,3757.26,9,2004,Motorcycles,Nantes,France
+10299,29,100,6683.34,9,2004,Motorcycles,Helsinki,Finland
+10299,24,100,4157.04,9,2004,Motorcycles,Helsinki,Finland
+10298,32,48.46,1550.72,9,2004,Motorcycles,Nantes,France
+10299,39,55.95,2182.05,9,2004,Motorcycles,Helsinki,Finland
+10299,47,100,5455.76,9,2004,Motorcycles,Helsinki,Finland
+10297,32,65.51,2096.32,9,2004,Motorcycles,Dublin,Ireland
+10299,33,66.49,2194.17,9,2004,Motorcycles,Helsinki,Finland
+10297,26,100,2856.88,9,2004,Motorcycles,Dublin,Ireland
+10299,24,42.24,1013.76,9,2004,Motorcycles,Helsinki,Finland
+10299,38,100,4382.16,9,2004,Motorcycles,Helsinki,Finland
+10299,44,80.55,3544.2,9,2004,Motorcycles,Helsinki,Finland
+10309,41,100,4394.38,10,2004,Motorcycles,Stavern,Norway
+10308,34,100,4043.96,10,2004,Motorcycles,White Plains,USA
+10308,20,100,4570.4,10,2004,Motorcycles,White Plains,USA
+10309,26,100,4660.24,10,2004,Motorcycles,Stavern,Norway
+10308,34,52.09,1771.06,10,2004,Motorcycles,White Plains,USA
+10310,42,67.14,2819.88,10,2004,Motorcycles,Koln,Germany
+10309,21,100,2650.62,10,2004,Motorcycles,Stavern,Norway
+10308,47,63.22,2971.34,10,2004,Motorcycles,White Plains,USA
+10309,24,56.1,1346.4,10,2004,Motorcycles,Stavern,Norway
+10308,24,79.91,1917.84,10,2004,Motorcycles,White Plains,USA
+10310,36,43.05,1549.8,10,2004,Motorcycles,Koln,Germany
+10309,50,84.7,4235,10,2004,Motorcycles,Stavern,Norway
+10309,28,88.68,2483.04,10,2004,Motorcycles,Stavern,Norway
+10318,46,94.74,4358.04,11,2004,Motorcycles,Allentown,USA
+10329,42,100,4396.14,11,2004,Motorcycles,NYC,USA
+10341,41,100,7737.93,11,2004,Motorcycles,Salzburg,Austria
+10318,45,100,5566.5,11,2004,Motorcycles,Allentown,USA
+10329,20,100,3176,11,2004,Motorcycles,NYC,USA
+10339,40,68.92,2756.8,11,2004,Motorcycles,Minato-ku,Japan
+10318,37,100,7667.14,11,2004,Motorcycles,Allentown,USA
+10329,26,100,5868.2,11,2004,Motorcycles,NYC,USA
+10339,39,76.67,2990.13,11,2004,Motorcycles,Minato-ku,Japan
+10319,30,100,4111.8,11,2004,Motorcycles,NYC,USA
+10329,24,100,3542.64,11,2004,Motorcycles,NYC,USA
+10341,55,100,8118.55,11,2004,Motorcycles,Salzburg,Austria
+10318,42,52.7,2213.4,11,2004,Motorcycles,Allentown,USA
+10329,38,100,5266.04,11,2004,Motorcycles,NYC,USA
+10339,30,62.16,1864.8,11,2004,Motorcycles,Minato-ku,Japan
+10319,44,59.06,2598.64,11,2004,Motorcycles,NYC,USA
+10330,29,69.63,2019.27,11,2004,Motorcycles,Makati City,Philippines
+10342,26,55.95,1454.7,11,2004,Motorcycles,Melbourne,Australia
+10318,48,100,6437.28,11,2004,Motorcycles,Allentown,USA
+10329,30,87.78,2633.4,11,2004,Motorcycles,NYC,USA
+10339,27,84.39,2278.53,11,2004,Motorcycles,Minato-ku,Japan
+10318,26,86.83,2257.58,11,2004,Motorcycles,Allentown,USA
+10329,37,94.43,3493.91,11,2004,Motorcycles,NYC,USA
+10340,55,79.98,4398.9,11,2004,Motorcycles,Barcelona,Spain
+10319,31,81.73,2533.63,11,2004,Motorcycles,NYC,USA
+10330,42,81.03,3403.26,11,2004,Motorcycles,Makati City,Philippines
+10341,32,100,3307.2,11,2004,Motorcycles,Salzburg,Austria
+10318,47,100,5305.36,11,2004,Motorcycles,Allentown,USA
+10329,45,63.91,2875.95,11,2004,Motorcycles,NYC,USA
+10340,55,100,6482.85,11,2004,Motorcycles,Barcelona,Spain
+10319,29,38.22,1108.38,11,2004,Motorcycles,NYC,USA
+10331,28,100,4102.56,11,2004,Motorcycles,Philadelphia,USA
+10343,29,100,3713.16,11,2004,Motorcycles,Reims,France
+10319,22,100,2626.8,11,2004,Motorcycles,NYC,USA
+10331,32,100,5026.56,11,2004,Motorcycles,Philadelphia,USA
+10341,31,71.02,2201.62,11,2004,Motorcycles,Salzburg,Austria
+10319,45,77.29,3478.05,11,2004,Motorcycles,NYC,USA
+10331,20,100,3657.8,11,2004,Motorcycles,Philadelphia,USA
+10341,38,100,4682.36,11,2004,Motorcycles,Salzburg,Austria
+10361,20,72.55,1451,12,2004,Motorcycles,Chatswood,Australia
+10361,26,51.15,1329.9,12,2004,Motorcycles,Chatswood,Australia
+10355,31,53.47,1657.57,12,2004,Motorcycles,Madrid,Spain
+10355,41,70.65,2896.65,12,2004,Motorcycles,Madrid,Spain
+10353,46,81.17,3733.82,12,2004,Motorcycles,Glendale,USA
+10355,38,39.83,1513.54,12,2004,Motorcycles,Madrid,Spain
+10355,40,100,4326.8,12,2004,Motorcycles,Madrid,Spain
+10356,26,100,3937.7,12,2004,Motorcycles,Paris,France
+10362,22,100,3664.1,1,2005,Motorcycles,Burlingame,USA
+10362,22,100,3877.06,1,2005,Motorcycles,Burlingame,USA
+10362,23,49.67,1142.41,1,2005,Motorcycles,Burlingame,USA
+10363,32,89.12,2851.84,1,2005,Motorcycles,Espoo,Finland
+10362,50,96.92,4846,1,2005,Motorcycles,Burlingame,USA
+10363,21,100,3595.62,1,2005,Motorcycles,Espoo,Finland
+10363,43,61.23,2632.89,1,2005,Motorcycles,Espoo,Finland
+10363,50,100,6576.5,1,2005,Motorcycles,Espoo,Finland
+10364,48,48.28,2317.44,1,2005,Motorcycles,Marseille,France
+10365,22,100,3425.18,1,2005,Motorcycles,New Bedford,USA
+10365,44,100,4984.32,1,2005,Motorcycles,New Bedford,USA
+10375,21,34.91,733.11,2,2005,Motorcycles,Nantes,France
+10374,39,100,5288.01,2,2005,Motorcycles,South Brisbane,Australia
+10374,22,100,3834.38,2,2005,Motorcycles,South Brisbane,Australia
+10375,49,78.92,3867.08,2,2005,Motorcycles,Nantes,France
+10374,22,53.3,1172.6,2,2005,Motorcycles,South Brisbane,Australia
+10378,28,100,4609.64,2,2005,Motorcycles,Madrid,Spain
+10374,38,100,4197.1,2,2005,Motorcycles,South Brisbane,Australia
+10375,23,100,2443.29,2,2005,Motorcycles,Nantes,France
+10375,20,100,2046,2,2005,Motorcycles,Nantes,France
+10375,37,100,6353.27,2,2005,Motorcycles,Nantes,France
+10378,40,82.46,3298.4,2,2005,Motorcycles,Madrid,Spain
+10375,41,100,4701.88,2,2005,Motorcycles,Nantes,France
+10375,49,100,5406.66,2,2005,Motorcycles,Nantes,France
+10388,42,76.36,3207.12,3,2005,Motorcycles,New Bedford,USA
+10388,50,44.51,2225.5,3,2005,Motorcycles,New Bedford,USA
+10388,21,86.77,1822.17,3,2005,Motorcycles,New Bedford,USA
+10388,44,100,5951.44,3,2005,Motorcycles,New Bedford,USA
+10389,39,100,6981,3,2005,Motorcycles,Boras,Sweden
+10390,36,100,5079.96,3,2005,Motorcycles,San Rafael,USA
+10389,45,100,4597.65,3,2005,Motorcycles,Boras,Sweden
+10389,49,81.4,3988.6,3,2005,Motorcycles,Boras,Sweden
+10390,35,65.13,2279.55,3,2005,Motorcycles,San Rafael,USA
+10387,44,94.9,4175.6,3,2005,Motorcycles,Singapore,Singapore
+10390,41,44.56,1826.96,3,2005,Motorcycles,San Rafael,USA
+10390,45,48.98,2204.1,3,2005,Motorcycles,San Rafael,USA
+10390,22,100,3491.18,3,2005,Motorcycles,San Rafael,USA
+10403,24,100,2434.56,4,2005,Motorcycles,Liverpool,UK
+10402,45,100,5833.8,4,2005,Motorcycles,Paris,France
+10403,66,100,11886.6,4,2005,Motorcycles,Liverpool,UK
+10403,66,100,8648.64,4,2005,Motorcycles,Liverpool,UK
+10402,55,55.72,3064.6,4,2005,Motorcycles,Paris,France
+10403,36,52.22,1879.92,4,2005,Motorcycles,Liverpool,UK
+10403,46,100,5287.7,4,2005,Motorcycles,Liverpool,UK
+10402,59,87.6,5168.4,4,2005,Motorcycles,Paris,France
+10403,27,79.65,2150.55,4,2005,Motorcycles,Liverpool,UK
+10401,49,100,4992.61,4,2005,Motorcycles,Newark,USA
+10403,30,40.23,1206.9,4,2005,Motorcycles,Liverpool,UK
+10403,45,100,5189.4,4,2005,Motorcycles,Liverpool,UK
+10403,31,68.34,2118.54,4,2005,Motorcycles,Liverpool,UK
+10417,66,100,7516.08,5,2005,Motorcycles,Madrid,Spain
+10417,45,100,5887.35,5,2005,Motorcycles,Madrid,Spain
+10417,56,100,9218.16,5,2005,Motorcycles,Madrid,Spain
+10417,21,100,3447.78,5,2005,Motorcycles,Madrid,Spain
+10417,36,61.18,2202.48,5,2005,Motorcycles,Madrid,Spain
+10417,35,100,3550.05,5,2005,Motorcycles,Madrid,Spain
+10416,32,87.6,2803.2,5,2005,Motorcycles,Reggio Emilia,Italy
+10416,45,100,4764.6,5,2005,Motorcycles,Reggio Emilia,Italy
