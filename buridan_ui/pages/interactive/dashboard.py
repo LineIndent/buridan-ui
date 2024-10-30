@@ -1,5 +1,3 @@
-import reflex as rx
-
 from ...wrappers.base import base
 
 import reflex as rx
@@ -397,9 +395,7 @@ def table():
     )
 
 
-@base(
-    "/interactive-table/dashboard", "Interactive Table", title="Dashboard - buridan/ui"
-)
+@base("/interactive/dashboard", "Interactive Table", title="Dashboard - buridan/ui")
 def dashboard():
     return [
         rx.hstack(
