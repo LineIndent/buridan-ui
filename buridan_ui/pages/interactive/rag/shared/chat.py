@@ -54,7 +54,7 @@ def chat_prompt():
     )
 
 
-def chat_area():
+def chat_area() -> rx.vstack:
     return rx.vstack(
         rx.divider(height="5em", opacity="0"),
         chat_box(),
