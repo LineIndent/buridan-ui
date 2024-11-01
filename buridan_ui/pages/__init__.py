@@ -1,4 +1,5 @@
-from .index import index
+from .landing.hero import landing_page
+
 from .changelog import changelog
 
 from .started_items.introduction import introduction
