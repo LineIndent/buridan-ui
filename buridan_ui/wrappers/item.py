@@ -218,8 +218,8 @@ class Item(rx.State):
 
     default_icon: bool = True
 
-    default_theme: dict[int, Color] = color_map["gray"]
-    selected_theme: str = "gray"
+    default_theme: dict[int, Color] = color_map["blue"]
+    selected_theme: str = "blue"
 
     async def toggle_theme(self, color: str):
         self.selected_theme = color

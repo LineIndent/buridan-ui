@@ -5,51 +5,12 @@ from ..templates.shared.footer import footer_v1
 
 from ..routes.pantry_routes import PANTRY_ROUTES
 
+from .style import BaseWrapperStyle
+
 from typing import Callable, List
 from functools import wraps
 
 import reflex as rx
-
-GRANDPARENT = dict(
-    spacing="0",
-    width="100%",
-    height="100vh",
-    overflow="scroll",
-    scrollbar_width="thin",
-    background=rx.color("gray", 2),
-    overscroll_behavior_y="contain",
-)
-
-PARENT = dict(
-    spacing="0",
-    width="100%",
-    height="100vh",
-    overflow="auto",
-    scrollbar_width="thin",
-    background=rx.color("gray", 2),
-)
-
-CONTENT = dict(
-    z_index="5",
-    width="100%",
-    spacing="9",
-    padding="54px 0px 0px 0px",
-    position="relative",
-    transition="all 350ms ease",
-    background=rx.color("gray", 3),
-)
-
-HEADER = dict(
-    top="0",
-    left="0",
-    spacing="2",
-    width="100%",
-    align="center",
-    min_height="25vh",
-    justify="center",
-    background=rx.color("gray", 2),
-    border_left=f"1px solid {rx.color('gray', 4)}",
-)
 
 
 def title(name: str):
@@ -167,12 +128,12 @@ def base(url: str, page_name: str, **kwargs):
                                 rx.vstack(
                                     create_route_ui(url),
                                     title(page_name),
-                                    **HEADER,
+                                    **BaseWrapperStyle.header,
                                 ),
                                 *contents,
                                 rx.divider(height="4em", opacity="0"),
                                 create_page_prev_and_next_navigation(url),
-                                **CONTENT,
+                                **BaseWrapperStyle.content,
                             ),
                             width="100%",
                             position="relative",
@@ -181,9 +142,9 @@ def base(url: str, page_name: str, **kwargs):
                         width="100%",
                         spacing="0",
                     ),
-                    **PARENT,
+                    **BaseWrapperStyle.parent,
                 ),
-                **GRANDPARENT,
+                **BaseWrapperStyle.grandparent,
             )
 
         return template
