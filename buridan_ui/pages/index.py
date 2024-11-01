@@ -1,3 +1,9 @@
+"""
+NOTE: this landing page will be removed on the next release/update
+
+
+"""
+
 import asyncio
 
 import reflex as rx
