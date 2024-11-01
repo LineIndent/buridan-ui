@@ -58,7 +58,7 @@ def landing_page_section_wrapper_main(
             **LandingPageSectionWrapperStyle.titles,
         ),
         # ... wrapper style
-        min_height="75vh",
+        min_height="60vh",
         **LandingPageSectionWrapperStyle.wrapper,
     )
 
