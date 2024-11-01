@@ -106,7 +106,7 @@ CONTENT = dict(
     padding="12px",
     align="center",
     justify="start",
-    max_width="70em",
+    max_width="85em",
     text_align="center",
 )
 
