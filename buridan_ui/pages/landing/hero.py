@@ -57,6 +57,7 @@ def landing_page() -> rx.vstack:
                 "Build your next web app, faster than ever.",
                 "Beautifully designed, expertly crafted components and templates built for the Reflex framework, empowering you to develop web apps in pure Python. The perfect foundation for your next project.",
             ),
+            rx.divider(height="4em", opacity="0"),
             landing_page_section_wrapper(
                 "Full Stack Features",
                 "UI components designed with Reflex, all created using Python",
