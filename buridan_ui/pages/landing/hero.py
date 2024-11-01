@@ -63,6 +63,7 @@ def landing_page() -> rx.vstack:
                 "UI components designed with Reflex, all created using Python",
                 "A full-stack framework complete with built-in features, including a comprehensive theming system, ready-to-use UI components, and customizable elements.",
                 "Get started with buridan/ui →",
+                "/getting-started/installation",
                 [
                     rx.hstack(
                         landing_page_features_wrapper(
@@ -95,7 +96,8 @@ def landing_page() -> rx.vstack:
                 "Pantry Components",
                 "Beautifully crafted UI components, ready for your next project.",
                 f"Over {count_python_files_in_folder('buridan_ui/pantry')}+ professionally designed, fully responsive, expertly crafted UI components you can seamlessly integrate into your Reflex projects and customize as needed.",
-                "Browse all pantry pantry →",
+                "Browse pantry items →",
+                "/pantry/animations",
                 [landing_page_pantry_items()],
             ),
             rx.divider(height="5em", opacity="0"),
@@ -103,7 +105,8 @@ def landing_page() -> rx.vstack:
                 "Chart Components",
                 "Powerful charting components, designed to visualize your data effortlessly.",
                 f"Explore {count_python_files_in_folder('buridan_ui/charts')}+ beautifully designed, fully responsive chart components ready to enhance your Reflex projects and visualize your data effectively.",
-                "Browse all charts →",
+                "Browse chart items →",
+                "/charts/area-charts",
                 [landing_page_chart_items()],
             ),
             rx.divider(height="5em", opacity="0"),
@@ -111,6 +114,7 @@ def landing_page() -> rx.vstack:
                 "buridan/ui",
                 "Almost there, one click to launch your web application!",
                 "Download and install Reflex to bring your ideas to life, or explore our 'Getting Started' pages for comprehensive guidance and resources.",
+                "",
                 "",
                 [
                     rx.hstack(

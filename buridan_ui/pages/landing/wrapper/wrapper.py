@@ -16,6 +16,7 @@ def landing_page_section_wrapper(
     title: str,
     subtitle: str,
     link: str,
+    path: str,
     components: list[rx.Component] = [],
 ) -> rx.vstack:
     return rx.vstack(
@@ -24,7 +25,7 @@ def landing_page_section_wrapper(
             rx.badge(badge, variant="surface", size="3"),
             rx.heading(title, font_weight="900", size="8"),
             rx.text(subtitle),
-            rx.link(link, href="#"),
+            rx.link(link, href=path),
             **LandingPageSectionWrapperStyle.titles,
         ),
         *components,
