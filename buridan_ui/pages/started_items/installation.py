@@ -100,7 +100,7 @@ def installation():
                 ),
                 wrapper(
                     "Step 4: Copy & paste a pantry item directly into your app",
-                    "You can now easily integrate pantry items within your app and personalize them.",
+                    "You can now easily integrate pantry pantry within your app and personalize them.",
                 ),
                 max_width="50em",
                 width="100%",
