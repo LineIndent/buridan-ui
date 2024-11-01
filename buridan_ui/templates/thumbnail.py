@@ -43,7 +43,7 @@ def thumbnail(path: str, image: str, title: str, quantity: str, **kwargs):
             flex="1 1 300px",
             height="220px",
             border=f"1px solid {rx.color('gray', 6)}",
-            bg=rx.color("gray", 2),
+            bg=rx.color("slate", 2),
             border_radius="12px",
             z_index="25",
             overflow="hidden",
