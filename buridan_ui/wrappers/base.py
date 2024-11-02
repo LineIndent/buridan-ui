@@ -1,6 +1,6 @@
 from ..templates.shared.drawbar import drawbar
 from ..templates.shared.navbar import navbar_type_v1
-from ..templates.shared.sidebar import sidebar, Sidebar
+from ..templates.shared.sidebar import Sidebar
 from ..templates.shared.footer import footer_v1
 
 from ..routes.pantry_routes import PANTRY_ROUTES
@@ -11,6 +11,9 @@ from typing import Callable, List
 from functools import wraps
 
 import reflex as rx
+
+
+from ..templates.sidemenu.sidemenu import sidemenu
 
 
 def title(name: str):
@@ -121,7 +124,7 @@ def base(url: str, page_name: str, **kwargs):
                 drawbar(),
                 navbar_type_v1(),
                 rx.hstack(
-                    sidebar(),
+                    sidemenu(),
                     rx.vstack(
                         rx.vstack(
                             rx.vstack(
