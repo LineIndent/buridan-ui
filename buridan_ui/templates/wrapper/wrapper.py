@@ -1,6 +1,6 @@
 import reflex as rx
 
-from .style import MenuWrapperStyle
+from .style import MenuWrapperStyle, BaseHeaderWrapper
 
 
 def blip(tag: str):
@@ -10,7 +10,7 @@ def blip(tag: str):
     )
 
 
-def menu_wrapper(title: str, date: str, tag: str, components: list[rx.Component] = []):
+def menu_wrapper(title: str, tag: str, components: list[rx.Component] = []):
     return rx.hstack(
         rx.vstack(
             rx.vstack(
@@ -21,11 +21,29 @@ def menu_wrapper(title: str, date: str, tag: str, components: list[rx.Component]
                     ),
                     align="center",
                 ),
-                # ... can switch the date with the title to show last update
-                # rx.text(date, size="1", weight="bold", color=rx.color("slate", 10)),
                 spacing="1",
             ),
             *components,
         ),
         **MenuWrapperStyle.wrapper,
+    )
+
+
+def base_header_wrapper(
+    path_name: rx.hstack,
+    title: str,
+    link: str,
+    path: str,
+) -> rx.vstack:
+    return rx.vstack(
+        # ... badge, title, subtitle, and link
+        rx.vstack(
+            path_name,
+            rx.heading(title, font_weight="900", size="9"),
+            rx.link(link, href=path),
+            **BaseHeaderWrapper.titles,
+        ),
+        # ... wrapper style
+        min_height="35vh",
+        **BaseHeaderWrapper.wrapper,
     )

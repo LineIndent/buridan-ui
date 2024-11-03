@@ -7,6 +7,7 @@ from ...routes.routes import (
     InteractiveRoutes,
     PantryRoutes,
     ChartRoutes,
+    ResourcesRoutes,
 )
 
 
@@ -25,6 +26,9 @@ class SideMenuState(rx.State):
     PantryRoutes: list[dict[str, str]] = [
         {**route, **passive} for route in PantryRoutes
     ]
+    ResourcesRoutes: list[dict[str, str]] = [
+        {**route, **passive} for route in ResourcesRoutes
+    ]
 
     async def toggle_page_change(self, data: dict[str, str]):
         if data is not None:
@@ -34,6 +38,12 @@ class SideMenuState(rx.State):
                 self.update_menu_link(self.ChartRoutes, data),
                 self.update_menu_link(self.PantryRoutes, data),
             )
+
+        # on_page = (
+        #     data["path"].split("/")[1]
+        #     if data["path"].startswith("/")
+        #     else data["path"].split("/")[0]
+        # )
 
     async def update_menu_link(self, menu: list[dict[str, str]], item: dict[str, str]):
         for index in menu:

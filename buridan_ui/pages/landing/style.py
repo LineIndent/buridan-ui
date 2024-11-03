@@ -8,7 +8,6 @@ class LandingPageStyle:
             "width": "100%",
             "min_height": "100vh",
             "align": "center",
-            "position": "relative",
         }
     )
 
@@ -16,6 +15,8 @@ class LandingPageStyle:
         default_factory=lambda: {
             "width": "100%",
             "max_width": "90em",
+            "position": "relative",
+            "padding": ["0em 1em" if i <= 5 else "0em 0em" for i in range(6)],
         }
     )
 

@@ -2,7 +2,6 @@ import os
 
 import reflex as rx
 
-from .navigation.navigation import landing_page_navigation
 from .wrapper.wrapper import (
     landing_page_main_button,
     landing_page_section_wrapper,
@@ -11,12 +10,13 @@ from .wrapper.wrapper import (
 )
 from .style import LandingPageStyle
 
-from .footer.footer import landing_page_footer
 
 from .items.pantry import landing_page_pantry_items
 from .items.charts import landing_page_chart_items
 
+from ...templates.footer.footer import footer
 from ...templates.shared.drawbar import drawbar
+from ...templates.navigation.navigation import landing_page_navigation
 
 
 def count_python_files_in_folder(folder_name):
@@ -45,13 +45,13 @@ def create_landing_background(top: str, left: str):
     )
 
 
-@rx.page("/", title="Home - buridan-ui ")
+@rx.page("/", title="buridan-ui ")
 def landing_page() -> rx.vstack:
     return rx.vstack(
         drawbar(),
         rx.vstack(
             landing_page_navigation(),
-            rx.divider(height="4em", opacity="0"),
+            rx.divider(height="10em", opacity="0"),
             landing_page_section_wrapper_main(
                 "Powered by Reflex",
                 "Build your next web app, faster than ever.",
@@ -132,7 +132,7 @@ def landing_page() -> rx.vstack:
                 ],
             ),
             rx.divider(height="5em", opacity="0"),
-            landing_page_footer(),
+            footer(),
             rx.divider(height="2em", opacity="0"),
             **LandingPageStyle.content,
         ),

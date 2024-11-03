@@ -13,6 +13,8 @@ ROOT = dict(
     padding="10px",
     overflow="hidden",
     default_value="1",
+    background=rx.color("gray", 3),
+    border_radius="10px",
 )
 
 SHARED = dict(
@@ -311,7 +313,6 @@ def item(path: str, has_theme: bool = False):
                     **ROOT,
                 ),
                 width="100%",
-                padding=[f"12px {i}px" for i in [12, 12, 16, 18, 22, 24]],
             )
 
         return wrapper

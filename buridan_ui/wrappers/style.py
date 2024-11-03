@@ -12,7 +12,6 @@ class BaseWrapperStyle:
             "height": "100vh",
             "overflow": "scroll",
             "scrollbar_width": "thin",
-            "background": rx.color("gray", 2),
             "overscroll_behavior_y": "contain",
         }
     )
@@ -24,7 +23,7 @@ class BaseWrapperStyle:
             "height": "100vh",
             "overflow": "auto",
             "scrollbar_width": "thin",
-            "background": rx.color("gray", 2),
+            "background": rx.color("slate", 2),
         }
     )
 
@@ -36,7 +35,6 @@ class BaseWrapperStyle:
             "padding": "54px 0px 0px 0px",
             "position": "relative",
             "transition": "all 350ms ease",
-            "background": rx.color("gray", 3),
         }
     )
 
@@ -49,8 +47,23 @@ class BaseWrapperStyle:
             "align": "center",
             "min_height": "25vh",
             "justify": "center",
-            "background": rx.color("gray", 2),
-            "border_left": f"1px solid {rx.color('gray', 4)}",
+        }
+    )
+
+    background: dict[str, str] = field(
+        default_factory=lambda: {
+            "background_size": "30px 30px",
+            "background_image": f"radial-gradient(circle, {rx.color('slate', 12)} 0.75px, transparent 1px)",
+            "mask": (
+                "radial-gradient(45% 45% at 50% 50%, hsl(0, 0%, 0%, 0.60), hsl(0, 0%, 0%, 0)), "
+                "radial-gradient(60% 70% at 50% 50%, hsl(0, 0%, 0%, 0.35), hsl(0, 0%, 0%, 0))"
+            ),
+            "width": "100%",
+            "height": "50vh",
+            "position": "absolute",
+            "top": "0",
+            "left": "0",
+            "z_index": "-2",
         }
     )
 

@@ -1,12 +1,13 @@
 import reflex as rx
 
-from ..shared.sidebar import Sidebar
 from ...routes.chart_routes import CHART_ROUTES
-
 from ...routes.started_routes import GETTING_STARTED_ROUTES
 from ...routes.pantry_routes import PANTRY_ROUTES
 from ...routes.interactive import INTERACTIVE
+
 from ...styles.base import ACTIVE
+
+from ..sidemenu.state import SideMenuState
 
 
 class Drawbar(rx.State):
@@ -54,7 +55,10 @@ def item(data: dict[str, str]):
                 size="2",
                 color=rx.color("slate", 11),
                 weight="medium",
-                on_click=[Drawbar.toggle_drawer, Sidebar.delta_page(data)],
+                on_click=[
+                    Drawbar.toggle_drawer,
+                    SideMenuState.toggle_page_change(data),
+                ],
                 _hover={"color": rx.color("slate", 12)},
             ),
             href=data["path"],
