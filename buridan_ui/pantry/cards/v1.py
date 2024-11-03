@@ -40,7 +40,6 @@ def card_v1():
         align="start",
         justify="start",
         position="relative",
-        # flex="1 1 200px",
         width="100%",
         max_width="320px",
         height="200px",
