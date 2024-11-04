@@ -61,7 +61,7 @@ def create_pantry_links(item_list: list[dict[str, str]]):
                     data["name"],
                     size="2",
                     weight="medium",
-                    color=rx.color("slate", 10),
+                    color=rx.color("slate", 11),
                     _hover={"color": rx.color("slate", 12)},
                     transition="color 350ms ease",
                 ),
@@ -80,7 +80,7 @@ def create_link(name: str, path: str):
             name,
             size="2",
             weight="medium",
-            color=rx.color("slate", 10),
+            color=rx.color("slate", 11),
             _hover={"color": rx.color("slate", 12)},
             transition="color 350ms ease",
         ),
@@ -95,6 +95,15 @@ def changelog():
         rx.vstack(
             rx.box(
                 rx.vstack(
+                    wrapper(
+                        "Site Refinement and UI Updates",
+                        "November 04, 2024",
+                        [
+                            rx.text("Changes to Charts component wrapper.", size="2"),
+                            rx.text("Updated drawer, themes, and much more!", size="2"),
+                            changelog_badge("party-popper", "buridan/ui v0.2.0"),
+                        ],
+                    ),
                     wrapper(
                         "New Interactive App: RAG AI Application",
                         "October 30, 2024",
