@@ -36,7 +36,7 @@ class NavigationStyle:
             "align": "center",
             "justify": "between",
             "backdrop_filter": "blur(10px)",
-            "padding": ["14px 1em" if i <= 5 else "14px 0em" for i in range(6)],
+            "padding": ["14px 0.5em" if i <= 5 else "14px 0em" for i in range(6)],
         }
     )
 

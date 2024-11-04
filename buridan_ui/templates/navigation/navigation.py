@@ -4,7 +4,7 @@ from reflex.constants.colors import Color
 from .style import NavigationStyle
 from .state import NavigationState
 
-from ...templates.shared.drawbar import Drawbar
+from ...templates.drawer.state import DrawerState
 
 
 def navigation_links(data: dict[str, str | Color]):
@@ -44,7 +44,7 @@ def navigation_right_side_items():
         rx.color_mode.switch(),
         rx.button(
             rx.icon(tag="align-justify", size=15),
-            on_click=Drawbar.toggle_drawer,
+            on_click=DrawerState.toggle_drawer,
             size="1",
             variant="soft",
             color_scheme="gray",

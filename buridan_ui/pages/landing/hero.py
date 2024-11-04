@@ -15,7 +15,7 @@ from .items.pantry import landing_page_pantry_items
 from .items.charts import landing_page_chart_items
 
 from ...templates.footer.footer import footer
-from ...templates.shared.drawbar import drawbar
+from ...templates.drawer.drawer import drawer
 from ...templates.navigation.navigation import landing_page_navigation
 
 
@@ -48,7 +48,7 @@ def create_landing_background(top: str, left: str):
 @rx.page("/", title="buridan-ui ")
 def landing_page() -> rx.vstack:
     return rx.vstack(
-        drawbar(),
+        drawer(),
         rx.vstack(
             landing_page_navigation(),
             rx.divider(height="10em", opacity="0"),

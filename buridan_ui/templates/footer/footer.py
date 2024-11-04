@@ -10,7 +10,7 @@ def create_footer_item(title: str, routes: list[dict[str, str]]):
             rx.link(
                 rx.text(
                     data["name"],
-                    size="3",
+                    size="2",
                     weight="medium",
                     color=data["color"],
                     _hover={"color": rx.color("slate", 12)},

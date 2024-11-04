@@ -12,8 +12,7 @@ from ..templates.sidemenu.sidemenu import sidemenu
 from ..templates.footer.footer import footer, desktop_footer
 from ..templates.wrapper.wrapper import base_header_wrapper
 from ..templates.navigation.navigation import navigation
-
-from ..templates.shared.drawbar import drawbar
+from ..templates.drawer.drawer import drawer
 
 
 def base(url: str, page_name: str, **kwargs):
@@ -24,7 +23,7 @@ def base(url: str, page_name: str, **kwargs):
         def template(*args, **kwargs):
             contents = content(*args, **kwargs)
             return rx.vstack(
-                drawbar(),
+                drawer(),
                 navigation(),
                 rx.hstack(
                     sidemenu(),

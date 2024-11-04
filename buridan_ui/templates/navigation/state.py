@@ -4,7 +4,7 @@ from reflex.constants.colors import Color
 from ...routes.routes import NavigationRoutes
 
 active: dict[str, Color] = {"color": rx.color("slate", 12)}
-passive: dict[str, Color] = {"color": rx.color("slate", 10)}
+passive: dict[str, Color] = {"color": rx.color("slate", 11)}
 
 
 class NavigationState(rx.State):

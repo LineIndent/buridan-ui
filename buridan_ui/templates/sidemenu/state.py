@@ -12,7 +12,7 @@ from ...routes.routes import (
 
 
 active: dict[str, Color] = {"color": rx.color("slate", 12)}
-passive: dict[str, Color] = {"color": rx.color("slate", 10)}
+passive: dict[str, Color] = {"color": rx.color("slate", 11)}
 
 
 class SideMenuState(rx.State):
