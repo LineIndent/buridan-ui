@@ -3,7 +3,7 @@ from collections import defaultdict
 from typing import List, Dict
 
 from ...templates.thumbnail import thumbnail
-from ...routes.pantry_routes import PANTRY_ROUTES
+from ...routes.routes import PantryRoutes
 
 
 def get_svg_files(
@@ -33,7 +33,7 @@ def get_component_quantities(
 
 
 def get_pantry_items() -> List[Dict[str, str]]:
-    return [item for item in PANTRY_ROUTES if item["name"] != "Table Pagination"]
+    return [item for item in PantryRoutes if item["name"] != "Table Pagination"]
 
 
 NORMALIZATION_MAP = {
