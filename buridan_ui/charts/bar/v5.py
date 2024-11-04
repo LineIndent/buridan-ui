@@ -1,8 +1,8 @@
 import reflex as rx
-from reflex import color
 from reflex.constants.colors import Color
 
-from ...wrappers.item import Item
+from ...wrappers.component.state import ComponentWrapperState
+
 from datetime import datetime
 
 data = [
@@ -181,7 +181,7 @@ def barchart_v5():
                 rx.recharts.cartesian_grid(horizontal=True, vertical=False),
                 rx.recharts.bar(
                     data_key=Chart.current_data,
-                    fill=Item.default_theme[0],
+                    fill=ComponentWrapperState.default_theme[0],
                 ),
                 rx.recharts.y_axis(type_="number", hide=True),
                 rx.recharts.x_axis(

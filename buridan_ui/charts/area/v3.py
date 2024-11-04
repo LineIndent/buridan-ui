@@ -1,5 +1,5 @@
 import reflex as rx
-from ...wrappers.item import Item
+from ...wrappers.component.state import ComponentWrapperState
 
 data = [
     {"month": "Jan", "desktop": 186},
@@ -32,8 +32,8 @@ def areachart_v3():
                 ),
                 rx.recharts.area(
                     data_key="desktop",
-                    fill=Item.default_theme[1],
-                    stroke=Item.default_theme[2],
+                    fill=ComponentWrapperState.default_theme[1],
+                    stroke=ComponentWrapperState.default_theme[2],
                     type_="step",
                 ),
                 rx.recharts.x_axis(data_key="month", axis_line=False),

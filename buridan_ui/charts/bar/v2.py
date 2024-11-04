@@ -1,5 +1,5 @@
 import reflex as rx
-from ...wrappers.item import Item
+from ...wrappers.component.state import ComponentWrapperState
 
 data = [
     {"month": "Jan", "desktop": 186},
@@ -28,7 +28,7 @@ def barchart_v2():
                 ),
                 rx.recharts.bar(
                     data_key="desktop",
-                    fill=Item.default_theme[0],
+                    fill=ComponentWrapperState.default_theme[0],
                 ),
                 rx.recharts.x_axis(type_="number", hide=True),
                 rx.recharts.y_axis(data_key="month", type_="category", axis_line=False),

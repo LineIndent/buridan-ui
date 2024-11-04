@@ -1,5 +1,6 @@
 import reflex as rx
-from ...wrappers.item import Item
+from ...wrappers.component.state import ComponentWrapperState
+
 
 data = [
     {"month": "Jan", "desktop": 186},
@@ -32,7 +33,7 @@ def linechart_v2():
                 ),
                 rx.recharts.line(
                     data_key="desktop",
-                    stroke=Item.default_theme[1],
+                    stroke=ComponentWrapperState.default_theme[1],
                     type_="linear",
                     dot=False,
                 ),
