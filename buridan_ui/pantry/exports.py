@@ -51,7 +51,7 @@ from .subscribe.v2 import subscribe_v2
 
 from .faq.v1 import faq_v1
 
-from ..wrappers.item import item
+from ..wrappers.component.wrapper import component_wrapper
 
 BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/pantry/"
 
@@ -62,7 +62,7 @@ def get_source(directory: str, filename: str):
 
 
 def create_export(func, directory, version):
-    @item(f"{BASE_PATH}{directory}/v{version}.py")
+    @component_wrapper(f"{BASE_PATH}{directory}/v{version}.py")
     def export():
         return [func(), get_source(directory, f"v{version}.py"), randint(0, 100000)]
 

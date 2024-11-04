@@ -1,7 +1,7 @@
 import os
 from random import randint
 
-from ..wrappers.item import item
+from ..wrappers.component.wrapper import component_wrapper
 
 from .bar.v1 import barchart_v1
 from .bar.v2 import barchart_v2
@@ -19,13 +19,13 @@ from .line.v2 import linechart_v2
 BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/charts/"
 
 
-def get_source(directory: str, filename: str):
+def get_source(directory: str, filename: str) -> str:
     with open(os.path.join("buridan_ui", "charts", directory, filename), "r") as file:
         return file.read()
 
 
 def create_export(func, directory, version):
-    @item(f"{BASE_PATH}{directory}/v{version}.py", True)
+    @component_wrapper(f"{BASE_PATH}{directory}/v{version}.py", True)
     def export():
         return [func(), get_source(directory, f"v{version}.py"), randint(0, 100000)]
 
@@ -42,8 +42,8 @@ exports_config = {
     "area": [
         create_export(areachart_v1, "area", 1),
         create_export(areachart_v2, "area", 2),
-        create_export(areachart_v3, "area", 3),
-        create_export(areachart_v4, "area", 4),
+        # create_export(areachart_v3, "area", 3),
+        # create_export(areachart_v4, "area", 4),
     ],
     "line": [
         create_export(linechart_v1, "line", 1),

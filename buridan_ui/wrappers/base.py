@@ -15,6 +15,14 @@ from ..templates.navigation.navigation import navigation
 from ..templates.drawer.drawer import drawer
 
 
+def base_footer_responsive(component: rx.Component, start: str, end: str):
+    return rx.box(
+        component,
+        display=[start if i <= 4 else end for i in range(6)],
+        width="100%",
+    )
+
+
 def base(url: str, page_name: str, **kwargs):
 
     def decorator(content: Callable[[], List[rx.Component]]):
@@ -45,20 +53,8 @@ def base(url: str, page_name: str, **kwargs):
                         ),
                         pantry_in_page_navigation(url),
                         rx.vstack(
-                            rx.box(
-                                desktop_footer(),
-                                display=[
-                                    "none" if i <= 4 else "flex" for i in range(6)
-                                ],
-                                width="100%",
-                            ),
-                            rx.box(
-                                footer(),
-                                display=[
-                                    "flex" if i <= 4 else "none" for i in range(6)
-                                ],
-                                width="100%",
-                            ),
+                            base_footer_responsive(desktop_footer(), "none", "flex"),
+                            base_footer_responsive(footer(), "flex", "none"),
                             width="100%",
                             max_width="95%",
                             align="center",
