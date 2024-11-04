@@ -2,7 +2,7 @@ import os
 from collections import defaultdict
 from typing import List, Dict
 
-from ...templates.thumbnail import thumbnail
+from ...templates.thumbnail.thumbnail import pantry_thumbnail
 from ...routes.routes import PantryRoutes
 
 
@@ -90,7 +90,9 @@ def combine_items(
 def create_thumbnails(combined_items: List[Dict[str, str]]) -> List[str]:
 
     return [
-        thumbnail(item["path"], item["image"], item["name"], str(item["quantity"]))
+        pantry_thumbnail(
+            item["path"], item["image"], item["name"], str(item["quantity"])
+        )
         for item in combined_items
     ]
 
