@@ -7,7 +7,7 @@ from ...routes.routes import PantryRoutes
 
 
 def get_svg_files(
-    base_url: str = "https://raw.githubusercontent.com/LineIndent/buridan-ui/main/assets",
+    base_url: str = "https://raw.githubusercontent.com/LineIndent/buridan-ui/main/assets/thumbnails",
 ) -> List[Dict[str, str]]:
 
     svg_files = [
