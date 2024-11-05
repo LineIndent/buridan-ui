@@ -9,6 +9,7 @@ class LandingPageSectionWrapperStyle:
             "width": "100%",
             "align": "start",
             "padding": ["12px 0px" if i >= 5 else "12px 12px" for i in range(6)],
+            "spacing": "5",
         }
     )
 
@@ -17,7 +18,7 @@ class LandingPageSectionWrapperStyle:
             "width": "100%",
             "max_width": "45em",
             "align": "start",
-            "spacing": "6",
+            "spacing": "5",
         }
     )
 
