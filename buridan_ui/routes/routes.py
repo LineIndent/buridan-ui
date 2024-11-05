@@ -70,15 +70,6 @@ class Routes:
     )
 
 
-Routes: Routes = Routes()
-
-GettingStartedRoutes: List[Dict[str, str]] = Routes.started
-InteractiveRoutes: List[Dict[str, str]] = Routes.interactive
-PantryRoutes: List[Dict[str, str]] = sorted(Routes.pantries, key=lambda x: x["name"])
-ChartRoutes: List[Dict[str, str]] = sorted(Routes.charts, key=lambda x: x["name"])
-ResourcesRoutes: List[Dict[str, str]] = Routes.resources
-
-
 @dataclass
 class NavigationRoutes:
     base: List[Dict[str, str]] = field(
@@ -91,5 +82,13 @@ class NavigationRoutes:
         ]
     )
 
+
+Routes: Routes = Routes()
+
+GettingStartedRoutes: List[Dict[str, str]] = Routes.started
+InteractiveRoutes: List[Dict[str, str]] = Routes.interactive
+PantryRoutes: List[Dict[str, str]] = sorted(Routes.pantries, key=lambda x: x["name"])
+ChartRoutes: List[Dict[str, str]] = sorted(Routes.charts, key=lambda x: x["name"])
+ResourcesRoutes: List[Dict[str, str]] = Routes.resources
 
 NavigationRoutes: List[Dict[str, str]] = NavigationRoutes().base
