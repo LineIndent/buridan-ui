@@ -3,8 +3,6 @@ import reflex as rx
 from .shared.profile import app_profile_panel
 from .shared.chat import chat_area
 
-from .style import Style
-
 from ....wrappers.base import base
 
 
@@ -15,15 +13,14 @@ from ....wrappers.base import base
 )
 def rag_ai_app() -> list[rx.Component]:
     return [
-        rx.vstack(
-            # ... main content area
-            rx.hstack(
-                app_profile_panel(),
-                chat_area(),
-                **Style.content,
+        rx.tabs.root(
+            rx.tabs.list(
+                rx.tabs.trigger("User Profile Data", value="1", flex="1"),
+                rx.tabs.trigger("gemini-1.5-flash", value="2", flex="1"),
             ),
-            # ... base component style props
-            # ... ... imported from main style page
-            **Style.base,
+            rx.tabs.content(app_profile_panel(), value="1", bg=rx.color("gray", 2)),
+            rx.tabs.content(chat_area(), value="2", bg=rx.color("gray", 2)),
+            default_value="1",
+            width="100%",
         )
     ]

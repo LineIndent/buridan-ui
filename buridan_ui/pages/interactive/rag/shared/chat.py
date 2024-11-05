@@ -23,13 +23,9 @@ def chat_message(data: dict[str, str]):
 
 def chat_box():
     return rx.vstack(
-        # ... badge => model name
-        rx.badge(
-            rx.text("Model: gemini-1.5-flash", size="1", weight="bold"),
-            **ChatAreaStyle.model_tag,
-        ),
         # ... rx.vstack => chat history and chat session
         rx.vstack(
+            #
             rx.foreach(State.chat_history, chat_message),
             **ChatAreaStyle.chat_session_style,
         ),
@@ -50,13 +46,15 @@ def chat_prompt():
         left="0",
         position="absolute",
         padding="1em 2em",
-        background=rx.color("gray", 2),
     )
 
 
 def chat_area() -> rx.vstack:
     return rx.vstack(
-        rx.divider(height="5em", opacity="0"),
+        rx.badge(
+            rx.text("Using Google's gemini-1.5-flash model.", size="1", weight="bold"),
+            **ChatAreaStyle.model_tag,
+        ),
         chat_box(),
         **Style.chat_area_base,
     )

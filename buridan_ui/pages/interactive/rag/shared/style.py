@@ -48,8 +48,7 @@ class ChatAreaStyle:
         default_factory=lambda: {
             "width": "100%",
             "height": "100%",
-            "background": rx.color("mauve", 2),
-            "border_radius": "10px",
+            "border_radius": "8px",
             "overflow": "hidden",
             "position": "relative",
         }

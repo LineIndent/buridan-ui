@@ -85,7 +85,7 @@ diet_restrictions = rx.vstack(
 
 def app_profile_panel() -> rx.vstack:
     return rx.vstack(
-        rx.divider(height="5em", opacity="0"),
+        rx.divider(height="2em", opacity="0"),
         rx.box(
             rx.vstack(
                 app_profile_item_wrapper(

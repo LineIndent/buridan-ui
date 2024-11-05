@@ -88,7 +88,7 @@ class Style:
     chat_area_base: dict[str, str] = field(
         default_factory=lambda: {
             "width": "100%",
-            "height": "100%",
+            "height": "50vh",
             "align": "center",
             "padding": "0em 24px",
         }
