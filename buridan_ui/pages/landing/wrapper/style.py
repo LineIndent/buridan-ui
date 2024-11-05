@@ -8,7 +8,7 @@ class LandingPageSectionWrapperStyle:
         default_factory=lambda: {
             "width": "100%",
             "align": "start",
-            "padding": ["12px 0px" if i >= 5 else "12px 24px" for i in range(6)],
+            "padding": ["12px 0px" if i >= 5 else "12px 12px" for i in range(6)],
         }
     )
 
