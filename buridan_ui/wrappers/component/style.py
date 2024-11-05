@@ -10,8 +10,8 @@ class ComponentWrapperStyle:
             "padding": "10px",
             "overflow": "hidden",
             "default_value": "1",
-            "background": rx.color("gray", 3),
             "border_radius": "10px",
+            "background": rx.color("gray", 3),
         }
     )
 
@@ -32,6 +32,7 @@ class ComponentWrapperStyle:
             "align_items": "center",
             "justify_content": "center",
             "overflow": "hidden",
+            "border_radius": "10px",
             "background": rx.color("gray", 2),
         }
     )
