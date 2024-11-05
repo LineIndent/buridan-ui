@@ -1,5 +1,37 @@
 import reflex as rx
 
+from dataclasses import dataclass, field
+
+
+@dataclass
+class LoginStyle:
+    base: dict[str, str] = field(
+        default_factory=lambda: {
+            "width": "100%",
+            "max_width": "21em",
+            "height": "100%",
+            "justify": "center",
+            "align": "center",
+            "padding": "3em 0em",
+        }
+    )
+
+    LoginButton: dict[str, str] = field(
+        default_factory=lambda: {
+            "width": "100%",
+            "cursor": "pointer",
+            "variant": "surface",
+            "color_scheme": "gray",
+        }
+    )
+
+
+LoginStyle: LoginStyle = LoginStyle()
+
+
+def login_button(name: str, *args) -> rx.button:
+    return rx.button(*args, name, **LoginStyle.LoginButton)
+
 
 def logins_v1():
 
@@ -17,13 +49,7 @@ def logins_v1():
             align="center",
         ),
         rx.input(width="100%", placeholder="something@example.com"),
-        rx.button(
-            "Sign In with Email",
-            width="100%",
-            cursor="pointer",
-            variant="surface",
-            color_scheme="gray",
-        ),
+        login_button("Sign In with Email"),
         rx.hstack(
             rx.divider(width="30%"),
             rx.text("OR CONTINUE WITH", font_size="10px", color_scheme="gray"),
@@ -33,14 +59,7 @@ def logins_v1():
             justify="center",
             padding="5px 0px",
         ),
-        rx.button(
-            rx.icon(tag="github", size=15),
-            "GitHub",
-            width="100%",
-            variant="surface",
-            cursor="pointer",
-            color_scheme="gray",
-        ),
+        login_button("Sign In with Email", rx.icon(tag="github", size=15)),
         rx.text(
             "By clicking continue, you agree to our ",
             rx.text("Terms of Service", as_="u"),
@@ -52,9 +71,5 @@ def logins_v1():
             text_align="center",
             padding="5px 0px",
         ),
-        max_width="21em",
-        height="100%",
-        justify="center",
-        align="center",
-        padding="3em 0em",
+        **LoginStyle.base,
     )

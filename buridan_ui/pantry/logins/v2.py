@@ -1,5 +1,37 @@
 import reflex as rx
 
+from dataclasses import dataclass, field
+
+
+@dataclass
+class LoginStyle:
+    base: dict[str, str] = field(
+        default_factory=lambda: {
+            "width": "100%",
+            "max_width": "21em",
+            "height": "100%",
+            "justify": "center",
+            "align": "center",
+            "padding": "3em 0em",
+        }
+    )
+
+    LoginButton: dict[str, str] = field(
+        default_factory=lambda: {
+            "flex": "1",
+            "cursor": "pointer",
+            "variant": "surface",
+            "color_scheme": "gray",
+        }
+    )
+
+
+LoginStyle: LoginStyle = LoginStyle()
+
+
+def login_button(name: str, *args, **kwargs) -> rx.button:
+    return rx.button(*args, name, **kwargs, **LoginStyle.LoginButton)
+
 
 def logins_v2():
 
@@ -17,22 +49,8 @@ def logins_v2():
             align="center",
         ),
         rx.hstack(
-            rx.button(
-                rx.icon(tag="github", size=15),
-                "GitHub",
-                flex="1",
-                variant="surface",
-                cursor="pointer",
-                color_scheme="gray",
-            ),
-            rx.button(
-                rx.icon(tag="mail", size=15),
-                "Mail",
-                flex="1",
-                variant="surface",
-                cursor="pointer",
-                color_scheme="gray",
-            ),
+            login_button("GitHub", rx.icon(tag="github", size=15)),
+            login_button("Mail", rx.icon(tag="mail", size=15)),
             width="100%",
         ),
         rx.hstack(
@@ -64,10 +82,5 @@ def logins_v2():
             text_align="center",
             padding="5px 0px",
         ),
-        width="100%",
-        max_width="21em",
-        height="100%",
-        justify="center",
-        align="center",
-        padding="5em 0em",
+        **LoginStyle.base
     )
