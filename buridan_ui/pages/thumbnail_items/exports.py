@@ -55,6 +55,7 @@ NORMALIZATION_MAP = {
     "Standard Forms": "forms",
     "Standard Tables": "tables",
     "Timeline": "timeline",
+    "Footers": "footers",
 }
 
 

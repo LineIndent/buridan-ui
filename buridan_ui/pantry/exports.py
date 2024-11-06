@@ -51,6 +51,8 @@ from .subscribe.v2 import subscribe_v2
 
 from .faq.v1 import faq_v1
 
+from .footers.v1 import footer_v1
+
 from ..wrappers.component.wrapper import component_wrapper
 
 BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/pantry/"
@@ -122,5 +124,8 @@ exports_config = {
     ],
     "faq": [
         create_export(faq_v1, "faq", 1),
+    ],
+    "footers": [
+        create_export(footer_v1, "footers", 1),
     ],
 }
