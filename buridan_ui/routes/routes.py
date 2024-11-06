@@ -50,6 +50,7 @@ class Routes:
                 "name": "Frequently Asked Questions",
                 "path": "/pantry/frequently-asked-questions",
             },
+            {"name": "Footers", "path": "/pantry/footers"},
         ]
     )
     charts: List[Dict[str, str]] = field(
