@@ -32,7 +32,7 @@ def create_export(func, directory, version):
     return export
 
 
-exports_config = {
+charts_exports_config = {
     "bar": [
         create_export(barchart_v1, "bar", 1),
         create_export(barchart_v2, "bar", 2),
