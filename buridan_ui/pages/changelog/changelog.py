@@ -89,58 +89,55 @@ def create_link(name: str, path: str):
     )
 
 
-@base("/getting-started/changelog", "Site Changelog", title="Changelog - buridan/ui")
 def changelog():
-    return [
-        rx.vstack(
-            rx.box(
-                rx.vstack(
-                    wrapper(
-                        "Site Refinement and UI Updates",
-                        "November 04, 2024",
-                        [
-                            rx.text("Changes to Charts component wrapper.", size="2"),
-                            rx.text("Updated drawer, themes, and much more!", size="2"),
-                            changelog_badge("party-popper", "buridan/ui v0.2.0"),
-                        ],
-                    ),
-                    wrapper(
-                        "New Interactive App: RAG AI Application",
-                        "October 30, 2024",
-                        [
-                            create_link(
-                                "RAG Application",
-                                "/intractive/retrieval-augmented-generation",
-                            ),
-                            changelog_badge("party-popper", "buridan/ui v0.1.0"),
-                        ],
-                    ),
-                    wrapper(
-                        "New Components and Improvements to Pantry Items",
-                        "October 21, 2024",
-                        [create_pantry_links(PantryRoutes)],
-                    ),
-                    wrapper(
-                        "New Library Component: Charts",
-                        "October 18, 2024",
-                        [create_pantry_links(ChartRoutes)],
-                    ),
-                    wrapper(
-                        "buridan/ui v0.0.1 Deployed to Reflex",
-                        "October 16, 2024",
-                        [
-                            changelog_badge("party-popper", "buridan/ui v0.0.1"),
-                        ],
-                    ),
-                    wrapper("Initial Release", "October 5, 2024"),
-                    **ChangelogStyle.content,
+    return rx.vstack(
+        rx.box(
+            rx.vstack(
+                wrapper(
+                    "Site Refinement and UI Updates",
+                    "November 04, 2024",
+                    [
+                        rx.text("Changes to Charts component wrapper.", size="2"),
+                        rx.text("Updated drawer, themes, and much more!", size="2"),
+                        changelog_badge("party-popper", "buridan/ui v0.2.0"),
+                    ],
                 ),
-                width="100%",
-                align_items="center",
-                justify_content="center",
-                display="flex",
-                padding="0px 24px",
+                wrapper(
+                    "New Interactive App: RAG AI Application",
+                    "October 30, 2024",
+                    [
+                        create_link(
+                            "RAG Application",
+                            "/intractive/retrieval-augmented-generation",
+                        ),
+                        changelog_badge("party-popper", "buridan/ui v0.1.0"),
+                    ],
+                ),
+                wrapper(
+                    "New Components and Improvements to Pantry Items",
+                    "October 21, 2024",
+                    [create_pantry_links(PantryRoutes)],
+                ),
+                wrapper(
+                    "New Library Component: Charts",
+                    "October 18, 2024",
+                    [create_pantry_links(ChartRoutes)],
+                ),
+                wrapper(
+                    "buridan/ui v0.0.1 Deployed to Reflex",
+                    "October 16, 2024",
+                    [
+                        changelog_badge("party-popper", "buridan/ui v0.0.1"),
+                    ],
+                ),
+                wrapper("Initial Release", "October 5, 2024"),
+                **ChangelogStyle.content,
             ),
-            **ChangelogStyle.base,
-        )
-    ]
+            width="100%",
+            align_items="center",
+            justify_content="center",
+            display="flex",
+            padding="0px 24px",
+        ),
+        **ChangelogStyle.base,
+    )

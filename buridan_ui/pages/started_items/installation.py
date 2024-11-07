@@ -52,7 +52,7 @@ def create_code_line(code_string: str):
             variant="ghost",
             size="2",
             on_click=[
-                rx.toast.success("Code copied!"),
+                # rx.toast.provider("Code copied!"),
                 rx.set_clipboard(code_string),
             ],
             cursor="pointer",
@@ -65,52 +65,45 @@ def create_code_line(code_string: str):
     )
 
 
-@base(
-    "/getting-started/installation",
-    "Installation Setup",
-    title="Installation - buridan/ui",
-)
 def installation():
-    return [
-        rx.box(
-            rx.vstack(
-                wrapper(
-                    "Step 1: Check your Python version",
-                    "To use Reflex you need to have Python version 3.9 or above installed on your system.",
-                    [create_code_line("python3 --version")],
-                ),
-                wrapper(
-                    "Step 2: PIP install the Reflex framework",
-                    "Use the following command to install Reflex:",
-                    [
-                        create_code_line("pip3 install reflex"),
-                        rx.text(
-                            "Male sure the latest version of Reflex is installed",
-                            size="3",
-                            weight="bold",
-                            color=rx.color("slate", 12),
-                        ),
-                        create_code_line("reflex --version"),
-                    ],
-                ),
-                wrapper(
-                    "Step 3: Create a new Reflex Web Application",
-                    "Inside your root directory, run the following command to create a new app:",
-                    [create_code_line("reflex init")],
-                ),
-                wrapper(
-                    "Step 4: Copy & paste a pantry item directly into your app",
-                    "You can now easily integrate pantry pantry within your app and personalize them.",
-                ),
-                max_width="50em",
-                width="100%",
-                spacing="9",
-                position="relative",
-                border_left=f"1px solid {rx.color('gray')}",
+    return rx.box(
+        rx.vstack(
+            wrapper(
+                "Step 1: Check your Python version",
+                "To use Reflex you need to have Python version 3.9 or above installed on your system.",
+                [create_code_line("python3 --version")],
             ),
+            wrapper(
+                "Step 2: PIP install the Reflex framework",
+                "Use the following command to install Reflex:",
+                [
+                    create_code_line("pip3 install reflex"),
+                    rx.text(
+                        "Male sure the latest version of Reflex is installed",
+                        size="3",
+                        weight="bold",
+                        color=rx.color("slate", 12),
+                    ),
+                    create_code_line("reflex --version"),
+                ],
+            ),
+            wrapper(
+                "Step 3: Create a new Reflex Web Application",
+                "Inside your root directory, run the following command to create a new app:",
+                [create_code_line("reflex init")],
+            ),
+            wrapper(
+                "Step 4: Copy & paste a pantry item directly into your app",
+                "You can now easily integrate pantry pantry within your app and personalize them.",
+            ),
+            max_width="50em",
             width="100%",
-            display="flex",
-            justify_content="center",
-            padding="0px 14px",
-        )
-    ]
+            spacing="9",
+            position="relative",
+            border_left=f"1px solid {rx.color('gray')}",
+        ),
+        width="100%",
+        display="flex",
+        justify_content="center",
+        padding="0px 14px",
+    )
