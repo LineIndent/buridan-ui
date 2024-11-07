@@ -1,5 +1,5 @@
 
-# <img src="assets/logo.jpg" alt="Logo" width="25px" height="25px" style="border-radius: 25px;"> buridan/ui 
+# buridan/ui 
  
 Pre-designed UI components built with Reflex. Easily copy and paste into your own app. 
 <p align="center">
