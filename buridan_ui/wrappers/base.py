@@ -27,7 +27,6 @@ def base(url: str, page_name: str, **kwargs):
 
     def decorator(content: Callable[[], List[rx.Component]]):
         @wraps(content)
-        @rx.page(route=url, **kwargs)
         def template(*args, **kwargs):
             contents = content(*args, **kwargs)
             return rx.vstack(
