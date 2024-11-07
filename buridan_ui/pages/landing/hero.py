@@ -30,7 +30,7 @@ def count_python_files_in_folder(folder_name):
 
 def create_landing_background(top: str, left: str):
     return rx.box(
-        background_size="30px 30px",
+        background_size="32px 32px",
         background_image=f"radial-gradient(circle, {rx.color('slate', 12)} 0.75px, transparent 1px)",
         mask=(
             "radial-gradient(45% 45% at 50% 50%, hsl(0, 0%, 0%, 0.60), hsl(0, 0%, 0%, 0)), "
@@ -41,14 +41,13 @@ def create_landing_background(top: str, left: str):
         position="absolute",
         top=top,
         left=left,
-        z_index="-2",
     )
 
 
-@rx.page("/", title="buridan-ui ")
 def landing_page() -> rx.vstack:
     return rx.vstack(
         drawer(),
+        create_landing_background("0", "0"),
         rx.vstack(
             landing_page_navigation(),
             rx.divider(height="10em", opacity="0"),
@@ -136,6 +135,5 @@ def landing_page() -> rx.vstack:
             rx.divider(height="2em", opacity="0"),
             **LandingPageStyle.content,
         ),
-        create_landing_background("0", "0"),
         **LandingPageStyle.base,
     )
