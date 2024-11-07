@@ -27,7 +27,6 @@ class ComponentWrapperStyle:
     preview: dict[str, str] = field(
         default_factory=lambda: {
             "margin_top": "24px",
-            "transition": "all 550ms ease",
             "padding": "24px 12px",
             "align_items": "center",
             "justify_content": "center",
