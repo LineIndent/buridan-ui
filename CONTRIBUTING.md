@@ -42,13 +42,12 @@ Make sure to install or have installed *Reflex*
 pip install reflex
 ```
 
-# Build (IN PORGRESS)
+# Build Steps
 
 The following steps should be taken to facilitate adding a new component:
 
-1. First, add the route of the component to ```routes/pantry_routes``` if it's a completely new component design.
-2. Add and normalize the dir name for the thumbnails.
-3. Add a SVG to the assets
-4. create a v{n} (n=1) and build the ui
-5. export the file inside pantry/exports.py
-6. export and add the UI using pantry_items/items.py
+1. Create the pre-built design inside one of the main sections (pantry, charts, or interactive apps).
+2. Add the ```route```, ```name```, and ```dir``` inside the ```routes/route.py``` file, under the correct section.
+3. If it's a new category of ```pantry``` item, find the relative **SVG** image for it. 
+4. Add and normalize the dir name for the thumbnails.
+5. Add the necessary config details.
