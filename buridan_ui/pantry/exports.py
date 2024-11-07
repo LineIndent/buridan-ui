@@ -52,6 +52,7 @@ from .subscribe.v2 import subscribe_v2
 from .faq.v1 import faq_v1
 
 from .footers.v1 import footer_v1
+from .footers.v2 import footer_v2
 
 from ..wrappers.component.wrapper import component_wrapper
 
@@ -71,7 +72,7 @@ def create_export(func, directory, version):
     return export
 
 
-exports_config = {
+pantry_exports_config = {
     "logins": [
         create_export(logins_v1, "logins", 1),
         create_export(logins_v2, "logins", 2),
@@ -127,5 +128,6 @@ exports_config = {
     ],
     "footers": [
         create_export(footer_v1, "footers", 1),
+        create_export(footer_v2, "footers", 2),
     ],
 }
