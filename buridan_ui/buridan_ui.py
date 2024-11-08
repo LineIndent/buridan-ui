@@ -7,6 +7,7 @@ from .routes.routes import Routes
 from .pantry.exports import pantry_exports_config
 from .charts.exports import charts_exports_config
 from .pages.started_items.exports import getting_started_config
+from .pages.interactive.exports import interactive_config
 from .pages.landing.hero import landing_page
 
 
@@ -20,11 +21,14 @@ app = rx.App(
 )
 
 
-def get_exports(directory, config_file):
+def get_exports(directory: str, config_file: dict[str, list[callable]]):
     return [export() for export in config_file[directory]]
 
 
-def add_routes(routes, export_config):
+def add_routes(
+    routes: list[dict[str, str]],
+    export_config: dict[str, list[callable]],
+):
     for route in routes:
 
         @base(route["path"], route["name"])
@@ -42,10 +46,10 @@ def add_routes(routes, export_config):
 
 # ... set the DEV var to True for faster hot reload
 # ... ... change the ENV to match the page in progress
-DEV: bool = True
+DEV: bool = False
 
 if DEV:
-
+    # ... ex: working with pantry item footer -> set the ENV data as such:
     ENV = {
         "path": "/pantry/footers/",
         "name": "Footers",
@@ -62,6 +66,7 @@ if DEV:
 
 else:
     app.add_page(landing_page(), route="/", title="Buridan UI")
+    add_routes(Routes.interactive, interactive_config)
     add_routes(Routes.pantries, pantry_exports_config)
     add_routes(Routes.charts, charts_exports_config)
     add_routes(Routes.started, getting_started_config)

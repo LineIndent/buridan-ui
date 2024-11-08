@@ -1,7 +1,7 @@
 import reflex as rx
 
 from .style import FooterStyle
-from ..sidemenu.state import SideMenuState
+from ...states.routing import SiteRoutingState
 
 
 def create_footer_item(title: str, routes: list[dict[str, str]]):
@@ -18,7 +18,7 @@ def create_footer_item(title: str, routes: list[dict[str, str]]):
                 ),
                 href=data["path"],
                 text_decoration="none",
-                on_click=SideMenuState.toggle_page_change(data),
+                on_click=SiteRoutingState.toggle_page_change(data),
             ),
             rx.cond(
                 data["is_beta"],
@@ -44,11 +44,13 @@ def create_footer_item(title: str, routes: list[dict[str, str]]):
 
 def footer():
     return rx.vstack(
-        create_footer_item("Home", SideMenuState.GettingStartedRoutes),
-        create_footer_item("Interactive Applications", SideMenuState.InteractiveRoutes),
-        create_footer_item("Charts UI", SideMenuState.ChartRoutes),
-        create_footer_item("Pantry UI", SideMenuState.PantryRoutes),
-        create_footer_item("Resources", SideMenuState.ResourcesRoutes),
+        create_footer_item("Home", SiteRoutingState.GettingStartedRoutes),
+        create_footer_item(
+            "Interactive Applications", SiteRoutingState.InteractiveRoutes
+        ),
+        create_footer_item("Charts UI", SiteRoutingState.ChartRoutes),
+        create_footer_item("Pantry UI", SiteRoutingState.PantryRoutes),
+        create_footer_item("Resources", SiteRoutingState.ResourcesRoutes),
         rx.divider(height="2em", opacity="0"),
         rx.vstack(
             rx.heading("buridan/ui", size="5", font_weight="900"),

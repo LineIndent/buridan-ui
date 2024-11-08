@@ -2,9 +2,8 @@ import reflex as rx
 from reflex.constants.colors import Color
 
 from .style import NavigationStyle
-from .state import NavigationState
-
 from ...templates.drawer.state import DrawerState
+from ...states.routing import SiteRoutingState
 
 
 def navigation_links(data: dict[str, str | Color]):
@@ -19,14 +18,14 @@ def navigation_links(data: dict[str, str | Color]):
         ),
         href=data["path"],
         text_decoration="none",
-        on_click=lambda: NavigationState.toggle_page_change(data),
+        on_click=lambda: SiteRoutingState.toggle_page_change(data),
     )
 
 
 def navigation_right_side_items():
     return rx.hstack(
         rx.hstack(
-            rx.foreach(NavigationState.NavigationRoutes, navigation_links),
+            rx.foreach(SiteRoutingState.NavigationRoutes, navigation_links),
             display=["none", "none", "none", "none", "none", "flex"],
             align="center",
         ),
@@ -63,7 +62,10 @@ def navigation_left_side_items():
             size="5",
             font_weight="900",
             cursor="pointer",
-            on_click=rx.redirect("/"),
+            on_click=[
+                SiteRoutingState.toggle_page_change({"name": "Home", "path": "/"}),
+                rx.redirect("/"),
+            ],
         ),
         align="center",
     )

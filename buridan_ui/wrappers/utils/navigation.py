@@ -1,7 +1,7 @@
 import reflex as rx
 
 from ...routes.routes import PantryRoutes
-from ...templates.sidemenu.state import SideMenuState
+from ...states.routing import SiteRoutingState
 
 
 def create_button(route, direction):
@@ -17,7 +17,7 @@ def create_button(route, direction):
                     route["name"],
                     weight="bold",
                     size="1",
-                    on_click=SideMenuState.toggle_page_change(route),
+                    on_click=SiteRoutingState.toggle_page_change(route),
                     color=rx.color("slate", 12),
                 ),
                 href=route["path"],

@@ -1,9 +1,9 @@
 import reflex as rx
 from typing import List, Dict
-from .state import SideMenuState
-from .style import SideMenuStyle
 
+from .style import SideMenuStyle
 from ..wrapper.wrapper import menu_wrapper
+from ...states.routing import SiteRoutingState
 
 
 def create_sidebar_menu_items(routes: List[Dict[str, str]]):
@@ -21,7 +21,7 @@ def create_sidebar_menu_items(routes: List[Dict[str, str]]):
                 ),
                 href=data["path"],
                 text_decoration="none",
-                on_click=lambda: SideMenuState.toggle_page_change(data),
+                on_click=lambda: SiteRoutingState.toggle_page_change(data),
             ),
             rx.cond(
                 data["is_beta"],
@@ -64,22 +64,22 @@ def sidemenu() -> rx.vstack:
             menu_wrapper(
                 "Getting Started",
                 "play",
-                [create_sidebar_menu_items(SideMenuState.GettingStartedRoutes)],
+                [create_sidebar_menu_items(SiteRoutingState.GettingStartedRoutes)],
             ),
             menu_wrapper(
                 "Interactive Apps",
                 "table",
-                [create_sidebar_menu_items(SideMenuState.InteractiveRoutes)],
+                [create_sidebar_menu_items(SiteRoutingState.InteractiveRoutes)],
             ),
             menu_wrapper(
                 "Charts",
                 "table-columns-split",
-                [create_sidebar_menu_items(SideMenuState.ChartRoutes)],
+                [create_sidebar_menu_items(SiteRoutingState.ChartRoutes)],
             ),
             menu_wrapper(
                 "Pantry",
                 "component",
-                [create_sidebar_menu_items(SideMenuState.PantryRoutes)],
+                [create_sidebar_menu_items(SiteRoutingState.PantryRoutes)],
             ),
             **SideMenuStyle.content,
         ),

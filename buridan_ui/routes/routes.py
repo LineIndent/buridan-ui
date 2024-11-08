@@ -33,11 +33,13 @@ class Routes:
 
     interactive: List[Dict[str, str]] = field(
         default_factory=lambda: [
-            {"name": "Dashboard", "path": "/interactive/dashboard", "is_beta": True},
+            # ... dashboard may be removed in future
+            # {"name": "Dashboard", "path": "/interactive/dashboard", "is_beta": True},
             {
                 "name": "RAG Application",
                 "path": "/interactive/retrieval-augmented-generation",
                 "is_new": True,
+                "dir": "rag",
             },
         ]
     )

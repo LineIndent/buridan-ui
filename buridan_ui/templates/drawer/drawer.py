@@ -4,7 +4,7 @@ from .style import DrawerStyle
 from .state import DrawerState
 
 from ..sidemenu.sidemenu import create_sidebar_menu_items
-from ..sidemenu.state import SideMenuState
+from ...states.routing import SiteRoutingState
 
 active = rx.color("slate", 12)
 
@@ -43,19 +43,19 @@ def drawer():
                     ),
                     drawer_menu_header("Getting Started", "play"),
                     drawer_menu_link(
-                        create_sidebar_menu_items(SideMenuState.GettingStartedRoutes)
+                        create_sidebar_menu_items(SiteRoutingState.GettingStartedRoutes)
                     ),
                     drawer_menu_header("Interactive Apps", "puzzle"),
                     drawer_menu_link(
-                        create_sidebar_menu_items(SideMenuState.InteractiveRoutes)
+                        create_sidebar_menu_items(SiteRoutingState.InteractiveRoutes)
                     ),
                     drawer_menu_header("Charts", "table-columns-split"),
                     drawer_menu_link(
-                        create_sidebar_menu_items(SideMenuState.ChartRoutes)
+                        create_sidebar_menu_items(SiteRoutingState.ChartRoutes)
                     ),
                     drawer_menu_header("Pantry", "component"),
                     drawer_menu_link(
-                        create_sidebar_menu_items(SideMenuState.PantryRoutes)
+                        create_sidebar_menu_items(SiteRoutingState.PantryRoutes)
                     ),
                     **DrawerStyle.stack_content,
                 ),
