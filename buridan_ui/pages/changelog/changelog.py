@@ -1,9 +1,14 @@
+from typing import Callable
+
 import reflex as rx
 
 from .style import ChangelogStyle
 
 from ...routes.routes import PantryRoutes, ChartRoutes
-from ...wrappers.base import base
+
+info: Callable[[str, any], rx.Component] = lambda txt, *args: rx.text(
+    txt, size="2", color=rx.color("slate", 11), *args
+)
 
 
 def blip():
@@ -95,10 +100,12 @@ def changelog():
             rx.vstack(
                 wrapper(
                     "Site Refinement and UI Updates",
-                    "November 04, 2024",
+                    "November 08, 2024",
                     [
-                        rx.text("Changes to Charts component wrapper.", size="2"),
-                        rx.text("Updated drawer, themes, and much more!", size="2"),
+                        info("Changes to Charts component wrapper."),
+                        info("Codebase refactor and state changes."),
+                        info("Changes to code block theme and font size."),
+                        info("Major changes to @component_wrapper menu items."),
                         changelog_badge("party-popper", "buridan/ui v0.2.0"),
                     ],
                 ),
