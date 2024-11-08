@@ -59,7 +59,6 @@ def barchart_v3():
                 padding="10px",
             ),
             width="100%",
-            max_width=["80em", "70em", "60em", "50em", "40em", "30em"],
         ),
         width="100%",
         padding="12px",

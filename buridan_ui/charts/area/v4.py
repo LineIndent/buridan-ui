@@ -57,7 +57,6 @@ def areachart_v4():
             ),
             width="100%",
             margin_right="10px",
-            max_width=["80em", "70em", "60em", "50em", "40em", "30em"],
         ),
         width="100%",
         padding="12px",
