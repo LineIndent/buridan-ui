@@ -39,7 +39,7 @@ class ComponentWrapperStyle:
     code: dict[str, str] = field(
         default_factory=lambda: {
             "width": "100%",
-            "font_size": "13px",
+            "font_size": "15px",
             "language": "python",
             "wrap_long_lines": True,
             "scrollbar_width": "none",
