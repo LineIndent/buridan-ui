@@ -12,6 +12,7 @@ from .utils.tabs import component_wrapper_tab_menu
 from .utils.responsive import component_wrapper_responsive_menu
 from .utils.source import component_wrapper_source_code
 from .utils.scheme import component_wrapper_color_scheme
+from ...pages.interactive.rag.shared.navigation import theme
 
 
 def component_wrapper_menu_bar(has_theme: bool, component_id: int, path: str):
@@ -50,7 +51,7 @@ def component_wrapper_code_content(component_code: str):
     return rx.tabs.content(
         rx.hstack(
             rx.code_block(
-                component_code, theme=Theme.vs_dark, **ComponentWrapperStyle.code
+                component_code, theme=Theme.darcula, **ComponentWrapperStyle.code
             ),
             rx.button(
                 rx.cond(

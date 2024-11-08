@@ -39,14 +39,13 @@ class ComponentWrapperStyle:
     code: dict[str, str] = field(
         default_factory=lambda: {
             "width": "100%",
-            "font_size": "12px",
-            "language": "markup",
+            "font_size": "13px",
+            "language": "python",
             "wrap_long_lines": True,
             "scrollbar_width": "none",
             "code_tag_props": {"pre": "transparent"},
             "custom_style": {
                 "backgroundColor": "transparent",
-                "color": rx.color("gray", 12),
             },
         }
     )
