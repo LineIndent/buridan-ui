@@ -13,6 +13,13 @@ from .area.v4 import areachart_v4
 
 from .line.v1 import linechart_v1
 from .line.v2 import linechart_v2
+from .line.v3 import linechart_v3
+
+from .pie.v1 import piechart_v1
+from .pie.v2 import piechart_v2
+from .pie.v3 import piechart_v3
+from .pie.v4 import piechart_v4
+from .pie.v5 import piechart_v5
 
 from ..wrappers.component.wrapper import component_wrapper
 
@@ -48,5 +55,13 @@ charts_exports_config = {
     "line": [
         create_export(linechart_v1, "line", 1),
         create_export(linechart_v2, "line", 2),
+        create_export(linechart_v3, "line", 3),
+    ],
+    "pie": [
+        create_export(piechart_v1, "pie", 1),
+        create_export(piechart_v2, "pie", 2),
+        create_export(piechart_v3, "pie", 3),
+        create_export(piechart_v4, "pie", 4),
+        create_export(piechart_v5, "pie", 5),
     ],
 }

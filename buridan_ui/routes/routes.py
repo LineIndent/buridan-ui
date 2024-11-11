@@ -145,6 +145,7 @@ class Routes:
             {"name": "Bar Charts", "path": "/charts/bar-charts", "dir": "bar"},
             {"name": "Area Charts", "path": "/charts/area-charts", "dir": "area"},
             {"name": "Line Charts", "path": "/charts/line-charts", "dir": "line"},
+            {"name": "Pie Charts", "path": "/charts/pie-charts", "dir": "pie"},
         ]
     )
 

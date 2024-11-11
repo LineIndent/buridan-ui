@@ -49,12 +49,12 @@ def add_routes(
 DEV: bool = False
 
 if DEV:
-    # ... ex: working with pantry item footer -> set the ENV data as such:
+    # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/pantry/footers/",
-        "name": "Footers",
-        "dir": "footers",
-        "config": pantry_exports_config,
+        "path": "/charts/pie-charts",
+        "name": "Pie Chart",
+        "dir": "pie",
+        "config": charts_exports_config,
     }
 
     @base(ENV["path"], ENV["name"])
