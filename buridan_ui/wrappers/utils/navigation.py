@@ -1,6 +1,6 @@
 import reflex as rx
 
-from ...routes.routes import PantryRoutes
+from ...routes.routes import PantryRoutes, ChartRoutes
 from ...states.routing import SiteRoutingState
 
 
@@ -58,12 +58,20 @@ def render_prev_and_next_ui(routes: list[dict[str, str]]):
     )
 
 
-def pantry_in_page_navigation(path: str) -> rx.Component:
-    for i, route in enumerate(PantryRoutes):
+def page_navigation(path: str, routes: list[dict]) -> rx.Component:
+    for i, route in enumerate(routes):
         if route["path"] == path:
-            prev_page = PantryRoutes[i - 1] if i > 0 else [""]
-            next_page = PantryRoutes[i + 1] if i < len(PantryRoutes) - 1 else [""]
+            prev_page = routes[i - 1] if i > 0 else [""]
+            next_page = routes[i + 1] if i < len(routes) - 1 else [""]
 
             return render_prev_and_next_ui([prev_page, next_page])
 
     return rx.spacer()
+
+
+def pantry_in_page_navigation(path: str) -> rx.Component:
+    return page_navigation(path, PantryRoutes)
+
+
+def charts_in_page_navigation(path: str) -> rx.Component:
+    return page_navigation(path, ChartRoutes)
