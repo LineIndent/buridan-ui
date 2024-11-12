@@ -30,7 +30,6 @@ def create_footer_item(title: str, routes: list[dict[str, str]]):
                 ),
             ),
             width="100%",
-            justify="between",
             align="center",
         )
 
