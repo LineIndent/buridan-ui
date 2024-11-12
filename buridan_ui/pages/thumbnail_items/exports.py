@@ -56,6 +56,7 @@ NORMALIZATION_MAP = {
     "Standard Tables": "tables",
     "Timeline": "timeline",
     "Footers": "footers",
+    "Inputs": "inputs",
 }
 
 

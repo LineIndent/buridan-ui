@@ -54,6 +54,11 @@ from .faq.v1 import faq_v1
 from .footers.v1 import footer_v1
 from .footers.v2 import footer_v2
 
+from .inputs.v1 import inputs_v1
+from .inputs.v2 import inputs_v2
+from .inputs.v3 import inputs_v3
+from .inputs.v4 import inputs_v4
+
 from ..wrappers.component.wrapper import component_wrapper
 
 BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/pantry/"
@@ -129,5 +134,11 @@ pantry_exports_config = {
     "footers": [
         create_export(footer_v1, "footers", 1),
         create_export(footer_v2, "footers", 2),
+    ],
+    "inputs": [
+        create_export(inputs_v1, "inputs", 1),
+        create_export(inputs_v2, "inputs", 2),
+        create_export(inputs_v3, "inputs", 3),
+        create_export(inputs_v4, "inputs", 4),
     ],
 }

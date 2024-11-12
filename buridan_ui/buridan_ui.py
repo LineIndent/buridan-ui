@@ -51,10 +51,10 @@ DEV: bool = False
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/charts/pie-charts",
-        "name": "Pie Chart",
-        "dir": "pie",
-        "config": charts_exports_config,
+        "path": "/pantry/inputs",
+        "name": "Inputs",
+        "dir": "inputs",
+        "config": pantry_exports_config,
     }
 
     @base(ENV["path"], ENV["name"])
