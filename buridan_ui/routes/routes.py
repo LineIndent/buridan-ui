@@ -38,7 +38,6 @@ class Routes:
             {
                 "name": "RAG Application",
                 "path": "/interactive/retrieval-augmented-generation",
-                "is_new": True,
                 "dir": "rag",
             },
         ]
@@ -137,6 +136,12 @@ class Routes:
                 "path": "/pantry/footers",
                 "dir": "footers",
             },
+            {
+                "name": "Inputs",
+                "path": "/pantry/inputs",
+                "dir": "inputs",
+                "is_new": True,
+            },
         ]
     )
 
@@ -145,7 +150,12 @@ class Routes:
             {"name": "Bar Charts", "path": "/charts/bar-charts", "dir": "bar"},
             {"name": "Area Charts", "path": "/charts/area-charts", "dir": "area"},
             {"name": "Line Charts", "path": "/charts/line-charts", "dir": "line"},
-            {"name": "Pie Charts", "path": "/charts/pie-charts", "dir": "pie"},
+            {
+                "name": "Pie Charts",
+                "path": "/charts/pie-charts",
+                "dir": "pie",
+                "is_new": True,
+            },
         ]
     )
 
