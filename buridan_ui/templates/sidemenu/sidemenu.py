@@ -33,7 +33,6 @@ def create_sidebar_menu_items(routes: List[Dict[str, str]]):
                 ),
             ),
             width="100%",
-            justify="between",
             align="center",
         )
 
