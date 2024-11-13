@@ -40,6 +40,12 @@ class Routes:
                 "path": "/interactive/retrieval-augmented-generation",
                 "dir": "rag",
             },
+            {
+                "name": "PubMed Application",
+                "path": "/interactive/pubmed-ai",
+                "dir": "pubmed",
+                "is_new": True,
+            },
         ]
     )
 
@@ -175,7 +181,7 @@ class NavigationRoutes:
         default_factory=lambda: [
             {"name": "Home", "path": "/"},
             {"name": "Getting Started", "path": GettingStartedRoutes[0]["path"]},
-            {"name": "Interactive Table", "path": InteractiveRoutes[0]["path"]},
+            {"name": "Interactive Apps", "path": InteractiveRoutes[0]["path"]},
             {"name": "Pantry", "path": PantryRoutes[0]["path"]},
             {"name": "Charts", "path": ChartRoutes[0]["path"]},
         ]
