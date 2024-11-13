@@ -17,7 +17,7 @@ AppFontURL: str = (
 
 app = rx.App(
     stylesheets=[AppFontURL],
-    style={rx.heading: {"font_family": "Inter"}, rx.text: {"font_family": "Inter"}},
+    style={rx.heading: {"font_family": "inter"}, rx.text: {"font_family": "inter"}},
 )
 
 
@@ -51,10 +51,10 @@ DEV: bool = False
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/pantry/inputs",
-        "name": "Inputs",
-        "dir": "inputs",
-        "config": pantry_exports_config,
+        "path": "/interactive/pubmed-ai",
+        "name": "PubMed AI App",
+        "dir": "pubmed",
+        "config": interactive_config,
     }
 
     @base(ENV["path"], ENV["name"])
