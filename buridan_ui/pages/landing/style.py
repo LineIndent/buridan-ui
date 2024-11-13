@@ -9,7 +9,7 @@ class LandingPageStyle:
             "width": "100%",
             "min_height": "100vh",
             "align": "center",
-            "background": rx.color("gray", 1),
+            "background": rx.color("gray", 2),
         }
     )
 
