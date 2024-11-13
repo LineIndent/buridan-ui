@@ -12,6 +12,8 @@ def landing_page_pantry_items():
         grid_template_columns=[
             f"repeat({i}, minmax(0, 1fr))" for i in [1, 2, 2, 2, 4, 4]
         ],
-        min_height="100vh",
+        height="90vh",
+        overflow="hidden",
         padding="18px 0px",
+        mask="linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 50%, hsl(0, 0%, 0%, 0) 100%)",
     )

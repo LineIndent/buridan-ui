@@ -7,7 +7,7 @@ class LandingPageSectionWrapperStyle:
     wrapper: dict[str, str] = field(
         default_factory=lambda: {
             "width": "100%",
-            "align": "start",
+            "align": "center",
             "padding": ["12px 0px" if i >= 5 else "12px 12px" for i in range(6)],
             "spacing": "5",
         }
@@ -17,8 +17,9 @@ class LandingPageSectionWrapperStyle:
         default_factory=lambda: {
             "width": "100%",
             "max_width": "45em",
-            "align": "start",
+            "align": "center",
             "spacing": "5",
+            "text_align": "center",
         }
     )
 
