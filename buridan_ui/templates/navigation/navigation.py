@@ -18,7 +18,7 @@ def navigation_links(data: dict[str, str | Color]):
         ),
         href=data["path"],
         text_decoration="none",
-        on_click=lambda: SiteRoutingState.toggle_page_change(data),
+        on_click=SiteRoutingState.toggle_page_change(data),
     )
 
 
