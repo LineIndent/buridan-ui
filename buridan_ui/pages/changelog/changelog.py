@@ -99,6 +99,17 @@ def changelog():
         rx.box(
             rx.vstack(
                 wrapper(
+                    "New Apps and Site UI Changes",
+                    "November 13, 2024",
+                    [
+                        info("New pantry: Footers!"),
+                        info("New chart item: Pie Charts!"),
+                        info("New interactive app: PubMed A.I."),
+                        info("UI changes to site landing page."),
+                        changelog_badge("party-popper", "buridan/ui v0.3.0"),
+                    ],
+                ),
+                wrapper(
                     "Site Refinement and UI Updates",
                     "November 08, 2024",
                     [
