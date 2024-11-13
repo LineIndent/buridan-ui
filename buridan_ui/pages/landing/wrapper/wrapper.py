@@ -1,14 +1,38 @@
 from typing import Literal
 
 import reflex as rx
-
+from ....states.routing import SiteRoutingState
 from .style import LandingPageSectionWrapperStyle
 
 ButtonStyle = Literal["classic", "ghost", "outline", "soft", "solid", "surface"]
 
 
-def landing_page_main_button(name: str, style: ButtonStyle, **kwargs) -> rx.button:
-    return rx.button(name, variant=style, cursor="pointer", **kwargs)
+def landing_page_main_button(
+    tag: str, cmd: str, name: str, style: ButtonStyle, **kwargs
+) -> rx.button:
+    return rx.button(
+        rx.icon(tag=tag, size=18),
+        rx.text(
+            name,
+            size="2",
+            weight="bold",
+        ),
+        (
+            rx.badge(rx.text(cmd), width="21px", height="21px", variant="soft")
+            if cmd
+            else rx.text()
+        ),
+        variant=style,
+        cursor="pointer",
+        size="3",
+        box_shadow=f"inset 0 -3px 1.5px hsla(0, 0%, 0%, 0.1)",
+        transition="all 300ms ease",
+        _hover={"box_shadow": "none"},
+        radius="small",
+        height="42px",
+        color_scheme="gray",
+        **kwargs,
+    )
 
 
 def landing_page_section_wrapper(
@@ -45,15 +69,27 @@ def landing_page_section_wrapper_main(
             rx.text(subtitle),
             rx.hstack(
                 landing_page_main_button(
-                    "Getting Started",
-                    "solid",
-                    on_click=rx.redirect("/getting-started/introduction"),
+                    "component",
+                    "",
+                    "Explore Pantry",
+                    "soft",
+                    on_click=SiteRoutingState.toggle_page_change(
+                        {"name": "Animations", "path": "/pantry/animations"}
+                    ),
                 ),
                 landing_page_main_button(
-                    "Explore Pantry Items",
-                    "outline",
-                    on_click=rx.redirect("/pantry/animation"),
+                    "github",
+                    "C",
+                    "Clone Source",
+                    "surface",
+                    on_click=rx.redirect("https://github.com/LineIndent/buridan-ui"),
                 ),
+                width="100%",
+                max_width="30em",
+                display="grid",
+                grid_template_columns=[
+                    f"repeat({i}, minmax(0, 1fr))" for i in [1, 1, 2, 2, 2, 2]
+                ],
             ),
             **LandingPageSectionWrapperStyle.titles,
         ),
