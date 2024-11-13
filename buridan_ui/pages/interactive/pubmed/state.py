@@ -83,9 +83,6 @@ class PubMedState(rx.State):
                     }
                 )
 
-                yield
-                await asyncio.sleep(1)
-
         else:
             yield rx.toast.warning("No articles found.")
 
@@ -150,9 +147,10 @@ class PubMedState(rx.State):
             (item for item in self.articles if item["id"] == identifier), None
         )
         if self.articles:
+            article_copy = dict(article)
             if state:
-                if not any(item["id"] == article["id"] for item in self.selection):
-                    self.selection.append(article)
+                if not any(item["id"] == article_copy["id"] for item in self.selection):
+                    self.selection.append(article_copy)  # Append a copy, not the proxy
             else:
                 self.selection[:] = [
                     item for item in self.selection if item["id"] != identifier

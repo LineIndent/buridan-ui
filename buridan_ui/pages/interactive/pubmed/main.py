@@ -106,7 +106,7 @@ def pubmed_ai():
         rx.cond(
             PubMedState.articles,
             wrapper(
-                f"2. Table Results for Search Query",
+                f"2. Table Results for query",
                 [rx.box(table(), width="100%")],
             ),
             rx.spacer(),
