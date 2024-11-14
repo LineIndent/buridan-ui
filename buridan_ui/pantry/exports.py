@@ -22,6 +22,7 @@ from .forms.v2 import forms_v2
 from .forms.v3 import forms_v3
 
 from .featured.v1 import featured_v1
+from .featured.v2 import featured_v2
 
 from .lists.v1 import lists_v1
 
@@ -100,7 +101,10 @@ pantry_exports_config = {
         create_export(forms_v2, "forms", 2),
         create_export(forms_v3, "forms", 3),
     ],
-    "featured": [create_export(featured_v1, "featured", 1)],
+    "featured": [
+        create_export(featured_v1, "featured", 1),
+        create_export(featured_v2, "featured", 2),
+    ],
     "lists": [create_export(lists_v1, "lists", 1)],
     "timeline": [create_export(timeline_v1, "timeline", 1)],
     "onboardings": [create_export(onboardings_v1, "onboardings", 1)],
