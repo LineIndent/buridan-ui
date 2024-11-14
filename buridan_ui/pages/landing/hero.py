@@ -3,7 +3,8 @@ import os
 import reflex as rx
 
 from .wrapper.wrapper import (
-    landing_page_main_button,
+    button,
+    button_with_key,
     landing_page_section_wrapper,
     landing_page_section_wrapper_main,
 )
@@ -11,15 +12,18 @@ from .style import LandingPageStyle
 
 from .features.feature import feature
 
+from .bindings import key_bindings
+
 from .items.pantry import landing_page_pantry_items
 from .items.charts import landing_page_chart_items
-from ...states.routing import SiteRoutingState
+from .items.credits import credit_banner
 
 from ...templates.footer.footer import footer
 from ...templates.drawer.drawer import drawer
 from ...templates.navigation.navigation import landing_page_navigation
+from ...templates.background.background import landing_page_grid_background
 
-from .bindings import key_bindings
+from ...states.routing import SiteRoutingState
 
 
 def count_python_files_in_folder(folder_name):
@@ -31,40 +35,12 @@ def count_python_files_in_folder(folder_name):
     return total_files
 
 
-def create_landing_background(top: str, left: str):
-    return rx.box(
-        background_size="34px 34px",
-        background_image=f"radial-gradient(circle, {rx.color('slate', 12)} 1px, transparent 1px)",
-        mask=(
-            "radial-gradient(45% 45% at 50% 50%, hsl(0, 0%, 0%, 0.60), hsl(0, 0%, 0%, 0)), "
-            "radial-gradient(60% 70% at 50% 50%, hsl(0, 0%, 0%, 0.35), hsl(0, 0%, 0%, 0))"
-        ),
-        width="100%",
-        height="100vh",
-        position="absolute",
-        top=top,
-        left=left,
-    )
-
-
-def create_credits_header():
-    return rx.badge(
-        "Hi",
-        width="100%",
-        top="55px",
-        left="0",
-        position="absolute",
-        padding="14px",
-        variant="surface",
-        radius="none",
-    )
-
-
 def landing_page() -> rx.vstack:
     return rx.vstack(
         rx.script(key_bindings()),
         drawer(),
-        create_landing_background("0", "0"),
+        landing_page_grid_background(),
+        credit_banner(),
         rx.vstack(
             landing_page_navigation(),
             rx.divider(height="10em", opacity="0"),
@@ -124,26 +100,23 @@ def landing_page() -> rx.vstack:
                 "",
                 [
                     rx.hstack(
-                        landing_page_main_button(
+                        button(
                             "play",
-                            "",
                             "Getting Started",
-                            "soft",
-                            on_click=SiteRoutingState.toggle_page_change(
+                            "solid",
+                            SiteRoutingState.toggle_page_change(
                                 {
                                     "name": "Introduction",
                                     "path": "/getting-started/introduction",
                                 }
                             ),
                         ),
-                        landing_page_main_button(
+                        button_with_key(
                             "github",
                             "X",
                             "Reflex GitHub Page",
                             "surface",
-                            on_click=rx.redirect(
-                                "https://github.com/reflex-dev/reflex"
-                            ),
+                            rx.redirect("https://github.com/reflex-dev/reflex"),
                         ),
                         width="100%",
                         max_width="30em",

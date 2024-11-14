@@ -1,38 +1,38 @@
-from typing import Literal
+from typing import Literal, Callable
 
 import reflex as rx
 from ....states.routing import SiteRoutingState
-from .style import LandingPageSectionWrapperStyle
+from .style import LandingPageSectionWrapperStyle, LandingPageButtons
 
 ButtonStyle = Literal["classic", "ghost", "outline", "soft", "solid", "surface"]
+KeyDisplay = ["none" if i <= 2 else "flex" for i in range(6)]
 
-
-def landing_page_main_button(
-    tag: str, cmd: str, name: str, style: ButtonStyle, **kwargs
-) -> rx.button:
-    return rx.button(
+button: Callable[[str, str, ButtonStyle, callable], rx.Component] = (
+    lambda tag, name, style, func: rx.button(
         rx.icon(tag=tag, size=18),
-        rx.text(
-            name,
-            size="2",
-            weight="bold",
-        ),
-        (
-            rx.badge(rx.text(cmd), width="21px", height="21px", variant="soft")
-            if cmd
-            else rx.text()
-        ),
+        rx.text(name, size="2", weight="bold"),
+        on_click=func,
         variant=style,
-        cursor="pointer",
-        size="3",
-        box_shadow=f"inset 0 -3px 1.5px hsla(0, 0%, 0%, 0.1)",
-        transition="all 300ms ease",
-        _hover={"box_shadow": "none"},
-        radius="small",
-        height="42px",
-        color_scheme="gray",
-        **kwargs,
+        **LandingPageButtons.base,
     )
+)
+
+button_with_key: Callable[[str, str, str, ButtonStyle, callable], rx.Component] = (
+    lambda tag, cmd, name, style, func: rx.button(
+        rx.icon(tag=tag, size=18),
+        rx.text(name, size="2", weight="bold"),
+        rx.badge(
+            rx.text(cmd),
+            width="20px",
+            height="20px",
+            variant="soft",
+            display=KeyDisplay,
+        ),
+        on_click=func,
+        variant=style,
+        **LandingPageButtons.base,
+    )
+)
 
 
 def landing_page_section_wrapper(
@@ -50,11 +50,11 @@ def landing_page_section_wrapper(
             rx.heading(title, font_weight="900", size="8"),
             rx.text(subtitle),
             rx.link(link, href=path),
-            **LandingPageSectionWrapperStyle.titles,
+            **LandingPageSectionWrapperStyle.titles_secondary,
         ),
         *components,
         # ... wrapper style
-        **LandingPageSectionWrapperStyle.wrapper,
+        **LandingPageSectionWrapperStyle.wrapper_secondary,
     )
 
 
@@ -68,21 +68,20 @@ def landing_page_section_wrapper_main(
             rx.heading(title, font_weight="900", size="9"),
             rx.text(subtitle),
             rx.hstack(
-                landing_page_main_button(
+                button(
                     "component",
-                    "",
                     "Explore Pantry",
-                    "soft",
-                    on_click=SiteRoutingState.toggle_page_change(
+                    "solid",
+                    SiteRoutingState.toggle_page_change(
                         {"name": "Animations", "path": "/pantry/animations"}
                     ),
                 ),
-                landing_page_main_button(
+                button_with_key(
                     "github",
                     "C",
-                    "Clone Source",
+                    "View Source",
                     "surface",
-                    on_click=rx.redirect("https://github.com/LineIndent/buridan-ui"),
+                    rx.redirect("https://github.com/LineIndent/buridan-ui"),
                 ),
                 width="100%",
                 max_width="30em",
@@ -100,10 +99,7 @@ def landing_page_section_wrapper_main(
 
 
 def blip(tag: str) -> rx.box:
-    return rx.box(
-        rx.icon(tag=tag, size=12),
-        **LandingPageSectionWrapperStyle.blip,
-    )
+    return rx.box(rx.icon(tag=tag, size=12), **LandingPageSectionWrapperStyle.blip)
 
 
 def landing_page_features_wrapper(

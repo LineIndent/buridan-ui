@@ -1,25 +1,43 @@
 from dataclasses import dataclass, field
+from typing import Callable, Dict, List
 import reflex as rx
+
+
+padding: Callable[[], list[str]] = lambda: [
+    "12px 0px" if i >= 5 else "12px 12px" for i in range(6)
+]
+
+WrapperShared: Dict[str, str | List[str]] = {
+    "width": "100%",
+    "spacing": "5",
+    "padding": padding(),
+}
+TitlesShared: Dict[str, str] = {"width": "100%", "max_width": "45em", "spacing": "5"}
 
 
 @dataclass
 class LandingPageSectionWrapperStyle:
     wrapper: dict[str, str] = field(
-        default_factory=lambda: {
-            "width": "100%",
-            "align": "center",
-            "padding": ["12px 0px" if i >= 5 else "12px 12px" for i in range(6)],
-            "spacing": "5",
-        }
+        default_factory=lambda: {"align": "center", **WrapperShared}
+    )
+
+    wrapper_secondary: dict[str, str] = field(
+        default_factory=lambda: {"align": "start", **WrapperShared}
     )
 
     titles: dict[str, str] = field(
         default_factory=lambda: {
-            "width": "100%",
-            "max_width": "45em",
             "align": "center",
-            "spacing": "5",
             "text_align": "center",
+            **TitlesShared,
+        }
+    )
+
+    titles_secondary: dict[str, str] = field(
+        default_factory=lambda: {
+            "align": "start",
+            "text_align": "start",
+            **TitlesShared,
         }
     )
 
@@ -50,6 +68,20 @@ class LandingPageSectionWrapperStyle:
         }
     )
 
+
+@dataclass
+class LandingPageButtons:
+    base: dict[str, str] = field(
+        default_factory=lambda: {
+            "radius": "small",
+            "height": "42px",
+            "cursor": "pointer",
+            "size": "3",
+        }
+    )
+
+
+LandingPageButtons: LandingPageButtons = LandingPageButtons()
 
 LandingPageSectionWrapperStyle: LandingPageSectionWrapperStyle = (
     LandingPageSectionWrapperStyle()
