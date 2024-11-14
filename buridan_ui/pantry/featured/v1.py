@@ -1,77 +1,82 @@
-from typing import Callable
-from dataclasses import dataclass, field
 import reflex as rx
 
-
-data = {
-    0: {
+data = [
+    {
         "image": "auditors",
         "title": "Pharmacists",
         "description": "Azurill can be seen bouncing and playing on its big, rubbery tail",
     },
-    1: {
+    {
         "image": "lawyers",
         "title": "Lawyers",
         "description": "Fans obsess over the particular length and angle of its arms",
     },
-    2: {
+    {
         "image": "accountants",
         "title": "Bank owners",
         "description": "They divvy up their prey evenly among the members of their pack",
     },
-    3: {
+    {
         "image": "others",
         "title": "Others",
         "description": "Phanpy uses its long nose to shower itself",
     },
-}
+]
 
 
-@dataclass
-class FeaturesV1Style:
-    base: dict[str, str] = field(
-        default_factory=lambda: {
-            "width": "100%",
-            "max_width": "45em",
-            "align": "start",
-            "justify": "center",
-        }
+def create_featured(title: str, description: str):
+    return rx.hstack(
+        rx.box(
+            width="42px",
+            height="42px",
+            bg=rx.color("gray", 4),
+            border_radius="10px",
+        ),
+        rx.vstack(
+            rx.text(title, font_size="14px", weight="bold"),
+            rx.text(
+                description, font_size="11px", weight="medium", color_scheme="gray"
+            ),
+            spacing="1",
+            width=["90%" if i <= 1 else "60%" for i in range(6)],
+        ),
+        width="100%",
+        padding="12px 0px",
     )
-
-
-FeaturesV1Style: FeaturesV1Style = FeaturesV1Style()
-
-txt: Callable[[str, str, str, int], rx.text] = (
-    lambda name, weight, size, shade: rx.text(
-        name, weight=weight, size=size, color=rx.color("slate", shade)
-    )
-)
-
-feature_item: Callable[[str, str], rx.vstack] = lambda title, description: rx.vstack(
-    txt(title, "bold", "2", 11), txt(description, "medium", "3", 12), spacing="1"
-)
 
 
 def featured_v1():
     return rx.vstack(
         rx.heading(
             "PharmLand is not just for Doctors",
-            color=rx.color("slate", 12),
             size="4",
+            color=rx.color("slate", 12),
         ),
         rx.text(
             "Its lungs contain an organ that creates electricity. The crackling sound of electricity can be heard when it exhales. Azurill’s tail is large and bouncy. It is packed full of the nutrients this Pokémon needs to grow.",
             color=rx.color("slate", 11),
-            size="2",
         ),
-        rx.divider(height="0.5em", opacity="0"),
         rx.hstack(
-            *[
-                feature_item(item["title"], item["description"])
-                for item in data.values()
-            ],
+            *list(
+                map(
+                    lambda item: create_featured(item["title"], item["description"]),
+                    data,
+                )
+            ),
             width="100%",
-            wrap="wrap",
+            display="grid",
+            grid_template_columns=[
+                "repeat(1, 1fr)" if i <= 1 else "repeat(2, 1fr)" for i in range(6)
+            ],
+            justify_content="start",
+            align_items="start",
+            padding="24px 0px",
+            spacing="0",
+            wrap="wrap"
         ),
-        **FeaturesV1Style.base,
+        width="100%",
+        max_width="35em",
+        display="flex",
+        justify="center",
+        align="start",
     )
