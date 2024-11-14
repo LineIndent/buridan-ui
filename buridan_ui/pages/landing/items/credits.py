@@ -12,7 +12,8 @@ class CreditBannerStyle:
             "wrap": "wrap",
             "bg": rx.color("blue", 3),
             "padding": "14px",
-            "border": f"1.5px solid {rx.color('blue')}",
+            "border_top": f"1.5px solid {rx.color('blue')}",
+            "border_bottom": f"1.5px solid {rx.color('blue')}",
         }
     )
 
