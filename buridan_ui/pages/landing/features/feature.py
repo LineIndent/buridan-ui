@@ -41,7 +41,7 @@ features = {
     7: {
         "tag": "frame",
         "title": "Minimalistic Design",
-        "description": "Clean and simple UI",
+        "description": "Clean, simple, and sleek UI designs.",
     },
 }
 
