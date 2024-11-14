@@ -1,3 +1,5 @@
+from typing import Callable
+
 import reflex as rx
 
 data: list[dict[str, str]] = [
@@ -27,6 +29,10 @@ data: list[dict[str, str]] = [
     },
 ]
 
+txt: Callable[[str, int], rx.Component] = lambda string, shade: rx.text(
+    string, weight="bold", color=rx.color("gray", shade)
+)
+
 
 def question_and_answer(question: str, answer: str):
     return rx.hstack(
@@ -36,14 +42,15 @@ def question_and_answer(question: str, answer: str):
             height="100%",
         ),
         rx.vstack(
-            rx.text(question, weight="bold", color=rx.color("gray", 11)),
-            rx.text(answer, weight="medium", color=rx.color("gray", 12)),
+            txt(question, 11),
+            txt(answer, 12),
             align="start",
+            spacing="1",
         ),
         width="100%",
         align="start",
         padding="16px 0px",
-        border_top=f"1px solid {rx.color('slate', 11)}",
+        border_top=f"0.75px solid {rx.color('slate', 10)}",
     )
 
 
