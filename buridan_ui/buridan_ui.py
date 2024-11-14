@@ -17,7 +17,11 @@ AppFontURL: str = (
 
 app = rx.App(
     stylesheets=[AppFontURL],
-    style={rx.heading: {"font_family": "inter"}, rx.text: {"font_family": "inter"}},
+    style={
+        "background": "transparent",
+        rx.heading: {"font_family": "inter"},
+        rx.text: {"font_family": "inter"},
+    },
 )
 
 
