@@ -38,9 +38,9 @@ def add_routes(
         @base(route["path"], route["name"])
         def export_page() -> callable:
             if route["name"] == "Standard Tables":
-                return get_exports(route["dir"], export_config)[:1]
-            elif route["name"] == "Table Pagination":
                 return get_exports(route["dir"], export_config)[1:]
+            elif route["name"] == "Table Pagination":
+                return get_exports(route["dir"], export_config)[:1]
             return get_exports(route["dir"], export_config)
 
         app.add_page(
@@ -55,10 +55,10 @@ DEV: bool = False
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/interactive/pubmed-ai",
-        "name": "PubMed AI App",
-        "dir": "pubmed",
-        "config": interactive_config,
+        "path": "/pantry/featured",
+        "name": "",
+        "dir": "featured",
+        "config": pantry_exports_config,
     }
 
     @base(ENV["path"], ENV["name"])

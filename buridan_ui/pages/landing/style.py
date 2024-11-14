@@ -8,6 +8,7 @@ class LandingPageStyle:
             "width": "100%",
             "min_height": "100vh",
             "align": "center",
+            "spacing": "0",
         }
     )
 
