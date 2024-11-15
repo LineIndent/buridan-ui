@@ -45,9 +45,6 @@ def piechart_v5():
             rx.recharts.graphing_tooltip(),
             width="100%",
             height=400,
-            align_items="center",
-            justify_content="center",
-            display="flex",
         ),
         info(
             "Trending up by 5.2% this month",

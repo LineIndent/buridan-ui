@@ -33,10 +33,8 @@ def create_featured(title: str, description: str):
             border_radius="10px",
         ),
         rx.vstack(
-            rx.text(title, font_size="14px", weight="bold"),
-            rx.text(
-                description, font_size="11px", weight="medium", color_scheme="gray"
-            ),
+            rx.text(title, size="2", weight="bold"),
+            rx.text(description, size="1", weight="medium", color_scheme="gray"),
             spacing="1",
             width=["90%" if i <= 1 else "60%" for i in range(6)],
         ),

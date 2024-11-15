@@ -48,9 +48,6 @@ def piechart_v4():
             rx.recharts.legend(),
             width="100%",
             height=400,
-            align_items="center",
-            justify_content="center",
-            display="flex",
         ),
         rx.divider(height="1em", opacity="0"),
         info(

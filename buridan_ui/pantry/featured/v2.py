@@ -18,7 +18,7 @@ class FeaturesStyle:
     base_item: dict[str, str | dict] = field(
         default_factory=lambda: {
             "spacing": "1",
-            "flex": "1 1 320px",
+            "flex": "1 1 300px",
             "padding": "0.5rem",
         },
     )
@@ -69,13 +69,13 @@ feature_item_title: Callable[[str, str], rx.Component] = lambda tag, title: rx.h
         height="21px",
         padding="5px",
     ),
-    rx.text(title, weight="bold", size="2", color=rx.color("slate", 12)),
+    rx.text(title, weight="bold", size="1", color=rx.color("slate", 12)),
     align="center",
     spacing="2",
 )
 
 feature_item_description: Callable[[str], rx.Component] = lambda description: rx.hstack(
-    rx.text(description, weight="medium", size="3", color=rx.color("slate", 11))
+    rx.text(description, weight="medium", size="1", color=rx.color("slate", 11))
 )
 
 
