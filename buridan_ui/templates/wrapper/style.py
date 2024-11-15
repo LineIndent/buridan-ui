@@ -24,9 +24,9 @@ class MenuWrapperStyle:
             "width": "100%",
             "align": "start",
             "justify": "start",
-            "padding_left": "24px",
+            # "padding_left": "24px",
             "border_radius": "0px 5px 5px 0px",
-            "border_left": f"1px solid {rx.color('gray', 6)}",
+            # "border_left": f"1px solid {rx.color('gray', 6)}",
         }
     )
 

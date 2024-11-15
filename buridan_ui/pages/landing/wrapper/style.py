@@ -12,7 +12,7 @@ WrapperShared: Dict[str, str | List[str]] = {
     "spacing": "5",
     "padding": padding(),
 }
-TitlesShared: Dict[str, str] = {"width": "100%", "max_width": "45em", "spacing": "5"}
+TitlesShared: Dict[str, str] = {"width": "100%", "spacing": "5"}
 
 
 @dataclass
@@ -29,6 +29,7 @@ class LandingPageSectionWrapperStyle:
         default_factory=lambda: {
             "align": "center",
             "text_align": "center",
+            "max_width": "48em",
             **TitlesShared,
         }
     )
@@ -37,6 +38,7 @@ class LandingPageSectionWrapperStyle:
         default_factory=lambda: {
             "align": "start",
             "text_align": "start",
+            "max_width": "38em",
             **TitlesShared,
         }
     )
@@ -74,7 +76,7 @@ class LandingPageButtons:
     base: dict[str, str] = field(
         default_factory=lambda: {
             "radius": "small",
-            "height": "42px",
+            # "height": "42px",
             "cursor": "pointer",
             "size": "3",
         }
