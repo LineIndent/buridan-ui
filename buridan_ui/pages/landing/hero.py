@@ -114,12 +114,12 @@ def landing_page() -> rx.vstack:
                         button_with_key(
                             "github",
                             "X",
-                            "Reflex GitHub Page",
+                            "Reflex GitHub",
                             "surface",
                             rx.redirect("https://github.com/reflex-dev/reflex"),
                         ),
                         width="100%",
-                        max_width="30em",
+                        max_width="25em",
                         display="grid",
                         grid_template_columns=[
                             f"repeat({i}, minmax(0, 1fr))" for i in [1, 1, 2, 2, 2, 2]
@@ -127,7 +127,7 @@ def landing_page() -> rx.vstack:
                     ),
                 ],
             ),
-            rx.divider(height="5em", opacity="0"),
+            rx.divider(height="8em", opacity="0"),
             footer(),
             rx.divider(height="2em", opacity="0"),
             **LandingPageStyle.content,

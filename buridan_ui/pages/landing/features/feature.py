@@ -60,7 +60,7 @@ feature_item_title: Callable[[str, str], rx.Component] = lambda tag, title: rx.h
 )
 
 feature_item_description: Callable[[str], rx.Component] = lambda description: rx.hstack(
-    rx.text(description, weight="medium", size="3", color=rx.color("slate", 11))
+    rx.text(description, weight="medium", size="1", color=rx.color("slate", 11))
 )
 
 

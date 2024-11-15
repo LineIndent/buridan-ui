@@ -22,6 +22,7 @@ app = rx.App(
         rx.heading: {"font_family": "inter"},
         rx.text: {"font_family": "inter"},
     },
+    theme=rx.theme(scaling="95%", accent_color="blue"),
 )
 
 
@@ -56,7 +57,7 @@ if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
         "path": "/pantry/featured",
-        "name": "",
+        "name": "Featured",
         "dir": "featured",
         "config": pantry_exports_config,
     }

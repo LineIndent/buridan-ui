@@ -3,7 +3,7 @@ import reflex as rx
 from ..state import ComponentWrapperState
 from .style import ComponentWrapperUtilStyle
 
-IconMap = {"100%": "laptop", "60%": "tablet", "30%": "smartphone"}
+IconMap = {"100%": "monitor", "60%": "tablet", "30%": "smartphone"}
 PaddingMap = {0: "10px 0px 0px 10px", 1: "0px", 2: "0px 10px 10px 0px"}
 
 
@@ -13,7 +13,7 @@ def _(index: int, icon: str, resize: str, idd: int):
             rx.button(
                 rx.icon(
                     tag=icon,
-                    size=18,
+                    size=14,
                     color=rx.color("slate", 11),
                 ),
                 border_radius=PaddingMap[index],

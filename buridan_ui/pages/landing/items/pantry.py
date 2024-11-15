@@ -8,9 +8,9 @@ def landing_page_pantry_items():
         *export_thumbnail,
         width="100%",
         display="grid",
-        gap="2rem",
+        gap="1em",
         grid_template_columns=[
-            f"repeat({i}, minmax(0, 1fr))" for i in [1, 2, 2, 2, 4, 4]
+            f"repeat({i}, minmax(0, 1fr))" for i in [1, 2, 2, 4, 4, 4]
         ],
         height="90vh",
         overflow="hidden",
