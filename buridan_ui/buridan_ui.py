@@ -51,7 +51,7 @@ def add_routes(
 
 # ... set the DEV var to True for faster hot reload
 # ... ... change the ENV to match the page in progress
-DEV: bool = False
+DEV: bool = True
 
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:

@@ -10,14 +10,22 @@ active = rx.color("slate", 12)
 
 
 def drawer_menu_header(title: str, icon: str):
-    return rx.badge(
-        rx.hstack(
-            rx.text(title, size="1", color=active, weight="bold"),
-            rx.icon(tag=icon, size=15, color=active),
-            **DrawerStyle.header_components,
-        ),
-        **DrawerStyle.header,
+    return rx.text(
+        title,
+        size="1",
+        color=active,
+        weight="bold",
+        padding="0.75em 1.25em",
     )
+
+    # return rx.badge(
+    #     rx.hstack(
+    #         rx.text(title, size="1", color=active, weight="bold"),
+    #         # rx.icon(tag=icon, size=15, color=active),
+    #         **DrawerStyle.header_components,
+    #     ),
+    #     **DrawerStyle.header,
+    # )
 
 
 def drawer_menu_link(stack: rx.vstack):
@@ -33,7 +41,7 @@ def drawer():
                     rx.hstack(
                         rx.heading(
                             "buridan/ui",
-                            size="5",
+                            size="4",
                             font_weight="900",
                             cursor="pointer",
                             on_click=rx.redirect("/"),
