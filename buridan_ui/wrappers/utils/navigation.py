@@ -8,7 +8,7 @@ def create_button(route, direction):
     if len(route) > 1:
         return rx.hstack(
             (
-                rx.icon(tag=f"arrow-{direction}", size=15, color=rx.color("slate", 12))
+                rx.icon(tag=f"arrow-{direction}", size=14, color=rx.color("slate", 12))
                 if direction == "left"
                 else rx.spacer()
             ),
@@ -24,7 +24,7 @@ def create_button(route, direction):
                 underline="none",
             ),
             (
-                rx.icon(tag=f"arrow-{direction}", size=15, color=rx.color("slate", 12))
+                rx.icon(tag=f"arrow-{direction}", size=14, color=rx.color("slate", 12))
                 if direction == "right"
                 else rx.spacer()
             ),
@@ -51,10 +51,11 @@ def render_prev_and_next_ui(routes: list[dict[str, str]]):
         position="sticky",
         bottom="0",
         width="100%",
-        padding="14px 24px",
+        padding="0.80em 24px",
         radius="none",
-        bg=rx.color("blue", 5),
         z_index="20",
+        variant="soft",
+        backdrop_filter="blur(5px)",
     )
 
 

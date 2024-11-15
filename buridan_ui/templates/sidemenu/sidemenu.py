@@ -1,23 +1,23 @@
 import reflex as rx
 from typing import List, Dict
 
+from reflex.constants.colors import Color
+
 from .style import SideMenuStyle
 from ..wrapper.wrapper import menu_wrapper
 from ...states.routing import SiteRoutingState
 
 
-def create_sidebar_menu_items(routes: List[Dict[str, str]]):
+def create_sidebar_menu_items(routes: List[Dict[str, str | Color]]):
 
     def item(data):
         return rx.hstack(
             rx.link(
                 rx.text(
                     data["name"],
-                    size="3",
+                    size="1",
                     weight="medium",
-                    color=data["color"],
-                    _hover={"color": rx.color("slate", 12)},
-                    transition="color 350ms ease",
+                    color=rx.color("slate", 12),
                 ),
                 href=data["path"],
                 text_decoration="none",
@@ -32,13 +32,18 @@ def create_sidebar_menu_items(routes: List[Dict[str, str]]):
                     rx.spacer(),
                 ),
             ),
+            border_left=data["border_left"],
+            background=data["background"],
             width="100%",
             align="center",
+            height="30px",
+            padding_left="20px",
+            border_radius="0px 6px 6px 0px",
         )
 
     return rx.vstack(
         rx.foreach(routes, item),
-        spacing="2",
+        spacing="0",
         width="100%",
     )
 
@@ -66,17 +71,17 @@ def sidemenu() -> rx.vstack:
                 [create_sidebar_menu_items(SiteRoutingState.GettingStartedRoutes)],
             ),
             menu_wrapper(
-                "Interactive Apps",
+                "Interactive Applications",
                 "table",
                 [create_sidebar_menu_items(SiteRoutingState.InteractiveRoutes)],
             ),
             menu_wrapper(
-                "Charts",
+                "Chart Components",
                 "table-columns-split",
                 [create_sidebar_menu_items(SiteRoutingState.ChartRoutes)],
             ),
             menu_wrapper(
-                "Pantry",
+                "Pantry Components",
                 "component",
                 [create_sidebar_menu_items(SiteRoutingState.PantryRoutes)],
             ),
