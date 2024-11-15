@@ -5,7 +5,7 @@ from .style import ComponentWrapperUtilStyle
 def component_wrapper_source_code(path: str):
     return rx.button(
         rx.link(
-            rx.icon(tag="github", size=18, color=rx.color("slate", 11)),
+            rx.icon(tag="github", size=14, color=rx.color("slate", 11)),
             href=path,
             is_external=True,
         ),

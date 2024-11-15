@@ -61,7 +61,7 @@ class State(rx.State):
         return True if len(self.data) == 8 else False
 
     @rx.var
-    def track_profil_stat_changes(self):
+    def track_profil_stat_changes(self) -> dict[str, str]:
         if chat_session.history:
             chat_session.history.pop(0)
 
