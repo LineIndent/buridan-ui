@@ -47,10 +47,10 @@ def landing_page_section_wrapper(
     return rx.vstack(
         # ... badge, title, subtitle, and link
         rx.vstack(
-            rx.badge(badge, variant="surface", size="3"),
-            rx.heading(title, font_weight="900", size="8"),
-            rx.text(subtitle),
-            rx.link(link, href=path),
+            rx.badge(badge, variant="surface", size="1"),
+            rx.heading(title, font_weight="900", size="7"),
+            rx.text(subtitle, weight="medium", size="2"),
+            rx.link(link, href=path, size="1"),
             **LandingPageSectionWrapperStyle.titles_secondary,
         ),
         *components,
@@ -65,9 +65,13 @@ def landing_page_section_wrapper_main(
     return rx.vstack(
         # ... badge, title, subtitle, and link
         rx.vstack(
-            rx.badge(badge, variant="surface", size="3"),
-            rx.heading(title, font_weight="900", size="9"),
-            rx.text(subtitle),
+            rx.heading(
+                title,
+                font_weight="900",
+                line_height="1em",
+                font_size=["2.85em", "2.85em", "3em", "3em", "3.5em", "3.75em"],
+            ),
+            rx.text(subtitle, weight="medium", size="4"),
             rx.hstack(
                 button(
                     "component",
@@ -85,7 +89,7 @@ def landing_page_section_wrapper_main(
                     rx.redirect("https://github.com/LineIndent/buridan-ui"),
                 ),
                 width="100%",
-                max_width="30em",
+                max_width="25em",
                 display="grid",
                 grid_template_columns=[
                     f"repeat({i}, minmax(0, 1fr))" for i in [1, 1, 2, 2, 2, 2]
@@ -113,10 +117,7 @@ def landing_page_features_wrapper(
                     blip(tag),
                     rx.text(title, size="3", font_weight="900"),
                 ),
-                rx.text(
-                    subtitle,
-                    size="4",
-                ),
+                rx.text(subtitle, size="4", weight="medium"),
                 spacing="1",
             ),
             *components,

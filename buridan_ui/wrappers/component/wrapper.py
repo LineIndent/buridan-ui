@@ -50,18 +50,21 @@ def component_wrapper_code_content(component_code: str):
     return rx.tabs.content(
         rx.hstack(
             rx.code_block(
-                component_code, theme=Theme.darcula, **ComponentWrapperStyle.code
+                component_code,
+                theme=Theme.darcula,
+                **ComponentWrapperStyle.code,
             ),
             rx.button(
                 rx.cond(
                     ComponentWrapperState.default_icon,
-                    rx.icon(tag="clipboard-list", size=15),
-                    rx.icon(tag="check", size=15, color=rx.color("grass")),
+                    rx.icon(tag="clipboard-list", size=14),
+                    rx.icon(tag="check", size=14, color=rx.color("grass")),
                 ),
                 on_click=[
                     ComponentWrapperState.toggle_icon,
                     rx.set_clipboard(component_code),
                 ],
+                color="white",
                 **ComponentWrapperStyle.copy_button,
             ),
             **InnerCode,
