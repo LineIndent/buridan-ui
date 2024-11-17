@@ -27,6 +27,7 @@ def component_wrapper_menu_bar(has_theme: bool, component_id: int, path: str):
         align="center",
         justify="between",
         width="100%",
+        padding="0.5em",
     )
 
 
@@ -36,7 +37,7 @@ def component_wrapper_preview_content(component: rx.Component, component_id: int
             rx.vstack(
                 component,
                 width=[
-                    ("100%" if i <= 4 else ComponentWrapperState.uuid[component_id])
+                    ("100%" if i <= 3 else ComponentWrapperState.uuid[component_id])
                     for i in range(6)
                 ],
                 **ComponentWrapperStyle.preview,
@@ -64,7 +65,6 @@ def component_wrapper_code_content(component_code: str):
                     ComponentWrapperState.toggle_icon,
                     rx.set_clipboard(component_code),
                 ],
-                color="white",
                 **ComponentWrapperStyle.copy_button,
             ),
             **InnerCode,
