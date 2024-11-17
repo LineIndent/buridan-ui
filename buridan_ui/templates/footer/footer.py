@@ -9,7 +9,7 @@ def create_footer_item(title: str, routes: list[dict[str, str]]):
         return rx.hstack(
             rx.link(
                 rx.text(
-                    data["name"], size="1", weight="bold", color=rx.color("slate", 12)
+                    data["name"], size="1", weight="medium", color=rx.color("slate", 11)
                 ),
                 href=data["path"],
                 text_decoration="none",
@@ -29,7 +29,7 @@ def create_footer_item(title: str, routes: list[dict[str, str]]):
         )
 
     return rx.vstack(
-        rx.text(title, weight="bold", size="1", color=rx.color("gray", 11)),
+        rx.text(title, weight="bold", size="1", color=rx.color("slate", 12)),
         rx.hstack(rx.foreach(routes, item), **FooterStyle.footer_item),
         width="100%",
         padding="0.5em 0em",
@@ -45,7 +45,6 @@ def footer():
         ),
         create_footer_item("Charts UI", SiteRoutingState.ChartRoutes),
         create_footer_item("Pantry UI", SiteRoutingState.PantryRoutes),
-        create_footer_item("Resources", SiteRoutingState.ResourcesRoutes),
         rx.divider(height="2em", opacity="0"),
         rx.vstack(
             rx.heading("buridan/ui", size="3", font_weight="900"),
