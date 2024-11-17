@@ -45,7 +45,7 @@ github = nav_icon(
             color=rx.color("slate", 12),
         ),
         href="https://github.com/LineIndent/buridan-ui",
-        display=["none", "none", "none", "none", "none", "flex"],
+        display=["none", "none", "none", "none", "flex", "flex"],
     ),
 )
 
@@ -63,7 +63,7 @@ def navigation_right_side_items():
     return rx.hstack(
         rx.hstack(
             rx.foreach(SiteRoutingState.NavigationRoutes, navigation_links),
-            display=["none", "none", "none", "none", "none", "flex"],
+            display=["none", "none", "none", "none", "flex", "flex"],
             align="center",
         ),
         rx.divider(
@@ -71,18 +71,18 @@ def navigation_right_side_items():
             height="30px",
             width="0.75px",
             color_scheme="gray",
-            display=["none", "none", "none", "none", "none", "flex"],
+            display=["none", "none", "none", "none", "flex", "flex"],
             margin="0em 0.5em",
         ),
         rx.hstack(github, theme, align="center", spacing="2"),
-        rx.button(
-            rx.icon(tag="align-justify", size=15),
+        rx.el.button(
+            rx.icon(tag="align-right", size=15),
             on_click=DrawerState.toggle_drawer,
             size="1",
-            variant="soft",
+            variant="ghost",
             color_scheme="gray",
             cursor="pointer",
-            display=["flex", "flex", "flex", "flex", "flex", "none"],
+            display=["flex", "flex", "flex", "flex", "none", "none"],
         ),
         align="center",
     )
@@ -119,14 +119,18 @@ def docs_navigation():
         navigation_left_side_items(),
         rx.hstack(
             rx.hstack(github, theme, align="center", spacing="2"),
-            rx.button(
-                rx.icon(tag="align-justify", size=15),
+            rx.el.button(
+                rx.icon(
+                    tag="align-right",
+                    size=15,
+                    cursor="pointer",
+                ),
                 on_click=DrawerState.toggle_drawer,
                 size="1",
                 variant="soft",
                 color_scheme="gray",
                 cursor="pointer",
-                display=["flex", "flex", "flex", "flex", "flex", "none"],
+                display=["flex", "flex", "flex", "flex", "none", "none"],
             ),
             align="center",
         ),
