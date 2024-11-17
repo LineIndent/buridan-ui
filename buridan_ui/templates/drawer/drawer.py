@@ -10,22 +10,7 @@ active = rx.color("slate", 12)
 
 
 def drawer_menu_header(title: str, icon: str):
-    return rx.text(
-        title,
-        size="1",
-        color=active,
-        weight="bold",
-        padding="0.75em 1.25em",
-    )
-
-    # return rx.badge(
-    #     rx.hstack(
-    #         rx.text(title, size="1", color=active, weight="bold"),
-    #         # rx.icon(tag=icon, size=15, color=active),
-    #         **DrawerStyle.header_components,
-    #     ),
-    #     **DrawerStyle.header,
-    # )
+    return rx.text(title, size="1", color=active, weight="bold", padding="0em 1.25em")
 
 
 def drawer_menu_link(stack: rx.vstack):
