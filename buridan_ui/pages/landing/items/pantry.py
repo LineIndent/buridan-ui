@@ -4,16 +4,19 @@ from ...thumbnail_items.exports import export_thumbnail
 
 
 def landing_page_pantry_items():
-    return rx.hstack(
+    return rx.vstack(
         *export_thumbnail,
         width="100%",
         display="grid",
-        gap="1em",
+        column_gap="2rem",
+        row_gap="2.5rem",
         grid_template_columns=[
-            f"repeat({i}, minmax(0, 1fr))" for i in [1, 2, 2, 4, 4, 4]
+            f"repeat({i}, minmax(0, 1fr))" for i in [1, 2, 2, 3, 4, 4]
         ],
-        height="90vh",
+        height="100%",
         overflow="hidden",
         padding="18px 0px",
-        mask="linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 50%, hsl(0, 0%, 0%, 0) 100%)",
+        position="relative",
+        # ... use this is setting height to vh
+        # mask="linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 50%, hsl(0, 0%, 0%, 0) 100%)",
     )
