@@ -2,17 +2,11 @@ import os
 
 import reflex as rx
 
-from .wrapper.wrapper import (
-    button,
-    button_with_key,
-    landing_page_section_wrapper,
-    landing_page_section_wrapper_main,
-)
+from .wrapper.wrapper import landing_page_section_wrapper
+
 from .style import LandingPageStyle
-
+from .hero_landing.hero import hero
 from .features.feature import feature
-
-from .bindings import key_bindings
 
 from .items.pantry import landing_page_pantry_items
 from .items.charts import landing_page_chart_items
@@ -22,8 +16,6 @@ from ...templates.footer.footer import footer
 from ...templates.drawer.drawer import drawer
 from ...templates.navigation.navigation import landing_page_navigation
 from ...templates.background.background import landing_page_grid_background
-
-from ...states.routing import SiteRoutingState
 
 
 def count_python_files_in_folder(folder_name):
@@ -37,18 +29,12 @@ def count_python_files_in_folder(folder_name):
 
 def landing_page() -> rx.vstack:
     return rx.vstack(
-        rx.script(key_bindings()),
         drawer(),
         landing_page_grid_background(),
         credit_banner(),
         rx.vstack(
             landing_page_navigation(),
-            rx.divider(height="10em", opacity="0"),
-            landing_page_section_wrapper_main(
-                "Powered by Reflex",
-                "Build your next web app, faster than ever.",
-                "Beautifully designed, expertly crafted components and templates built for the Reflex framework, empowering you to develop web apps in pure Python.",
-            ),
+            hero(),
             rx.divider(height="4em", opacity="0"),
             landing_page_section_wrapper(
                 "Full Stack Features",
@@ -68,20 +54,6 @@ def landing_page() -> rx.vstack:
                 [landing_page_pantry_items()],
             ),
             rx.divider(height="2em", opacity="0"),
-            rx.text(
-                "There’s so much more to discover here. ",
-                rx.link(
-                    "View all pantry items now →",
-                    on_click=SiteRoutingState.toggle_page_change(
-                        {"name": "Animations", "path": "/pantry/animations"}
-                    ),
-                ),
-                size="2",
-                weight="medium",
-                color=rx.color("slate", 11),
-                width="100%",
-                align="center",
-            ),
             rx.divider(height="5em", opacity="0"),
             landing_page_section_wrapper(
                 "Chart Components",
@@ -96,36 +68,9 @@ def landing_page() -> rx.vstack:
                 "buridan/ui",
                 "Almost there, one click to launch your web application!",
                 "Download and install Reflex to bring your ideas to life, or explore our Getting Started pages for comprehensive guidance and resources.",
-                "",
-                "",
-                [
-                    rx.hstack(
-                        button(
-                            "play",
-                            "Getting Started",
-                            "solid",
-                            SiteRoutingState.toggle_page_change(
-                                {
-                                    "name": "Introduction",
-                                    "path": "/getting-started/introduction",
-                                }
-                            ),
-                        ),
-                        button_with_key(
-                            "github",
-                            "X",
-                            "Reflex GitHub",
-                            "surface",
-                            rx.redirect("https://github.com/reflex-dev/reflex"),
-                        ),
-                        width="100%",
-                        max_width="25em",
-                        display="grid",
-                        grid_template_columns=[
-                            f"repeat({i}, minmax(0, 1fr))" for i in [1, 1, 2, 2, 2, 2]
-                        ],
-                    ),
-                ],
+                "Check out Reflex →",
+                "https://reflex.dev/",
+                [],
             ),
             rx.divider(height="8em", opacity="0"),
             footer(),
