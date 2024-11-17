@@ -57,7 +57,7 @@ def top_scroll_fade_out():
         height="10%",
         z_index="20",
         background=rx.color("gray", 2),
-        mask="linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 45%, hsl(0, 0%, 0%, 0) 100%)",
+        mask="linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 55%, hsl(0, 0%, 0%, 0) 100%)",
     )
 
 
