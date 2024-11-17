@@ -7,7 +7,7 @@ class ComponentWrapperStyle:
     root: dict[str, str] = field(
         default_factory=lambda: {
             "width": "100%",
-            "padding": "10px",
+            "padding": "1px",
             "overflow": "hidden",
             "default_value": "1",
             "border_radius": "10px",
@@ -17,21 +17,19 @@ class ComponentWrapperStyle:
 
     shared: dict[str, str] = field(
         default_factory=lambda: {
-            "margin_top": "24px",
-            "border_radius": "8px",
+            "margin_top": "5px",
             "display": "flex",
-            "background": "hsl(0, 0%, 10%)",
+            "background": rx.color("gray", 2),
         }
     )
 
     preview: dict[str, str] = field(
         default_factory=lambda: {
-            "margin_top": "24px",
+            "margin_top": "5px",
             "padding": "24px 12px",
             "align_items": "center",
             "justify_content": "center",
             "overflow": "hidden",
-            "border_radius": "10px",
             "background": rx.color("gray", 2),
         }
     )
@@ -44,10 +42,7 @@ class ComponentWrapperStyle:
             "wrap_long_lines": True,
             "scrollbar_width": "none",
             "code_tag_props": {"pre": "transparent"},
-            "show_line_numbers": True,
-            "custom_style": {
-                "backgroundColor": "hsl(0, 0%, 10%)",
-            },
+            "custom_style": {"backgroundColor": "transparent"},
         }
     )
 

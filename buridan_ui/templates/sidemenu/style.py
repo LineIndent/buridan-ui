@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 import reflex as rx
 
+print(["none" if i <= 3 else "flex" for i in range(6)])
+
 
 @dataclass
 class SideMenuStyle:
@@ -13,11 +15,11 @@ class SideMenuStyle:
             "height": "100vh",
             "overflow": "auto",
             "position": "sticky",
-            "padding": "90px 1em 90px 2.5em",
+            "padding": "80px 1em 80px 1.5em",
             "scrollbar_width": "none",
             "background": rx.color("gray", 2),
-            "display": ["none" if i <= 4 else "flex" for i in range(6)],
-            "mask": "linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 94%, hsl(0, 0%, 0%, 0) 100%)",
+            "display": ["none" if i <= 3 else "flex" for i in range(6)],
+            "mask": "linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 92%, hsl(0, 0%, 0%, 0) 100%)",
             "border_right": f"1px solid {rx.color('gray', 4)}",
         }
     )

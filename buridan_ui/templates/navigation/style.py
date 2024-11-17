@@ -13,7 +13,7 @@ class NavigationStyle:
             "align": "center",
             "position": "absolute",
             "justify": "between",
-            "padding": "0.5em 2em",
+            "padding": "0.5em 1.5em",
             "backdrop_filter": "blur(10px)",
             "border_bottom": "solid",
             "border_image": f"linear-gradient(to right, transparent, {rx.color('gray', 6)},  transparent) 2 / 4px",
@@ -23,12 +23,12 @@ class NavigationStyle:
 
     logo: dict[str, str] = field(
         default_factory=lambda: {
-            "width": "22px",
-            "height": "22px",
+            "width": "24px",
+            "height": "24px",
             "border_radius": "100%",
             "object_fit": "fit",
             "border": f"1px solid {rx.color('slate', 12)}",
-            "display": ["none", "none", "none", "none", "none", "flex"],
+            "display": ["none", "none", "none", "none", "flex", "flex"],
         }
     )
 
@@ -37,7 +37,6 @@ class NavigationStyle:
             "width": "100%",
             "align": "center",
             "justify": "between",
-            "backdrop_filter": "blur(10px)",
             "padding": ["14px 0.5em" if i <= 5 else "14px 0em" for i in range(6)],
         }
     )
