@@ -11,14 +11,14 @@ from .utils.navigation import pantry_in_page_navigation, charts_in_page_navigati
 from ..templates.sidemenu.sidemenu import sidemenu
 from ..templates.footer.footer import footer, desktop_footer
 from ..templates.wrapper.wrapper import base_header_wrapper
-from ..templates.navigation.navigation import navigation, docs_navigation
+from ..templates.navigation.navigation import docs_navigation
 from ..templates.drawer.drawer import drawer
 
 
 def base_footer_responsive(component: rx.Component, start: str, end: str):
     return rx.box(
         component,
-        display=[start if i <= 4 else end for i in range(6)],
+        display=[start if i <= 3 else end for i in range(6)],
         width="100%",
     )
 
@@ -31,7 +31,6 @@ def base(url: str, page_name: str, **kwargs):
             contents = content(*args, **kwargs)
             return rx.vstack(
                 drawer(),
-                # navigation(),
                 docs_navigation(),
                 rx.hstack(
                     sidemenu(),
