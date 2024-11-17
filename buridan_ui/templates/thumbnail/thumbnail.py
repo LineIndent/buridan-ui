@@ -9,7 +9,7 @@ def pantry_thumbnail(path: str, image: str, title: str, quantity: str, **kwargs)
         rx.vstack(
             rx.image(src=image, **ThumbnailStyle.image, **kwargs),
             rx.vstack(
-                rx.text(title, size="1", weight="bold", color=rx.color("slate", 12)),
+                rx.text(title, size="2", weight="Medium", color=rx.color("slate", 12)),
                 rx.text(
                     (
                         f"{quantity} component"
@@ -17,7 +17,7 @@ def pantry_thumbnail(path: str, image: str, title: str, quantity: str, **kwargs)
                         else f"{quantity} components"
                     ),
                     size="1",
-                    weight="bold",
+                    weight="regular",
                     color=rx.color("slate", 10),
                 ),
                 **ThumbnailStyle.container,
