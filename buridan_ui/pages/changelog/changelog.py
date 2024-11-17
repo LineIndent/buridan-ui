@@ -99,6 +99,24 @@ def changelog():
         rx.box(
             rx.vstack(
                 wrapper(
+                    "New Site Landing Page and UI Changes",
+                    "November 17, 2024",
+                    [
+                        info("New site landing page with animation!"),
+                        info("Fixed UI scaling issue for site: functional."),
+                        info("Updated many site components (nav, side menu, etc...)"),
+                        changelog_badge("party-popper", "buridan/ui v0.3.2"),
+                    ],
+                ),
+                wrapper(
+                    "Small Patch for Site Scaling UI",
+                    "November 15, 2024",
+                    [
+                        info("Fixed UI scaling issue for site: operational."),
+                        changelog_badge("party-popper", "buridan/ui v0.3.1"),
+                    ],
+                ),
+                wrapper(
                     "New Apps and Site UI Changes",
                     "November 13, 2024",
                     [
