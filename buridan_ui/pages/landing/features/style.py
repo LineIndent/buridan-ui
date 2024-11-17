@@ -9,7 +9,7 @@ class FeaturesStyle:
             "width": "100%",
             "display": "grid",
             "grid_template_columns": [
-                f"repeat({i}, minmax(0, 1fr))" for i in [1, 1, 2, 2, 2, 4]
+                f"repeat({i}, minmax(0, 1fr))" for i in [1, 1, 2, 2, 4, 4]
             ],
             "gap": "2rem",
             "overflow": "hidden",

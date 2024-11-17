@@ -80,3 +80,11 @@ def component_wrapper_color_scheme():
         align="center",
         padding=["0px 0px" if i <= 1 else "0px 24px" for i in range(6)],
     )
+
+
+def component_wrapper_color_scheme_hero():
+    return rx.hstack(
+        *[color_scheme_boxes(color) for color in ["blue", "ruby", "jade", "gray"]],
+        spacing="1",
+        align="center",
+    )

@@ -10,6 +10,7 @@ from .pages.started_items.exports import getting_started_config
 from .pages.interactive.exports import interactive_config
 from .pages.landing.hero import landing_page
 
+from .pages.landing.hero_landing.state import HeroLandingState
 
 AppFontURL: str = (
     "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -22,7 +23,6 @@ app = rx.App(
         rx.heading: {"font_family": "inter"},
         rx.text: {"font_family": "inter"},
     },
-    theme=rx.theme(scaling="95%", accent_color="blue"),
 )
 
 
@@ -56,9 +56,9 @@ DEV: bool = False
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/pantry/featured",
-        "name": "Featured",
-        "dir": "featured",
+        "path": "/pantry/animations",
+        "name": "Animations",
+        "dir": "animations",
         "config": pantry_exports_config,
     }
 
@@ -66,11 +66,21 @@ if DEV:
     def __() -> callable:
         return [export() for export in ENV["config"][ENV["dir"]]]
 
-    app.add_page(landing_page(), route="/", title="Buridan UI")
+    app.add_page(
+        landing_page(),
+        route="/",
+        title="Buridan UI",
+        on_load=HeroLandingState.on_hero_page_load,
+    )
     app.add_page(__(), route=ENV["path"], title=f"{ENV['name']} - Buridan UI")
 
 else:
-    app.add_page(landing_page(), route="/", title="Buridan UI")
+    app.add_page(
+        landing_page(),
+        route="/",
+        title="Buridan UI",
+        on_load=HeroLandingState.on_hero_page_load,
+    )
     add_routes(Routes.interactive, interactive_config)
     add_routes(Routes.pantries, pantry_exports_config)
     add_routes(Routes.charts, charts_exports_config)

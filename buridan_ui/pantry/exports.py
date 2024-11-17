@@ -40,6 +40,7 @@ from .animations.v2 import animation_v2
 from .animations.v3 import animation_v3
 from .animations.v4 import animation_v4
 from .animations.v5 import animation_v5
+from .animations.v6 import animation_v6
 
 from .prompts.v1 import prompt_v1
 from .prompts.v2 import prompt_v2
@@ -119,6 +120,7 @@ pantry_exports_config = {
         create_export(animation_v3, "animations", 3),
         create_export(animation_v4, "animations", 4),
         create_export(animation_v5, "animations", 5),
+        # create_export(animation_v6, "animations", 6),
     ],
     "prompts": [
         create_export(prompt_v1, "prompts", 1),

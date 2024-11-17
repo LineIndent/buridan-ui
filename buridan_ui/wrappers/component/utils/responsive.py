@@ -43,5 +43,16 @@ def component_wrapper_responsive_menu(idd: int) -> rx.hstack:
         spacing="0",
         align="center",
         padding_right=["0px" if i <= 1 else "24px" for i in range(6)],
-        display=["none" if i <= 4 else "flex" for i in range(6)],
+        display=["none" if i <= 3 else "flex" for i in range(6)],
+    )
+
+
+def component_wrapper_responsive_menu_hero(idd: int) -> rx.hstack:
+    return rx.hstack(
+        *[
+            _(index, IconMap[resize], resize, idd)
+            for index, resize in enumerate(["30%", "60%", "100%"])
+        ],
+        spacing="0",
+        align="center",
     )

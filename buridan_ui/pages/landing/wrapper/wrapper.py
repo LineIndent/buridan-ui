@@ -48,7 +48,7 @@ def landing_page_section_wrapper(
         # ... badge, title, subtitle, and link
         rx.vstack(
             rx.badge(badge, variant="surface", size="1"),
-            rx.heading(title, font_weight="900", size="7"),
+            rx.heading(title, font_weight="900", size="8"),
             rx.text(subtitle, weight="medium", size="2"),
             rx.link(link, href=path, size="1"),
             **LandingPageSectionWrapperStyle.titles_secondary,
@@ -59,9 +59,7 @@ def landing_page_section_wrapper(
     )
 
 
-def landing_page_section_wrapper_main(
-    badge: str, title: str, subtitle: str
-) -> rx.vstack:
+def landing_page_section_wrapper_main(title: str, subtitle: str) -> rx.vstack:
     return rx.vstack(
         # ... badge, title, subtitle, and link
         rx.vstack(
@@ -71,7 +69,7 @@ def landing_page_section_wrapper_main(
                 line_height="1em",
                 font_size=["2.85em", "2.85em", "3em", "3em", "3.5em", "3.75em"],
             ),
-            rx.text(subtitle, weight="medium", size="4"),
+            rx.text(subtitle, weight="medium", size="3"),
             rx.hstack(
                 button(
                     "component",
@@ -81,9 +79,8 @@ def landing_page_section_wrapper_main(
                         {"name": "Animations", "path": "/pantry/animations"}
                     ),
                 ),
-                button_with_key(
+                button(
                     "github",
-                    "C",
                     "View Source",
                     "surface",
                     rx.redirect("https://github.com/LineIndent/buridan-ui"),
@@ -98,7 +95,7 @@ def landing_page_section_wrapper_main(
             **LandingPageSectionWrapperStyle.titles,
         ),
         # ... wrapper style
-        min_height="60vh",
+        # min_height="60vh",
         **LandingPageSectionWrapperStyle.wrapper,
     )
 
