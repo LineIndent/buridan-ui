@@ -1,8 +1,6 @@
 from dataclasses import dataclass, field
 import reflex as rx
 
-print(["none" if i <= 3 else "flex" for i in range(6)])
-
 
 @dataclass
 class SideMenuStyle:
