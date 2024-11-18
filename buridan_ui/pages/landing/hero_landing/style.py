@@ -6,7 +6,7 @@ class HeroStyle:
     root: dict[str, str] = field(
         default_factory=lambda: {
             "width": "100%",
-            "min_height": ["180vh", "170vh", "140vh", "120vh", "115vh", "110vh"],
+            "min_height": ["185vh", "170vh", "140vh", "120vh", "115vh", "110vh"],
             "justify": "center",
             "overflow": "hidden",
         }
