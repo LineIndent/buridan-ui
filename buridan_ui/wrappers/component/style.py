@@ -7,7 +7,7 @@ class ComponentWrapperStyle:
     root: dict[str, str] = field(
         default_factory=lambda: {
             "width": "100%",
-            "padding": "1px",
+            "padding": "2px",
             "overflow": "hidden",
             "default_value": "1",
             "border_radius": "10px",
@@ -20,6 +20,7 @@ class ComponentWrapperStyle:
             "margin_top": "5px",
             "display": "flex",
             "background": rx.color("gray", 2),
+            "border_radius": "0px 0px 10px 10px",
         }
     )
 
@@ -31,6 +32,7 @@ class ComponentWrapperStyle:
             "justify_content": "center",
             "overflow": "hidden",
             "background": rx.color("gray", 2),
+            "border_radius": "0px 0px 10px 10px",
         }
     )
 
