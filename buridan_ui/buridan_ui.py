@@ -6,11 +6,14 @@ from .routes.routes import Routes
 
 from .pantry.exports import pantry_exports_config
 from .charts.exports import charts_exports_config
+from .blueprints.exports import blueprint_export_config
 from .pages.started_items.exports import getting_started_config
 from .pages.interactive.exports import interactive_config
 from .pages.landing.hero import landing_page
 
 from .pages.landing.hero_landing.state import HeroLandingState
+
+from .blueprints.anon.main import anon_v1
 
 AppFontURL: str = (
     "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -56,10 +59,10 @@ DEV: bool = False
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/pantry/animations",
-        "name": "Animations",
-        "dir": "animations",
-        "config": pantry_exports_config,
+        "path": "/blueprints/anonymous-authentication",
+        "name": "Anon Authentication",
+        "dir": "anon",
+        "config": blueprint_export_config,
     }
 
     @base(ENV["path"], ENV["name"])
@@ -81,6 +84,7 @@ else:
         title="Buridan UI",
         on_load=HeroLandingState.on_hero_page_load,
     )
+    app.add_page(anon_v1(), route="/blueprints/anonymous-authentication")
     add_routes(Routes.interactive, interactive_config)
     add_routes(Routes.pantries, pantry_exports_config)
     add_routes(Routes.charts, charts_exports_config)
