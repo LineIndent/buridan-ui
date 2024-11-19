@@ -76,6 +76,11 @@ def sidemenu() -> rx.vstack:
                 [create_sidebar_menu_items(SiteRoutingState.InteractiveRoutes)],
             ),
             menu_wrapper(
+                "Blueprint Templates",
+                "square-dashed-kanban",
+                [create_sidebar_menu_items(SiteRoutingState.BlueprintRoutes)],
+            ),
+            menu_wrapper(
                 "Chart Components",
                 "table-columns-split",
                 [create_sidebar_menu_items(SiteRoutingState.ChartRoutes)],

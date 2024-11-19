@@ -7,8 +7,8 @@ from ..routes.routes import (
     InteractiveRoutes,
     PantryRoutes,
     ChartRoutes,
-    ResourcesRoutes,
     NavigationRoutes,
+    BlueprintRoutes,
 )
 
 
@@ -32,12 +32,12 @@ class SiteRoutingState(rx.State):
     InteractiveRoutes: List[Dict[str, str]] = [
         {**route, **passive} for route in InteractiveRoutes
     ]
+    BlueprintRoutes: List[Dict[str, str]] = [
+        {**route, **passive} for route in BlueprintRoutes
+    ]
     ChartRoutes: List[Dict[str, str]] = [{**route, **passive} for route in ChartRoutes]
     PantryRoutes: List[Dict[str, str]] = [
         {**route, **passive} for route in PantryRoutes
-    ]
-    ResourcesRoutes: List[Dict[str, str]] = [
-        {**route, **passive} for route in ResourcesRoutes
     ]
 
     current_page: str
@@ -64,6 +64,7 @@ class SiteRoutingState(rx.State):
                 self.update_menu_link(self.InteractiveRoutes, data),
                 self.update_menu_link(self.ChartRoutes, data),
                 self.update_menu_link(self.PantryRoutes, data),
+                self.update_menu_link(self.BlueprintRoutes, data),
             )
 
             # If no result matches, update the NavigationRoutes
