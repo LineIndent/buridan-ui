@@ -92,3 +92,24 @@ def component_wrapper(path: str, has_theme: bool = False):
         return wrapper
 
     return decorator
+
+
+def blueprint_wrapper():
+    def decorator(func: Callable[[], rx.Component]):
+        @wraps(func)
+        def wrapper():
+            component = func()
+
+            return rx.vstack(
+                rx.tabs.root(
+                    component_wrapper_tab_menu(),
+                    component_wrapper_preview_content(component, 0),
+                    component_wrapper_code_content(""),
+                    **ComponentWrapperStyle.root,
+                ),
+                width="100%",
+            )
+
+        return wrapper
+
+    return decorator

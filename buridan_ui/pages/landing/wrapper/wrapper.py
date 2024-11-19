@@ -95,7 +95,6 @@ def landing_page_section_wrapper_main(title: str, subtitle: str) -> rx.vstack:
             **LandingPageSectionWrapperStyle.titles,
         ),
         # ... wrapper style
-        # min_height="60vh",
         **LandingPageSectionWrapperStyle.wrapper,
     )
 
