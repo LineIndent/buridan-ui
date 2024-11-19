@@ -43,6 +43,7 @@ def footer():
         create_footer_item(
             "Interactive Applications", SiteRoutingState.InteractiveRoutes
         ),
+        create_footer_item("Blueprint Templates", SiteRoutingState.BlueprintRoutes),
         create_footer_item("Charts UI", SiteRoutingState.ChartRoutes),
         create_footer_item("Pantry UI", SiteRoutingState.PantryRoutes),
         rx.divider(height="2em", opacity="0"),

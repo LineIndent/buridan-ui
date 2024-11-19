@@ -1,6 +1,11 @@
 import reflex as rx
 
-from ...routes.routes import PantryRoutes, ChartRoutes
+from ...routes.routes import (
+    PantryRoutes,
+    ChartRoutes,
+    GettingStartedRoutes,
+    BlueprintRoutes,
+)
 from ...states.routing import SiteRoutingState
 
 
@@ -76,3 +81,7 @@ def pantry_in_page_navigation(path: str) -> rx.Component:
 
 def charts_in_page_navigation(path: str) -> rx.Component:
     return page_navigation(path, ChartRoutes)
+
+
+def getting_started_in_page_navigation(path: str) -> rx.Component:
+    return page_navigation(path, GettingStartedRoutes)
