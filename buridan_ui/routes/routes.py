@@ -50,7 +50,7 @@ class Routes:
     blueprints: List[Dict[str, str]] = field(
         default_factory=lambda: [
             {
-                "name": "Anon Authentication",
+                "name": "Authentication",
                 "path": "/blueprints/anonymous-authentication",
                 "dir": "anon",
                 "is_new": True,
