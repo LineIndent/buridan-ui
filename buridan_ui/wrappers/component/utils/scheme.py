@@ -4,9 +4,10 @@ from ..state import ComponentWrapperState
 
 
 def color_scheme_boxes(color: str):
+
     common_box_props = {
-        "width": "15px",
-        "height": "15px",
+        "width": "13px",
+        "height": "13px",
     }
 
     name_map = {
@@ -23,12 +24,12 @@ def color_scheme_boxes(color: str):
                     rx.box(
                         **common_box_props,
                         bg=rx.color(color, 5),
-                        border_radius="7.5px 0 0 0",
+                        border_radius="6px 0 0 0",
                     ),
                     rx.box(
                         **common_box_props,
                         bg=rx.color(color, 6),
-                        border_radius="0 7.5px 0 0",
+                        border_radius="0 6px 0 0",
                     ),
                     spacing="0",
                 ),
@@ -36,19 +37,18 @@ def color_scheme_boxes(color: str):
                     rx.box(
                         **common_box_props,
                         bg=rx.color(color, 7),
-                        border_radius="0 0 0 7.5px",
+                        border_radius="0 0 0 6px",
                     ),
                     rx.box(
                         **common_box_props,
                         bg=rx.color(color, 8),
-                        border_radius="0 0 7.5px 0",
+                        border_radius="0 0 6px 0",
                     ),
                     spacing="0",
                 ),
                 spacing="0",
-                padding="2.5px",
-                width="32px",
-                height="32px",
+                width="25px",
+                height="25px",
                 cursor="pointer",
                 opacity="0.71",
                 _hover={
@@ -76,15 +76,14 @@ def color_scheme_boxes(color: str):
 def component_wrapper_color_scheme():
     return rx.hstack(
         *[color_scheme_boxes(color) for color in ["blue", "ruby", "jade", "gray"]],
-        spacing="1",
+        spacing="2",
         align="center",
-        padding=["0px 0px" if i <= 1 else "0px 24px" for i in range(6)],
     )
 
 
 def component_wrapper_color_scheme_hero():
     return rx.hstack(
         *[color_scheme_boxes(color) for color in ["blue", "ruby", "jade", "gray"]],
-        spacing="1",
+        spacing="2",
         align="center",
     )

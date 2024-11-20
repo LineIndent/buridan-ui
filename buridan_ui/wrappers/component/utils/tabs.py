@@ -17,7 +17,6 @@ def component_wrapper_tab_menu() -> rx.tabs.list:
         tab_menu_wrapper("Code", "2"),
         justify_content="start",
         align_items="center",
-        width=["100%", "100%", "25%", "25%", "15%", "15%"],
     )
 
 

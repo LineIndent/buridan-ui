@@ -4,7 +4,7 @@ from ..state import ComponentWrapperState
 from .style import ComponentWrapperUtilStyle
 
 IconMap = {"100%": "monitor", "60%": "tablet", "30%": "smartphone"}
-PaddingMap = {0: "10px 0px 0px 10px", 1: "0px", 2: "0px 10px 10px 0px"}
+PaddingMap = {0: "6px 0px 0px 6px", 1: "0px", 2: "0px 6px 6px 0px"}
 
 
 def _(index: int, icon: str, resize: str, idd: int):
@@ -13,8 +13,9 @@ def _(index: int, icon: str, resize: str, idd: int):
             rx.button(
                 rx.icon(
                     tag=icon,
-                    size=14,
+                    size=20,
                     color=rx.color("slate", 11),
+                    transform="scale(1.3)",
                 ),
                 border_radius=PaddingMap[index],
                 on_click=ComponentWrapperState.resize(idd, resize),
@@ -42,7 +43,6 @@ def component_wrapper_responsive_menu(idd: int) -> rx.hstack:
         ],
         spacing="0",
         align="center",
-        padding_right=["0px" if i <= 1 else "24px" for i in range(6)],
         display=["none" if i <= 3 else "flex" for i in range(6)],
     )
 
