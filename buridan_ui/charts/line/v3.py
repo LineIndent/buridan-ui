@@ -18,7 +18,7 @@ def linechart_v3():
         rx.vstack(
             rx.vstack(
                 rx.heading(
-                    "Line Chart - Type Linear With Label", size="5", weight="bold"
+                    "Line Chart - Type Linear With Label", size="4", weight="bold"
                 ),
                 rx.text("January - June 2024", size="1", color=rx.color("slate", 11)),
                 spacing="1",
@@ -52,7 +52,7 @@ def linechart_v3():
                 margin={"left": 20, "right": 20, "top": 20},
             ),
             rx.vstack(
-                rx.heading("Trending up by 5.2% this month", size="3", weight="bold"),
+                rx.heading("Trending up by 5.2% this month", size="2", weight="bold"),
                 rx.text(
                     "Showing total visitors for the last 6 months",
                     size="1",
