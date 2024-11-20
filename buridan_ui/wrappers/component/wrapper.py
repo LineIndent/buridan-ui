@@ -19,18 +19,31 @@ from .utils.scheme import component_wrapper_color_scheme
 
 def component_wrapper_menu_bar(has_theme: bool, component_id: int, path: str):
     return rx.hstack(
-        component_wrapper_tab_menu(),
         rx.hstack(
             (component_wrapper_color_scheme() if has_theme else rx.spacer()),
+            (
+                rx.divider(
+                    width="0.75px",
+                    height="25px",
+                    orientation="vertical",
+                    display=["none" if i <= 3 else "flex" for i in range(6)],
+                )
+                if has_theme
+                else rx.spacer()
+            ),
             component_wrapper_responsive_menu(component_id),
+            rx.divider(
+                width="0.75px",
+                height="25px",
+                orientation="vertical",
+                display=["none" if i <= 1 else "flex" for i in range(6)],
+            ),
             component_wrapper_source_code(path),
-            spacing="0",
             align="center",
         ),
         align="center",
-        justify="between",
+        justify="end",
         width="100%",
-        padding="0.5em",
     )
 
 
@@ -110,8 +123,9 @@ def component_wrapper(path: str, has_theme: bool = False):
             component, component_code, component_id = func()
 
             return rx.vstack(
+                component_wrapper_menu_bar(has_theme, component_id, path),
                 rx.tabs.root(
-                    component_wrapper_menu_bar(has_theme, component_id, path),
+                    component_wrapper_tab_menu(),
                     component_wrapper_preview_content(component, component_id),
                     component_wrapper_code_base(component_code),
                     **ComponentWrapperStyle.root,
