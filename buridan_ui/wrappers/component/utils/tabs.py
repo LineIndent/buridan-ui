@@ -19,3 +19,15 @@ def component_wrapper_tab_menu() -> rx.tabs.list:
         align_items="center",
         width=["100%", "100%", "25%", "25%", "15%", "15%"],
     )
+
+
+def component_wrapper_tab_menu_blueprints() -> rx.tabs.list:
+    return rx.tabs.list(
+        tab_menu_wrapper("Preview", "1"),
+        tab_menu_wrapper("Front End", "2"),
+        tab_menu_wrapper("Style Sheet", "3"),
+        tab_menu_wrapper("State Vars", "4"),
+        justify_content="center",
+        align_items="center",
+        margin="0.5em 0.15em",
+    )
