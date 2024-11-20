@@ -51,6 +51,7 @@ def hero():
                                     style=HeroLandingState.component,
                                     transition="filter 300ms ease 900ms, transform 300ms ease 900ms, opacity 300ms ease 900ms",
                                 ),
+                                align="end",
                             ),
                             spacing="4",
                             align="end",
