@@ -13,7 +13,6 @@ from .pages.landing.hero import landing_page
 
 from .pages.landing.hero_landing.state import HeroLandingState
 
-from .blueprints.anon.main import anon_v1
 
 AppFontURL: str = (
     "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -60,14 +59,25 @@ if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
         "path": "/blueprints/anonymous-authentication",
-        "name": "Anon Authentication",
+        "name": "Auth System",
         "dir": "anon",
         "config": blueprint_export_config,
+    }
+
+    ENV2 = {
+        "path": "/pantry/animations",
+        "name": "Animations",
+        "dir": "animations",
+        "config": pantry_exports_config,
     }
 
     @base(ENV["path"], ENV["name"])
     def __() -> callable:
         return [export() for export in ENV["config"][ENV["dir"]]]
+
+    @base(ENV2["path"], ENV2["name"])
+    def ___() -> callable:
+        return [export() for export in ENV2["config"][ENV2["dir"]]]
 
     app.add_page(
         landing_page(),
@@ -76,6 +86,7 @@ if DEV:
         on_load=HeroLandingState.on_hero_page_load,
     )
     app.add_page(__(), route=ENV["path"], title=f"{ENV['name']} - Buridan UI")
+    app.add_page(___(), route=ENV2["path"], title=f"{ENV2['name']} - Buridan UI")
 
 else:
     app.add_page(
@@ -84,8 +95,8 @@ else:
         title="Buridan UI",
         on_load=HeroLandingState.on_hero_page_load,
     )
-    app.add_page(anon_v1(), route="/blueprints/anonymous-authentication")
     add_routes(Routes.interactive, interactive_config)
+    add_routes(Routes.blueprints, blueprint_export_config)
     add_routes(Routes.pantries, pantry_exports_config)
     add_routes(Routes.charts, charts_exports_config)
     add_routes(Routes.started, getting_started_config)
