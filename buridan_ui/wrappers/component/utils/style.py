@@ -8,12 +8,12 @@ class ComponentWrapperUtilStyle:
         default_factory=lambda: {
             "size": "1",
             "color": rx.color("slate", 11),
-            "width": "32px",
-            "height": "32px",
             "outline": "none",
             "cursor": "pointer",
             "variant": "soft",
             "color_scheme": "gray",
+            "width": "25px",
+            "height": "25px",
         }
     )
 
