@@ -99,6 +99,23 @@ def changelog():
         rx.box(
             rx.vstack(
                 wrapper(
+                    "New library feature: Blueprint Templates",
+                    "November 20, 2024",
+                    [
+                        info(
+                            "Blueprints templates consist of in-depth, more well-rounded apps that can be used out of the box with minor changes."
+                        ),
+                        rx.link(
+                            "Authentication",
+                            href="/blueprints/anonymous-authentication",
+                            color=rx.color("slate", 11),
+                            text_decoration="none",
+                            is_external=True,
+                        ),
+                        changelog_badge("party-popper", "buridan/ui v0.3.3"),
+                    ],
+                ),
+                wrapper(
                     "New Site Landing Page and UI Changes",
                     "November 17, 2024",
                     [
