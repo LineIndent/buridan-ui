@@ -6,7 +6,7 @@ from functools import wraps
 from reflex.components.datadisplay.code import Theme
 
 from .state import ComponentWrapperState
-from .style import ComponentWrapperStyle, InnerCode
+from .style import ComponentWrapperStyle, InnerCode, PreviewNoCOde
 
 from .utils.tabs import (
     component_wrapper_tab_menu,
@@ -26,7 +26,7 @@ def component_wrapper_menu_bar(has_theme: bool, component_id: int, path: str):
                     width="0.75px",
                     height="25px",
                     orientation="vertical",
-                    display=["none" if i <= 3 else "flex" for i in range(6)],
+                    display=["none" if i <= 1 else "flex" for i in range(6)],
                 )
                 if has_theme
                 else rx.spacer()
@@ -36,11 +36,21 @@ def component_wrapper_menu_bar(has_theme: bool, component_id: int, path: str):
                 width="0.75px",
                 height="25px",
                 orientation="vertical",
-                display=["none" if i <= 1 else "flex" for i in range(6)],
+                display=["none" if i <= 3 else "flex" for i in range(6)],
             ),
             component_wrapper_source_code(path),
             align="center",
         ),
+        align="center",
+        justify="end",
+        width="100%",
+    )
+
+
+def component_wrapper_menu_bar_no_code(path: str):
+    return rx.hstack(
+        rx.badge("Responsive UI", size="1", variant="surface"),
+        component_wrapper_source_code(path),
         align="center",
         justify="end",
         width="100%",
@@ -56,6 +66,22 @@ def component_wrapper_preview_content(component: rx.Component, component_id: int
                 for i in range(6)
             ],
             **ComponentWrapperStyle.preview,
+        ),
+        value="1",
+    )
+
+
+def component_wrapper_preview_content_no_code(
+    component: rx.Component, component_id: int
+):
+    return rx.tabs.content(
+        rx.vstack(
+            component,
+            width=[
+                ("100%" if i <= 3 else ComponentWrapperState.uuid[component_id])
+                for i in range(6)
+            ],
+            **PreviewNoCOde,
         ),
         value="1",
     )
@@ -164,6 +190,26 @@ def blueprint_wrapper():
                     component_wrapper_code_base(preview, "2"),
                     component_wrapper_code_base(style, "3"),
                     component_wrapper_code_base(state, "4"),
+                    **ComponentWrapperStyle.root,
+                ),
+                width="100%",
+            )
+
+        return wrapper
+
+    return decorator
+
+
+def blueprint_no_code_wrapper(path: str):
+    def decorator(func: Callable[[], list[rx.Component | str | int]]):
+        @wraps(func)
+        def wrapper():
+            component = func()
+
+            return rx.vstack(
+                component_wrapper_menu_bar_no_code(path),
+                rx.tabs.root(
+                    component_wrapper_preview_content_no_code(component[0], 0),
                     **ComponentWrapperStyle.root,
                 ),
                 width="100%",

@@ -42,7 +42,6 @@ class Routes:
                 "name": "PubMed Application",
                 "path": "/interactive/pubmed-ai",
                 "dir": "pubmed",
-                "is_new": True,
             },
         ]
     )
@@ -53,6 +52,12 @@ class Routes:
                 "name": "Auth System",
                 "path": "/blueprints/anonymous-authentication",
                 "dir": "anon",
+                "is_new": True,
+            },
+            {
+                "name": "Dashboard",
+                "path": "/blueprints/dashboard",
+                "dir": "dashboard/dashboardApp",
                 "is_new": True,
             },
         ]

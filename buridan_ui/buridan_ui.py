@@ -58,17 +58,17 @@ DEV: bool = False
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/pantry/animations",
-        "name": "Animations",
-        "dir": "animations",
-        "config": pantry_exports_config,
+        "path": "/blueprints/anonymous-authentication",
+        "name": "Auth system",
+        "dir": "anon",
+        "config": blueprint_export_config,
     }
 
     ENV2 = {
-        "path": "/charts/area-charts",
-        "name": "Area Charts",
-        "dir": "area",
-        "config": charts_exports_config,
+        "path": "/blueprints/dashboard",
+        "name": "Dashboard",
+        "dir": "dashboard",
+        "config": blueprint_export_config,
     }
 
     @base(ENV["path"], ENV["name"])

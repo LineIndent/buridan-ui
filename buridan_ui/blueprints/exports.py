@@ -1,9 +1,14 @@
 from .anon.main import sandboxAuth
+from .dashboard.dashboardApp.main import dashboardApp
 
-from ..wrappers.component.wrapper import blueprint_wrapper
+from ..wrappers.component.wrapper import blueprint_no_code_wrapper
 
-from random import randint
 import os
+
+
+BASE_PATH: str = (
+    "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/blueprints/"
+)
 
 
 def get_source(directory: str, filename: str):
@@ -13,27 +18,16 @@ def get_source(directory: str, filename: str):
         return file.read()
 
 
-def create_export(func, directory, filenamePreview, filenameStyle, filenameState):
+def create_export(func, directory):
 
-    preview = get_source(directory, filenamePreview)
-    style_code = get_source(directory, filenameStyle)
-    state_code = get_source(directory, filenameState)
-
-    @blueprint_wrapper()
+    @blueprint_no_code_wrapper(f"{BASE_PATH}{directory}")
     def export():
-        return [func(), preview, style_code, state_code, randint(0, 100000)]
+        return [func()]
 
     return export
 
 
 blueprint_export_config = {
-    "anon": [
-        create_export(
-            sandboxAuth,
-            "anon",
-            "main.py",
-            "style.py",
-            "state.py",
-        ),
-    ],
+    "anon": [create_export(sandboxAuth, "anon")],
+    "dashboard": [create_export(dashboardApp, "dashboard")],
 }

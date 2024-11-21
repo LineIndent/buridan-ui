@@ -71,3 +71,9 @@ InnerCode: dict[str, str] = {
     "width": "100%",
     **ComponentWrapperStyle.shared,
 }
+
+PreviewNoCOde = {
+    **ComponentWrapperStyle.preview,
+    "border_radius": "10px",
+    "margin": "0",
+}
