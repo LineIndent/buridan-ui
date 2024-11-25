@@ -1,7 +1,7 @@
 import reflex as rx
 from reflex.constants.colors import Color
 
-from ...wrappers.component.state import ComponentWrapperState
+from buridan_ui.wrappers.state import ComponentWrapperState
 
 from datetime import datetime
 

@@ -1,6 +1,6 @@
 import reflex as rx
 
-from .wrappers.base import base
+from .wrappers.base.main import base
 
 from .routes.routes import Routes
 
@@ -65,10 +65,17 @@ if DEV:
     }
 
     ENV2 = {
-        "path": "/blueprints/dashboard",
+        "path": "/blueprints/dashboards",
         "name": "Dashboard",
-        "dir": "dashboard",
+        "dir": "dashboards",
         "config": blueprint_export_config,
+    }
+
+    ENV3 = {
+        "path": "/pantry/animations",
+        "name": "Animations",
+        "dir": "animations",
+        "config": pantry_exports_config,
     }
 
     @base(ENV["path"], ENV["name"])
@@ -79,6 +86,10 @@ if DEV:
     def ___() -> callable:
         return [export() for export in ENV2["config"][ENV2["dir"]]]
 
+    @base(ENV2["path"], ENV2["name"])
+    def ____() -> callable:
+        return [export() for export in ENV3["config"][ENV3["dir"]]]
+
     app.add_page(
         landing_page(),
         route="/",
@@ -87,6 +98,7 @@ if DEV:
     )
     app.add_page(__(), route=ENV["path"], title=f"{ENV['name']} - Buridan UI")
     app.add_page(___(), route=ENV2["path"], title=f"{ENV2['name']} - Buridan UI")
+    app.add_page(____(), route=ENV3["path"], title=f"{ENV3['name']} - Buridan UI")
 
 else:
     app.add_page(

@@ -1,12 +1,12 @@
 import reflex as rx
 
-from ...routes.routes import (
+from buridan_ui.routes.routes import (
     PantryRoutes,
     ChartRoutes,
     GettingStartedRoutes,
     BlueprintRoutes,
 )
-from ...states.routing import SiteRoutingState
+from buridan_ui.states.routing import SiteRoutingState
 
 
 def create_button(route, direction):
@@ -85,3 +85,7 @@ def charts_in_page_navigation(path: str) -> rx.Component:
 
 def getting_started_in_page_navigation(path: str) -> rx.Component:
     return page_navigation(path, GettingStartedRoutes)
+
+
+def blueprints_in_page_navigation(path: str) -> rx.Component:
+    return page_navigation(path, BlueprintRoutes)

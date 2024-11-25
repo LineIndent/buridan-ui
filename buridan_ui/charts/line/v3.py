@@ -1,6 +1,6 @@
 import reflex as rx
 
-from ...wrappers.component.state import ComponentWrapperState
+from ...wrappers.state import ComponentWrapperState
 
 
 data = [

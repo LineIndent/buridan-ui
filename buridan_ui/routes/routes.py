@@ -56,8 +56,8 @@ class Routes:
             },
             {
                 "name": "Dashboard",
-                "path": "/blueprints/dashboard",
-                "dir": "dashboard/dashboardApp",
+                "path": "/blueprints/dashboards",
+                "dir": "dashboards",
                 "is_new": True,
             },
         ]

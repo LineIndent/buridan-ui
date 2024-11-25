@@ -3,12 +3,12 @@ from typing import Callable
 
 from .style import DashboardAppStyle
 
-from ..dashboardComponents.sideBar.main import dashboardSidebar
-from ..dashboardComponents.navBar.main import dashboardNavbar
-from ..dashboardComponents.statBar.main import dashboardStatbar
-from ..dashboardComponents.trafficBar.main import dashboardTrafficbar
-from ..dashboardComponents.expenseBar.main import dashboardExpensebar
-from ..dashboardComponents.employeeTable.main import dashbaordEmployee
+from ..dashboard_components.sideBar.main import dashboardSidebar
+from ..dashboard_components.navBar.main import dashboardNavbar
+from ..dashboard_components.statBar.main import dashboardStatbar
+from ..dashboard_components.trafficBar.main import dashboardTrafficbar
+from ..dashboard_components.expenseBar.main import dashboardExpensebar
+from ..dashboard_components.employeeTable.main import dashbaordEmployee
 
 dashboardContentArea: Callable[[], rx.Component] = lambda: rx.vstack(
     dashboardNavbar(),

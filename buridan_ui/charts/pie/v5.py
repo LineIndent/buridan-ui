@@ -1,7 +1,7 @@
 import reflex as rx
 from typing import Callable
 
-from ...wrappers.component.state import ComponentWrapperState
+from ...wrappers.state import ComponentWrapperState
 
 
 data = [

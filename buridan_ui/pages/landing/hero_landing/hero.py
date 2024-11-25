@@ -9,11 +9,11 @@ from .components.h1 import payments_v1
 
 from ..wrapper.wrapper import landing_page_section_wrapper_main
 
-from ....wrappers.component.utils.scheme import component_wrapper_color_scheme_hero
-from ....wrappers.component.utils.responsive import (
+from buridan_ui.wrappers.shared.scheme import component_wrapper_color_scheme_hero
+from buridan_ui.wrappers.shared.responsive import (
     component_wrapper_responsive_menu_hero,
 )
-from ....wrappers.component.utils.source import component_wrapper_source_code
+from buridan_ui.wrappers.shared.source import component_wrapper_source_code
 
 
 def hero():

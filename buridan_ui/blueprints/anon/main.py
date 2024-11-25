@@ -137,7 +137,7 @@ sandboxAuthAccountLogin: Callable[[], rx.center] = lambda: rx.center(
         rx.vstack(
             authTitle("Account Login"),
             authSubtitle(
-                "Enter your account number below to access your account dashboard."
+                "Enter your account number below to access your account dashboards."
             ),
             rx.divider(height="0.5em", opacity="0"),
             authLoginEntry(),
