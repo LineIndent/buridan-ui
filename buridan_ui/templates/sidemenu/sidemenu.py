@@ -67,27 +67,22 @@ def sidemenu() -> rx.vstack:
         rx.vstack(
             menu_wrapper(
                 "Getting Started",
-                "play",
                 [create_sidebar_menu_items(SiteRoutingState.GettingStartedRoutes)],
             ),
             menu_wrapper(
                 "Interactive Applications",
-                "table",
                 [create_sidebar_menu_items(SiteRoutingState.InteractiveRoutes)],
             ),
             menu_wrapper(
                 "Blueprint Templates",
-                "square-dashed-kanban",
                 [create_sidebar_menu_items(SiteRoutingState.BlueprintRoutes)],
             ),
             menu_wrapper(
                 "Chart Components",
-                "table-columns-split",
                 [create_sidebar_menu_items(SiteRoutingState.ChartRoutes)],
             ),
             menu_wrapper(
                 "Pantry Components",
-                "component",
                 [create_sidebar_menu_items(SiteRoutingState.PantryRoutes)],
             ),
             **SideMenuStyle.content,

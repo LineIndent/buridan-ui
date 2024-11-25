@@ -1,21 +1,14 @@
 import reflex as rx
 
+from typing import Callable
 from .style import MenuWrapperStyle, BaseHeaderWrapper
 
 
-def blip(tag: str):
-    return rx.box(
-        rx.icon(tag=tag, size=12, color=rx.color("slate", 12)),
-        **MenuWrapperStyle.blip,
-    )
-
-
-def menu_wrapper(title: str, tag: str, components: list[rx.Component] = []):
+def menu_wrapper(title: str, components: list[rx.Component] = []):
     return rx.hstack(
         rx.vstack(
             rx.vstack(
                 rx.hstack(
-                    # blip(tag),
                     rx.text(
                         title, size="1", weight="bold", color=rx.color("slate", 11)
                     ),
@@ -30,21 +23,19 @@ def menu_wrapper(title: str, tag: str, components: list[rx.Component] = []):
     )
 
 
-def base_header_wrapper(
-    path_name: rx.hstack,
-    title: str,
-    link: str,
-    path: str,
-) -> rx.vstack:
-    return rx.vstack(
-        # ... badge, title, subtitle, and link
+baseWrapperHeader: Callable[[rx.Component, str], rx.Component] = (
+    lambda path_name, title: rx.vstack(
         rx.vstack(
             path_name,
             rx.heading(title, font_weight="900", size="9"),
-            rx.link(link, href=path, size="1"),
+            rx.link(
+                "See source code on GitHub →",
+                href="https://github.com/LineIndent/buridan-ui",
+                size="1",
+            ),
             **BaseHeaderWrapper.titles,
         ),
-        # ... wrapper style
         min_height="35vh",
         **BaseHeaderWrapper.wrapper,
     )
+)

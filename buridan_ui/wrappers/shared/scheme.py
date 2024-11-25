@@ -1,6 +1,6 @@
 import reflex as rx
 
-from ..state import ComponentWrapperState
+from buridan_ui.wrappers.state import ComponentWrapperState
 
 
 def color_scheme_boxes(color: str):

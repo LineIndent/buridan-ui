@@ -1,5 +1,5 @@
 import reflex as rx
-from ...wrappers.base import base
+from ...wrappers.base import main
 from ...pantry.timeline.v1 import blip
 
 

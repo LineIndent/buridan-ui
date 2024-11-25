@@ -5,16 +5,16 @@ import reflex as rx
 
 @dataclass
 class BaseWrapperStyle:
-    grandparent: dict[str, str] = field(
-        default_factory=lambda: {
-            "spacing": "0",
-            "width": "100%",
-            "height": "100vh",
-            "overflow": "scroll",
-            "scrollbar_width": "thin",
-            "overscroll_behavior_y": "contain",
-        }
-    )
+    # grandparent: dict[str, str] = field(
+    #     default_factory=lambda: {
+    #         "spacing": "0",
+    #         "width": "100%",
+    #         "height": "100vh",
+    #         "overflow": "scroll",
+    #         "scrollbar_width": "thin",
+    #         "overscroll_behavior_y": "contain",
+    #     }
+    # )
 
     parent: dict[str, str] = field(
         default_factory=lambda: {

@@ -1,7 +1,7 @@
 from .anon.main import sandboxAuth
-from .dashboard.dashboardApp.main import dashboardApp
+from .dashboards.dashboard_app.main import dashboardApp
 
-from ..wrappers.component.wrapper import blueprint_no_code_wrapper
+from ..wrappers.blueprints.main import blueprint_app_wrapper
 
 import os
 
@@ -20,7 +20,7 @@ def get_source(directory: str, filename: str):
 
 def create_export(func, directory):
 
-    @blueprint_no_code_wrapper(f"{BASE_PATH}{directory}")
+    @blueprint_app_wrapper(f"{BASE_PATH}{directory}")
     def export():
         return [func()]
 
@@ -29,5 +29,5 @@ def create_export(func, directory):
 
 blueprint_export_config = {
     "anon": [create_export(sandboxAuth, "anon")],
-    "dashboard": [create_export(dashboardApp, "dashboard")],
+    "dashboards": [create_export(dashboardApp, "dashboards")],
 }
