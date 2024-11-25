@@ -31,6 +31,7 @@ from .timeline.v1 import timeline_v1
 from .onboardings.v1 import onboardings_v1
 
 from .pricing.v1 import pricing_v1
+from .pricing.v2 import pricing_v2
 
 from .popups.v1 import popups_v1
 from .popups.v2 import popups_v2
@@ -108,7 +109,10 @@ pantry_exports_config = {
     "lists": [create_export(lists_v1, "lists", 1)],
     "timeline": [create_export(timeline_v1, "timeline", 1)],
     "onboardings": [create_export(onboardings_v1, "onboardings", 1)],
-    "pricing": [create_export(pricing_v1, "pricing", 1)],
+    "pricing": [
+        create_export(pricing_v1, "pricing", 1),
+        create_export(pricing_v2, "pricing", 2),
+    ],
     "popups": [
         create_export(popups_v1, "popups", 1),
         create_export(popups_v2, "popups", 2),
