@@ -58,37 +58,15 @@ DEV: bool = False
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/blueprints/anonymous-authentication",
-        "name": "Auth system",
-        "dir": "anon",
+        "path": "/blueprints/layouts",
+        "name": "Layouts",
+        "dir": "layouts",
         "config": blueprint_export_config,
-    }
-
-    ENV2 = {
-        "path": "/blueprints/dashboards",
-        "name": "Dashboard",
-        "dir": "dashboards",
-        "config": blueprint_export_config,
-    }
-
-    ENV3 = {
-        "path": "/pantry/animations",
-        "name": "Animations",
-        "dir": "animations",
-        "config": pantry_exports_config,
     }
 
     @base(ENV["path"], ENV["name"])
     def __() -> callable:
         return [export() for export in ENV["config"][ENV["dir"]]]
-
-    @base(ENV2["path"], ENV2["name"])
-    def ___() -> callable:
-        return [export() for export in ENV2["config"][ENV2["dir"]]]
-
-    @base(ENV2["path"], ENV2["name"])
-    def ____() -> callable:
-        return [export() for export in ENV3["config"][ENV3["dir"]]]
 
     app.add_page(
         landing_page(),
@@ -97,8 +75,7 @@ if DEV:
         on_load=HeroLandingState.on_hero_page_load,
     )
     app.add_page(__(), route=ENV["path"], title=f"{ENV['name']} - Buridan UI")
-    app.add_page(___(), route=ENV2["path"], title=f"{ENV2['name']} - Buridan UI")
-    app.add_page(____(), route=ENV3["path"], title=f"{ENV3['name']} - Buridan UI")
+
 
 else:
     app.add_page(
