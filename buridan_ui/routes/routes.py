@@ -60,6 +60,12 @@ class Routes:
                 "dir": "dashboards",
                 "is_new": True,
             },
+            {
+                "name": "Layouts",
+                "path": "/blueprints/layouts",
+                "dir": "layouts",
+                "is_new": True,
+            },
         ]
     )
 
