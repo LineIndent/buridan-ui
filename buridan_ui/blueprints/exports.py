@@ -1,5 +1,6 @@
 from .anon.main import sandboxAuth
 from .dashboards.dashboard_app.main import dashboardApp
+from .layouts.main import layoutSingleColumn, layoutDoubleColumn
 
 from ..wrappers.blueprints.main import blueprint_app_wrapper
 
@@ -30,4 +31,8 @@ def create_export(func, directory):
 blueprint_export_config = {
     "anon": [create_export(sandboxAuth, "anon")],
     "dashboards": [create_export(dashboardApp, "dashboards")],
+    "layouts": [
+        create_export(layoutSingleColumn, "layouts"),
+        create_export(layoutDoubleColumn, "layouts"),
+    ],
 }
