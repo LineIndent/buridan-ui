@@ -99,6 +99,17 @@ def changelog():
         rx.box(
             rx.vstack(
                 wrapper(
+                    "Site patches and New Blueprint Items",
+                    "November 26, 2024",
+                    [
+                        info("New blueprint items: Dashboards & Layouts"),
+                        info(
+                            "Major code refactoring for pantry, charts, and blueprint wrappers."
+                        ),
+                        changelog_badge("party-popper", "buridan/ui v0.3.4"),
+                    ],
+                ),
+                wrapper(
                     "New library feature: Blueprint Templates",
                     "November 20, 2024",
                     [
