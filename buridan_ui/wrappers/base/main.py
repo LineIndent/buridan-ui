@@ -38,7 +38,6 @@ def base(url: str, page_name: str):
                 *[drawer(), sidemenu(), docs_navigation()],
                 rx.vstack(
                     rx.vstack(
-                        rx.box(**BaseWrapperStyle.background),
                         rx.divider(height="2em", opacity="0"),
                         baseWrapperHeader(base_content_path_ui(url), page_name),
                         *contents,
