@@ -30,8 +30,6 @@ def count_python_files_in_folder(folder_name):
 def landing_page() -> rx.vstack:
     return rx.vstack(
         drawer(),
-        landing_page_grid_background(),
-        credit_banner(),
         rx.vstack(
             landing_page_navigation(),
             hero(),
