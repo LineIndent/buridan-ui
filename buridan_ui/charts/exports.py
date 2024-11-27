@@ -10,6 +10,7 @@ from .area.v1 import areachart_v1
 from .area.v2 import areachart_v2
 from .area.v3 import areachart_v3
 from .area.v4 import areachart_v4
+from .area.v5 import areachart_v5
 
 from .line.v1 import linechart_v1
 from .line.v2 import linechart_v2
@@ -51,6 +52,7 @@ charts_exports_config = {
         create_export(areachart_v2, "area", 2),
         create_export(areachart_v3, "area", 3),
         create_export(areachart_v4, "area", 4),
+        create_export(areachart_v5, "area", 5),
     ],
     "line": [
         create_export(linechart_v1, "line", 1),
