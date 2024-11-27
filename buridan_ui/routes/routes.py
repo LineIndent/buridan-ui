@@ -52,20 +52,13 @@ class Routes:
                 "name": "Auth System",
                 "path": "/blueprints/anonymous-authentication",
                 "dir": "anon",
-                "is_new": True,
             },
             {
                 "name": "Dashboard",
                 "path": "/blueprints/dashboards",
                 "dir": "dashboards",
-                "is_new": True,
             },
-            {
-                "name": "Layouts",
-                "path": "/blueprints/layouts",
-                "dir": "layouts",
-                "is_new": True,
-            },
+            {"name": "Layouts", "path": "/blueprints/layouts", "dir": "layouts"},
         ]
     )
 
@@ -172,15 +165,6 @@ class Routes:
             {"name": "Area Charts", "path": "/charts/area-charts", "dir": "area"},
             {"name": "Line Charts", "path": "/charts/line-charts", "dir": "line"},
             {"name": "Pie Charts", "path": "/charts/pie-charts", "dir": "pie"},
-        ]
-    )
-
-    resources: List[Dict[str, str]] = field(
-        default_factory=lambda: [
-            {"name": "Reflex Framework", "path": "https://reflex.dev/"},
-            {"name": "Source Code", "path": "https://github.com/LineIndent/buridan-ui"},
-            {"name": "GitHub", "path": "https://github.com/LineIndent"},
-            {"name": "@LineIndent", "path": "https://www.youtube.com/@lineindent"},
         ]
     )
 
