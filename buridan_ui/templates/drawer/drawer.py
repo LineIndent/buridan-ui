@@ -9,7 +9,7 @@ from ...states.routing import SiteRoutingState
 active = rx.color("slate", 12)
 
 
-def drawer_menu_header(title: str, icon: str):
+def drawer_menu_header(title: str):
     return rx.text(title, size="1", color=active, weight="bold", padding="0em 1.25em")
 
 
@@ -34,19 +34,23 @@ def drawer():
                         rx.image(src="/logo.jpg", **DrawerStyle.logo),
                         **DrawerStyle.title,
                     ),
-                    drawer_menu_header("Getting Started", "play"),
+                    drawer_menu_header("Getting Started"),
                     drawer_menu_link(
                         create_sidebar_menu_items(SiteRoutingState.GettingStartedRoutes)
                     ),
-                    drawer_menu_header("Interactive Apps", "puzzle"),
+                    drawer_menu_header("Interactive Apps"),
                     drawer_menu_link(
                         create_sidebar_menu_items(SiteRoutingState.InteractiveRoutes)
                     ),
-                    drawer_menu_header("Charts", "table-columns-split"),
+                    drawer_menu_header("Blueprint Templates"),
+                    drawer_menu_link(
+                        create_sidebar_menu_items(SiteRoutingState.BlueprintRoutes)
+                    ),
+                    drawer_menu_header("Charts"),
                     drawer_menu_link(
                         create_sidebar_menu_items(SiteRoutingState.ChartRoutes)
                     ),
-                    drawer_menu_header("Pantry", "component"),
+                    drawer_menu_header("Pantry"),
                     drawer_menu_link(
                         create_sidebar_menu_items(SiteRoutingState.PantryRoutes)
                     ),
