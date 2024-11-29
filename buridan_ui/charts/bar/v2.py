@@ -29,13 +29,16 @@ def barchart_v2():
                 rx.recharts.bar(
                     data_key="desktop",
                     fill=ComponentWrapperState.default_theme[0],
+                    radius=6,
                 ),
-                rx.recharts.x_axis(type_="number", hide=True),
-                rx.recharts.y_axis(data_key="month", type_="category", axis_line=False),
+                rx.recharts.x_axis(type_="number", hide=True, tick_size=0),
+                rx.recharts.y_axis(
+                    data_key="month", type_="category", axis_line=False, tick_size=0
+                ),
                 data=data,
                 layout="vertical",
                 width="100%",
-                height=300,
+                height=250,
                 bar_size=25,
                 bar_gap=2,
                 bar_category_gap=0,

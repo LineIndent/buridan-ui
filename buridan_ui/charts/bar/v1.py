@@ -29,6 +29,7 @@ def barchart_v1():
                     rx.recharts.bar(
                         data_key=name,
                         fill=ComponentWrapperState.default_theme[index],
+                        radius=6,
                     )
                     for index, name in enumerate(["desktop", "mobile"])
                 ],
