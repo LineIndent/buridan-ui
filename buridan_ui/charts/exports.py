@@ -5,12 +5,15 @@ from .bar.v1 import barchart_v1
 from .bar.v2 import barchart_v2
 from .bar.v3 import barchart_v3
 from .bar.v4 import barchart_v4
+from .bar.v6 import barchart_v6
 
 from .area.v1 import areachart_v1
 from .area.v2 import areachart_v2
 from .area.v3 import areachart_v3
 from .area.v4 import areachart_v4
 from .area.v5 import areachart_v5
+from .area.v6 import areachart_v6
+from .area.v7 import areachart_v7
 
 from .line.v1 import linechart_v1
 from .line.v2 import linechart_v2
