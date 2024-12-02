@@ -1,3 +1,4 @@
+from reflex.components.radix.themes.layout.stack import VStack
 from dataclasses import dataclass, field
 import reflex as rx
 import asyncio
@@ -45,19 +46,19 @@ class Animation(rx.State):
     is_disabled: bool = False
 
     async def run_animation(self):
-        if self.is_disabled:  # Prevent running if already animating
+        if self.is_disabled:
             return
 
         self.is_disabled = True
         self.animate = Style.fade
-        yield  # Allow the animation to apply
+        yield
 
-        await asyncio.sleep(1.1)  # Wait for the animation to finish
+        await asyncio.sleep(1.1)
         self.is_disabled = False
-        self.animate = {}  # Reset animation after completion
+        self.animate = {}
 
 
-def animation_v1():
+def animation_v1() -> VStack:
     return rx.vstack(
         rx.heading("buridan/ui", size="5", font_weight="900", style=Animation.animate),
         rx.button(
