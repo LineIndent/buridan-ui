@@ -17,7 +17,7 @@ Visit the [Charts](https://buridan-ui.reflex.run/charts/ui/) section to view the
 
 ## Interactive Apps
 
-Visit the [Interactive Apps](https://buridan-ui.reflex.run/interactive/retrieval-augmented-generation/) section to view the available interactive apps (A.I., RAG, etc..). 
+Visit the [Interactive Apps](https://buridan-ui.reflex.run/interactive/retrieval-augmented-generation/) section to view the available interactive apps (A.I., RAG App, etc..). 
 
 ## Contributing
 
