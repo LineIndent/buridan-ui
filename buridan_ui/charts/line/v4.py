@@ -4,21 +4,21 @@ from ..style import tooltip_styles, info
 from ...wrappers.state import ComponentWrapperState
 
 
-def linechart_v3():
+def linechart_v4():
 
     data = [
-        {"month": "Jan", "desktop": 186},
-        {"month": "Feb", "desktop": 305},
-        {"month": "Mar", "desktop": 237},
-        {"month": "Apr", "desktop": 73},
-        {"month": "May", "desktop": 209},
-        {"month": "Jun", "desktop": 214},
+        {"month": "Jan", "desktop": 186, "mobile": 80},
+        {"month": "Feb", "desktop": 305, "mobile": 200},
+        {"month": "Mar", "desktop": 237, "mobile": 120},
+        {"month": "Apr", "desktop": 73, "mobile": 190},
+        {"month": "May", "desktop": 209, "mobile": 130},
+        {"month": "Jun", "desktop": 214, "mobile": 140},
     ]
 
     return rx.center(
         rx.vstack(
             info(
-                "Line Chart - Label",
+                "Line Chart - Multiple",
                 "3",
                 "Showing total visitors for the last 6 months",
                 "start",
@@ -31,17 +31,16 @@ def linechart_v3():
                     fill_opacity=0.5,
                     stroke=rx.color("slate", 5),
                 ),
-                rx.recharts.line(
-                    rx.recharts.label_list(
-                        position="top",
-                        offset=20,
-                        custom_attrs={"fontSize": "12px", "fontWeight": "bold"},
-                    ),
-                    data_key="desktop",
-                    stroke=ComponentWrapperState.default_theme[1],
-                    type_="linear",
-                    dot=True,
-                ),
+                *[
+                    rx.recharts.line(
+                        data_key=name,
+                        stroke=ComponentWrapperState.default_theme[index + 2],
+                        type_="natural",
+                        dot=False,
+                        stack_id="a",
+                    )
+                    for index, name in enumerate(["desktop", "mobile"])
+                ],
                 rx.recharts.x_axis(
                     data_key="month",
                     axis_line=False,
@@ -52,7 +51,7 @@ def linechart_v3():
                 data=data,
                 width="100%",
                 height=250,
-                margin={"left": 20, "right": 20, "top": 25},
+                margin={"left": 20},
             ),
             info("Trending up by 5.2% this month", "2", "January - June 2024", "start"),
             width="100%",

@@ -4,21 +4,20 @@ from ..style import tooltip_styles, info
 from ...wrappers.state import ComponentWrapperState
 
 
-def linechart_v3():
+def linechart_v5():
 
     data = [
-        {"month": "Jan", "desktop": 186},
-        {"month": "Feb", "desktop": 305},
-        {"month": "Mar", "desktop": 237},
-        {"month": "Apr", "desktop": 73},
-        {"month": "May", "desktop": 209},
-        {"month": "Jun", "desktop": 214},
+        {"browser": "chrome", "visitors": 275},
+        {"browser": "safari", "visitors": 200},
+        {"browser": "firefox", "visitors": 187},
+        {"browser": "edge", "visitors": 173},
+        {"browser": "other", "visitors": 90},
     ]
 
     return rx.center(
         rx.vstack(
             info(
-                "Line Chart - Label",
+                "Line Chart - Title Label",
                 "3",
                 "Showing total visitors for the last 6 months",
                 "start",
@@ -36,23 +35,17 @@ def linechart_v3():
                         position="top",
                         offset=20,
                         custom_attrs={"fontSize": "12px", "fontWeight": "bold"},
+                        data_key="browser",
                     ),
-                    data_key="desktop",
+                    data_key="visitors",
                     stroke=ComponentWrapperState.default_theme[1],
-                    type_="linear",
+                    type_="natural",
                     dot=True,
-                ),
-                rx.recharts.x_axis(
-                    data_key="month",
-                    axis_line=False,
-                    tick_size=10,
-                    tick_line=False,
-                    custom_attrs={"fontSize": "12px"},
                 ),
                 data=data,
                 width="100%",
                 height=250,
-                margin={"left": 20, "right": 20, "top": 25},
+                margin={"left": 25, "right": 20, "top": 25},
             ),
             info("Trending up by 5.2% this month", "2", "January - June 2024", "start"),
             width="100%",
