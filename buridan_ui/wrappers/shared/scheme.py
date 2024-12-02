@@ -15,6 +15,7 @@ def color_scheme_boxes(color: str):
         "ruby": "Yaqout يَاقُوت",
         "jade": "Zumurud زُمُرُّد",
         "gray": "Hematite هَيْمَاتِيت",
+        "purple": "Amethyst أميثيست",
     }
 
     return rx.hover_card.root(
@@ -75,7 +76,10 @@ def color_scheme_boxes(color: str):
 
 def component_wrapper_color_scheme():
     return rx.hstack(
-        *[color_scheme_boxes(color) for color in ["blue", "ruby", "jade", "gray"]],
+        *[
+            color_scheme_boxes(color)
+            for color in ["blue", "ruby", "jade", "purple", "gray"]
+        ],
         spacing="2",
         align="center",
     )
