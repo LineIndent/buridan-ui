@@ -10,12 +10,10 @@ from .features.feature import feature
 
 from .items.pantry import landing_page_pantry_items
 from .items.charts import landing_page_chart_items
-from .items.credits import credit_banner
 
 from ...templates.footer.footer import footer
 from ...templates.drawer.drawer import drawer
 from ...templates.navigation.navigation import landing_page_navigation
-from ...templates.background.background import landing_page_grid_background
 
 
 def count_python_files_in_folder(folder_name):
@@ -58,7 +56,7 @@ def landing_page() -> rx.vstack:
                 "Powerful charting components, designed to visualize your data effortlessly.",
                 f"Explore {count_python_files_in_folder('buridan_ui/charts')}+ beautifully designed, fully responsive chart components ready to enhance your Reflex projects and visualize your data effectively.",
                 "Browse chart items →",
-                "/charts/area-charts",
+                "/charts/ui",
                 [landing_page_chart_items()],
             ),
             rx.divider(height="5em", opacity="0"),
