@@ -9,10 +9,12 @@ from .charts.exports import charts_exports_config
 from .blueprints.exports import blueprint_export_config
 from .pages.started_items.exports import getting_started_config
 from .pages.interactive.exports import interactive_config
-from .pages.landing.hero import landing_page
 
+from .pages.landing.hero import landing_page
 from .pages.landing.hero_landing.state import HeroLandingState
 
+
+from .pages.charts_landing.main import charts_landing_page
 
 AppFontURL: str = (
     "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -58,23 +60,17 @@ DEV: bool = False
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/blueprints/layouts",
-        "name": "Layouts",
-        "dir": "layouts",
-        "config": blueprint_export_config,
+        "path": "/charts/area-charts",
+        "name": "Area Charts",
+        "dir": "area",
+        "config": charts_exports_config,
     }
 
     @base(ENV["path"], ENV["name"])
     def __() -> callable:
         return [export() for export in ENV["config"][ENV["dir"]]]
 
-    app.add_page(
-        landing_page(),
-        route="/",
-        title="Buridan UI",
-        on_load=HeroLandingState.on_hero_page_load,
-    )
-    app.add_page(__(), route=ENV["path"], title=f"{ENV['name']} - Buridan UI")
+    app.add_page(charts_landing_page(), route="/")
 
 
 else:
@@ -84,6 +80,7 @@ else:
         title="Buridan UI",
         on_load=HeroLandingState.on_hero_page_load,
     )
+    app.add_page(charts_landing_page(), route="/charts/ui")
     add_routes(Routes.interactive, interactive_config)
     add_routes(Routes.blueprints, blueprint_export_config)
     add_routes(Routes.pantries, pantry_exports_config)
