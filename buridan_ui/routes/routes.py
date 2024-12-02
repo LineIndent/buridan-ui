@@ -165,6 +165,7 @@ class Routes:
             {"name": "Area Charts", "path": "/charts/area-charts", "dir": "area"},
             {"name": "Line Charts", "path": "/charts/line-charts", "dir": "line"},
             {"name": "Pie Charts", "path": "/charts/pie-charts", "dir": "pie"},
+            {"name": "Radar Charts", "path": "/charts/radar-charts", "dir": "radar"},
         ]
     )
 
@@ -178,7 +179,8 @@ class NavigationRoutes:
             {"name": "Interactive Apps", "path": InteractiveRoutes[0]["path"]},
             {"name": "Blueprints", "path": BlueprintRoutes[0]["path"]},
             {"name": "Pantry", "path": PantryRoutes[0]["path"]},
-            {"name": "Charts", "path": ChartRoutes[0]["path"]},
+            # {"name": "Charts", "path": ChartRoutes[0]["path"]},
+            {"name": "Charts", "path": "/charts/ui"},
         ]
     )
 
