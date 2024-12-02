@@ -99,10 +99,24 @@ def changelog():
         rx.box(
             rx.vstack(
                 wrapper(
+                    "Buridan Charts",
+                    "December 02, 2024",
+                    [
+                        info("New charts landing page."),
+                        info("New chart item: Radar Charts."),
+                        info("New chart theme color: purple."),
+                        info("New chart tooltip style sheet."),
+                        info("Updated responsive logic for mobile view."),
+                        info("Significant UI update to entire chart codebase."),
+                        info("New dynamic charting for area, bar, and line charts."),
+                        changelog_badge("party-popper", "buridan/ui v0.4.0"),
+                    ],
+                ),
+                wrapper(
                     "Site patches and New Blueprint Items",
                     "November 26, 2024",
                     [
-                        info("New blueprint items: Dashboards & Layouts"),
+                        info("New blueprint items: Dashboards & Layouts."),
                         info(
                             "Major code refactoring for pantry, charts, and blueprint wrappers."
                         ),
