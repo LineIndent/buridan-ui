@@ -4,7 +4,7 @@ from ..style import tooltip_styles, info
 from ...wrappers.state import ComponentWrapperState
 
 
-def piechart_v4():
+def piechart_v6():
 
     data = [
         {"browser": "chrome", "visitors": 275},
@@ -20,7 +20,7 @@ def piechart_v4():
     ]
 
     return rx.vstack(
-        info("Pie Chart - Legend", "3", "January - June 2024", "center"),
+        info("Pie Chart - Active", "3", "January - June 2024", "center"),
         rx.recharts.pie_chart(
             rx.recharts.graphing_tooltip(**vars(tooltip_styles)),
             rx.recharts.pie(
@@ -28,12 +28,14 @@ def piechart_v4():
                 data_key="visitors",
                 name_key="browser",
                 stroke="0",
-                is_animation_active=False,
-                legend_type="circle",
+                inner_radius=60,
+                custom_attrs={
+                    "strokeWidth": 5,
+                    "activeIndex": 1,
+                    "activeShape": {"outerRadius": 120},
+                },
             ),
-            rx.recharts.legend(
-                custom_attrs={"fontSize": "12px", "fontWeight": "bold"},
-            ),
+            rx.recharts.graphing_tooltip(),
             width="100%",
             height=250,
         ),

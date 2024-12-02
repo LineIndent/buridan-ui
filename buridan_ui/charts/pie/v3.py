@@ -1,44 +1,33 @@
 import reflex as rx
-from typing import Callable
 
+from ..style import tooltip_styles, info
 from ...wrappers.state import ComponentWrapperState
 
 
-data = [
-    {"browser": "chrome", "visitors": 275},
-    {"browser": "safari", "visitors": 200},
-    {"browser": "firefox", "visitors": 187},
-    {"browser": "edge", "visitors": 173},
-    {"browser": "other", "visitors": 90},
-]
-
-data = [
-    {**item, "fill": rx.color(ComponentWrapperState.selected_theme, index + 5)}
-    for index, item in enumerate(data)
-]
-
-
-info: Callable[[str, str, str], rx.Component] = (
-    lambda title, titleSize, subtitle: rx.vstack(
-        rx.heading(title, size=titleSize, weight="bold"),
-        rx.text(subtitle, size="3", color=rx.color("slate", 11), weight="medium"),
-        spacing="1",
-        width="100%",
-        align="center",
-    )
-)
-
-
 def piechart_v3():
+
+    data = [
+        {"browser": "chrome", "visitors": 275},
+        {"browser": "safari", "visitors": 200},
+        {"browser": "firefox", "visitors": 187},
+        {"browser": "edge", "visitors": 173},
+        {"browser": "other", "visitors": 90},
+    ]
+
+    data = [
+        {**item, "fill": rx.color(ComponentWrapperState.selected_theme, index + 5)}
+        for index, item in enumerate(data)
+    ]
+
     return rx.vstack(
-        info(
-            "Pie Chart - Inner Labels",
-            "6",
-            "January - June 2024",
-        ),
+        info("Pie Chart - Inner Labels", "3", "January - June 2024", "center"),
         rx.recharts.pie_chart(
+            rx.recharts.graphing_tooltip(**vars(tooltip_styles)),
             rx.recharts.pie(
-                rx.recharts.label_list(fill=rx.color("slate", 12)),
+                rx.recharts.label_list(
+                    fill=rx.color("slate", 12),
+                    custom_attrs={"fontSize": "12px", "fontWeight": "bold"},
+                ),
                 data=data,
                 data_key="visitors",
                 name_key="browser",
@@ -46,15 +35,15 @@ def piechart_v3():
                 is_animation_active=False,
             ),
             width="100%",
-            height=400,
+            height=250,
         ),
         info(
             "Trending up by 5.2% this month",
-            "4",
+            "2",
             "Showing total visitors for the last 6 months",
+            "center",
         ),
         width="100%",
         align="center",
-        padding="1em 0em",
-        spacing="1",
+        padding="0.5em",
     )
