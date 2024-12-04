@@ -52,7 +52,7 @@ github = nav_icon(
 
 def navigation_links(data: dict[str, str | Color]):
     return rx.link(
-        rx.text(data["name"], size="1", weight="bold", color=rx.color("slate", 12)),
+        rx.text(data["name"], size="1", weight="medium", color=rx.color("slate", 12)),
         href=data["path"],
         text_decoration="none",
         on_click=SiteRoutingState.toggle_page_change(data),
