@@ -69,8 +69,8 @@ def desktop_footer():
             rx.text(
                 "© 2024 Ahmad Hakim. All rights reserved.",
                 size="1",
-                weight="bold",
-                color=rx.color("gray", 11),
+                weight="medium",
+                color=rx.color("slate", 11),
             ),
             spacing="2",
             width="100%",
