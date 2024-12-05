@@ -23,8 +23,8 @@ class NavigationStyle:
 
     logo: dict[str, str] = field(
         default_factory=lambda: {
-            "width": "24px",
-            "height": "24px",
+            "width": "22px",
+            "height": "22px",
             "border_radius": "100%",
             "object_fit": "fit",
             "border": f"1px solid {rx.color('slate', 12)}",

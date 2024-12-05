@@ -61,19 +61,6 @@ def navigation_links(data: dict[str, str | Color]):
 
 def navigation_right_side_items():
     return rx.hstack(
-        rx.hstack(
-            rx.foreach(SiteRoutingState.NavigationRoutes, navigation_links),
-            display=["none", "none", "none", "none", "flex", "flex"],
-            align="center",
-        ),
-        rx.divider(
-            orientation="vertical",
-            height="30px",
-            width="0.75px",
-            color_scheme="gray",
-            display=["none", "none", "none", "none", "flex", "flex"],
-            margin="0em 0.5em",
-        ),
         rx.hstack(github, theme, align="center", spacing="2"),
         rx.el.button(
             rx.icon(tag="align-right", size=15),
@@ -93,13 +80,19 @@ def navigation_left_side_items():
         rx.image(src="/logo.jpg", **NavigationStyle.logo),
         rx.heading(
             "buridan/ui",
-            font_size="1em",
-            font_weight="900",
+            font_size="0.9em",
+            font_weight="800",
             cursor="pointer",
             on_click=[
                 SiteRoutingState.toggle_page_change({"name": "Home", "path": "/"}),
                 rx.redirect("/"),
             ],
+        ),
+        rx.divider(width="0.75em", opacity="0"),
+        rx.hstack(
+            rx.foreach(SiteRoutingState.NavigationRoutes, navigation_links),
+            display=["none", "none", "none", "none", "flex", "flex"],
+            align="center",
         ),
         align="center",
         spacing="2",
@@ -116,7 +109,20 @@ def navigation():
 
 def docs_navigation():
     return rx.hstack(
-        navigation_left_side_items(),
+        rx.hstack(
+            rx.image(src="/logo.jpg", **NavigationStyle.logo),
+            rx.heading(
+                "buridan/ui",
+                font_size="0.9em",
+                font_weight="800",
+                cursor="pointer",
+                on_click=[
+                    SiteRoutingState.toggle_page_change({"name": "Home", "path": "/"}),
+                    rx.redirect("/"),
+                ],
+            ),
+            align="center",
+        ),
         rx.hstack(
             rx.hstack(github, theme, align="center", spacing="2"),
             rx.el.button(
