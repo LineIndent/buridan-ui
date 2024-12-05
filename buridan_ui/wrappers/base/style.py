@@ -5,25 +5,13 @@ import reflex as rx
 
 @dataclass
 class BaseWrapperStyle:
-    # grandparent: dict[str, str] = field(
-    #     default_factory=lambda: {
-    #         "spacing": "0",
-    #         "width": "100%",
-    #         "height": "100vh",
-    #         "overflow": "scroll",
-    #         "scrollbar_width": "thin",
-    #         "overscroll_behavior_y": "contain",
-    #     }
-    # )
-
     parent: dict[str, str] = field(
         default_factory=lambda: {
             "spacing": "0",
             "width": "100%",
-            "height": "100vh",
-            "overflow": "auto",
             "scrollbar_width": "thin",
-            "background": rx.color("slate", 2),
+            "background": rx.color("gray", 2),
+            "height": ["100%" if i == 0 else "100vh" for i in range(6)],
         }
     )
 

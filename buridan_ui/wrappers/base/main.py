@@ -35,13 +35,18 @@ def base(url: str, page_name: str):
         def template():
             contents = content()
             return rx.hstack(
-                *[drawer(), sidemenu(), docs_navigation()],
+                *[
+                    drawer(),
+                    sidemenu(),
+                    docs_navigation(),
+                ],
                 rx.vstack(
                     rx.vstack(
-                        rx.divider(height="2em", opacity="0"),
+                        rx.divider(height="1em", opacity="0"),
                         baseWrapperHeader(base_content_path_ui(url), page_name),
+                        rx.divider(height="1em", opacity="0"),
                         *contents,
-                        rx.divider(height="4em", opacity="0"),
+                        rx.divider(height="2em", opacity="0"),
                         max_width="95%",
                         align="center",
                         **BaseWrapperStyle.content,
@@ -56,11 +61,13 @@ def base(url: str, page_name: str):
                         width="100%",
                         max_width="95%",
                         align="center",
+                        padding="0.75em 0em",
                     ),
-                    rx.divider(height="2em", opacity="0"),
+                    position="relative",
                     width="100%",
                     align="center",
-                    position="relative",
+                    height=["100%" if i == 0 else "100vh" for i in range(6)],
+                    overflow=["" if i == 0 else "scroll" for i in range(6)],
                 ),
                 **BaseWrapperStyle.parent,
             )

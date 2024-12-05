@@ -7,14 +7,11 @@ from .style import MenuWrapperStyle, BaseHeaderWrapper
 def menu_wrapper(title: str, components: list[rx.Component] = []):
     return rx.hstack(
         rx.vstack(
-            rx.vstack(
-                rx.hstack(
-                    rx.text(
-                        title, size="1", weight="bold", color=rx.color("slate", 11)
-                    ),
-                    align="center",
-                ),
-                spacing="1",
+            rx.text(
+                title,
+                size="1",
+                weight="bold",
+                color=rx.color("slate", 11),
             ),
             *components,
             width="100%",
@@ -35,7 +32,7 @@ baseWrapperHeader: Callable[[rx.Component, str], rx.Component] = (
             ),
             **BaseHeaderWrapper.titles,
         ),
-        min_height="35vh",
+        # min_height="30vh",
         **BaseHeaderWrapper.wrapper,
     )
 )

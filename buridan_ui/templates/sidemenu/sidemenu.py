@@ -36,7 +36,7 @@ def create_sidebar_menu_items(routes: List[Dict[str, str | Color]]):
             background=data["background"],
             width="100%",
             align="center",
-            height="30px",
+            height="26px",
             padding_left="20px",
             border_radius="0px 6px 6px 0px",
         )
