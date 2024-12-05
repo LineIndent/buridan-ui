@@ -1,5 +1,3 @@
-import asyncio
-
 import reflex as rx
 import re
 
@@ -73,7 +71,7 @@ def animation_v4():
             size="1",
             padding="5px 10px",
             color_scheme="sky",
-            border_radius="8px 0px 8px 0px",
+            border_radius="0px 0px 8px 0px",
         ),
         width="100%",
         height="20em",
