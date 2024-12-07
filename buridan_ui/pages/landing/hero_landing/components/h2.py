@@ -1,9 +1,7 @@
 import reflex as rx
 from dataclasses import dataclass, field
 
-from docutils.nodes import transition
-
-from ..state import HeroLandingState, passive_component
+from ..state import HeroLandingState
 
 
 @dataclass

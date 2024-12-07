@@ -4,17 +4,17 @@ from .wrappers.base.main import base
 
 from .routes.routes import Routes
 
-from .pantry.exports import pantry_exports_config
-from .charts.exports import charts_exports_config
-from .blueprints.exports import blueprint_export_config
-from .pages.started_items.exports import getting_started_config
-from .pages.interactive.exports import interactive_config
-
 from .pages.landing.hero import landing_page
-from .pages.landing.hero_landing.state import HeroLandingState
-
-
+from .charts.exports import charts_exports_config
+from .pantry.exports import pantry_exports_config
+from .blueprints.exports import blueprint_export_config
+from .pages.interactive.exports import interactive_config
 from .pages.charts_landing.main import charts_landing_page
+from .pages.landing.hero_landing.state import HeroLandingState
+from .pages.started_items.exports import getting_started_config
+
+from .sandbox.main import buridan_sandbox
+from .sandbox.state import Editor
 
 AppFontURL: str = (
     "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -70,7 +70,10 @@ if DEV:
     def __() -> callable:
         return [export() for export in ENV["config"][ENV["dir"]]]
 
-    app.add_page(charts_landing_page(), route="/")
+    # app.add_page(charts_landing_page(), route="/")
+    app.add_page(
+        buridan_sandbox(), route="/buridan-sandbox", on_load=Editor.automatic_reload
+    )
 
 
 else:
@@ -86,3 +89,8 @@ else:
     add_routes(Routes.pantries, pantry_exports_config)
     add_routes(Routes.charts, charts_exports_config)
     add_routes(Routes.started, getting_started_config)
+
+    # EXPERIMENTAL
+    app.add_page(
+        buridan_sandbox(), route="/buridan-sandbox", on_load=Editor.automatic_reload
+    )
