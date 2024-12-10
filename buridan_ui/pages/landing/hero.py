@@ -2,24 +2,22 @@ import os
 
 import reflex as rx
 
-from .wrapper.wrapper import landing_page_section_wrapper
+from buridan_ui.templates.drawer.drawer import drawer
+from buridan_ui.templates.footer.footer import footer
+from buridan_ui.templates.navigation.navigation import landing_page_navigation
 
-from .style import LandingPageStyle
-from .hero_landing.hero import hero
 from .features.feature import feature
-
-from .items.pantry import landing_page_pantry_items
+from .hero_landing.hero import hero
 from .items.charts import landing_page_chart_items
-
-from ...templates.footer.footer import footer
-from ...templates.drawer.drawer import drawer
-from ...templates.navigation.navigation import landing_page_navigation
+from .items.pantry import landing_page_pantry_items
+from .style import LandingPageStyle
+from .wrapper.wrapper import landing_page_section_wrapper
 
 
 def count_python_files_in_folder(folder_name):
     total_files = 0
 
-    for dirpath, dirnames, filenames in os.walk(folder_name):
+    for _dirpath, _dirnames, filenames in os.walk(folder_name):
         total_files += len([f for f in filenames if f.endswith(".py")])
 
     return total_files

@@ -1,12 +1,11 @@
 from dataclasses import dataclass, field
-from typing import Dict
 
 import reflex as rx
 
 
 @dataclass
 class DashboardTrafficBarStyle:
-    base: Dict[str, str] = field(
+    base: dict[str, str] = field(
         default_factory=lambda: {
             "height": "100%",
             "padding": "1em",

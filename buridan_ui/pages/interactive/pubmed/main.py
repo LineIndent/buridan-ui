@@ -1,10 +1,9 @@
-from typing import Callable, Optional
+from typing import Optional
 
 import reflex as rx
 
 from .state import PubMedState
 from .style import PubMedStyle
-
 from .wrappers.item import wrapper
 
 txt_overflow = {
@@ -14,15 +13,17 @@ txt_overflow = {
     "cursor": "pointer",
 }
 
-user_query: Callable[[], rx.Component] = lambda: rx.input(
-    value=PubMedState.user_query,
-    width="100%",
-    on_change=PubMedState.set_user_query,
-)
+
+def user_query() -> rx.Component:
+    return rx.input(
+        value=PubMedState.user_query,
+        width="100%",
+        on_change=PubMedState.set_user_query,
+    )
 
 
-button: Callable[[str, str, Optional], rx.Component] = (
-    lambda name, color, kwargs=None: rx.button(
+def button(name: str, color: str, kwargs: Optional = None) -> rx.Component:
+    return rx.button(
         name,
         color_scheme=color,
         variant="surface",
@@ -30,56 +31,63 @@ button: Callable[[str, str, Optional], rx.Component] = (
         width="100%",
         **(kwargs if kwargs else {}),
     )
-)
 
-loader_txt: Callable[[], rx.Component] = lambda: rx.text(
-    PubMedState.loader_txt, size="2", color=rx.color("slate", 11), padding="1em 0em"
-)
 
-hover: Callable[[str], rx.Component] = lambda txt: rx.hover_card.root(
-    rx.hover_card.trigger(
-        rx.text(txt, width="300px", **txt_overflow),
-    ),
-    rx.hover_card.content(rx.text(txt)),
-)
+def loader_txt() -> rx.Component:
+    return rx.text(
+        PubMedState.loader_txt,
+        size="2",
+        color=rx.color("slate", 11),
+        padding="1em 0em",
+    )
 
-table: Callable[[], rx.Component] = lambda: rx.table.root(
-    rx.table.header(
-        rx.table.row(
-            rx.foreach(
-                ["", "ID", "Title", "Date", "URL", "Abstract"],
-                lambda title: rx.table.column_header_cell(
-                    rx.text(title, font_size="12px", weight="bold"),
+
+def hover(txt: str) -> rx.Component:
+    return rx.hover_card.root(
+        rx.hover_card.trigger(rx.text(txt, width="300px", **txt_overflow)),
+        rx.hover_card.content(rx.text(txt)),
+    )
+
+
+def table() -> rx.Component:
+    return rx.table.root(
+        rx.table.header(
+            rx.table.row(
+                rx.foreach(
+                    ["", "ID", "Title", "Date", "URL", "Abstract"],
+                    lambda title: rx.table.column_header_cell(
+                        rx.text(title, font_size="12px", weight="bold"),
+                    ),
                 ),
-            )
-        ),
-    ),
-    rx.table.body(
-        rx.foreach(
-            PubMedState.articles,
-            lambda article: rx.table.row(
-                rx.table.cell(
-                    rx.checkbox(
-                        on_change=lambda _: PubMedState.compile_selected_article(
-                            _, article["id"]
-                        )
-                    )
-                ),
-                rx.table.cell(article["id"]),
-                rx.table.cell(hover(article["title"])),
-                rx.table.cell(article["date"]),
-                rx.table.cell(rx.link(article["url"], href=article["url"])),
-                rx.table.cell(hover(article["abstract"])),
-                align="center",
-                white_space="nowrap",
             ),
         ),
-        transition="all 550ms ease",
-    ),
-    width="100%",
-    variant="surface",
-    size="2",
-)
+        rx.table.body(
+            rx.foreach(
+                PubMedState.articles,
+                lambda article: rx.table.row(
+                    rx.table.cell(
+                        rx.checkbox(
+                            on_change=lambda _: PubMedState.compile_selected_article(
+                                _,
+                                article["id"],
+                            ),
+                        ),
+                    ),
+                    rx.table.cell(article["id"]),
+                    rx.table.cell(hover(article["title"])),
+                    rx.table.cell(article["date"]),
+                    rx.table.cell(rx.link(article["url"], href=article["url"])),
+                    rx.table.cell(hover(article["abstract"])),
+                    align="center",
+                    white_space="nowrap",
+                ),
+            ),
+            transition="all 550ms ease",
+        ),
+        width="100%",
+        variant="surface",
+        size="2",
+    )
 
 
 def pubmed_ai():
@@ -125,7 +133,7 @@ def pubmed_ai():
                             "loading": PubMedState.is_generating,
                             "on_click": rx.event(PubMedState.generate_abstract_summary),
                         },
-                    )
+                    ),
                 ],
             ),
             rx.spacer(),

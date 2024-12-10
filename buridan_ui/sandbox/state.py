@@ -1,10 +1,10 @@
-import reflex as rx
 import asyncio
-
 import inspect
 
-from ..pantry.logins.v1 import logins_v1
-from ..pantry.logins.v2 import logins_v2
+import reflex as rx
+
+from buridan_ui.pantry.logins.v1 import logins_v1
+from buridan_ui.pantry.logins.v2 import logins_v2
 
 
 class Editor(rx.State):
@@ -35,7 +35,8 @@ class Editor(rx.State):
         while True:
             async with self:
                 yield rx.call_script(
-                    "getEditorContentAutomatic();", Editor.handle_code_from_js
+                    "getEditorContentAutomatic();",
+                    Editor.handle_code_from_js,
                 )
 
             await asyncio.sleep(1)

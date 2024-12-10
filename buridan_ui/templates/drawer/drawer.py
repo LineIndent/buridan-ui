@@ -1,10 +1,10 @@
 import reflex as rx
 
-from .style import DrawerStyle
-from .state import DrawerState
+from buridan_ui.states.routing import SiteRoutingState
+from buridan_ui.templates.sidemenu.sidemenu import create_sidebar_menu_items
 
-from ..sidemenu.sidemenu import create_sidebar_menu_items
-from ...states.routing import SiteRoutingState
+from .state import DrawerState
+from .style import DrawerStyle
 
 active = rx.color("slate", 12)
 
@@ -36,23 +36,25 @@ def drawer():
                     ),
                     drawer_menu_header("Getting Started"),
                     drawer_menu_link(
-                        create_sidebar_menu_items(SiteRoutingState.GettingStartedRoutes)
+                        create_sidebar_menu_items(
+                            SiteRoutingState.GettingStartedRoutes,
+                        ),
                     ),
                     drawer_menu_header("Interactive Apps"),
                     drawer_menu_link(
-                        create_sidebar_menu_items(SiteRoutingState.InteractiveRoutes)
+                        create_sidebar_menu_items(SiteRoutingState.InteractiveRoutes),
                     ),
                     drawer_menu_header("Blueprint Templates"),
                     drawer_menu_link(
-                        create_sidebar_menu_items(SiteRoutingState.BlueprintRoutes)
+                        create_sidebar_menu_items(SiteRoutingState.BlueprintRoutes),
                     ),
                     drawer_menu_header("Charts"),
                     drawer_menu_link(
-                        create_sidebar_menu_items(SiteRoutingState.ChartRoutes)
+                        create_sidebar_menu_items(SiteRoutingState.ChartRoutes),
                     ),
                     drawer_menu_header("Pantry"),
                     drawer_menu_link(
-                        create_sidebar_menu_items(SiteRoutingState.PantryRoutes)
+                        create_sidebar_menu_items(SiteRoutingState.PantryRoutes),
                     ),
                     **DrawerStyle.stack_content,
                 ),

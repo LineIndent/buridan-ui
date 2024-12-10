@@ -1,5 +1,6 @@
-import reflex as rx
 from dataclasses import dataclass, field
+
+import reflex as rx
 
 from ..state import HeroLandingState
 
@@ -14,7 +15,7 @@ class LoginStyle:
             "cursor": "pointer",
             "variant": "surface",
             "color_scheme": "gray",
-        }
+        },
     )
 
 

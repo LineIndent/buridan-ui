@@ -1,8 +1,6 @@
-import reflex as rx
-
 from dataclasses import dataclass, field
 
-from typing import Callable
+import reflex as rx
 
 from buridan_ui.pages.landing.hero_landing.state import HeroLandingState
 
@@ -25,7 +23,7 @@ class InputsV1Style:
             "padding": "2.5px 10px",
             "spacing": "0",
             "transition": "filter 300ms ease 700ms, transform 300ms ease 700ms, opacity 300ms ease 700ms",
-        }
+        },
     )
 
     text: dict[str, str] = field(
@@ -34,7 +32,7 @@ class InputsV1Style:
             "weight": "bold",
             "padding": "8px 8px 0px 8px",
             "color": rx.color("slate", 11),
-        }
+        },
     )
 
     entry: dict[str, str] = field(
@@ -43,19 +41,19 @@ class InputsV1Style:
             "variant": "soft",
             "width": "100%",
             "background": "transparent",
-        }
+        },
     )
 
     active_border: dict[str, str] = field(
         default_factory=lambda: {
             "border": f"2px solid {rx.color('blue', 7)}",
-        }
+        },
     )
 
     passive_border: dict[str, str] = field(
         default_factory=lambda: {
             "border": f"2px solid {rx.color('gray', 5)}",
-        }
+        },
     )
 
 
@@ -64,19 +62,23 @@ data: list[list[str]] = [
     [*item, InputsV1Style.passive_border["border"]] for item in data
 ]
 
-title: Callable[[str], rx.Component] = lambda txt: rx.text(txt, **InputsV1Style.text)
 
-entry: Callable[[str, list[str]], rx.Component] = lambda placeholder, strings: rx.input(
-    placeholder=placeholder,
-    **InputsV1Style.entry,
-)
+def title(txt: str) -> rx.Component:
+    return rx.text(txt, **InputsV1Style.text)
 
-stack: Callable[[list[str]], rx.Component] = lambda strings: rx.vstack(
-    title(strings[0]),
-    entry(strings[1], strings),
-    border=strings[2],
-    **InputsV1Style.base,
-    style=HeroLandingState.component,
-)
+
+def entry(placeholder: str, strings: list[str]) -> rx.Component:
+    return rx.input(placeholder=placeholder, **InputsV1Style.entry)
+
+
+def stack(strings: list[str]) -> rx.Component:
+    return rx.vstack(
+        title(strings[0]),
+        entry(strings[1], strings),
+        border=strings[2],
+        **InputsV1Style.base,
+        style=HeroLandingState.component,
+    )
+
 
 hero_inputs = rx.hstack(*[stack(item) for item in data], **InputsV1Style.root)

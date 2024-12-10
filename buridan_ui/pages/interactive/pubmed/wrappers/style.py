@@ -17,7 +17,7 @@ class AppProfileWrapperStyle:
             "align_items": "center",
             "justify_content": "center",
             "display": "flex",
-        }
+        },
     )
 
     wrapper: dict[str, str] = field(
@@ -27,7 +27,7 @@ class AppProfileWrapperStyle:
             "justify": "start",
             "padding_left": "5px",
             "border_radius": "0px 5px 5px 0px",
-        }
+        },
     )
 
 

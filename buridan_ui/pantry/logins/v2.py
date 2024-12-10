@@ -1,6 +1,6 @@
-import reflex as rx
-
 from dataclasses import dataclass, field
+
+import reflex as rx
 
 
 @dataclass
@@ -13,7 +13,7 @@ class LoginStyle:
             "justify": "center",
             "align": "center",
             "padding": "3em 0em",
-        }
+        },
     )
 
     LoginButton: dict[str, str] = field(
@@ -22,7 +22,7 @@ class LoginStyle:
             "cursor": "pointer",
             "variant": "surface",
             "color_scheme": "gray",
-        }
+        },
     )
 
 
@@ -82,5 +82,5 @@ def logins_v2():
             text_align="center",
             padding="5px 0px",
         ),
-        **LoginStyle.base
+        **LoginStyle.base,
     )

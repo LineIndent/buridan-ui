@@ -1,7 +1,8 @@
-from reflex.components.radix.themes.layout.stack import VStack
-from dataclasses import dataclass, field
-import reflex as rx
 import asyncio
+from dataclasses import dataclass, field
+
+import reflex as rx
+from reflex.components.radix.themes.layout.stack import VStack
 
 
 @dataclass
@@ -13,7 +14,7 @@ class Style:
             "align": "center",
             "justify": "center",
             "position": "relative",
-        }
+        },
     )
 
     button: dict[str, str] = field(
@@ -23,7 +24,7 @@ class Style:
             "cursor": "pointer",
             "position": "absolute",
             "border_radius": "0px 0px 0px 8px",
-        }
+        },
     )
 
     fade: dict[str, str] = field(
@@ -34,7 +35,7 @@ class Style:
                 "100%": {"opacity": "1"},
             },
             "animation": "opacity 1s",
-        }
+        },
     )
 
 

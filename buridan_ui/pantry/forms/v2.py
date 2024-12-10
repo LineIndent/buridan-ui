@@ -10,7 +10,11 @@ def create_menu(default: str, items: list[str]):
 
 def create_button(name: str, flex_width: str):
     return rx.button(
-        name, variant="soft", flex=flex_width, cursor="pointer", color_scheme="gray"
+        name,
+        variant="soft",
+        flex=flex_width,
+        cursor="pointer",
+        color_scheme="gray",
     )
 
 
@@ -53,7 +57,10 @@ def forms_v2():
         ),
         rx.vstack(
             rx.text(
-                "Description", font_size="11px", color_scheme="gray", weight="bold"
+                "Description",
+                font_size="11px",
+                color_scheme="gray",
+                weight="bold",
             ),
             rx.text_area(
                 width="100%",

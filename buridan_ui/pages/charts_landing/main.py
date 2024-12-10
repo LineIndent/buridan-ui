@@ -1,13 +1,11 @@
 import reflex as rx
-from typing import Callable
 
-from ...templates.drawer.drawer import drawer
-from ...templates.footer.footer import footer
-from ..landing.wrapper.wrapper import landing_page_section_wrapper
-from ...wrappers.shared.scheme import component_wrapper_color_scheme
-from ...templates.navigation.navigation import landing_page_navigation
-
-from ...charts.exports import *
+from buridan_ui.charts.exports import *
+from buridan_ui.pages.landing.wrapper.wrapper import landing_page_section_wrapper
+from buridan_ui.templates.drawer.drawer import drawer
+from buridan_ui.templates.footer.footer import footer
+from buridan_ui.templates.navigation.navigation import landing_page_navigation
+from buridan_ui.wrappers.shared.scheme import component_wrapper_color_scheme
 
 GridStyleSheet = {
     "width": "100%",
@@ -20,24 +18,27 @@ GridStyleSheet = {
 }
 
 
-chartsWrapper: Callable[[rx.Component], rx.Component] = lambda chart: rx.vstack(
-    chart,
-    width="100%",
-    padding="0.75em",
-    border_radius="8px",
-    border=f"3px solid {rx.color('gray', 3)}",
-)
+def chartsWrapper(chart: rx.Component) -> rx.Component:
+    return rx.vstack(
+        chart,
+        width="100%",
+        padding="0.75em",
+        border_radius="8px",
+        border=f"3px solid {rx.color('gray', 3)}",
+    )
 
-chartTheme: Callable[[], rx.Component] = lambda: rx.hstack(
-    component_wrapper_color_scheme(),
-    bottom="0",
-    left="0",
-    width="100%",
-    position="sticky",
-    justify="center",
-    padding="1em",
-    backdrop_filter="blur(5px)",
-)
+
+def chartTheme() -> rx.Component:
+    return rx.hstack(
+        component_wrapper_color_scheme(),
+        bottom="0",
+        left="0",
+        width="100%",
+        position="sticky",
+        justify="center",
+        padding="1em",
+        backdrop_filter="blur(5px)",
+    )
 
 
 def charts_landing_page():

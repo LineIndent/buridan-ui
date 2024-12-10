@@ -1,9 +1,9 @@
+from datetime import datetime
+
 import reflex as rx
 
-from ..style import tooltip_styles, info
 from ...wrappers.state import ComponentWrapperState
-
-from datetime import datetime
+from ..style import info, tooltip_styles
 
 
 def barchart_v5():
@@ -99,7 +99,7 @@ def barchart_v5():
     class Chart(rx.State):
         current_data: str = "mobile"
 
-        def toggle_chart_data(self, name: str):
+        def toggle_chart_data(self, name: str) -> None:
             self.current_data = name
 
     return rx.center(
