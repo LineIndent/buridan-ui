@@ -1,6 +1,5 @@
 import reflex as rx
 
-from .state import HeroLandingState
 from .style import HeroStyle
 
 from .components.h2 import hero_login_01, logins_v2
@@ -9,11 +8,25 @@ from .components.h1 import payments_v1
 
 from ..wrapper.wrapper import landing_page_section_wrapper_main
 
-from buridan_ui.wrappers.shared.scheme import component_wrapper_color_scheme_hero
-from buridan_ui.wrappers.shared.responsive import (
+from ....wrappers.shared.scheme import component_wrapper_color_scheme_hero
+from ....wrappers.shared.responsive import (
     component_wrapper_responsive_menu_hero,
 )
-from buridan_ui.wrappers.shared.source import component_wrapper_source_code
+from ....wrappers.shared.source import component_wrapper_source_code
+
+active_component = {"filter": "blur(0px)", "transform": "scale(1)", "opacity": "1"}
+
+
+def set_intro_animation():
+    return {
+        "position": "relative",
+        f"@keyframes intro": {
+            "0%": {"filter": "blur(10px)", "transform": "scale(1.5)", "opacity": "0"},
+            "100%": {"filter": "blur(0px)", "transform": "scale(1)", "opacity": "1"},
+        },
+        "animation": "intro 300ms ease",
+        "transition": "filter 300ms ease 1000ms, transform 300ms ease 1000ms, opacity 300ms ease 1000ms",
+    }
 
 
 def hero():
@@ -22,7 +35,7 @@ def hero():
             rx.vstack(
                 # ... hero_landing header goes here ...
                 landing_page_section_wrapper_main(
-                    "Build your next web app, faster than ever.",
+                    "Build your next web app, faster than ever",
                     "Beautifully designed, expertly crafted components and templates built for the Reflex framework, empowering you to develop web apps in pure Python.",
                 ),
                 **HeroStyle.header,
@@ -34,22 +47,19 @@ def hero():
                         rx.vstack(
                             rx.switch(
                                 size="2",
-                                style=HeroLandingState.component,
-                                transition="filter 300ms ease 1000ms, transform 300ms ease 1000ms, opacity 300ms ease 1000ms",
+                                **set_intro_animation(),
                             ),
                             rx.hstack(
                                 rx.box(
                                     component_wrapper_color_scheme_hero(),
-                                    style=HeroLandingState.component,
-                                    transition="filter 300ms ease 1150ms, transform 300ms ease 1150ms, opacity 300ms ease 1150ms",
+                                    **set_intro_animation(),
                                 ),
                                 rx.button(
                                     "Button",
                                     variant="surface",
                                     color_scheme="gray",
                                     size="2",
-                                    style=HeroLandingState.component,
-                                    transition="filter 300ms ease 900ms, transform 300ms ease 900ms, opacity 300ms ease 900ms",
+                                    **set_intro_animation(),
                                 ),
                                 align="end",
                             ),
@@ -65,8 +75,7 @@ def hero():
                             component_wrapper_source_code("#"),
                             component_wrapper_responsive_menu_hero(0),
                             align="end",
-                            style=HeroLandingState.component,
-                            transition="filter 300ms ease 650ms, transform 300ms ease 650ms, opacity 300ms ease 650ms",
+                            **set_intro_animation(),
                         ),
                         hero_inputs,
                         width="600px",

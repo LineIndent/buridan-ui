@@ -44,7 +44,7 @@ def landing_page() -> rx.vstack:
             landing_page_section_wrapper(
                 "Pantry Components",
                 "Beautifully crafted UI components, ready for your next project.",
-                f"Over {count_python_files_in_folder('buridan_ui/pantry')}+ professionally designed, fully responsive, expertly crafted UI components you can seamlessly integrate into your Reflex projects and customize as needed.",
+                f"Over {count_python_files_in_folder('src/pantry')}+ professionally designed, fully responsive, expertly crafted UI components you can seamlessly integrate into your Reflex projects and customize as needed.",
                 "Browse pantry items →",
                 "/pantry/animations",
                 [landing_page_pantry_items()],
@@ -54,7 +54,7 @@ def landing_page() -> rx.vstack:
             landing_page_section_wrapper(
                 "Chart Components",
                 "Powerful charting components, designed to visualize your data effortlessly.",
-                f"Explore {count_python_files_in_folder('buridan_ui/charts')}+ beautifully designed, fully responsive chart components ready to enhance your Reflex projects and visualize your data effectively.",
+                f"Explore {count_python_files_in_folder('src/charts')}+ beautifully designed, fully responsive chart components ready to enhance your Reflex projects and visualize your data effectively.",
                 "Browse chart items →",
                 "/charts/ui",
                 [landing_page_chart_items()],
@@ -68,7 +68,7 @@ def landing_page() -> rx.vstack:
                 "https://reflex.dev/",
                 [],
             ),
-            rx.divider(height="8em", opacity="0"),
+            rx.divider(height="6em", opacity="0"),
             footer(),
             rx.divider(height="2em", opacity="0"),
             **LandingPageStyle.content,
