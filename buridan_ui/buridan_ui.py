@@ -10,7 +10,7 @@ from .pantry.exports import pantry_exports_config
 from .blueprints.exports import blueprint_export_config
 from .pages.interactive.exports import interactive_config
 from .pages.charts_landing.main import charts_landing_page
-from .pages.landing.hero_landing.state import HeroLandingState
+
 from .pages.started_items.exports import getting_started_config
 
 from .sandbox.main import buridan_sandbox
@@ -70,19 +70,8 @@ if DEV:
     def __() -> callable:
         return [export() for export in ENV["config"][ENV["dir"]]]
 
-    # app.add_page(charts_landing_page(), route="/")
-    app.add_page(
-        buridan_sandbox(), route="/buridan-sandbox", on_load=Editor.automatic_reload
-    )
-
-
 else:
-    app.add_page(
-        landing_page(),
-        route="/",
-        title="Buridan UI",
-        on_load=HeroLandingState.on_hero_page_load,
-    )
+    app.add_page(landing_page(), route="/", title="Buridan UI")
     app.add_page(charts_landing_page(), route="/charts/ui")
     add_routes(Routes.interactive, interactive_config)
     add_routes(Routes.blueprints, blueprint_export_config)
@@ -90,7 +79,7 @@ else:
     add_routes(Routes.charts, charts_exports_config)
     add_routes(Routes.started, getting_started_config)
 
-    # EXPERIMENTAL
+    # EXPERIMENTAL:
     app.add_page(
         buridan_sandbox(), route="/buridan-sandbox", on_load=Editor.automatic_reload
     )
