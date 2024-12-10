@@ -1,20 +1,18 @@
 from typing import Literal, Callable
 
 import reflex as rx
-from ....states.routing import SiteRoutingState
+
+# from ....states.routing import SiteRoutingState
 from .style import LandingPageSectionWrapperStyle, LandingPageButtons
 
 ButtonStyle = Literal["classic", "ghost", "outline", "soft", "solid", "surface"]
 KeyDisplay = ["none" if i <= 2 else "flex" for i in range(6)]
 
-button: Callable[[str, str, ButtonStyle, callable], rx.Component] = (
-    lambda tag, name, style, func: rx.button(
-        rx.icon(tag=tag, size=18),
-        rx.text(name, size="2", weight="bold"),
-        on_click=func,
-        variant=style,
-        **LandingPageButtons.base,
-    )
+button: Callable[[str, ButtonStyle], rx.Component] = lambda name, style: rx.button(
+    rx.text(name, size="2", weight="medium"),
+    variant=style,
+    color_scheme="gray",
+    **LandingPageButtons.base,
 )
 
 button_with_key: Callable[[str, str, str, ButtonStyle, callable], rx.Component] = (
@@ -47,9 +45,10 @@ def landing_page_section_wrapper(
     return rx.vstack(
         # ... badge, title, subtitle, and link
         rx.vstack(
-            rx.badge(badge, variant="surface", size="1"),
+            # rx.badge(badge, variant="surface", size="1"),
             rx.heading(title, font_weight="900", size="8"),
             rx.text(subtitle, weight="medium", size="2"),
+            rx.divider(height="1em", opacity="0"),
             rx.link(link, href=path, size="1"),
             **LandingPageSectionWrapperStyle.titles_secondary,
         ),
@@ -70,23 +69,12 @@ def landing_page_section_wrapper_main(title: str, subtitle: str) -> rx.vstack:
                 font_size=["2.85em", "2.85em", "3em", "3em", "3.5em", "3.75em"],
             ),
             rx.text(subtitle, weight="medium", size="3"),
+            rx.divider(height="1em", opacity="0"),
             rx.hstack(
-                button(
-                    "component",
-                    "Explore Pantry",
-                    "solid",
-                    SiteRoutingState.toggle_page_change(
-                        {"name": "Animations", "path": "/pantry/animations"}
-                    ),
-                ),
-                button(
-                    "github",
-                    "View Source",
-                    "surface",
-                    rx.redirect("https://github.com/LineIndent/buridan-ui"),
-                ),
+                button("Explore Pantry", "soft"),
+                button("View Source", "surface"),
                 width="100%",
-                max_width="25em",
+                max_width=["22em" if i >= 2 else "100%" for i in range(6)],
                 display="grid",
                 grid_template_columns=[
                     f"repeat({i}, minmax(0, 1fr))" for i in [1, 1, 2, 2, 2, 2]
