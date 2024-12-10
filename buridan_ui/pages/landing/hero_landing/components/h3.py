@@ -4,8 +4,6 @@ from dataclasses import dataclass, field
 
 from typing import Callable
 
-from buridan_ui.pages.landing.hero_landing.state import HeroLandingState
-
 data: list[list[str]] = [
     ["Shipping Address", "1234 Street, New York City"],
     ["Card Number", "1234 5678 1243 4332"],
@@ -76,7 +74,14 @@ stack: Callable[[list[str]], rx.Component] = lambda strings: rx.vstack(
     entry(strings[1], strings),
     border=strings[2],
     **InputsV1Style.base,
-    style=HeroLandingState.component,
+    **{
+        "position": "relative",
+        f"@keyframes intro": {
+            "0%": {"filter": "blur(10px)", "transform": "scale(1.5)", "opacity": "0"},
+            "100%": {"filter": "blur(0px)", "transform": "scale(1)", "opacity": "1"},
+        },
+        "animation": "intro 300ms ease",
+    },
 )
 
 hero_inputs = rx.hstack(*[stack(item) for item in data], **InputsV1Style.root)

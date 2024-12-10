@@ -1,8 +1,6 @@
 import reflex as rx
 from dataclasses import dataclass, field
 
-from ..state import HeroLandingState
-
 
 @dataclass
 class LoginStyle:
@@ -61,8 +59,23 @@ def hero_login_01():
         padding="2em",
         border_radius="15px",
         max_width="25em",
-        style=HeroLandingState.component,
-        transition="filter 300ms ease 450ms, transform 300ms ease 450ms, opacity 300ms ease 450ms",
+        **{
+            "position": "relative",
+            f"@keyframes intro": {
+                "0%": {
+                    "filter": "blur(10px)",
+                    "transform": "scale(1.5)",
+                    "opacity": "0",
+                },
+                "100%": {
+                    "filter": "blur(0px)",
+                    "transform": "scale(1)",
+                    "opacity": "1",
+                },
+            },
+            "animation": "intro 300ms ease",
+            # "transition": "filter 300ms ease 2s, transform 300ms ease 2s, opacity 300ms ease 2s",
+        },
     )
 
 
@@ -112,6 +125,21 @@ def logins_v2():
         color_scheme="gray",
         padding="2em",
         border_radius="15px",
-        style=HeroLandingState.component,
-        transition="filter 300ms ease 550ms, transform 300ms ease 550ms, opacity 300ms ease 550ms",
+        **{
+            "position": "relative",
+            f"@keyframes intro": {
+                "0%": {
+                    "filter": "blur(10px)",
+                    "transform": "scale(1.5)",
+                    "opacity": "0",
+                },
+                "100%": {
+                    "filter": "blur(0px)",
+                    "transform": "scale(1)",
+                    "opacity": "1",
+                },
+            },
+            "animation": "intro 300ms ease",
+            # "transition": "filter 300ms ease, transform 300ms ease, opacity 300ms ease",
+        },
     )

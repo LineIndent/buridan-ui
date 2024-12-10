@@ -2,7 +2,6 @@ from datetime import datetime
 import reflex as rx
 import calendar
 
-from ..state import HeroLandingState
 
 current_year = datetime.now().year
 
@@ -81,6 +80,21 @@ def payments_v1():
         padding="2em",
         color_scheme="gray",
         border_radius="15px",
-        style=HeroLandingState.component,
-        transition="filter, transform, opacity 300ms ease 800ms",
+        **{
+            "position": "relative",
+            f"@keyframes intro": {
+                "0%": {
+                    "filter": "blur(10px)",
+                    "transform": "scale(1.5)",
+                    "opacity": "0",
+                },
+                "100%": {
+                    "filter": "blur(0px)",
+                    "transform": "scale(1)",
+                    "opacity": "1",
+                },
+            },
+            "animation": "intro 300ms ease",
+            "transition": "filter 300ms ease 1000ms, transform 300ms ease 1000ms, opacity 300ms ease 1000ms",
+        },
     )
