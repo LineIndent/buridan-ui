@@ -1,6 +1,5 @@
 import reflex as rx
 
-
 data = [
     {
         "title": "Messages",
@@ -36,32 +35,30 @@ def forms_v3():
             ),
             spacing="1",
         ),
-        *list(
-            map(
-                lambda item: rx.hstack(
-                    rx.vstack(
-                        rx.heading(
-                            item["title"],
-                            size="1",
-                            color=rx.color("slate", 11),
-                            weight="medium",
-                        ),
-                        rx.text(
-                            item["description"],
-                            font_size="10px",
-                            color=rx.color("slate", 12),
-                        ),
-                        spacing="1",
+        *[
+            rx.hstack(
+                rx.vstack(
+                    rx.heading(
+                        item["title"],
+                        size="1",
+                        color=rx.color("slate", 11),
+                        weight="medium",
                     ),
-                    rx.switch(),
-                    width="100%",
-                    align="center",
-                    justify="between",
-                    padding="5px 0px",
+                    rx.text(
+                        item["description"],
+                        font_size="10px",
+                        color=rx.color("slate", 12),
+                    ),
+                    spacing="1",
                 ),
-                data,
+                rx.switch(),
+                width="100%",
+                align="center",
+                justify="between",
+                padding="5px 0px",
             )
-        ),
+            for item in data
+        ],
         max_width="26em",
         width="100%",
         padding="1em",

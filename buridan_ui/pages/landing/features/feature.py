@@ -1,5 +1,5 @@
 import reflex as rx
-from typing import Callable
+
 from .style import FeaturesStyle
 
 features = {
@@ -46,34 +46,40 @@ features = {
 }
 
 
-feature_item_title: Callable[[str, str], rx.Component] = lambda tag, title: rx.hstack(
-    rx.badge(
-        rx.icon(tag=tag, size=20),
-        variant="surface",
-        width="21px",
-        height="21px",
-        padding="5px",
-    ),
-    rx.text(title, weight="bold", size="2", color=rx.color("slate", 12)),
-    align="center",
-    spacing="2",
-)
-
-feature_item_description: Callable[[str], rx.Component] = lambda description: rx.hstack(
-    rx.text(description, weight="medium", size="1", color=rx.color("slate", 11))
-)
+def feature_item_title(tag: str, title: str) -> rx.Component:
+    return rx.hstack(
+        rx.badge(
+            rx.icon(tag=tag, size=20),
+            variant="surface",
+            width="21px",
+            height="21px",
+            padding="5px",
+        ),
+        rx.text(title, weight="bold", size="2", color=rx.color("slate", 12)),
+        align="center",
+        spacing="2",
+    )
 
 
-feature_item: Callable[[str, str, str], rx.Component] = lambda _, __, ___: rx.vstack(
-    feature_item_title(_, __),
-    feature_item_description(___),
-    **FeaturesStyle.base_item,
-)
+def feature_item_description(description: str) -> rx.Component:
+    return rx.hstack(
+        rx.text(description, weight="medium", size="1", color=rx.color("slate", 11)),
+    )
 
-feature: Callable[[], rx.Component] = lambda: rx.hstack(
-    *[
-        feature_item(item["tag"], item["title"], item["description"])
-        for item in features.values()
-    ],
-    **FeaturesStyle.base,
-)
+
+def feature_item(_: str, __: str, ___: str) -> rx.Component:
+    return rx.vstack(
+        feature_item_title(_, __),
+        feature_item_description(___),
+        **FeaturesStyle.base_item,
+    )
+
+
+def feature() -> rx.Component:
+    return rx.hstack(
+        *[
+            feature_item(item["tag"], item["title"], item["description"])
+            for item in features.values()
+        ],
+        **FeaturesStyle.base,
+    )

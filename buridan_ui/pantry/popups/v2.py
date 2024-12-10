@@ -10,7 +10,7 @@ def popups_v2():
                     variant="surface",
                     color_scheme="gray",
                     cursor="pointer",
-                )
+                ),
             ),
             rx.dialog.content(
                 rx.hstack(

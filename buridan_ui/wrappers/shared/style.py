@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+
 import reflex as rx
 
 
@@ -14,7 +15,7 @@ class ComponentWrapperUtilStyle:
             "color_scheme": "gray",
             "width": "25px",
             "height": "25px",
-        }
+        },
     )
 
 

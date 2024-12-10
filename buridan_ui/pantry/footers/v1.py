@@ -1,6 +1,7 @@
-import reflex as rx
 from dataclasses import dataclass, field
-from typing import Callable, Literal, Optional
+from typing import Literal, Optional
+
+import reflex as rx
 
 footer_data = {
     "product": [
@@ -47,7 +48,7 @@ class FooterV1Style:
             "wrap": "wrap",
             "gap": "1em",
             "padding": "1em",
-        }
+        },
     )
 
     title: dict[str, str] = field(
@@ -55,7 +56,7 @@ class FooterV1Style:
             "color": rx.color("slate", 12),
             "weight": "bold",
             "size": "2",
-        }
+        },
     )
 
     link: dict[str, str] = field(
@@ -63,11 +64,11 @@ class FooterV1Style:
             "color": rx.color("slate", 11),
             "weight": "medium",
             "size": "2",
-        }
+        },
     )
 
     stack: dict[str, str] = field(
-        default_factory=lambda: {"min_width": "200px", "padding": "1em 0em"}
+        default_factory=lambda: {"min_width": "200px", "padding": "1em 0em"},
     )
 
     icon: dict[str, str] = field(
@@ -80,7 +81,7 @@ class FooterV1Style:
             },
             "fill": rx.color("slate", 10),
             "cursor": "pointer",
-        }
+        },
     )
 
 
@@ -91,35 +92,47 @@ def styled_text(text_: str, style: dict[str, str]) -> rx.Component:
     return rx.text(text_, **style)
 
 
-company: Callable[[str, str], rx.Component] = lambda brand, copyright_: rx.vstack(
-    styled_text(brand, FooterV1Style.title),
-    styled_text(copyright_, FooterV1Style.link),
-    **FooterV1Style.stack,
-)
+def company(brand: str, copyright_: str) -> rx.Component:
+    return rx.vstack(
+        styled_text(brand, FooterV1Style.title),
+        styled_text(copyright_, FooterV1Style.link),
+        **FooterV1Style.stack,
+    )
 
-with_note: Callable[[str, str], rx.Component] = lambda link_text, note: rx.hstack(
-    link_text, rx.text(note, color=rx.color("blue")), **FooterV1Style.link, width="100%"
-)
 
-stack: Callable[[str, list[FooterItem]], rx.Component] = lambda title, data: rx.vstack(
-    rx.text(title, **FooterV1Style.title),
-    *[
-        (
-            with_note(item["text"], item["note"])
-            if "note" in item
-            else rx.text(item["text"], **FooterV1Style.link)
-        )
-        for item in data
-    ],
-    **FooterV1Style.stack,
-)
+def with_note(link_text: str, note: str) -> rx.Component:
+    return rx.hstack(
+        link_text,
+        rx.text(note, color=rx.color("blue")),
+        **FooterV1Style.link,
+        width="100%",
+    )
+
+
+def stack(title: str, data: list[FooterItem]) -> rx.Component:
+    return rx.vstack(
+        rx.text(title, **FooterV1Style.title),
+        *[
+            (
+                with_note(item["text"], item["note"])
+                if "note" in item
+                else rx.text(item["text"], **FooterV1Style.link)
+            )
+            for item in data
+        ],
+        **FooterV1Style.stack,
+    )
+
 
 icons = Literal["github", "twitter", "facebook"]
-icon: Callable[[icons], rx.Component] = lambda name: rx.icon(
-    tag=name, **FooterV1Style.icon
-)
 
-text: Callable[[str], rx.Component] = lambda name: rx.text(name, **FooterV1Style.link)
+
+def icon(name: icons) -> rx.Component:
+    return rx.icon(tag=name, **FooterV1Style.icon)
+
+
+def text(name: str) -> rx.Component:
+    return rx.text(name, **FooterV1Style.link)
 
 
 def footer_v1():

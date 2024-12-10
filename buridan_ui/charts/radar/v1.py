@@ -1,7 +1,7 @@
 import reflex as rx
 
-from ..style import info
 from ...wrappers.component.wrapper import ComponentWrapperState
+from ..style import info
 
 
 def radar_v1():
@@ -25,13 +25,15 @@ def radar_v1():
         rx.recharts.radar_chart(
             rx.recharts.polar_grid(
                 class_name=rx.color_mode_cond(
-                    "text-sm stroke-gray-300", "text-sm stroke-gray-700"
+                    "text-sm stroke-gray-300",
+                    "text-sm stroke-gray-700",
                 ),
             ),
             rx.recharts.polar_angle_axis(
                 data_key="category",
                 class_name=rx.color_mode_cond(
-                    "text-sm stroke-gray-300", "text-sm stroke-gray-700"
+                    "text-sm stroke-gray-300",
+                    "text-sm stroke-gray-700",
                 ),
             ),
             rx.recharts.radar(

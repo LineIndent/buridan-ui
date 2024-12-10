@@ -1,6 +1,7 @@
-from dataclasses import dataclass, field
-import reflex as rx
 import asyncio
+from dataclasses import dataclass, field
+
+import reflex as rx
 
 
 @dataclass
@@ -12,7 +13,7 @@ class Style:
             "align": "center",
             "justify": "center",
             "position": "relative",
-        }
+        },
     )
 
     button: dict[str, str] = field(
@@ -22,7 +23,7 @@ class Style:
             "cursor": "pointer",
             "position": "absolute",
             "border_radius": "0px 0px 0px 8px",
-        }
+        },
     )
 
     right: dict[str, str] = field(
@@ -33,7 +34,7 @@ class Style:
                 "from": {"right": "-300px", "opacity": "0"},
                 "to": {"right": "0px", "opacity": "1"},
             },
-        }
+        },
     )
 
 

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import reflex as rx
 
 steps = [
@@ -31,8 +33,8 @@ def create_progress_item(data: dict[str, int | str]):
             rx.vstack(
                 rx.hstack(
                     rx.checkbox(
-                        default_checked=True if data["type"] == "done" else False,
-                        disabled=False if data["type"] == "done" else True,
+                        default_checked=data["type"] == "done",
+                        disabled=data["type"] != "done",
                     ),
                     rx.text(
                         data["title"],
@@ -83,5 +85,5 @@ def onboardings_v1():
         align="center",
         justify="center",
         max_width="25em",
-        padding="12px"
+        padding="12px",
     )

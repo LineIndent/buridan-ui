@@ -1,7 +1,7 @@
 import reflex as rx
 
-from .shared.profile import app_profile_panel
 from .shared.chat import chat_area
+from .shared.profile import app_profile_panel
 
 
 def rag_ai_app() -> rx.tabs:

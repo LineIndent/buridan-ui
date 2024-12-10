@@ -1,8 +1,6 @@
-from collections.abc import Callable
+from dataclasses import dataclass, field
 
 import reflex as rx
-
-from dataclasses import dataclass, field
 from reflex.constants.colors import Color
 
 from buridan_ui.pantry.footers.v1 import FooterV1Style
@@ -20,7 +18,7 @@ class FooterV2Style:
             "align": "center",
             "justify": "center",
             "padding": "0em 1em",
-        }
+        },
     )
 
     content: dict[str, str] = field(
@@ -30,23 +28,23 @@ class FooterV2Style:
             "justify": "between",
             "align": "center",
             "padding": "1em 0em",
-        }
+        },
     )
 
     link: dict[str, str] = field(
-        default_factory=lambda: {"color": passive, "size": "2"}
+        default_factory=lambda: {"color": passive, "size": "2"},
     )
 
     brand: dict[str, str] = field(
-        default_factory=lambda: {"color": active, "size": "2"}
+        default_factory=lambda: {"color": active, "size": "2"},
     )
 
 
 FooterV2Style: FooterV2Style = FooterV2Style()
 
-media: Callable[[str], rx.Component] = lambda name: rx.link(
-    rx.text(name, **FooterV1Style.link), href="#"
-)
+
+def media(name: str) -> rx.Component:
+    return rx.link(rx.text(name, **FooterV1Style.link), href="#")
 
 
 def footer_v2() -> rx.vstack:

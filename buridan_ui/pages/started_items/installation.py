@@ -1,6 +1,6 @@
 import reflex as rx
-from ...wrappers.base import main
-from ...pantry.timeline.v1 import blip
+
+from buridan_ui.pantry.timeline.v1 import blip
 
 
 def wrapper(title: str, instructions: str, components=None, **kwargs):
@@ -12,12 +12,18 @@ def wrapper(title: str, instructions: str, components=None, **kwargs):
                 rx.hstack(
                     blip(),
                     rx.text(
-                        title, size="2", weight="medium", color=rx.color("slate", 11)
+                        title,
+                        size="2",
+                        weight="medium",
+                        color=rx.color("slate", 11),
                     ),
                     align="center",
                 ),
                 rx.text(
-                    instructions, size="3", weight="bold", color=rx.color("slate", 12)
+                    instructions,
+                    size="3",
+                    weight="bold",
+                    color=rx.color("slate", 12),
                 ),
                 width="100%",
                 spacing="1",

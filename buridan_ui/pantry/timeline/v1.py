@@ -13,7 +13,10 @@ def blip():
 
 
 def wrapper(
-    title: str, instructions: str, components: list[rx.Component] = [], **kwargs
+    title: str,
+    instructions: str,
+    components: list[rx.Component] = [],
+    **kwargs,
 ):
     return rx.hstack(
         rx.vstack(
@@ -21,12 +24,18 @@ def wrapper(
                 rx.hstack(
                     blip(),
                     rx.text(
-                        title, size="1", weight="medium", color=rx.color("slate", 11)
+                        title,
+                        size="1",
+                        weight="medium",
+                        color=rx.color("slate", 11),
                     ),
                     align="center",
                 ),
                 rx.text(
-                    instructions, size="3", weight="bold", color=rx.color("slate", 12)
+                    instructions,
+                    size="3",
+                    weight="bold",
+                    color=rx.color("slate", 12),
                 ),
                 spacing="1",
             ),

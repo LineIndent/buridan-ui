@@ -1,6 +1,6 @@
-import reflex as rx
-
 from dataclasses import dataclass, field
+
+import reflex as rx
 
 
 @dataclass
@@ -19,7 +19,7 @@ class BackgroundStyle:
             "top": "0",
             "left": "0",
             "z_index": "-2",
-        }
+        },
     )
 
     landing: dict[str, str] = field(
@@ -35,7 +35,7 @@ class BackgroundStyle:
             "position": "absolute",
             "top": "0",
             "left": "0",
-        }
+        },
     )
 
 

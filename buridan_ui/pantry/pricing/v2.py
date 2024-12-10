@@ -1,8 +1,4 @@
-from typing import Callable, List
-from dataclasses import dataclass, field
-
 import reflex as rx
-
 
 check = """
 <svg class="shrink-0 mt-0.5 size-4 text-blue-600 dark:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -35,8 +31,13 @@ enterpriseSpecs = [
 ]
 
 
-pricingHeader: Callable[[bool, str, str, str], rx.Component] = (
-    lambda is_popular, name, price, subtitle: rx.vstack(
+def pricingHeader(
+    is_popular: bool,
+    name: str,
+    price: str,
+    subtitle: str,
+) -> rx.Component:
+    return rx.vstack(
         rx.text(name, size="1", color=rx.color("slate", 11)),
         rx.heading(price, size="7", color=rx.color("slate", 12)),
         rx.text(subtitle, size="1", color=rx.color("slate", 11)),
@@ -45,28 +46,40 @@ pricingHeader: Callable[[bool, str, str, str], rx.Component] = (
         align="center",
         text_align="center",
     )
-)
 
 
-pricingSpecs: Callable[[List[str]], rx.Component] = lambda specs: rx.vstack(
-    *[
-        rx.hstack(
-            rx.html(check),
-            rx.text(f"{spec}", size="1", weight="bold", color=rx.color("slate", 11)),
-            align="center",
-        )
-        for spec in specs
-    ],
-    width="100%",
-)
+def pricingSpecs(specs: list[str]) -> rx.Component:
+    return rx.vstack(
+        *[
+            rx.hstack(
+                rx.html(check),
+                rx.text(
+                    f"{spec}",
+                    size="1",
+                    weight="bold",
+                    color=rx.color("slate", 11),
+                ),
+                align="center",
+            )
+            for spec in specs
+        ],
+        width="100%",
+    )
 
-pricingButton: Callable[[str], rx.Component] = lambda style: rx.button(
-    "Sign Up", width="100%", padding="0.75em", variant=style
-)
+
+def pricingButton(style: str) -> rx.Component:
+    return rx.button("Sign Up", width="100%", padding="0.75em", variant=style)
 
 
-tierStack: Callable[[bool, str, str, str, str, List[str]], rx.Component] = (
-    lambda is_popular, name, price, subtitle, style, spec_list: rx.vstack(
+def tierStack(
+    is_popular: bool,
+    name: str,
+    price: str,
+    subtitle: str,
+    style: str,
+    spec_list: list[str],
+) -> rx.Component:
+    return rx.vstack(
         pricingHeader(is_popular, name, price, subtitle),
         rx.divider(height="1em", opacity="0"),
         pricingSpecs(spec_list),
@@ -84,13 +97,17 @@ tierStack: Callable[[bool, str, str, str, str, List[str]], rx.Component] = (
         align="stretch",
         height="50vh",
     )
-)
 
 
 def pricing_v2():
     return rx.hstack(
         tierStack(
-            False, "FREE", "Free", "No pricing. Forever free.", "outline", freeSpecs
+            False,
+            "FREE",
+            "Free",
+            "No pricing. Forever free.",
+            "outline",
+            freeSpecs,
         ),
         tierStack(
             True,

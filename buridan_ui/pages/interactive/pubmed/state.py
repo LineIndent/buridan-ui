@@ -1,12 +1,10 @@
 import asyncio
+import os
 from xml.etree import ElementTree as ET
-import reflex as rx
-import httpx
 
 import google.generativeai as genai
-
-import os
-
+import httpx
+import reflex as rx
 
 key = os.getenv("KEY")
 genai.configure(api_key=key)
@@ -80,7 +78,7 @@ class PubMedState(rx.State):
                         "date": article["pubdate"],
                         "url": article["url"],
                         "abstract": article["abstract"],
-                    }
+                    },
                 )
 
         else:
@@ -102,9 +100,8 @@ class PubMedState(rx.State):
             if response.status_code == 200:
                 result = response.json()
                 return result["esearchresult"]["idlist"]
-            else:
-                print("Error:", response.status_code)
-                return []
+            print("Error:", response.status_code)
+            return []
 
     async def fetch_article_details(self, pmids):
         base_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
@@ -135,16 +132,16 @@ class PubMedState(rx.State):
                             "abstract": abstract,
                             "pubdate": pubdate,
                             "url": url,
-                        }
+                        },
                     )
                 return articles
-            else:
-                print("Error:", response.status_code)
-                return []
+            print("Error:", response.status_code)
+            return []
 
-    async def compile_selected_article(self, state: bool, identifier: str):
+    async def compile_selected_article(self, state: bool, identifier: str) -> None:
         article = next(
-            (item for item in self.articles if item["id"] == identifier), None
+            (item for item in self.articles if item["id"] == identifier),
+            None,
         )
         if self.articles:
             article_copy = dict(article)

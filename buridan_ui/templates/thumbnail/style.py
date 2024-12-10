@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+
 import reflex as rx
 
 
@@ -18,7 +19,7 @@ class ThumbnailStyle:
             "overflow": "hidden",
             "spacing": "0",
             "transition": "all 250ms linear",
-        }
+        },
     )
 
     image: dict[str, str] = field(
@@ -29,7 +30,7 @@ class ThumbnailStyle:
             "transition": "all 550ms ease",
             "_hover": {"transform": "scale(1.1)"},
             "mask": "linear-gradient(to bottom, hsl(0, 0%, 0%, 0.95) 45%, hsl(0, 0%, 0%, 0))",
-        }
+        },
     )
 
     container: dict[str, str] = field(
@@ -42,7 +43,7 @@ class ThumbnailStyle:
             "padding": "10px 18px",
             "spacing": "0",
             "justify": "between",
-        }
+        },
     )
 
 

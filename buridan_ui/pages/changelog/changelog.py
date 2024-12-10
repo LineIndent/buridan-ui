@@ -1,14 +1,12 @@
-from typing import Callable
-
 import reflex as rx
+
+from buridan_ui.routes.routes import ChartRoutes, PantryRoutes
 
 from .style import ChangelogStyle
 
-from ...routes.routes import PantryRoutes, ChartRoutes
 
-info: Callable[[str, any], rx.Component] = lambda txt, *args: rx.text(
-    txt, size="2", color=rx.color("slate", 11), *args
-)
+def info(txt: str, *args) -> rx.Component:
+    return rx.text(txt, size="2", color=rx.color("slate", 11), *args)
 
 
 def blip():
@@ -118,7 +116,7 @@ def changelog():
                     [
                         info("New blueprint items: Dashboards & Layouts."),
                         info(
-                            "Major code refactoring for pantry, charts, and blueprint wrappers."
+                            "Major code refactoring for pantry, charts, and blueprint wrappers.",
                         ),
                         changelog_badge("party-popper", "buridan/ui v0.3.4"),
                     ],
@@ -128,7 +126,7 @@ def changelog():
                     "November 20, 2024",
                     [
                         info(
-                            "Blueprints templates consist of in-depth, more well-rounded apps that can be used out of the box with minor changes."
+                            "Blueprints templates consist of in-depth, more well-rounded apps that can be used out of the box with minor changes.",
                         ),
                         rx.link(
                             "Authentication",

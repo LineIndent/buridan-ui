@@ -1,8 +1,7 @@
-import json
-
 import reflex as rx
-from ..style import tooltip_styles, info
+
 from ...wrappers.component.wrapper import ComponentWrapperState
+from ..style import info, tooltip_styles
 
 
 def radar_v6():
@@ -35,7 +34,8 @@ def radar_v6():
             rx.recharts.polar_angle_axis(
                 data_key="category",
                 class_name=rx.color_mode_cond(
-                    "text-sm stroke-gray-300", "text-sm stroke-gray-700"
+                    "text-sm stroke-gray-300",
+                    "text-sm stroke-gray-700",
                 ),
                 axis_line_type="circle",
             ),

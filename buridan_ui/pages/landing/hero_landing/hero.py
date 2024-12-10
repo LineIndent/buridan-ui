@@ -1,19 +1,17 @@
 import reflex as rx
 
-from .state import HeroLandingState
-from .style import HeroStyle
-
-from .components.h2 import hero_login_01, logins_v2
-from .components.h3 import hero_inputs
-from .components.h1 import payments_v1
-
-from ..wrapper.wrapper import landing_page_section_wrapper_main
-
-from buridan_ui.wrappers.shared.scheme import component_wrapper_color_scheme_hero
+from buridan_ui.pages.landing.wrapper.wrapper import landing_page_section_wrapper_main
 from buridan_ui.wrappers.shared.responsive import (
     component_wrapper_responsive_menu_hero,
 )
+from buridan_ui.wrappers.shared.scheme import component_wrapper_color_scheme_hero
 from buridan_ui.wrappers.shared.source import component_wrapper_source_code
+
+from .components.h1 import payments_v1
+from .components.h2 import hero_login_01, logins_v2
+from .components.h3 import hero_inputs
+from .state import HeroLandingState
+from .style import HeroStyle
 
 
 def hero():

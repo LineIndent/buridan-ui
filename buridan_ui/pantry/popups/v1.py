@@ -73,7 +73,7 @@ def popups_v1():
                     variant="surface",
                     color_scheme="gray",
                     cursor="pointer",
-                )
+                ),
             ),
             rx.dialog.content(
                 title,

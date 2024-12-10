@@ -1,9 +1,9 @@
+from datetime import datetime
+
 import reflex as rx
 
-from ..style import tooltip_styles, info
 from ...wrappers.state import ComponentWrapperState
-
-from datetime import datetime
+from ..style import info, tooltip_styles
 
 
 def linechart_v7():
@@ -100,10 +100,10 @@ def linechart_v7():
         current_data: str = "mobile"
         with_dots: bool = False
 
-        def toggle_with_dots(self, state: bool):
+        def toggle_with_dots(self, state: bool) -> None:
             self.with_dots = not self.with_dots
 
-        def toggle_chart_data(self, name: str):
+        def toggle_chart_data(self, name: str) -> None:
             self.current_data = name
 
     return rx.center(

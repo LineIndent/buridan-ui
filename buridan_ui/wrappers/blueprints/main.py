@@ -1,30 +1,34 @@
-import reflex as rx
+from __future__ import annotations
+
 from functools import wraps
-from typing import Callable, List
+from typing import Callable
+
+import reflex as rx
+
+from buridan_ui.wrappers.shared.source import component_wrapper_source_code
 
 from .style import BlueprintWrapperStyle
 
-from ..shared.source import component_wrapper_source_code
 
-blueprintAppWrapperMenu: Callable[[str], rx.Component] = lambda path: rx.hstack(
-    rx.badge("Responsive UI", size="1", variant="surface"),
-    component_wrapper_source_code(path),
-    align="center",
-    justify="end",
-    width="100%",
-)
+def blueprintAppWrapperMenu(path: str) -> rx.Component:
+    return rx.hstack(
+        rx.badge("Responsive UI", size="1", variant="surface"),
+        component_wrapper_source_code(path),
+        align="center",
+        justify="end",
+        width="100%",
+    )
 
-blueprintAppPreview: Callable[[rx.Component], rx.Component] = (
-    lambda component: rx.tabs.content(
+
+def blueprintAppPreview(component: rx.Component) -> rx.Component:
+    return rx.tabs.content(
         rx.vstack(component, **BlueprintWrapperStyle.preview),
         value="1",
     )
-)
 
 
-blueprintAppCode: Callable[[dict], rx.Component] = lambda struct: rx.tabs.content(
-    value="2",
-)
+def blueprintAppCode(struct: dict) -> rx.Component:
+    return rx.tabs.content(value="2")
 
 
 def blueprint_app_wrapper(url: str):
@@ -32,7 +36,7 @@ def blueprint_app_wrapper(url: str):
         @wraps(func)
         def wrapper():
             component = func()
-            if not isinstance(component, List):
+            if not isinstance(component, list):
                 raise TypeError("The wrapped blueprint item is not a list.")
 
             return rx.vstack(

@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+
 import reflex as rx
 
 
@@ -10,7 +11,7 @@ class ChangelogStyle:
             "min_height": "100vh",
             "background": rx.color("gray", 2),
             "align": "center",
-        }
+        },
     )
 
     header: dict[str, str] = field(
@@ -49,7 +50,7 @@ class ChangelogStyle:
             "align_items": "center",
             "justify_content": "center",
             "display": "flex",
-        }
+        },
     )
 
     wrapper: dict[str, str] = field(
@@ -59,7 +60,7 @@ class ChangelogStyle:
             "justify": "start",
             "padding_left": "24px",
             "border_radius": "0px 5px 5px 0px",
-        }
+        },
     )
 
 

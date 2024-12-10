@@ -40,7 +40,10 @@ ComponentMapping = {
         size="3",
     ),
     "p": lambda string: rx.text(
-        string, color=rx.color("gray", 11), size="2", line_height=1.85
+        string,
+        color=rx.color("gray", 11),
+        size="2",
+        line_height=1.85,
     ),
     "codeblock": lambda string, **props: rx.vstack(
         rx.code_block(

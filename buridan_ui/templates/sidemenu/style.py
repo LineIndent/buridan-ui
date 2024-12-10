@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+
 import reflex as rx
 
 
@@ -19,7 +20,7 @@ class SideMenuStyle:
             "display": ["none" if i <= 3 else "flex" for i in range(6)],
             "mask": "linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 92%, hsl(0, 0%, 0%, 0) 100%)",
             "border_right": f"1px solid {rx.color('gray', 4)}",
-        }
+        },
     )
 
     content: dict[str, str] = field(
@@ -27,7 +28,7 @@ class SideMenuStyle:
             "width": "100%",
             "position": "relative",
             "spacing": "5",
-        }
+        },
     )
 
 

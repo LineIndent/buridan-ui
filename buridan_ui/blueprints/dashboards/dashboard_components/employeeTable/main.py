@@ -1,7 +1,4 @@
-from typing import Callable, Dict
-
 import reflex as rx
-
 
 employeeDataSet: list[dict[str, str]] = [
     {
@@ -71,8 +68,8 @@ employeeDataSet: list[dict[str, str]] = [
 ]
 
 
-employeTableMenuItem: Callable[[str, str, str], rx.hstack] = (
-    lambda name, tag, color: rx.hstack(
+def employeTableMenuItem(name: str, tag: str, color: str) -> rx.hstack:
+    return rx.hstack(
         rx.icon(tag=tag, size=14),
         rx.text(name, font_size="11px", color_scheme="gray"),
         color=color,
@@ -80,86 +77,90 @@ employeTableMenuItem: Callable[[str, str, str], rx.hstack] = (
         justify="start",
         align="center",
     )
-)
-
-emplyeeTableMenu: Callable[[], rx.menu.root] = lambda: rx.menu.root(
-    rx.menu.trigger(
-        rx.icon(tag="ellipsis", size=14, cursor="pointer"),
-    ),
-    rx.menu.content(
-        rx.menu.item(employeTableMenuItem("Send message", "mails", "inherit")),
-        rx.menu.item(employeTableMenuItem("Add note", "notepad-text", "inherit")),
-        rx.menu.item(employeTableMenuItem("Terminate Contract", "trash-2", "red")),
-        size="1",
-    ),
-)
 
 
-employeeDataRow: Callable[[Dict[str, str]], rx.table.row] = lambda data: rx.table.row(
-    rx.table.cell(
-        rx.hstack(
-            rx.avatar(src=data["avatar"], size="2", radius="full"),
-            rx.vstack(
-                rx.text(data["name"], font_size="12px", weight="medium"),
-                rx.text(
-                    data["job"],
-                    color_scheme="gray",
-                    font_size="10px",
-                    weight="medium",
+def emplyeeTableMenu() -> rx.menu.root:
+    return rx.menu.root(
+        rx.menu.trigger(rx.icon(tag="ellipsis", size=14, cursor="pointer")),
+        rx.menu.content(
+            rx.menu.item(employeTableMenuItem("Send message", "mails", "inherit")),
+            rx.menu.item(employeTableMenuItem("Add note", "notepad-text", "inherit")),
+            rx.menu.item(employeTableMenuItem("Terminate Contract", "trash-2", "red")),
+            size="1",
+        ),
+    )
+
+
+def employeeDataRow(data: dict[str, str]) -> rx.table.row:
+    return rx.table.row(
+        rx.table.cell(
+            rx.hstack(
+                rx.avatar(src=data["avatar"], size="2", radius="full"),
+                rx.vstack(
+                    rx.text(data["name"], font_size="12px", weight="medium"),
+                    rx.text(
+                        data["job"],
+                        color_scheme="gray",
+                        font_size="10px",
+                        weight="medium",
+                    ),
+                    spacing="0",
                 ),
+                align="center",
+            ),
+        ),
+        rx.table.cell(
+            rx.vstack(
+                rx.text(data["email"], font_size="12px"),
+                rx.text("Email", color_scheme="gray", font_size="10px"),
                 spacing="0",
             ),
-            align="center",
         ),
-    ),
-    rx.table.cell(
-        rx.vstack(
-            rx.text(data["email"], font_size="12px"),
-            rx.text("Email", color_scheme="gray", font_size="10px"),
-            spacing="0",
-        )
-    ),
-    rx.table.cell(
-        rx.text(data["phone"], color_scheme="gray", font_size="11px", weight="regular"),
-    ),
-    rx.table.cell(
-        rx.vstack(
-            rx.text(f"${data['rate']}.0/h", font_size="12px"),
-            rx.text("Rate", font_size="10px", color_scheme="gray"),
-            spacing="0",
-        )
-    ),
-    rx.table.cell(
-        rx.hstack(
-            rx.button(
-                rx.icon(tag="pencil", size=13, color="gray"),
-                variant="ghost",
-                cursor="pointer",
+        rx.table.cell(
+            rx.text(
+                data["phone"],
+                color_scheme="gray",
+                font_size="11px",
+                weight="regular",
             ),
-            emplyeeTableMenu(),
         ),
-    ),
-    width="100%",
-    align="center",
-    white_space="nowrap",
-)
-
-
-dashbaordEmployee: Callable[[], rx.table.root] = lambda: rx.table.root(
-    rx.table.header(
-        rx.table.row(
-            rx.foreach(
-                ["Employee", "Email", "Phone", "Rate (USD)", ""],
-                lambda title: rx.table.column_header_cell(
-                    rx.text(title, font_size="12px", weight="bold")
+        rx.table.cell(
+            rx.vstack(
+                rx.text(f"${data['rate']}.0/h", font_size="12px"),
+                rx.text("Rate", font_size="10px", color_scheme="gray"),
+                spacing="0",
+            ),
+        ),
+        rx.table.cell(
+            rx.hstack(
+                rx.button(
+                    rx.icon(tag="pencil", size=13, color="gray"),
+                    variant="ghost",
+                    cursor="pointer",
                 ),
-            )
+                emplyeeTableMenu(),
+            ),
         ),
-    ),
-    rx.table.body(
-        *[employeeDataRow(data) for data in employeeDataSet],
-    ),
-    width="100%",
-    variant="surface",
-    size="2",
-)
+        width="100%",
+        align="center",
+        white_space="nowrap",
+    )
+
+
+def dashbaordEmployee() -> rx.table.root:
+    return rx.table.root(
+        rx.table.header(
+            rx.table.row(
+                rx.foreach(
+                    ["Employee", "Email", "Phone", "Rate (USD)", ""],
+                    lambda title: rx.table.column_header_cell(
+                        rx.text(title, font_size="12px", weight="bold"),
+                    ),
+                ),
+            ),
+        ),
+        rx.table.body(*[employeeDataRow(data) for data in employeeDataSet]),
+        width="100%",
+        variant="surface",
+        size="2",
+    )

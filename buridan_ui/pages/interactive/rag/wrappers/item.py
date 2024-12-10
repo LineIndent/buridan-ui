@@ -11,7 +11,9 @@ def blip():
 
 
 def app_profile_item_wrapper(
-    title: str, date: str, components: list[rx.Component] = []
+    title: str,
+    date: str,
+    components: list[rx.Component] = [],
 ):
     return rx.hstack(
         rx.vstack(

@@ -9,7 +9,7 @@ class HeroStyle:
             "min_height": ["185vh", "170vh", "140vh", "120vh", "115vh", "110vh"],
             "justify": "center",
             "overflow": "hidden",
-        }
+        },
     )
 
     body: dict[str, str] = field(
@@ -19,7 +19,7 @@ class HeroStyle:
             "wrap": "wrap",
             "padding_top": "6em",
             "spacing": "8",
-        }
+        },
     )
 
     header: dict[str, str] = field(
@@ -27,7 +27,7 @@ class HeroStyle:
             "flex": ["100%" if i <= 2 else "45%" for i in range(6)],
             "position": "relative",
             "min_width": "350px",
-        }
+        },
     )
 
     content: dict[str, str] = field(
@@ -36,7 +36,7 @@ class HeroStyle:
             "flex": ["100%" if i <= 2 else "40%" for i in range(6)],
             "height": "inherit",
             "align": "end",
-        }
+        },
     )
 
     components: dict[str, str] = field(
@@ -51,7 +51,7 @@ class HeroStyle:
                 "translateX(30px)" if i <= 3 else "translateX(0px)" for i in range(6)
             ],
             "transition": "all 550ms ease",
-        }
+        },
     )
 
 

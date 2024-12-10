@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+
 import reflex as rx
 
 
@@ -12,7 +13,7 @@ class BlueprintWrapperStyle:
             "default_value": "1",
             "border_radius": "10px",
             "background": rx.color("gray", 3),
-        }
+        },
     )
 
     preview: dict[str, str] = field(
@@ -23,7 +24,7 @@ class BlueprintWrapperStyle:
             "border_radius": "10px",
             "justify_content": "center",
             "background": rx.color("gray", 2),
-        }
+        },
     )
 
 

@@ -1,20 +1,17 @@
 import reflex as rx
 
-from .wrappers.base.main import base
-
-from .routes.routes import Routes
-
-from .pages.landing.hero import landing_page
-from .charts.exports import charts_exports_config
-from .pantry.exports import pantry_exports_config
 from .blueprints.exports import blueprint_export_config
-from .pages.interactive.exports import interactive_config
+from .charts.exports import charts_exports_config
 from .pages.charts_landing.main import charts_landing_page
+from .pages.interactive.exports import interactive_config
+from .pages.landing.hero import landing_page
 from .pages.landing.hero_landing.state import HeroLandingState
 from .pages.started_items.exports import getting_started_config
-
+from .pantry.exports import pantry_exports_config
+from .routes.routes import Routes
 from .sandbox.main import buridan_sandbox
 from .sandbox.state import Editor
+from .wrappers.base.main import base
 
 AppFontURL: str = (
     "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -37,19 +34,21 @@ def get_exports(directory: str, config_file: dict[str, list[callable]]):
 def add_routes(
     routes: list[dict[str, str]],
     export_config: dict[str, list[callable]],
-):
+) -> None:
     for route in routes:
 
         @base(route["path"], route["name"])
         def export_page() -> callable:
             if route["name"] == "Standard Tables":
                 return get_exports(route["dir"], export_config)[1:]
-            elif route["name"] == "Table Pagination":
+            if route["name"] == "Table Pagination":
                 return get_exports(route["dir"], export_config)[:1]
             return get_exports(route["dir"], export_config)
 
         app.add_page(
-            export_page(), route=route["path"], title=f"{route['name']} - Buridan UI"
+            export_page(),
+            route=route["path"],
+            title=f"{route['name']} - Buridan UI",
         )
 
 
@@ -72,7 +71,9 @@ if DEV:
 
     # app.add_page(charts_landing_page(), route="/")
     app.add_page(
-        buridan_sandbox(), route="/buridan-sandbox", on_load=Editor.automatic_reload
+        buridan_sandbox(),
+        route="/buridan-sandbox",
+        on_load=Editor.automatic_reload,
     )
 
 
@@ -92,5 +93,7 @@ else:
 
     # EXPERIMENTAL
     app.add_page(
-        buridan_sandbox(), route="/buridan-sandbox", on_load=Editor.automatic_reload
+        buridan_sandbox(),
+        route="/buridan-sandbox",
+        on_load=Editor.automatic_reload,
     )

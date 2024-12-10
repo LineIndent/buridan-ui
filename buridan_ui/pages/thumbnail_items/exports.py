@@ -1,14 +1,13 @@
 import os
 from collections import defaultdict
-from typing import List, Dict
 
-from ...templates.thumbnail.thumbnail import pantry_thumbnail
-from ...routes.routes import PantryRoutes
+from buridan_ui.routes.routes import PantryRoutes
+from buridan_ui.templates.thumbnail.thumbnail import pantry_thumbnail
 
 
 def get_svg_files(
     base_url: str = "https://raw.githubusercontent.com/LineIndent/buridan-ui/main/assets/thumbnails",
-) -> List[Dict[str, str]]:
+) -> list[dict[str, str]]:
 
     svg_files = [
         os.path.basename(directory)
@@ -24,7 +23,7 @@ def get_svg_files(
 
 def get_component_quantities(
     pantry_folder: str = "buridan_ui/pantry",
-) -> Dict[str, int]:
+) -> dict[str, int]:
     quantities = defaultdict(int)
     for subdir, _, files in os.walk(pantry_folder):
         if os.path.basename(subdir) not in {"pantry", "__pycache__"}:
@@ -32,7 +31,7 @@ def get_component_quantities(
     return dict(quantities)
 
 
-def get_pantry_items() -> List[Dict[str, str]]:
+def get_pantry_items() -> list[dict[str, str]]:
     return [item for item in PantryRoutes if item["name"] != "Table Pagination"]
 
 
@@ -61,10 +60,10 @@ NORMALIZATION_MAP = {
 
 
 def combine_items(
-    svg_files: List[Dict[str, str]],
-    quantity_map: Dict[str, int],
-    pantry_items: List[Dict[str, str]],
-) -> List[Dict[str, str]]:
+    svg_files: list[dict[str, str]],
+    quantity_map: dict[str, int],
+    pantry_items: list[dict[str, str]],
+) -> list[dict[str, str]]:
     combined_items = []
     for pantry_item in pantry_items:
         filename_key = NORMALIZATION_MAP.get(pantry_item["name"])
@@ -84,16 +83,19 @@ def combine_items(
                 "quantity": quantity,
                 "name": pantry_item["name"],
                 "path": pantry_item["path"],
-            }
+            },
         )
     return combined_items
 
 
-def create_thumbnails(combined_items: List[Dict[str, str]]) -> List[str]:
+def create_thumbnails(combined_items: list[dict[str, str]]) -> list[str]:
 
     return [
         pantry_thumbnail(
-            item["path"], item["image"], item["name"], str(item["quantity"])
+            item["path"],
+            item["image"],
+            item["name"],
+            str(item["quantity"]),
         )
         for item in combined_items
     ]

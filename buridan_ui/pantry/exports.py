@@ -1,73 +1,55 @@
 import os
 from random import randint
 
-from .logins.v1 import logins_v1
-from .logins.v2 import logins_v2
-
-from .tables.v1 import tables_v1
-from .tables.v2 import tables_v2
-from .tables.v3 import tables_v3
-
-from .menus.v1 import menus_v1
-
-from .backgrounds.v1 import background_v1
-from .backgrounds.v2 import background_v2
-from .backgrounds.v3 import background_v3
-from .backgrounds.v4 import background_v4
-
-from .payments.v1 import payments_v1
-
-from .forms.v1 import forms_v1
-from .forms.v2 import forms_v2
-from .forms.v3 import forms_v3
-
-from .featured.v1 import featured_v1
-from .featured.v2 import featured_v2
-
-from .lists.v1 import lists_v1
-
-from .timeline.v1 import timeline_v1
-
-from .onboardings.v1 import onboardings_v1
-
-from .pricing.v1 import pricing_v1
-from .pricing.v2 import pricing_v2
-
-from .popups.v1 import popups_v1
-from .popups.v2 import popups_v2
+from buridan_ui.wrappers.component.wrapper import component_wrapper
 
 from .animations.v1 import animation_v1
 from .animations.v2 import animation_v2
 from .animations.v3 import animation_v3
 from .animations.v4 import animation_v4
 from .animations.v5 import animation_v5
-
-from .prompts.v1 import prompt_v1
-from .prompts.v2 import prompt_v2
-
+from .backgrounds.v1 import background_v1
+from .backgrounds.v2 import background_v2
+from .backgrounds.v3 import background_v3
+from .backgrounds.v4 import background_v4
 from .cards.v1 import card_v1
 from .cards.v2 import card_v2
-
-from .subscribe.v1 import subscribe_v1
-from .subscribe.v2 import subscribe_v2
-
 from .faq.v1 import faq_v1
-
+from .featured.v1 import featured_v1
+from .featured.v2 import featured_v2
 from .footers.v1 import footer_v1
 from .footers.v2 import footer_v2
-
+from .forms.v1 import forms_v1
+from .forms.v2 import forms_v2
+from .forms.v3 import forms_v3
 from .inputs.v1 import inputs_v1
 from .inputs.v2 import inputs_v2
 from .inputs.v3 import inputs_v3
 from .inputs.v4 import inputs_v4
-
-from ..wrappers.component.wrapper import component_wrapper
+from .lists.v1 import lists_v1
+from .logins.v1 import logins_v1
+from .logins.v2 import logins_v2
+from .menus.v1 import menus_v1
+from .onboardings.v1 import onboardings_v1
+from .payments.v1 import payments_v1
+from .popups.v1 import popups_v1
+from .popups.v2 import popups_v2
+from .pricing.v1 import pricing_v1
+from .pricing.v2 import pricing_v2
+from .prompts.v1 import prompt_v1
+from .prompts.v2 import prompt_v2
+from .subscribe.v1 import subscribe_v1
+from .subscribe.v2 import subscribe_v2
+from .tables.v1 import tables_v1
+from .tables.v2 import tables_v2
+from .tables.v3 import tables_v3
+from .timeline.v1 import timeline_v1
 
 BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/pantry/"
 
 
 def get_source(directory: str, filename: str):
-    with open(os.path.join("buridan_ui", "pantry", directory, filename), "r") as file:
+    with open(os.path.join("buridan_ui", "pantry", directory, filename)) as file:
         return file.read()
 
 

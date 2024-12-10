@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 from dataclasses import dataclass, field
+
 import reflex as rx
 
 
@@ -13,7 +16,7 @@ class FeaturesStyle:
             ],
             "gap": "2rem",
             "overflow": "hidden",
-        }
+        },
     )
 
     base_item: dict[str, str | dict] = field(

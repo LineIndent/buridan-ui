@@ -1,5 +1,5 @@
-from typing import Callable
 from dataclasses import dataclass, field
+
 import reflex as rx
 from reflex.constants.colors import Color
 
@@ -26,7 +26,10 @@ info = [
     },
 ]
 
-color: Callable[[int], Color] = lambda shade: rx.color("slate", shade)
+
+def color(shade: int) -> Color:
+    return rx.color("slate", shade)
+
 
 TextShared: dict[str, str] = {"size": "2", "weight": "bold"}
 
@@ -46,7 +49,7 @@ class CardV2Style:
             "align": "center",
             "justify": "center",
             "position": "relative",
-        }
+        },
     )
 
     image: dict[str, str] = field(
@@ -56,7 +59,7 @@ class CardV2Style:
             "object_fit": "fit",
             "transition": "all 550ms ease",
             "mask": "linear-gradient(to bottom, hsl(0, 0%, 0%, 0.95) 45%, hsl(0, 0%, 0%, 0))",
-        }
+        },
     )
 
     text_container: dict[str, str] = field(
@@ -69,15 +72,15 @@ class CardV2Style:
             "padding": "12px 18px",
             "spacing": "0",
             "justify": "between",
-        }
+        },
     )
 
     name: dict[str, str] = field(
-        default_factory=lambda: {"color": color(12), **TextShared}
+        default_factory=lambda: {"color": color(12), **TextShared},
     )
 
     job: dict[str, str] = field(
-        default_factory=lambda: {"color": color(10), **TextShared}
+        default_factory=lambda: {"color": color(10), **TextShared},
     )
 
 

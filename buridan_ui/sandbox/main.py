@@ -1,14 +1,12 @@
 import reflex as rx
 
-from ..templates.navigation.navigation import landing_page_navigation
-from ..pages.landing.style import LandingPageStyle
+from buridan_ui.pages.landing.style import LandingPageStyle
+from buridan_ui.pantry.logins.v1 import LoginStyle
+from buridan_ui.templates.navigation.navigation import landing_page_navigation
 
 from .components.editor import ace_editor
 from .scripts import callback, dynamics
 from .state import Editor
-
-
-from ..pantry.logins.v1 import LoginStyle
 
 
 @rx.dynamic
@@ -27,14 +25,14 @@ def rendered_component(state: Editor):
         component = None
 
         # Look for any variable in the context that is a valid component
-        for name, value in context.items():
+        for _name, value in context.items():
             if isinstance(value, rx.Component):
                 component = value
                 break
 
         # If no component found, check if there's any function to call (e.g., first function in context)
         if component is None:
-            for name, value in context.items():
+            for _name, value in context.items():
                 if callable(value):  # If it's callable (a function)
                     component = value()  # Call the function and return its result
                     break

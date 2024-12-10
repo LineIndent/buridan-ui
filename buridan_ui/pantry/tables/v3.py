@@ -63,21 +63,21 @@ def sidebar_item_option_menu():
                     "Send message",
                     "mails",
                     "inherit",
-                )
+                ),
             ),
             rx.menu.item(
                 create_sidebar_menu_item(
                     "Add note",
                     "notepad-text",
                     "inherit",
-                )
+                ),
             ),
             rx.menu.item(
                 create_sidebar_menu_item(
                     "Terminate Contract",
                     "trash-2",
                     "red",
-                )
+                ),
             ),
             size="1",
         ),
@@ -111,14 +111,14 @@ def create_data_row(data: dict[str, str]):
                 rx.text(data["email"], font_size="12px"),
                 rx.text("Email", color_scheme="gray", font_size="10px"),
                 spacing="0",
-            )
+            ),
         ),
         rx.table.cell(
             rx.vstack(
                 rx.text(f"${data['rate']}.0/h", font_size="12px"),
                 rx.text("Rate", font_size="10px", color_scheme="gray"),
                 spacing="0",
-            )
+            ),
         ),
         rx.table.cell(
             rx.hstack(

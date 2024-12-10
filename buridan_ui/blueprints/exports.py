@@ -1,11 +1,10 @@
-from .anon.main import sandboxAuth
-from .dashboards.dashboard_app.main import dashboardApp
-from .layouts.main import layoutSingleColumn, layoutDoubleColumn
-
-from ..wrappers.blueprints.main import blueprint_app_wrapper
-
 import os
 
+from buridan_ui.wrappers.blueprints.main import blueprint_app_wrapper
+
+from .anon.main import sandboxAuth
+from .dashboards.dashboard_app.main import dashboardApp
+from .layouts.main import layoutDoubleColumn, layoutSingleColumn
 
 BASE_PATH: str = (
     "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/blueprints/"
@@ -14,7 +13,7 @@ BASE_PATH: str = (
 
 def get_source(directory: str, filename: str):
     with open(
-        os.path.join("buridan_ui", "blueprints", directory, filename), "r"
+        os.path.join("buridan_ui", "blueprints", directory, filename),
     ) as file:
         return file.read()
 

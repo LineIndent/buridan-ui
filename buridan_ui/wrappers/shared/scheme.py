@@ -55,11 +55,12 @@ def color_scheme_boxes(color: str):
                 _hover={
                     "opacity": "1",
                     "filter": rx.color_mode_cond(
-                        "brightness(0.95)", "brightness(1.25)"
+                        "brightness(0.95)",
+                        "brightness(1.25)",
                     ),
                 },
                 on_click=lambda: ComponentWrapperState.toggle_theme(color),
-            )
+            ),
         ),
         rx.hover_card.content(
             rx.text(

@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+
 import reflex as rx
 
 
@@ -12,7 +13,7 @@ class ComponentWrapperStyle:
             "default_value": "1",
             "border_radius": "10px",
             "background": rx.color("gray", 3),
-        }
+        },
     )
 
     shared: dict[str, str] = field(
@@ -21,7 +22,7 @@ class ComponentWrapperStyle:
             "display": "flex",
             "background": rx.color("gray", 2),
             "border_radius": "0px 0px 10px 10px",
-        }
+        },
     )
 
     preview: dict[str, str] = field(
@@ -33,7 +34,7 @@ class ComponentWrapperStyle:
             "overflow": "hidden",
             "background": rx.color("gray", 2),
             "border_radius": "0px 0px 10px 10px",
-        }
+        },
     )
 
     code: dict[str, str] = field(
@@ -45,7 +46,7 @@ class ComponentWrapperStyle:
             "scrollbar_width": "none",
             "code_tag_props": {"pre": "transparent"},
             "custom_style": {"backgroundColor": "transparent"},
-        }
+        },
     )
 
     copy_button: dict[str, str] = field(
@@ -57,7 +58,7 @@ class ComponentWrapperStyle:
             "position": "absolute",
             "top": "24px",
             "right": "24px",
-        }
+        },
     )
 
 

@@ -1,12 +1,11 @@
 from dataclasses import dataclass, field
-from typing import Dict
 
 import reflex as rx
 
 
 @dataclass
 class DashboardStatBarStyle:
-    base: Dict[str, str] = field(
+    base: dict[str, str] = field(
         default_factory=lambda: {
             "width": "100%",
             "display": "grid",
@@ -16,10 +15,10 @@ class DashboardStatBarStyle:
             "padding": "1em",
             "row_gap": "1em",
             "column_gap": "1em",
-        }
+        },
     )
 
-    itemWrapper: Dict[str, str] = field(
+    itemWrapper: dict[str, str] = field(
         default_factory=lambda: {
             "height": "180px",
             "flex": "1 1 300px",
@@ -28,7 +27,7 @@ class DashboardStatBarStyle:
             "padding": "1em",
             "background": rx.color("gray", 2),
             "border": f"1px solid {rx.color('gray', 4)}",
-        }
+        },
     )
 
 
