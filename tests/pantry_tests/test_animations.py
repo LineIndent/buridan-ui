@@ -1,31 +1,29 @@
 import unittest
 
-from reflex.components.radix.themes.layout.center import Center
-from reflex.components.radix.themes.layout.stack import VStack, HStack
 import reflex as rx
+from reflex.components.radix.themes.layout.center import Center
+from reflex.components.radix.themes.layout.stack import HStack, VStack
+
 from buridan_ui.pantry.animations import v1, v2, v3, v4, v5, v6
 
 
 class TestAnimationComponent(unittest.TestCase):
 
-    def _test_render_main_stack(self, animation_func):
+    def _test_render_main_stack(self, animation_func) -> None:
         """Test if the component is an instance of VStack."""
         component = animation_func()
-        self.assertIsInstance(
+        assert isinstance(
             component,
             VStack | Center | HStack,
-            msg="Component is not an instance of VStack!",
-        )
+        ), "Component is not an instance of VStack!"
 
-    def _test_stack_children(self, animation_func):
+    def _test_stack_children(self, animation_func) -> None:
         """Test if all children are Reflex components."""
         component = animation_func()
         for child in component.children:
-            self.assertIsInstance(
-                child, rx.Component, msg=f"{child} is not a Reflex component"
-            )
+            assert isinstance(child, rx.Component), f"{child} is not a Reflex component"
 
-    def test_all_animations(self):
+    def test_all_animations(self) -> None:
         """Dynamically test all animation versions."""
         # You can dynamically load animation functions based on the versioned imports
         animation_versions = [

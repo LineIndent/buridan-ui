@@ -1,23 +1,22 @@
-from typing import Callable, List
 from functools import wraps
+from typing import Callable
 
 import reflex as rx
 
-from .style import BaseWrapperStyle
+from buridan_ui.templates.drawer.drawer import drawer
+from buridan_ui.templates.footer.footer import desktop_footer, footer
+from buridan_ui.templates.navigation.navigation import docs_navigation
+from buridan_ui.templates.sidemenu.sidemenu import sidemenu
+from buridan_ui.templates.wrapper.wrapper import baseWrapperHeader
 
-from .utils.routes import base_content_path_ui
+from .style import BaseWrapperStyle
 from .utils.navigation import (
-    pantry_in_page_navigation,
+    blueprints_in_page_navigation,
     charts_in_page_navigation,
     getting_started_in_page_navigation,
-    blueprints_in_page_navigation,
+    pantry_in_page_navigation,
 )
-
-from ...templates.sidemenu.sidemenu import sidemenu
-from ...templates.footer.footer import footer, desktop_footer
-from ...templates.wrapper.wrapper import baseWrapperHeader
-from ...templates.navigation.navigation import docs_navigation
-from ...templates.drawer.drawer import drawer
+from .utils.routes import base_content_path_ui
 
 
 def base_footer_responsive(component: rx.Component, start: str, end: str):
@@ -30,7 +29,7 @@ def base_footer_responsive(component: rx.Component, start: str, end: str):
 
 def base(url: str, page_name: str):
 
-    def decorator(content: Callable[[], List[rx.Component]]):
+    def decorator(content: Callable[[], list[rx.Component]]):
         @wraps(content)
         def template():
             contents = content()

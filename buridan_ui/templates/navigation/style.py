@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+
 import reflex as rx
 
 
@@ -18,7 +19,7 @@ class NavigationStyle:
             "border_bottom": "solid",
             "border_image": f"linear-gradient(to right, transparent, {rx.color('gray', 6)},  transparent) 2 / 4px",
             "border_image_width": "0px 0px 1px 0px",
-        }
+        },
     )
 
     logo: dict[str, str] = field(
@@ -29,7 +30,7 @@ class NavigationStyle:
             "object_fit": "fit",
             "border": f"1px solid {rx.color('slate', 12)}",
             "display": ["none", "none", "none", "none", "flex", "flex"],
-        }
+        },
     )
 
     landing_page_nav: dict[str, str] = field(
@@ -38,7 +39,7 @@ class NavigationStyle:
             "align": "center",
             "justify": "between",
             "padding": ["14px 0.5em" if i <= 5 else "14px 0em" for i in range(6)],
-        }
+        },
     )
 
     color_mode: dict[str, str] = field(
@@ -48,7 +49,7 @@ class NavigationStyle:
             "padding": "10px",
             "height": "29px",
             "border_radius": "29px",
-        }
+        },
     )
 
 

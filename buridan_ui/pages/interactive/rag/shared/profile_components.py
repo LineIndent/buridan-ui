@@ -2,11 +2,9 @@ from typing import Callable
 
 import reflex as rx
 
-
-from .style import ProfileComponentStyle
-from ..style import Typography
-
 from ..state import State
+from ..style import Typography
+from .style import ProfileComponentStyle
 
 
 def profile_item_unit():

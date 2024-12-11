@@ -1,9 +1,8 @@
 import reflex as rx
 
-from ..style import Style
-from ..style import Typography
-from .style import ChatAreaStyle
 from ..state import State
+from ..style import Style, Typography
+from .style import ChatAreaStyle
 
 
 def chat_message(data: dict[str, str]):
@@ -25,7 +24,6 @@ def chat_box():
     return rx.vstack(
         # ... rx.vstack => chat history and chat session
         rx.vstack(
-            #
             rx.foreach(State.chat_history, chat_message),
             **ChatAreaStyle.chat_session_style,
         ),

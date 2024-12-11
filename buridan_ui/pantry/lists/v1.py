@@ -1,6 +1,5 @@
 import reflex as rx
 
-
 design = ["Figma", "Sketch"]
 development = ["HTML", "CSS", "Tailwind CSS", "React", "Vue"]
 collaboration = ["Mailchimp", "Slack", "Notion"]

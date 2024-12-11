@@ -1,10 +1,10 @@
 import reflex as rx
 
 from buridan_ui.routes.routes import (
-    PantryRoutes,
+    BlueprintRoutes,
     ChartRoutes,
     GettingStartedRoutes,
-    BlueprintRoutes,
+    PantryRoutes,
 )
 from buridan_ui.states.routing import SiteRoutingState
 

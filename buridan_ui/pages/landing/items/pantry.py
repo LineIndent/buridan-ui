@@ -1,6 +1,6 @@
 import reflex as rx
 
-from ...thumbnail_items.exports import export_thumbnail
+from buridan_ui.pages.thumbnail_items.exports import export_thumbnail
 
 
 def landing_page_pantry_items():

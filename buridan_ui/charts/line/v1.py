@@ -1,7 +1,7 @@
 import reflex as rx
 
-from ..style import tooltip_styles, info
 from ...wrappers.state import ComponentWrapperState
+from ..style import info, tooltip_styles
 
 
 def linechart_v1():
@@ -26,7 +26,10 @@ def linechart_v1():
             rx.recharts.line_chart(
                 rx.recharts.graphing_tooltip(
                     **vars(tooltip_styles),
-                    custom_attrs={"display": "flex", "justify-content": "space-between"}
+                    custom_attrs={
+                        "display": "flex",
+                        "justify-content": "space-between",
+                    },
                 ),
                 rx.recharts.cartesian_grid(
                     horizontal=True,

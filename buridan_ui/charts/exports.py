@@ -1,10 +1,7 @@
-from .bar.v1 import barchart_v1
-from .bar.v2 import barchart_v2
-from .bar.v3 import barchart_v3
-from .bar.v4 import barchart_v4
-from .bar.v5 import barchart_v5
-from .bar.v6 import barchart_v6
-from .bar.v7 import barchart_v7
+import inspect
+from random import randint
+
+from buridan_ui.wrappers.component.wrapper import component_wrapper
 
 from .area.v1 import areachart_v1
 from .area.v2 import areachart_v2
@@ -13,7 +10,13 @@ from .area.v4 import areachart_v4
 from .area.v5 import areachart_v5
 from .area.v6 import areachart_v6
 from .area.v7 import areachart_v7
-
+from .bar.v1 import barchart_v1
+from .bar.v2 import barchart_v2
+from .bar.v3 import barchart_v3
+from .bar.v4 import barchart_v4
+from .bar.v5 import barchart_v5
+from .bar.v6 import barchart_v6
+from .bar.v7 import barchart_v7
 from .line.v1 import linechart_v1
 from .line.v2 import linechart_v2
 from .line.v3 import linechart_v3
@@ -21,14 +24,12 @@ from .line.v4 import linechart_v4
 from .line.v5 import linechart_v5
 from .line.v6 import linechart_v6
 from .line.v7 import linechart_v7
-
 from .pie.v1 import piechart_v1
 from .pie.v2 import piechart_v2
 from .pie.v3 import piechart_v3
 from .pie.v4 import piechart_v4
 from .pie.v5 import piechart_v5
 from .pie.v6 import piechart_v6
-
 from .radar.v1 import radar_v1
 from .radar.v2 import radar_v2
 from .radar.v3 import radar_v3
@@ -36,17 +37,12 @@ from .radar.v4 import radar_v4
 from .radar.v5 import radar_v5
 from .radar.v6 import radar_v6
 
-from ..wrappers.component.wrapper import component_wrapper
-from random import randint
-
-import inspect
-
 BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/charts/"
 
 
 def get_source(func) -> str:
     source: str = ""
-    with open("buridan_ui/charts/style.py", "r") as file:
+    with open("buridan_ui/charts/style.py") as file:
         source += file.read()
         source += "\n"
         source += inspect.getsource(func)

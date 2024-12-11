@@ -1,16 +1,13 @@
 import reflex as rx
 
-from ..style import Style
-from ..wrappers.item import app_profile_item_wrapper
-
 from ..shared.profile_components import (
+    profile_item_activity_stats,
     profile_item_physical_stats,
     profile_item_unit,
-    profile_item_activity_stats,
 )
-
 from ..state import State
-
+from ..style import Style
+from ..wrappers.item import app_profile_item_wrapper
 
 physical_stats = rx.hstack(
     profile_item_physical_stats(State.height, "height", State.set_height),

@@ -1,5 +1,4 @@
 import reflex as rx
-from typing import Callable, Dict, List
 
 from .style import DashboardStatBarStyle
 
@@ -86,18 +85,27 @@ statbarDataSet = {
     },
 }
 
-statbarChart: Callable[[Dict[str, str]], rx.recharts.line_chart] = (
-    lambda dataSet: rx.recharts.line_chart(
+
+def statbarChart(dataSet: dict[str, str]) -> rx.recharts.line_chart:
+    return rx.recharts.line_chart(
         rx.recharts.line(
-            data_key=list(dataSet[0].keys())[1], type_="linear", dot=False
+            data_key=list(dataSet[0].keys())[1],
+            type_="linear",
+            dot=False,
         ),
         data=dataSet,
         height="100%",
     )
-)
 
-statbarItemWrapper: Callable[[str, str, str, str, List[Dict[str, str]]], rx.hstack] = (
-    lambda title, currentMonth, previousMonth, delta, data: rx.vstack(
+
+def statbarItemWrapper(
+    title: str,
+    currentMonth: str,
+    previousMonth: str,
+    delta: str,
+    data: list[dict[str, str]],
+) -> rx.hstack:
+    return rx.vstack(
         rx.vstack(
             rx.text(title, size="1", weight="bold", color=rx.color("slate", 11)),
             rx.text(currentMonth, size="6", weight="bold", color=rx.color("slate", 12)),
@@ -106,7 +114,7 @@ statbarItemWrapper: Callable[[str, str, str, str, List[Dict[str, str]]], rx.hsta
         rx.hstack(
             rx.badge(
                 delta,
-                color_scheme="grass" if list(delta)[0] == "+" else "ruby",
+                color_scheme="grass" if next(iter(delta)) == "+" else "ruby",
                 size="1",
             ),
             rx.text(
@@ -120,18 +128,19 @@ statbarItemWrapper: Callable[[str, str, str, str, List[Dict[str, str]]], rx.hsta
         statbarChart(data),
         **DashboardStatBarStyle.itemWrapper,
     )
-)
 
-dashboardStatbar: Callable[[], rx.hstack] = lambda: rx.hstack(
-    *[
-        statbarItemWrapper(
-            item["title"],
-            item["current_month"],
-            item["previous_month"],
-            item["delta"],
-            item["chart"],
-        )
-        for item in statbarDataSet.values()
-    ],
-    **DashboardStatBarStyle.base,
-)
+
+def dashboardStatbar() -> rx.hstack:
+    return rx.hstack(
+        *[
+            statbarItemWrapper(
+                item["title"],
+                item["current_month"],
+                item["previous_month"],
+                item["delta"],
+                item["chart"],
+            )
+            for item in statbarDataSet.values()
+        ],
+        **DashboardStatBarStyle.base,
+    )

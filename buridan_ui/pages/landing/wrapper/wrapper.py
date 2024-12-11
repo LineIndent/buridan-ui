@@ -1,22 +1,31 @@
-from typing import Literal, Callable
+from typing import Literal
 
 import reflex as rx
 
 # from ....states.routing import SiteRoutingState
-from .style import LandingPageSectionWrapperStyle, LandingPageButtons
+from .style import LandingPageButtons, LandingPageSectionWrapperStyle
 
 ButtonStyle = Literal["classic", "ghost", "outline", "soft", "solid", "surface"]
 KeyDisplay = ["none" if i <= 2 else "flex" for i in range(6)]
 
-button: Callable[[str, ButtonStyle], rx.Component] = lambda name, style: rx.button(
-    rx.text(name, size="2", weight="medium"),
-    variant=style,
-    color_scheme="gray",
-    **LandingPageButtons.base,
-)
 
-button_with_key: Callable[[str, str, str, ButtonStyle, callable], rx.Component] = (
-    lambda tag, cmd, name, style, func: rx.button(
+def button(name: str, style: ButtonStyle) -> rx.Component:
+    return rx.button(
+        rx.text(name, size="2", weight="medium"),
+        variant=style,
+        color_scheme="gray",
+        **LandingPageButtons.base,
+    )
+
+
+def button_with_key(
+    tag: str,
+    cmd: str,
+    name: str,
+    style: ButtonStyle,
+    func: callable,
+) -> rx.Component:
+    return rx.button(
         rx.icon(tag=tag, size=18),
         rx.text(name, size="2", weight="bold"),
         rx.badge(
@@ -31,7 +40,6 @@ button_with_key: Callable[[str, str, str, ButtonStyle, callable], rx.Component] 
         variant=style,
         **LandingPageButtons.base,
     )
-)
 
 
 def landing_page_section_wrapper(
@@ -92,7 +100,10 @@ def blip(tag: str) -> rx.box:
 
 
 def landing_page_features_wrapper(
-    subtitle: str, title: str, tag: str, components: list[rx.Component] = []
+    subtitle: str,
+    title: str,
+    tag: str,
+    components: list[rx.Component] = [],
 ) -> rx.hstack:
     return rx.hstack(
         rx.vstack(

@@ -1,14 +1,15 @@
-import reflex as rx
-from typing import List, Dict
+from __future__ import annotations
 
+import reflex as rx
 from reflex.constants.colors import Color
 
+from buridan_ui.states.routing import SiteRoutingState
+from buridan_ui.templates.wrapper.wrapper import menu_wrapper
+
 from .style import SideMenuStyle
-from ..wrapper.wrapper import menu_wrapper
-from ...states.routing import SiteRoutingState
 
 
-def create_sidebar_menu_items(routes: List[Dict[str, str | Color]]):
+def create_sidebar_menu_items(routes: list[dict[str, str | Color]]):
 
     def item(data):
         return rx.hstack(

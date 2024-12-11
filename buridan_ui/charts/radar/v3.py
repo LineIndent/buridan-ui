@@ -1,6 +1,7 @@
 import reflex as rx
-from ..style import tooltip_styles, info
+
 from ...wrappers.component.wrapper import ComponentWrapperState
+from ..style import info, tooltip_styles
 
 
 def radar_v3():
@@ -25,13 +26,15 @@ def radar_v3():
             rx.recharts.graphing_tooltip(**vars(tooltip_styles)),
             rx.recharts.polar_grid(
                 class_name=rx.color_mode_cond(
-                    "text-sm stroke-gray-300", "text-sm stroke-gray-700"
+                    "text-sm stroke-gray-300",
+                    "text-sm stroke-gray-700",
                 ),
             ),
             rx.recharts.polar_angle_axis(
                 data_key="category",
                 class_name=rx.color_mode_cond(
-                    "text-sm stroke-gray-300", "text-sm stroke-gray-700"
+                    "text-sm stroke-gray-300",
+                    "text-sm stroke-gray-700",
                 ),
             ),
             rx.recharts.radar(

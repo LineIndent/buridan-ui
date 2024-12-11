@@ -8,7 +8,7 @@ class FooterStyle:
             "width": "100%",
             "align": "start",
             "padding": ["12px 0px" if i >= 5 else "12px 0.75em" for i in range(6)],
-        }
+        },
     )
 
     footer_item: dict[str, str] = field(
@@ -20,7 +20,7 @@ class FooterStyle:
             "justify": "start",
             "gap": "1rem 3rem",
             "width": "100%",
-        }
+        },
     )
 
 

@@ -1,23 +1,27 @@
+from __future__ import annotations
+
 import reflex as rx
 from reflex.constants.colors import Color
-from typing_extensions import Callable
+
+from buridan_ui.states.routing import SiteRoutingState
+from buridan_ui.templates.drawer.state import DrawerState
 
 from .style import NavigationStyle
-from ...templates.drawer.state import DrawerState
-from ...states.routing import SiteRoutingState
 
 
-nav_icon: Callable[[rx.Component], rx.badge] = lambda component: rx.badge(
-    component,
-    color_scheme="gray",
-    variant="soft",
-    width="21px",
-    height="21px",
-    display="flex",
-    align_items="center",
-    justify_content="center",
-    background="none",
-)
+def nav_icon(component: rx.Component) -> rx.badge:
+    return rx.badge(
+        component,
+        color_scheme="gray",
+        variant="soft",
+        width="21px",
+        height="21px",
+        display="flex",
+        align_items="center",
+        justify_content="center",
+        background="none",
+    )
+
 
 theme = nav_icon(
     rx.el.button(
@@ -34,7 +38,7 @@ theme = nav_icon(
             ),
         ),
         on_click=rx.toggle_color_mode,
-    )
+    ),
 )
 
 github = nav_icon(
