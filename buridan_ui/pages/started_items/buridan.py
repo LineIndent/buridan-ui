@@ -6,13 +6,13 @@ def text_wrapper(title: str, description: str):
         rx.hstack(
             rx.text(
                 title,
-                size="4",
-                weight="bold",
+                size="3",
+                weight="medium",
                 color=rx.color("slate", 12),
             ),
             align="center",
         ),
-        rx.text(description, size="3", color=rx.color("slate", 11), weight="medium"),
+        rx.text(description, size="2", color=rx.color("slate", 11), weight="regular"),
         spacing="2",
         line_height="2px",
     )
@@ -33,12 +33,11 @@ def buridan():
                 "Explore and Create",
                 "Dive into our collection of components and see how they can elevate your projects. Whether you’re building a new app or enhancing an existing one, Buridan UI is here to help you navigate the vast landscape of design choices with ease.",
             ),
-            max_width="50em",
+            max_width="40em",
             width="100%",
             spacing="6",
         ),
         width="100%",
         display="flex",
         justify_content="center",
-        padding="0px 14px",
     )
