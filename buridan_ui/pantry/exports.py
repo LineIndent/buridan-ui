@@ -8,6 +8,7 @@ from .animations.v2 import animation_v2
 from .animations.v3 import animation_v3
 from .animations.v4 import animation_v4
 from .animations.v5 import animation_v5
+from .animations.v6 import animation_v6
 from .backgrounds.v1 import background_v1
 from .backgrounds.v2 import background_v2
 from .backgrounds.v3 import background_v3
@@ -102,6 +103,7 @@ pantry_exports_config = {
     "animations": [
         create_export(animation_v1, "animations", 1),
         create_export(animation_v2, "animations", 2),
+        create_export(animation_v6, "animations", 6),
         create_export(animation_v3, "animations", 3),
         create_export(animation_v4, "animations", 4),
         create_export(animation_v5, "animations", 5),

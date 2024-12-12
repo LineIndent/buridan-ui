@@ -58,11 +58,15 @@ class Numbers(rx.State):
 
 def animation_v5():
     return rx.hstack(
-        *[rx.heading(getattr(Numbers, number)) for number in number_list[:4]],
-        rx.text(),
-        *[rx.heading(getattr(Numbers, number)) for number in number_list[4:8]],
-        rx.text(),
-        *[rx.heading(getattr(Numbers, number)) for number in number_list[8:]],
+        rx.hstack(
+            *[rx.heading(getattr(Numbers, number)) for number in number_list[:4]]
+        ),
+        rx.hstack(
+            *[rx.heading(getattr(Numbers, number)) for number in number_list[4:8]]
+        ),
+        rx.hstack(
+            *[rx.heading(getattr(Numbers, number)) for number in number_list[8:12]]
+        ),
         rx.button(
             "Run",
             top="-24px",
@@ -76,10 +80,11 @@ def animation_v5():
             size="1",
         ),
         font_size="15px",
-        display="flex",
         width="100%",
         height="30vh",
         align="center",
         justify="center",
         position="relative",
+        wrap="wrap",
+        spacing="6",
     )
