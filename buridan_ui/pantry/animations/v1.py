@@ -23,7 +23,9 @@ class Style:
             "right": "-12px",
             "cursor": "pointer",
             "position": "absolute",
-            "border_radius": "0px 0px 0px 8px",
+            "radius": "none",
+            "variant": "surface",
+            "size": "1",
         },
     )
 
@@ -54,7 +56,7 @@ class Animation(rx.State):
         self.animate = Style.fade
         yield
 
-        await asyncio.sleep(1.1)
+        await asyncio.sleep(0.75)
         self.is_disabled = False
         self.animate = {}
 

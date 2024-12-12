@@ -22,7 +22,9 @@ class Style:
             "right": "-12px",
             "cursor": "pointer",
             "position": "absolute",
-            "border_radius": "0px 0px 0px 8px",
+            "radius": "none",
+            "variant": "surface",
+            "size": "1",
         },
     )
 
