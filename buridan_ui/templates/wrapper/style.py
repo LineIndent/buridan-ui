@@ -33,11 +33,7 @@ class MenuWrapperStyle:
 @dataclass
 class BaseHeaderWrapper:
     wrapper: dict[str, str] = field(
-        default_factory=lambda: {
-            "width": "100%",
-            "align": "start",
-            "padding": ["12px 0px" if i >= 5 else "12px 24px" for i in range(6)],
-        },
+        default_factory=lambda: {"width": "100%", "align": "start"},
     )
 
     titles: dict[str, str] = field(

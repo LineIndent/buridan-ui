@@ -47,7 +47,6 @@ def base(url: str, page_name: str):
                         *contents,
                         rx.divider(height="2em", opacity="0"),
                         max_width="95%",
-                        align="center",
                         **BaseWrapperStyle.content,
                     ),
                     pantry_in_page_navigation(url),
