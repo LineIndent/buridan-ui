@@ -53,20 +53,23 @@ def add_routes(
 
 # ... set the DEV var to True for faster hot reload
 # ... ... change the ENV to match the page in progress
-DEV: bool = False
+DEV: bool = True
 
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/charts/area-charts",
-        "name": "Area Charts",
-        "dir": "area",
-        "config": charts_exports_config,
+        "path": "/pantry/animations",
+        "name": "DEV MODE",
+        "dir": "animations",
+        "config": pantry_exports_config,
     }
 
     @base(ENV["path"], ENV["name"])
     def __() -> callable:
         return [export() for export in ENV["config"][ENV["dir"]]]
+
+    # app.add_page(__(), route="/")
+    add_routes(Routes.started, getting_started_config)
 
 else:
     app.add_page(landing_page(), route="/", title="Buridan UI")

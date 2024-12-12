@@ -29,6 +29,7 @@ def wrapper(title: str, date: str, components: list[rx.Component] = []):
                 spacing="1",
             ),
             *components,
+            spacing="3",
         ),
         **ChangelogStyle.wrapper,
     )
@@ -213,7 +214,7 @@ def changelog():
             align_items="center",
             justify_content="center",
             display="flex",
-            padding="0px 24px",
+            padding="0px 18px",
         ),
         **ChangelogStyle.base,
     )

@@ -1,4 +1,5 @@
 import reflex as rx
+from reflex.components.datadisplay.code import Theme
 
 from buridan_ui.pantry.timeline.v1 import blip
 
@@ -13,16 +14,16 @@ def wrapper(title: str, instructions: str, components=None, **kwargs):
                     blip(),
                     rx.text(
                         title,
-                        size="2",
-                        weight="medium",
+                        size="1",
+                        weight="bold",
                         color=rx.color("slate", 11),
                     ),
                     align="center",
                 ),
                 rx.text(
                     instructions,
-                    size="3",
-                    weight="bold",
+                    size="2",
+                    weight="regular",
                     color=rx.color("slate", 12),
                 ),
                 width="100%",
@@ -45,22 +46,18 @@ def create_code_line(code_string: str):
         rx.code_block(
             code_string,
             width="100%",
-            font_size="13px",
-            language="markup",
+            font_size="12px",
+            language="markdown",
+            theme=Theme.one_dark,
             wrap_long_lines=True,
             scrollbar_width="none",
-            code_tag_props={"pre": "transparent"},
-            custom_style={"color": rx.color("gray", 12)},
         ),
         rx.button(
-            rx.icon(tag="file", size=15),
-            color_scheme="gray",
+            rx.icon(tag="file", size=13),
+            color="white",
             variant="ghost",
-            size="2",
-            on_click=[
-                # rx.toast.provider("Code copied!"),
-                rx.set_clipboard(code_string),
-            ],
+            size="1",
+            on_click=[rx.set_clipboard(code_string)],
             cursor="pointer",
             position="absolute",
             right="2%",
@@ -86,8 +83,8 @@ def installation():
                     create_code_line("pip3 install reflex"),
                     rx.text(
                         "Male sure the latest version of Reflex is installed",
-                        size="3",
-                        weight="bold",
+                        size="2",
+                        weight="regular",
                         color=rx.color("slate", 12),
                     ),
                     create_code_line("reflex --version"),
@@ -102,14 +99,13 @@ def installation():
                 "Step 4: Copy & paste a pantry item directly into your app",
                 "You can now easily integrate pantry pantry within your app and personalize them.",
             ),
-            max_width="50em",
+            max_width="40em",
             width="100%",
             spacing="9",
             position="relative",
-            border_left=f"1px solid {rx.color('gray')}",
+            border_left=f"0.75px solid {rx.color('gray', 5)}",
         ),
         width="100%",
         display="flex",
         justify_content="center",
-        padding="0px 14px",
     )
