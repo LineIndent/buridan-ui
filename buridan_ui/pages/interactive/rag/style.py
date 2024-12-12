@@ -6,11 +6,11 @@ import reflex as rx
 @dataclass
 class Typography:
     active: dict[str, str] = field(
-        default_factory=lambda: {"color": rx.color("slate", 12)}
+        default_factory=lambda: {"color": rx.color("slate", 12)},
     )
 
     passive: dict[str, str] = field(
-        default_factory=lambda: {"color": rx.color("slate", 10)}
+        default_factory=lambda: {"color": rx.color("slate", 10)},
     )
 
 
@@ -20,7 +20,7 @@ class Style:
         default_factory=lambda: {
             "width": "100%",
             "min_height": "100vh",
-        }
+        },
     )
 
     navigation_parent: dict[str, str] = field(
@@ -32,7 +32,7 @@ class Style:
             "top": "0",
             "left": "0",
             "position": "absolute",
-        }
+        },
     )
 
     navigation_child: dict[str, str] = field(
@@ -40,7 +40,7 @@ class Style:
             "width": "100%",
             "justify": "between",
             "align": "center",
-        }
+        },
     )
 
     content: dict[str, str] = field(
@@ -52,7 +52,7 @@ class Style:
             "grid_template_columns": [
                 f"repeat({i}, minmax(0, 1fr))" for i in [1, 1, 1, 1, 2, 2]
             ],
-        }
+        },
     )
 
     profile_base: dict[str, str] = field(
@@ -60,7 +60,7 @@ class Style:
             "width": "100%",
             "height": "100%",
             "align": "center",
-        }
+        },
     )
 
     profile_inner_content: dict[str, str] = field(
@@ -82,7 +82,7 @@ class Style:
                 f"repeat({i}, minmax(0, 1fr))" for i in [1, 1, 2, 2, 2, 2]
             ],
             "gap": ["12px" if i <= 3 else "32px" for i in range(6)],
-        }
+        },
     )
 
     chat_area_base: dict[str, str] = field(
@@ -91,7 +91,7 @@ class Style:
             "height": "50vh",
             "align": "center",
             "padding": "0em 24px",
-        }
+        },
     )
 
 

@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+
 import reflex as rx
 
 
@@ -10,7 +11,7 @@ class ProfileComponentStyle:
             "border_bottom": f"1px solid {rx.color('slate')}",
             "width": "100%",
             "justify": "between",
-        }
+        },
     )
 
     profile_item_input_unit: dict[str, str] = field(
@@ -19,7 +20,7 @@ class ProfileComponentStyle:
             "weight": "bold",
             "width": "30px",
             "align": "center",
-        }
+        },
     )
 
     profile_item_input: dict[str, str] = field(
@@ -29,7 +30,7 @@ class ProfileComponentStyle:
             "outline": "none",
             "background": "none",
             "width": "100%",
-        }
+        },
     )
 
     profile_item_activity: dict[str, str] = field(
@@ -38,7 +39,7 @@ class ProfileComponentStyle:
             "variant": "soft",
             "width": "100%",
             "color_scheme": "gray",
-        }
+        },
     )
 
 
@@ -51,7 +52,7 @@ class ChatAreaStyle:
             "border_radius": "8px",
             "overflow": "hidden",
             "position": "relative",
-        }
+        },
     )
 
     model_tag: dict[str, str] = field(
@@ -66,7 +67,7 @@ class ChatAreaStyle:
             "color_scheme": "gray",
             "background": rx.color("blue", 3),
             "z_index": "20",
-        }
+        },
     )
 
     chat_session_style: dict[str, str] = field(
@@ -76,7 +77,7 @@ class ChatAreaStyle:
             "height": "85vh",
             "overflow": "auto",
             "mask": "linear-gradient(to bottom, hsl(0, 0%, 0%, 1) 85%, hsl(0, 0%, 0%, 0) 100%)",
-        }
+        },
     )
 
 

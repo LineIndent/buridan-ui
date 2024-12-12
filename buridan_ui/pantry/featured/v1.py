@@ -55,12 +55,7 @@ def featured_v1():
             color=rx.color("slate", 11),
         ),
         rx.hstack(
-            *list(
-                map(
-                    lambda item: create_featured(item["title"], item["description"]),
-                    data,
-                )
-            ),
+            *[create_featured(item["title"], item["description"]) for item in data],
             width="100%",
             display="grid",
             grid_template_columns=[
@@ -70,7 +65,7 @@ def featured_v1():
             align_items="start",
             padding="24px 0px",
             spacing="0",
-            wrap="wrap"
+            wrap="wrap",
         ),
         width="100%",
         max_width="35em",

@@ -1,7 +1,7 @@
-import reflex as rx
+import asyncio
 from random import randint
 
-import asyncio
+import reflex as rx
 
 number_list: list[str] = [
     "one",
@@ -79,5 +79,5 @@ def animation_v5():
         height="30vh",
         align="center",
         justify="center",
-        position="relative"
+        position="relative",
     )

@@ -1,6 +1,7 @@
 import reflex as rx
 
 from buridan_ui.wrappers.state import ComponentWrapperState
+
 from .style import ComponentWrapperUtilStyle
 
 IconMap = {"100%": "monitor", "60%": "tablet", "30%": "smartphone"}

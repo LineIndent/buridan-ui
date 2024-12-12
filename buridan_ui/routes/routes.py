@@ -1,12 +1,11 @@
 from dataclasses import dataclass, field
-from typing import List, Dict
 
 
 @dataclass
 class Routes:
     landing: dict[str, str] = field(default_factory=lambda: {"path": "/"})
 
-    started: List[Dict[str, str]] = field(
+    started: list[dict[str, str]] = field(
         default_factory=lambda: [
             {
                 "name": "Introduction",
@@ -28,10 +27,10 @@ class Routes:
                 "path": "/getting-started/changelog",
                 "dir": "changelog",
             },
-        ]
+        ],
     )
 
-    interactive: List[Dict[str, str]] = field(
+    interactive: list[dict[str, str]] = field(
         default_factory=lambda: [
             {
                 "name": "RAG Application",
@@ -43,10 +42,10 @@ class Routes:
                 "path": "/interactive/pubmed-ai",
                 "dir": "pubmed",
             },
-        ]
+        ],
     )
 
-    blueprints: List[Dict[str, str]] = field(
+    blueprints: list[dict[str, str]] = field(
         default_factory=lambda: [
             {
                 "name": "Auth System",
@@ -59,10 +58,10 @@ class Routes:
                 "dir": "dashboards",
             },
             {"name": "Layouts", "path": "/blueprints/layouts", "dir": "layouts"},
-        ]
+        ],
     )
 
-    pantries: List[Dict[str, str]] = field(
+    pantries: list[dict[str, str]] = field(
         default_factory=lambda: [
             {"name": "Logins", "path": "/pantry/logins", "dir": "logins"},
             {
@@ -156,23 +155,23 @@ class Routes:
                 "dir": "footers",
             },
             {"name": "Inputs", "path": "/pantry/inputs", "dir": "inputs"},
-        ]
+        ],
     )
 
-    charts: List[Dict[str, str]] = field(
+    charts: list[dict[str, str]] = field(
         default_factory=lambda: [
             {"name": "Bar Charts", "path": "/charts/bar-charts", "dir": "bar"},
             {"name": "Area Charts", "path": "/charts/area-charts", "dir": "area"},
             {"name": "Line Charts", "path": "/charts/line-charts", "dir": "line"},
             {"name": "Pie Charts", "path": "/charts/pie-charts", "dir": "pie"},
             {"name": "Radar Charts", "path": "/charts/radar-charts", "dir": "radar"},
-        ]
+        ],
     )
 
 
 @dataclass
 class NavigationRoutes:
-    base: List[Dict[str, str]] = field(
+    base: list[dict[str, str]] = field(
         default_factory=lambda: [
             {"name": "Home", "path": "/"},
             {"name": "Getting Started", "path": GettingStartedRoutes[0]["path"]},
@@ -181,16 +180,16 @@ class NavigationRoutes:
             {"name": "Pantry", "path": PantryRoutes[0]["path"]},
             # {"name": "Charts", "path": ChartRoutes[0]["path"]},
             {"name": "Charts", "path": "/charts/ui"},
-        ]
+        ],
     )
 
 
 Routes: Routes = Routes()
 
-GettingStartedRoutes: List[Dict[str, str]] = Routes.started
-InteractiveRoutes: List[Dict[str, str]] = Routes.interactive
-BlueprintRoutes: List[Dict[str, str]] = Routes.blueprints
-PantryRoutes: List[Dict[str, str]] = sorted(Routes.pantries, key=lambda x: x["name"])
-ChartRoutes: List[Dict[str, str]] = sorted(Routes.charts, key=lambda x: x["name"])
+GettingStartedRoutes: list[dict[str, str]] = Routes.started
+InteractiveRoutes: list[dict[str, str]] = Routes.interactive
+BlueprintRoutes: list[dict[str, str]] = Routes.blueprints
+PantryRoutes: list[dict[str, str]] = sorted(Routes.pantries, key=lambda x: x["name"])
+ChartRoutes: list[dict[str, str]] = sorted(Routes.charts, key=lambda x: x["name"])
 
-NavigationRoutes: List[Dict[str, str]] = NavigationRoutes().base
+NavigationRoutes: list[dict[str, str]] = NavigationRoutes().base

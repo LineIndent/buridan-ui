@@ -16,7 +16,7 @@ class Content(rx.State):
     index: int = 0
     position_y: str = "10px"
 
-    async def toggle_table_content(self, index: int, item: dict[str, str]):
+    async def toggle_table_content(self, index: int, item: dict[str, str]) -> None:
         self.links = [
             (
                 {**data, "color": rx.color("slate", 11)}

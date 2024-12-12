@@ -1,7 +1,6 @@
-from typing import Callable
-from .style import DashboardSideBarStyle
-
 import reflex as rx
+
+from .style import DashboardSideBarStyle
 
 menuItemMap = {
     0: {"icon": "home", "name": "Dashboard"},
@@ -21,37 +20,39 @@ reflexLogoPath = [
 ]
 
 
-sidebarMenuHeader: Callable[[], rx.hstack] = lambda: rx.hstack(
-    rx.el.svg(
-        *[
-            rx.el.svg.path(
-                d=d,
-                fill=rx.color_mode_cond("#110F1F", "white"),
-            )
-            for d in reflexLogoPath
-        ],
-        width="56",
-        height="12",
-        viewBox="0 0 56 12",
-        fill="none",
-        xmlns="http://www.w3.org/2000/svg",
-    ),
-    rx.badge(rx.text("Dashboard", size="1"), variant="surface", size="1"),
-    align="center",
-    width="100%",
-)
+def sidebarMenuHeader() -> rx.hstack:
+    return rx.hstack(
+        rx.el.svg(
+            *[
+                rx.el.svg.path(d=d, fill=rx.color_mode_cond("#110F1F", "white"))
+                for d in reflexLogoPath
+            ],
+            width="56",
+            height="12",
+            viewBox="0 0 56 12",
+            fill="none",
+            xmlns="http://www.w3.org/2000/svg",
+        ),
+        rx.badge(rx.text("Dashboard", size="1"), variant="surface", size="1"),
+        align="center",
+        width="100%",
+    )
 
-sidebarMenuItem: Callable[[str, str], rx.hstack] = lambda icon, name: rx.hstack(
-    rx.icon(tag=icon, size=14, color=rx.color("slate", 11)),
-    rx.text(name, weight="medium", size="2", color=rx.color("slate", 11)),
-    align="center",
-    justify="start",
-    height="28px",
-)
 
-dashboardSidebar: Callable[[], rx.vstack] = lambda: rx.vstack(
-    sidebarMenuHeader(),
-    rx.divider(height="1em", opacity="0"),
-    *[sidebarMenuItem(item["icon"], item["name"]) for item in menuItemMap.values()],
-    **DashboardSideBarStyle.base,
-)
+def sidebarMenuItem(icon: str, name: str) -> rx.hstack:
+    return rx.hstack(
+        rx.icon(tag=icon, size=14, color=rx.color("slate", 11)),
+        rx.text(name, weight="medium", size="2", color=rx.color("slate", 11)),
+        align="center",
+        justify="start",
+        height="28px",
+    )
+
+
+def dashboardSidebar() -> rx.vstack:
+    return rx.vstack(
+        sidebarMenuHeader(),
+        rx.divider(height="1em", opacity="0"),
+        *[sidebarMenuItem(item["icon"], item["name"]) for item in menuItemMap.values()],
+        **DashboardSideBarStyle.base,
+    )

@@ -1,42 +1,41 @@
 import asyncio
-import reflex as rx
-from typing import Dict, List
 
-from ..routes.routes import (
+import reflex as rx
+
+from buridan_ui.routes.routes import (
+    BlueprintRoutes,
+    ChartRoutes,
     GettingStartedRoutes,
     InteractiveRoutes,
-    PantryRoutes,
-    ChartRoutes,
     NavigationRoutes,
-    BlueprintRoutes,
+    PantryRoutes,
 )
 
-
-active: Dict[str, str] = {
+active: dict[str, str] = {
     "border_left": f"2px solid {rx.color('blue')}",
     "background": rx.color("blue", 3),
 }
-passive: Dict[str, str] = {
+passive: dict[str, str] = {
     "border_left": f"1px solid {rx.color('gray', 6)}",
     "background": "none",
 }
 
 
 class SiteRoutingState(rx.State):
-    NavigationRoutes: List[Dict[str, str]] = [
+    NavigationRoutes: list[dict[str, str]] = [
         {**route, **passive} for route in NavigationRoutes
     ]
-    GettingStartedRoutes: List[Dict[str, str]] = [
+    GettingStartedRoutes: list[dict[str, str]] = [
         {**route, **passive} for route in GettingStartedRoutes
     ]
-    InteractiveRoutes: List[Dict[str, str]] = [
+    InteractiveRoutes: list[dict[str, str]] = [
         {**route, **passive} for route in InteractiveRoutes
     ]
-    BlueprintRoutes: List[Dict[str, str]] = [
+    BlueprintRoutes: list[dict[str, str]] = [
         {**route, **passive} for route in BlueprintRoutes
     ]
-    ChartRoutes: List[Dict[str, str]] = [{**route, **passive} for route in ChartRoutes]
-    PantryRoutes: List[Dict[str, str]] = [
+    ChartRoutes: list[dict[str, str]] = [{**route, **passive} for route in ChartRoutes]
+    PantryRoutes: list[dict[str, str]] = [
         {**route, **passive} for route in PantryRoutes
     ]
 
@@ -46,7 +45,7 @@ class SiteRoutingState(rx.State):
     on_page_item: str
 
     @rx.event
-    async def toggle_page_change(self, data: Dict[str, str]) -> rx.event.redirect:
+    async def toggle_page_change(self, data: dict[str, str]) -> rx.event.redirect:
         if data is not None:
             # Special handling for Home path
             if data["path"] == "/":
@@ -75,8 +74,8 @@ class SiteRoutingState(rx.State):
 
     async def update_menu_link(
         self,
-        menu: List[Dict[str, str]],
-        item: Dict[str, str],
+        menu: list[dict[str, str]],
+        item: dict[str, str],
     ) -> None:
         # Loop through each route and update its color
         for index in menu:

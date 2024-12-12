@@ -1,5 +1,3 @@
-from typing import Callable
-
 import reflex as rx
 
 data: list[dict[str, str]] = [
@@ -29,9 +27,9 @@ data: list[dict[str, str]] = [
     },
 ]
 
-txt: Callable[[str, int], rx.Component] = lambda string, shade: rx.text(
-    string, weight="bold", color=rx.color("gray", shade)
-)
+
+def txt(string: str, shade: int) -> rx.Component:
+    return rx.text(string, weight="bold", color=rx.color("gray", shade))
 
 
 def question_and_answer(question: str, answer: str):
@@ -62,12 +60,7 @@ def faq_v1():
             weight="bold",
             align="center",
         ),
-        *list(
-            map(
-                lambda item: question_and_answer(item["question"], item["answers"]),
-                data,
-            )
-        ),
+        *[question_and_answer(item["question"], item["answers"]) for item in data],
         width="100%",
         max_width="35em",
         height="100%",

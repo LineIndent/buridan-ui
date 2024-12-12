@@ -1,7 +1,7 @@
 import reflex as rx
 
-from ..style import tooltip_styles, info
 from ...wrappers.state import ComponentWrapperState
+from ..style import info, tooltip_styles
 
 
 def areachart_v5():
@@ -110,7 +110,7 @@ def areachart_v5():
         current_selection: list[dict[str, str]] = data
 
         @rx.event
-        def change_data_time(self, value: str):
+        def change_data_time(self, value: str) -> None:
             self.current_selection = self.dataMap[value]
 
     return rx.center(

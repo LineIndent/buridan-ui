@@ -1,13 +1,12 @@
-from typing import List, AsyncGenerator
+import asyncio
+from collections.abc import AsyncGenerator
 from random import randint
+
+import reflex as rx
 
 from .style import AuthDynamicStyle
 
-import asyncio
-import reflex as rx
-
-
-numberList: List[str] = [
+numberList: list[str] = [
     "one",
     "two",
     "three",
