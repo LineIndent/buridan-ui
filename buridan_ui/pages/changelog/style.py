@@ -46,7 +46,7 @@ class ChangelogStyle:
             "background": rx.color("gray", 3),
             "border": f"1.25px solid {rx.color('gray', 6)}",
             "position": "absolute",
-            "left": "-11.5px",
+            "left": "-12px",
             "align_items": "center",
             "justify_content": "center",
             "display": "flex",
