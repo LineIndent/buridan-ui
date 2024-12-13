@@ -45,16 +45,6 @@ def component_wrapper_menu_bar(has_theme: bool, component_id: int, path: str):
     )
 
 
-def component_wrapper_menu_bar_no_code(path: str):
-    return rx.hstack(
-        rx.badge("Responsive UI", size="1", variant="surface"),
-        component_wrapper_source_code(path),
-        align="center",
-        justify="end",
-        width="100%",
-    )
-
-
 def component_wrapper_preview_content(component: rx.Component, component_id: int):
     return rx.tabs.content(
         rx.vstack(

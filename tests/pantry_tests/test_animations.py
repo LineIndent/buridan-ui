@@ -4,7 +4,7 @@ import reflex as rx
 from reflex.components.radix.themes.layout.center import Center
 from reflex.components.radix.themes.layout.stack import HStack, VStack
 
-from buridan_ui.pantry.animations import v1, v2, v3, v4, v5, v6
+from buridan_ui.pantry.animations import v1, v2, v3, v4, v5, v_
 
 
 class TestAnimationComponent(unittest.TestCase):
