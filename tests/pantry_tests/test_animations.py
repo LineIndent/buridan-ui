@@ -4,7 +4,7 @@ import reflex as rx
 from reflex.components.radix.themes.layout.center import Center
 from reflex.components.radix.themes.layout.stack import HStack, VStack
 
-from buridan_ui.pantry.animations import v1, v2, v3, v4, v5, v_
+from buridan_ui.pantry.animations import v1, v2, v3, v4, v5
 
 
 class TestAnimationComponent(unittest.TestCase):
@@ -15,7 +15,7 @@ class TestAnimationComponent(unittest.TestCase):
         assert isinstance(
             component,
             VStack | Center | HStack,
-        ), "Component is not an instance of VStack!"
+        ), "Component is not an instance of VStack!"  # fix error message ...
 
     def _test_stack_children(self, animation_func) -> None:
         """Test if all children are Reflex components."""
@@ -32,7 +32,6 @@ class TestAnimationComponent(unittest.TestCase):
             v3.animation_v3,
             v4.animation_v4,
             v5.animation_v5,
-            v6.animation_v6,
         ]
 
         for animation_func in animation_versions:
