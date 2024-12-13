@@ -44,6 +44,7 @@ from .subscribe.v2 import subscribe_v2
 from .tables.v1 import tables_v1
 from .tables.v2 import tables_v2
 from .tables.v3 import tables_v3
+from .tables.v4 import tables_v4
 from .timeline.v1 import timeline_v1
 
 BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/pantry/"
@@ -71,6 +72,7 @@ pantry_exports_config = {
         create_export(tables_v1, "tables", 1),
         create_export(tables_v2, "tables", 2),
         create_export(tables_v3, "tables", 3),
+        create_export(tables_v4, "tables", 4),
     ],
     "menus": [create_export(menus_v1, "menus", 1)],
     "backgrounds": [
