@@ -65,9 +65,21 @@ from ..templates.lab.main import ChartLab
 
 charts_exports_config = {
     "bar": [
-        create_export(barchart_v1, "bar", 1),
+        create_export(
+            barchart_v1,
+            "bar",
+            1,
+            True,
+            ChartLab(chart_type="bar-v1"),
+        ),
         create_export(barchart_v2, "bar", 2),
-        create_export(barchart_v3, "bar", 3),
+        create_export(
+            barchart_v3,
+            "bar",
+            3,
+            True,
+            ChartLab(chart_type="bar-v3"),
+        ),
         create_export(barchart_v4, "bar", 4),
         create_export(barchart_v5, "bar", 5),
         create_export(barchart_v6, "bar", 6),
