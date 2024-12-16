@@ -15,8 +15,9 @@ from buridan_ui.wrappers.state import ComponentWrapperState
 from .style import ComponentWrapperStyle, InnerCode
 
 
-def component_wrapper_menu_bar(has_theme: bool, component_id: int, path: str):
+def component_wrapper_menu_bar(has_theme: bool, component_id: int, path: str, lab):
     return rx.hstack(
+        lab,
         rx.hstack(
             (component_wrapper_color_scheme() if has_theme else rx.spacer()),
             (
@@ -40,7 +41,7 @@ def component_wrapper_menu_bar(has_theme: bool, component_id: int, path: str):
             align="center",
         ),
         align="center",
-        justify="end",
+        justify="between",
         width="100%",
     )
 
@@ -92,10 +93,10 @@ def component_wrapper(path: str, has_theme: bool = False):
     def decorator(func: Callable[[], list[rx.Component | str | int]]):
         @wraps(func)
         def wrapper():
-            component, component_code, component_id = func()
+            component, component_code, component_id, lab = func()
 
             return rx.vstack(
-                component_wrapper_menu_bar(has_theme, component_id, path),
+                component_wrapper_menu_bar(has_theme, component_id, path, lab),
                 rx.tabs.root(
                     component_wrapper_tab_menu(),
                     component_wrapper_preview_content(component, component_id),

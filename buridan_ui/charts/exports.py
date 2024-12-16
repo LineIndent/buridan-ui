@@ -1,6 +1,7 @@
 import inspect
-from random import randint
+import reflex as rx
 
+from random import randint
 from buridan_ui.wrappers.component.wrapper import component_wrapper
 
 from .area.v1 import areachart_v1
@@ -50,13 +51,17 @@ def get_source(func) -> str:
     return source
 
 
-def create_export(func, directory, version, has_theme=True):
+def create_export(
+    func, directory, version, has_theme=True, lab: rx.Component = rx.spacer()
+):
     @component_wrapper(f"{BASE_PATH}{directory}/v{version}.py", has_theme)
     def export():
-        return [func(), get_source(func), randint(0, 100000)]
+        return [func(), get_source(func), randint(0, 100000), lab]
 
     return export
 
+
+from ..templates.lab.main import ChartLab
 
 charts_exports_config = {
     "bar": [
@@ -69,19 +74,79 @@ charts_exports_config = {
         create_export(barchart_v7, "bar", 7),
     ],
     "area": [
-        create_export(areachart_v1, "area", 1),
-        create_export(areachart_v2, "area", 2),
-        create_export(areachart_v3, "area", 3),
-        create_export(areachart_v4, "area", 4),
+        create_export(
+            areachart_v1,
+            "area",
+            1,
+            True,
+            ChartLab(chart_type="area-v1"),
+        ),
+        create_export(
+            areachart_v2,
+            "area",
+            2,
+            True,
+            ChartLab(chart_type="area-v2"),
+        ),
+        create_export(
+            areachart_v3,
+            "area",
+            3,
+            True,
+            ChartLab(chart_type="area-v3"),
+        ),
+        create_export(
+            areachart_v4,
+            "area",
+            4,
+            True,
+            ChartLab(chart_type="area-v4"),
+        ),
         create_export(areachart_v5, "area", 5),
-        create_export(areachart_v6, "area", 6),
-        create_export(areachart_v7, "area", 7),
+        create_export(
+            areachart_v6,
+            "area",
+            6,
+            True,
+            ChartLab(chart_type="area-v6"),
+        ),
+        create_export(
+            areachart_v7,
+            "area",
+            7,
+            True,
+            ChartLab(chart_type="area-v7"),
+        ),
     ],
     "line": [
-        create_export(linechart_v1, "line", 1),
-        create_export(linechart_v2, "line", 2),
-        create_export(linechart_v3, "line", 3),
-        create_export(linechart_v4, "line", 4),
+        create_export(
+            linechart_v1,
+            "line",
+            1,
+            True,
+            ChartLab(chart_type="line-v1"),
+        ),
+        create_export(
+            linechart_v2,
+            "line",
+            2,
+            True,
+            ChartLab(chart_type="line-v2"),
+        ),
+        create_export(
+            linechart_v3,
+            "line",
+            3,
+            True,
+            ChartLab(chart_type="line-v3"),
+        ),
+        create_export(
+            linechart_v4,
+            "line",
+            4,
+            True,
+            ChartLab(chart_type="line-v4"),
+        ),
         create_export(linechart_v5, "line", 5),
         create_export(linechart_v6, "line", 6),
         create_export(linechart_v7, "line", 7),
