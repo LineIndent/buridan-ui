@@ -35,7 +35,7 @@ def areachart_v6():
                     rx.recharts.area(
                         data_key=name,
                         fill=ComponentWrapperState.default_theme[index],
-                        stack_id="a",
+                        # stack_id="a",
                         stroke="none",
                     )
                     for index, name in enumerate(["desktop", "mobile"])

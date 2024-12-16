@@ -33,8 +33,8 @@ def areachart_v1():
                 ),
                 rx.recharts.area(
                     data_key="desktop",
-                    fill=ComponentWrapperState.default_theme[1],
-                    stroke=ComponentWrapperState.default_theme[2],
+                    fill=ComponentWrapperState.default_theme[0],
+                    stroke=ComponentWrapperState.default_theme[3],
                 ),
                 rx.recharts.x_axis(
                     data_key="month",
