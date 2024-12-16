@@ -34,11 +34,7 @@ def base(url: str, page_name: str):
         def template():
             contents = content()
             return rx.hstack(
-                *[
-                    drawer(),
-                    sidemenu(),
-                    docs_navigation(),
-                ],
+                *[drawer(), sidemenu(), docs_navigation()],
                 rx.vstack(
                     rx.vstack(
                         rx.divider(height="1em", opacity="0"),
