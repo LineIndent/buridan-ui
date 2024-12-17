@@ -1,5 +1,6 @@
 import os
 from random import randint
+import reflex as rx
 
 from buridan_ui.wrappers.component.wrapper import component_wrapper
 
@@ -58,7 +59,12 @@ def get_source(directory: str, filename: str):
 def create_export(func, directory, version):
     @component_wrapper(f"{BASE_PATH}{directory}/v{version}.py")
     def export():
-        return [func(), get_source(directory, f"v{version}.py"), randint(0, 100000)]
+        return [
+            func(),
+            get_source(directory, f"v{version}.py"),
+            randint(0, 100000),
+            rx.spacer(),
+        ]
 
     return export
 
