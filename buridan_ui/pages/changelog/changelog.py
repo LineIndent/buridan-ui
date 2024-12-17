@@ -98,6 +98,32 @@ def changelog():
         rx.box(
             rx.vstack(
                 wrapper(
+                    "Buridan Dev Labs: Charts",
+                    "December 17, 2024",
+                    [
+                        info(
+                            "New `Dev Lab` for charts. Easily generate charts with your own data."
+                        ),
+                        info("Updated charts theme colors."),
+                        info("Fixed Area Charts stacking options."),
+                        changelog_badge("party-popper", "buridan/ui v0.4.2"),
+                    ],
+                ),
+                wrapper(
+                    "Site Patches and Updates",
+                    "December 13, 2024",
+                    [
+                        info(
+                            "Added GitHub workflow for Reflex Cloud Deploy automation."
+                        ),
+                        info("Code base cleanup and code refactoring."),
+                        info(
+                            "Live code editor (experimental) has been deployed (buridan-ui.reflex.run/buridan-sandbox)."
+                        ),
+                        changelog_badge("party-popper", "buridan/ui v0.4.1"),
+                    ],
+                ),
+                wrapper(
                     "Buridan Charts",
                     "December 02, 2024",
                     [
