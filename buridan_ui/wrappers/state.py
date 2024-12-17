@@ -3,7 +3,7 @@ import asyncio
 import reflex as rx
 from reflex.constants.colors import Color
 
-start: int = 8
+start: int = 5
 color_map = {
     "blue": {i: rx.color("blue", i + start) for i in range(4)},
     "ruby": {i: rx.color("ruby", i + start) for i in range(4)},
