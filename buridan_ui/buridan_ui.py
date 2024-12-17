@@ -58,10 +58,10 @@ DEV: bool = False
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/pantry/animations",
+        "path": "/charts/bar-charts",
         "name": "DEV MODE",
-        "dir": "animations",
-        "config": pantry_exports_config,
+        "dir": "bar",
+        "config": charts_exports_config,
     }
 
     @base(ENV["path"], ENV["name"])
@@ -69,20 +69,14 @@ if DEV:
         return [export() for export in ENV["config"][ENV["dir"]]]
 
     # app.add_page(__(), route="/")
-    add_routes(Routes.started, getting_started_config)
+    # add_routes(Routes.started, getting_started_config)
+
 
 else:
     app.add_page(landing_page(), route="/", title="Buridan UI")
-    app.add_page(charts_landing_page(), route="/charts/ui")
+    app.add_page(charts_landing_page(), route="/charts/ui", title="Charts UI")
     add_routes(Routes.interactive, interactive_config)
     add_routes(Routes.blueprints, blueprint_export_config)
     add_routes(Routes.pantries, pantry_exports_config)
     add_routes(Routes.charts, charts_exports_config)
     add_routes(Routes.started, getting_started_config)
-
-    # EXPERIMENTAL:
-    app.add_page(
-        buridan_sandbox(),
-        route="/buridan-sandbox",
-        on_load=Editor.automatic_reload,
-    )
