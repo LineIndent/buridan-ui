@@ -1,7 +1,7 @@
 import os
-from random import randint
 import reflex as rx
 
+from random import randint
 from buridan_ui.wrappers.component.wrapper import component_wrapper
 
 from .animations.v1 import animation_v1
