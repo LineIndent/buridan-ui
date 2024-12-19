@@ -9,6 +9,7 @@ from buridan_ui.routes.routes import (
     InteractiveRoutes,
     NavigationRoutes,
     PantryRoutes,
+    AnalyticsRoutes,
 )
 
 active: dict[str, str] = {
@@ -38,6 +39,9 @@ class SiteRoutingState(rx.State):
     PantryRoutes: list[dict[str, str]] = [
         {**route, **passive} for route in PantryRoutes
     ]
+    AnalyticsRoutes: list[dict[str, str]] = [
+        {**route, **passive} for route in AnalyticsRoutes
+    ]
 
     current_page: str
 
@@ -64,6 +68,7 @@ class SiteRoutingState(rx.State):
                 self.update_menu_link(self.ChartRoutes, data),
                 self.update_menu_link(self.PantryRoutes, data),
                 self.update_menu_link(self.BlueprintRoutes, data),
+                self.update_menu_link(self.AnalyticsRoutes, data),
             )
 
             # If no result matches, update the NavigationRoutes

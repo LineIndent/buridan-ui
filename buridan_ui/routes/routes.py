@@ -168,6 +168,21 @@ class Routes:
         ],
     )
 
+    analytics: list[dict[str, str]] = field(
+        default_factory=lambda: [
+            {
+                "name": "Infographics",
+                "path": "/analytics/infographics",
+                "dir": "infographic",
+            },
+            {
+                "name": "Prices",
+                "path": "/analytics/prices",
+                "dir": "price",
+            },
+        ],
+    )
+
 
 @dataclass
 class NavigationRoutes:
@@ -178,7 +193,6 @@ class NavigationRoutes:
             {"name": "Interactive Apps", "path": InteractiveRoutes[0]["path"]},
             {"name": "Blueprints", "path": BlueprintRoutes[0]["path"]},
             {"name": "Pantry", "path": PantryRoutes[0]["path"]},
-            # {"name": "Charts", "path": ChartRoutes[0]["path"]},
             {"name": "Charts", "path": "/charts/ui"},
         ],
     )
@@ -191,5 +205,6 @@ InteractiveRoutes: list[dict[str, str]] = Routes.interactive
 BlueprintRoutes: list[dict[str, str]] = Routes.blueprints
 PantryRoutes: list[dict[str, str]] = sorted(Routes.pantries, key=lambda x: x["name"])
 ChartRoutes: list[dict[str, str]] = sorted(Routes.charts, key=lambda x: x["name"])
+AnalyticsRoutes: list[dict[str, str]] = Routes.analytics
 
 NavigationRoutes: list[dict[str, str]] = NavigationRoutes().base
