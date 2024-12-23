@@ -79,7 +79,7 @@ def sidemenu() -> rx.vstack:
                 [create_sidebar_menu_items(SiteRoutingState.BlueprintRoutes)],
             ),
             menu_wrapper(
-                "Data Analytics",
+                "Analytics Components",
                 [create_sidebar_menu_items(SiteRoutingState.AnalyticsRoutes)],
             ),
             menu_wrapper(

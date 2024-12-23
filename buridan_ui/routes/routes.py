@@ -180,6 +180,16 @@ class Routes:
                 "path": "/analytics/prices",
                 "dir": "price",
             },
+            {
+                "name": "Expenses",
+                "path": "/analytics/expenses",
+                "dir": "expense",
+            },
+            {
+                "name": "Stats",
+                "path": "/analytics/stats",
+                "dir": "stats",
+            },
         ],
     )
 
