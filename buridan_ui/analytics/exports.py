@@ -31,7 +31,9 @@ from .stats.v6 import stats_v6
 from .stats.v7 import stats_v7
 from .stats.v8 import stats_v8
 
-BASE_PATH: str = "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/pantry/"
+BASE_PATH: str = (
+    "https://github.com/LineIndent/buridan-ui/blob/main/buridan_ui/analytics/"
+)
 
 
 def get_source(directory: str, filename: str):
