@@ -109,7 +109,7 @@ def analytics_landing_page():
                 width="100%",
                 position="relative",
             ),
-            # footer(),
+            footer(),
             rx.divider(height="2em", opacity="0"),
             width="100%",
             max_width="80em",
