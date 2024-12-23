@@ -7,9 +7,11 @@ from .pages.interactive.exports import interactive_config
 from .pages.landing.hero import landing_page
 from .pages.started_items.exports import getting_started_config
 from .pantry.exports import pantry_exports_config
+from .analytics.exports import analytics_config_file
+from .analytics.landing import analytics_landing_page
+
+
 from .routes.routes import Routes
-from .sandbox.main import buridan_sandbox
-from .sandbox.state import Editor
 from .wrappers.base.main import base
 
 AppFontURL: str = (
@@ -58,25 +60,26 @@ DEV: bool = False
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/charts/bar-charts",
+        "path": "/analytics/infographics",
         "name": "DEV MODE",
-        "dir": "bar",
-        "config": charts_exports_config,
+        "dir": "infographic",
+        "config": analytics_config_file,
     }
 
     @base(ENV["path"], ENV["name"])
     def __() -> callable:
         return [export() for export in ENV["config"][ENV["dir"]]]
 
-    # app.add_page(__(), route="/")
-    # add_routes(Routes.started, getting_started_config)
+    add_routes(Routes.analytics, analytics_config_file)
 
 
 else:
     app.add_page(landing_page(), route="/", title="Buridan UI")
     app.add_page(charts_landing_page(), route="/charts/ui", title="Charts UI")
+    app.add_page(analytics_landing_page(), route="/analytics/ui", title="Analytics UI")
     add_routes(Routes.interactive, interactive_config)
     add_routes(Routes.blueprints, blueprint_export_config)
     add_routes(Routes.pantries, pantry_exports_config)
     add_routes(Routes.charts, charts_exports_config)
     add_routes(Routes.started, getting_started_config)
+    add_routes(Routes.analytics, analytics_config_file)
