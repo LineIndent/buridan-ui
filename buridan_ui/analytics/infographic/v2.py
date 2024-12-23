@@ -5,18 +5,18 @@ from reflex.components.radix.themes.components.badge import Badge
 from reflex.components.radix.themes.layout.stack import VStack
 
 data = [
-    {"month": "January", "users": 800},
-    {"month": "February", "users": 950},
-    {"month": "March", "users": 1200},
-    {"month": "April", "users": 1700},
-    {"month": "May", "users": 2200},
-    {"month": "June", "users": 2400},
-    {"month": "July", "users": 1200},
-    {"month": "August", "users": 1600},
+    {"month": "January", "users": 600},
+    {"month": "February", "users": 850},
+    {"month": "March", "users": 1260},
+    {"month": "April", "users": 1710},
+    {"month": "May", "users": 1200},
+    {"month": "June", "users": 3400},
+    {"month": "July", "users": 1600},
+    {"month": "August", "users": 2100},
     {"month": "September", "users": 1100},
     {"month": "October", "users": 1900},
-    {"month": "November", "users": 1700},
-    {"month": "December", "users": 2500},
+    {"month": "November", "users": 2800},
+    {"month": "December", "users": 2200},
 ]
 
 titles: Callable[[str, str], VStack] = lambda title, number: rx.vstack(
@@ -32,8 +32,8 @@ stat: Callable[[str], Badge] = lambda percent: rx.badge(percent)
 def infographic_v2():
     return rx.vstack(
         rx.hstack(
-            titles("Users", "14,245"),
-            stat("+3.53%"),
+            titles("Subscribers", "4,245"),
+            stat("+7.28%"),
             align="center",
             width="100%",
             justify="between",
