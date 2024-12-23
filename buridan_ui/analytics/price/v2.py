@@ -33,7 +33,8 @@ chart: Callable[[list[dict[str, int]], str], RechartsCharts] = (
     lambda data, key: rx.recharts.line_chart(
         rx.recharts.line(data_key=key, dot=False, type_="natural"),
         data=data,
-        width="35%",
+        width="55%",
+        height="100%",  # add height to prevent overflow if data is large values
     )
 )
 
@@ -48,7 +49,7 @@ badge: Callable[[str], Badge] = lambda percent: rx.badge(
 def price_v2():
     return rx.hstack(
         token("Ethereum", "ETH"),
-        chart(data, "price"),
+        rx.hstack(chart(data, "price"), width="100%", height="100%", justify="center"),
         rx.vstack(
             price("$3,797"),
             badge("+16.96"),
@@ -60,4 +61,5 @@ def price_v2():
         align="center",
         justify="between",
         padding="0.5em",
+        height="65px",
     )
