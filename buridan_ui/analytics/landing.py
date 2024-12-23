@@ -61,8 +61,8 @@ def analytics_landing_page():
             landing_page_section_wrapper(
                 "Buridan Analytics",
                 "Powerful Analytics Components Built with Reflex",
-                "High-level Reflex chart components, built on top of Recharts. Easily integrate your own data for beautiful data visualizations.",
-                "Check out the Charts docs →",
+                "High-level Reflex analytics components, built with Reflex. Easily integrate your own data for beautiful visualizations.",
+                "Check out the Analytics docs →",
                 "/analytics/infographics",
                 [],
             ),
