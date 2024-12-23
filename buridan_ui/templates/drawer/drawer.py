@@ -48,6 +48,10 @@ def drawer():
                     drawer_menu_link(
                         create_sidebar_menu_items(SiteRoutingState.BlueprintRoutes),
                     ),
+                    drawer_menu_header("Analytics"),
+                    drawer_menu_link(
+                        create_sidebar_menu_items(SiteRoutingState.AnalyticsRoutes),
+                    ),
                     drawer_menu_header("Charts"),
                     drawer_menu_link(
                         create_sidebar_menu_items(SiteRoutingState.ChartRoutes),

@@ -204,6 +204,7 @@ class NavigationRoutes:
             {"name": "Blueprints", "path": BlueprintRoutes[0]["path"]},
             {"name": "Pantry", "path": PantryRoutes[0]["path"]},
             {"name": "Charts", "path": "/charts/ui"},
+            {"name": "Analytics", "path": "/analytics/ui"},
         ],
     )
 
