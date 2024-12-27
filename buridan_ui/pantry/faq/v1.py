@@ -29,26 +29,21 @@ data: list[dict[str, str]] = [
 
 
 def txt(string: str, shade: int) -> rx.Component:
-    return rx.text(string, weight="bold", color=rx.color("gray", shade))
+    return rx.text(string, weight="bold", color=rx.color("gray", shade), size="1")
 
 
 def question_and_answer(question: str, answer: str):
     return rx.hstack(
         rx.vstack(
-            rx.box(rx.icon(tag="circle-help", size=15), padding="5px 0px"),
-            align="start",
-            height="100%",
-        ),
-        rx.vstack(
             txt(question, 11),
             txt(answer, 12),
             align="start",
-            spacing="1",
+            spacing="2",
         ),
         width="100%",
         align="start",
         padding="16px 0px",
-        border_top=f"0.75px solid {rx.color('slate', 10)}",
+        border_top=f"0.75px solid {rx.color('gray', 4)}",
     )
 
 
@@ -56,7 +51,7 @@ def faq_v1():
     return rx.vstack(
         rx.heading(
             "Frequently Asked Questions",
-            size="5",
+            size="4",
             weight="bold",
             align="center",
         ),
