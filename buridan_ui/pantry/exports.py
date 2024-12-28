@@ -16,6 +16,7 @@ from .backgrounds.v3 import background_v3
 from .backgrounds.v4 import background_v4
 from .cards.v1 import card_v1
 from .cards.v2 import card_v2
+from .cards.v3 import card_v3
 from .faq.v1 import faq_v1
 from .featured.v1 import featured_v1
 from .featured.v2 import featured_v2
@@ -121,6 +122,7 @@ pantry_exports_config = {
         create_export(prompt_v2, "prompts", 2),
     ],
     "cards": [
+        create_export(card_v3, "cards", 3),
         create_export(card_v1, "cards", 1),
         create_export(card_v2, "cards", 2),
     ],
