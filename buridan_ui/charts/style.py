@@ -5,43 +5,43 @@ import reflex as rx
 
 @dataclass
 class TooltipStyles:
+    is_animation_active: bool = False
     separator: str = ""
     cursor: bool = False
-    wrapper_style: dict = field(
-        default_factory=lambda: {"padding": 0, "margin": 0, "width": "150px"},
-    )
-    view_box: dict = field(
-        default_factory=lambda: {"padding": 0, "margin": 0, "width": "150px"},
-    )
     item_style: dict = field(
         default_factory=lambda: {
-            "color": rx.color("slate", 11),
-            "fontSize": 11,
-            "padding": 0,
-            "margin": 0,
-            "justify-content": "space-between",
+            "color": "currentColor",
             "display": "flex",
+            "paddingBottom": "0px",
+            "justifyContent": "space-between",
             "textTransform": "capitalize",
-            "width": "175px",
         },
     )
     label_style: dict = field(
         default_factory=lambda: {
-            "fontSize": 11,
-            "padding": 0,
-            "fontWeight": "bold",
-            "color": rx.color("slate", 12),
+            "color": rx.color("slate", 9),
+            "fontWeight": "500",
         },
     )
     content_style: dict = field(
         default_factory=lambda: {
-            "background": rx.color("gray", 2),
-            "borderColor": rx.color("gray", 4),
-            "borderRadius": "6px",
-            "width": "150px",
-            "padding": 6,
-            "margin": 0,
-        },
+            "background": rx.color("slate", 1),
+            "borderColor": rx.color("slate", 5),
+            "borderRadius": "5px",
+            "boxShadow": "0px 24px 12px 0px light-dark(rgba(28, 32, 36, 0.02), rgba(0, 0, 0, 0.00)), 0px 8px 8px 0px light-dark(rgba(28, 32, 36, 0.02), rgba(0, 0, 0, 0.00)), 0px 2px 6px 0px light-dark(rgba(28, 32, 36, 0.02), rgba(0, 0, 0, 0.00))",
+            "fontFamily": "var(--font-instrument-sans)",
+            "fontSize": "0.875rem",
+            "lineHeight": "1.25rem",
+            "fontWeight": "500",
+            "letterSpacing": "-0.01rem",
+            "minWidth": "8rem",
+            "width": "175px",
+            "padding": "0.375rem 0.625rem ",
+            "position": "relative",
+        }
+    )
+    general_style: str = (
+        "[&_.recharts-tooltip-item-unit]:text-slate-9 [&_.recharts-tooltip-item-unit]:font-mono [&_.recharts-tooltip-item-value]:!text-slate-12 [&_.recharts-tooltip-item-value]:!font-mono  [&_.recharts-tooltip-item-value]:mr-[0.2rem] [&_.recharts-tooltip-item]:flex [&_.recharts-tooltip-item]:items-center [&_.recharts-tooltip-item-name]:text-slate-9 [&_.recharts-tooltip-item-list]:flex [&_.recharts-tooltip-item-list]:flex-col [&_.recharts-tooltip-item-name]:pr-[3rem] [&_.recharts-tooltip-item-separator]:w-full"
     )
 
 

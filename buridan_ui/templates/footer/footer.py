@@ -56,7 +56,7 @@ def footer():
         rx.vstack(
             rx.heading("buridan/ui", size="3", font_weight="900"),
             rx.text(
-                "© 2024 Ahmad Hakim. All rights reserved.",
+                "© 2025 Ahmad Hakim. All rights reserved.",
                 size="1",
                 weight="bold",
                 color=rx.color("gray", 11),
@@ -73,7 +73,7 @@ def desktop_footer():
         rx.vstack(
             rx.heading("buridan/ui", size="3", font_weight="900"),
             rx.text(
-                "© 2024 Ahmad Hakim. All rights reserved.",
+                "© 2025 Ahmad Hakim. All rights reserved.",
                 size="1",
                 weight="medium",
                 color=rx.color("slate", 11),

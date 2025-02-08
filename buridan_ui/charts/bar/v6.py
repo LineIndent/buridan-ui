@@ -36,7 +36,9 @@ def barchart_v6():
                 "start",
             ),
             rx.recharts.bar_chart(
-                rx.recharts.cartesian_grid(horizontal=True, vertical=False),
+                rx.recharts.cartesian_grid(
+                    horizontal=True, vertical=False, class_name="opacity-25"
+                ),
                 rx.recharts.graphing_tooltip(**vars(tooltip_styles)),
                 rx.recharts.bar(
                     data_key="desktop",
@@ -63,7 +65,7 @@ def barchart_v6():
             ),
             info("Trending up by 5.2% this month", "2", "January - June 2024", "start"),
             width="100%",
-            margin_right="20px",
+            class_name=tooltip_styles.general_style,
         ),
         width="100%",
         padding="0.5em",

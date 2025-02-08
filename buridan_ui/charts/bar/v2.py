@@ -48,7 +48,7 @@ def barchart_v2():
             ),
             info("Trending up by 5.2% this month", "2", "January - June 2024", "start"),
             width="100%",
-            margin_right="20px",
+            class_name=tooltip_styles.general_style,
         ),
         width="100%",
         padding="0.5em",
