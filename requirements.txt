@@ -7,4 +7,4 @@ pandas==2.2.3
 reflex-agent==0.1.0a20
 watchdog==4.0.2
 watchfiles==0.24.0
-reflex>=0.6.7
+reflex>=0.7.0a3
