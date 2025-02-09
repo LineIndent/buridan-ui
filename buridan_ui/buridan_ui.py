@@ -1,3 +1,5 @@
+""" Entry to App """
+
 import reflex as rx
 
 from .blueprints.exports import blueprint_export_config
@@ -19,6 +21,7 @@ AppFontURL: str = (
 )
 
 app = rx.App(
+    theme=rx.theme(appearance="light"),
     stylesheets=[AppFontURL],
     style={
         "background": "transparent",
@@ -60,18 +63,18 @@ DEV: bool = False
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/analytics/infographics",
+        "path": "/charts/bar-charts",
         "name": "DEV MODE",
-        "dir": "infographic",
-        "config": analytics_config_file,
+        "dir": "bar",
+        "config": charts_exports_config,
     }
 
     @base(ENV["path"], ENV["name"])
     def __() -> callable:
         return [export() for export in ENV["config"][ENV["dir"]]]
 
-    add_routes(Routes.analytics, analytics_config_file)
-
+    # app.add_page(__(), "/")
+    app.add_page(landing_page(), route="/", title="Buridan UI")
 
 else:
     app.add_page(landing_page(), route="/", title="Buridan UI")
