@@ -62,9 +62,9 @@ DEV: bool = False
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/charts/area-charts",
+        "path": "/charts/line-charts",
         "name": "DEV MODE",
-        "dir": "area",
+        "dir": "line",
         "config": charts_exports_config,
     }
 
