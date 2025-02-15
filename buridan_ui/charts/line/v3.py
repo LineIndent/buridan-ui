@@ -26,10 +26,7 @@ def linechart_v3():
             rx.recharts.line_chart(
                 rx.recharts.graphing_tooltip(**vars(tooltip_styles)),
                 rx.recharts.cartesian_grid(
-                    horizontal=True,
-                    vertical=False,
-                    fill_opacity=0.5,
-                    stroke=rx.color("slate", 5),
+                    horizontal=True, vertical=False, class_name="opacity-25"
                 ),
                 rx.recharts.line(
                     rx.recharts.label_list(
@@ -48,6 +45,7 @@ def linechart_v3():
                     tick_size=10,
                     tick_line=False,
                     custom_attrs={"fontSize": "12px"},
+                    interval="preserveStartEnd",
                 ),
                 data=data,
                 width="100%",
@@ -56,7 +54,7 @@ def linechart_v3():
             ),
             info("Trending up by 5.2% this month", "2", "January - June 2024", "start"),
             width="100%",
-            margin_right="20px",
+            class_name=tooltip_styles.general_style,
         ),
         width="100%",
         padding="0.5em",
