@@ -7,6 +7,6 @@
 .web
 __pycache__/
 assets/external/
-private/
+buridan_ui/private/
 buridan_ui/pages/landing/
 buridan_ui/templates/lab/
