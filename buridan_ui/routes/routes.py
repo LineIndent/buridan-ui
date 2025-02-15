@@ -30,22 +30,6 @@ class Routes:
         ],
     )
 
-    blueprints: list[dict[str, str]] = field(
-        default_factory=lambda: [
-            {
-                "name": "Auth System",
-                "path": "/blueprints/anonymous-authentication",
-                "dir": "anon",
-            },
-            {
-                "name": "Dashboard",
-                "path": "/blueprints/dashboards",
-                "dir": "dashboards",
-            },
-            {"name": "Layouts", "path": "/blueprints/layouts", "dir": "layouts"},
-        ],
-    )
-
     pantries: list[dict[str, str]] = field(
         default_factory=lambda: [
             {"name": "Logins", "path": "/pantry/logins", "dir": "logins"},
@@ -181,7 +165,6 @@ class NavigationRoutes:
         default_factory=lambda: [
             {"name": "Home", "path": "/"},
             {"name": "Getting Started", "path": GettingStartedRoutes[0]["path"]},
-            {"name": "Blueprints", "path": BlueprintRoutes[0]["path"]},
             {"name": "Pantry", "path": PantryRoutes[0]["path"]},
             {"name": "Charts", "path": "/charts/ui"},
             {"name": "Analytics", "path": "/analytics/ui"},  # analytics
@@ -192,7 +175,6 @@ class NavigationRoutes:
 Routes: Routes = Routes()
 
 GettingStartedRoutes: list[dict[str, str]] = Routes.started
-BlueprintRoutes: list[dict[str, str]] = Routes.blueprints
 PantryRoutes: list[dict[str, str]] = sorted(Routes.pantries, key=lambda x: x["name"])
 ChartRoutes: list[dict[str, str]] = sorted(Routes.charts, key=lambda x: x["name"])
 AnalyticsRoutes: list[dict[str, str]] = Routes.analytics

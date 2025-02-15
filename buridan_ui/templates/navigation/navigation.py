@@ -81,7 +81,6 @@ def navigation_right_side_items():
 
 def navigation_left_side_items():
     return rx.hstack(
-        # rx.image(src="/new_logo.png", **NavigationStyle.logo),
         rx.heading(
             "buridan/ui",
             font_size="0.9em",
@@ -114,7 +113,6 @@ def navigation():
 def docs_navigation():
     return rx.hstack(
         rx.hstack(
-            # rx.image(src="/logo.jpg", **NavigationStyle.logo),
             rx.heading(
                 "buridan/ui",
                 font_size="0.9em",

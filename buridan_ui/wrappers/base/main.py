@@ -11,7 +11,6 @@ from buridan_ui.templates.wrapper.wrapper import baseWrapperHeader
 
 from .style import BaseWrapperStyle
 from .utils.navigation import (
-    blueprints_in_page_navigation,
     charts_in_page_navigation,
     getting_started_in_page_navigation,
     pantry_in_page_navigation,
@@ -48,7 +47,6 @@ def base(url: str, page_name: str):
                     pantry_in_page_navigation(url),
                     charts_in_page_navigation(url),
                     getting_started_in_page_navigation(url),
-                    blueprints_in_page_navigation(url),
                     rx.vstack(
                         base_footer_responsive(desktop_footer(), "none", "flex"),
                         base_footer_responsive(footer(), "flex", "none"),

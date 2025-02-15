@@ -3,7 +3,6 @@ import asyncio
 import reflex as rx
 
 from buridan_ui.routes.routes import (
-    BlueprintRoutes,
     ChartRoutes,
     GettingStartedRoutes,
     NavigationRoutes,
@@ -27,9 +26,6 @@ class SiteRoutingState(rx.State):
     ]
     GettingStartedRoutes: list[dict[str, str]] = [
         {**route, **passive} for route in GettingStartedRoutes
-    ]
-    BlueprintRoutes: list[dict[str, str]] = [
-        {**route, **passive} for route in BlueprintRoutes
     ]
     ChartRoutes: list[dict[str, str]] = [{**route, **passive} for route in ChartRoutes]
     PantryRoutes: list[dict[str, str]] = [
@@ -62,7 +58,6 @@ class SiteRoutingState(rx.State):
                 self.update_menu_link(self.GettingStartedRoutes, data),
                 self.update_menu_link(self.ChartRoutes, data),
                 self.update_menu_link(self.PantryRoutes, data),
-                self.update_menu_link(self.BlueprintRoutes, data),
                 self.update_menu_link(self.AnalyticsRoutes, data),
             )
 

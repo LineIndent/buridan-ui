@@ -1,7 +1,6 @@
 import reflex as rx
 
 from buridan_ui.routes.routes import (
-    BlueprintRoutes,
     ChartRoutes,
     GettingStartedRoutes,
     PantryRoutes,
@@ -85,7 +84,3 @@ def charts_in_page_navigation(path: str) -> rx.Component:
 
 def getting_started_in_page_navigation(path: str) -> rx.Component:
     return page_navigation(path, GettingStartedRoutes)
-
-
-def blueprints_in_page_navigation(path: str) -> rx.Component:
-    return page_navigation(path, BlueprintRoutes)

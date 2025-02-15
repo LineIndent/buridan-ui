@@ -2,7 +2,6 @@
 
 import reflex as rx
 
-from .blueprints.exports import blueprint_export_config
 from .charts.exports import charts_exports_config
 from .pages.charts_landing.main import charts_landing_page
 from .pages.landing.hero import landing_page
@@ -79,7 +78,6 @@ else:
     app.add_page(landing_page(), route="/", title="Buridan UI")
     app.add_page(charts_landing_page(), route="/charts/ui", title="Charts UI")
     app.add_page(analytics_landing_page(), route="/analytics/ui", title="Analytics UI")
-    add_routes(Routes.blueprints, blueprint_export_config)
     add_routes(Routes.pantries, pantry_exports_config)
     add_routes(Routes.charts, charts_exports_config)
     add_routes(Routes.started, getting_started_config)

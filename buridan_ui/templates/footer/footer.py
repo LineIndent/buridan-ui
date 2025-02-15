@@ -44,7 +44,6 @@ def create_footer_item(title: str, routes: list[dict[str, str]]):
 def footer():
     return rx.vstack(
         create_footer_item("Home", SiteRoutingState.GettingStartedRoutes),
-        create_footer_item("Blueprint Templates", SiteRoutingState.BlueprintRoutes),
         create_footer_item("Analytics UI", SiteRoutingState.AnalyticsRoutes),
         create_footer_item("Charts UI", SiteRoutingState.ChartRoutes),
         create_footer_item("Pantry UI", SiteRoutingState.PantryRoutes),
