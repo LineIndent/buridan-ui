@@ -26,9 +26,7 @@ def areachart_v3():
             rx.recharts.area_chart(
                 rx.recharts.graphing_tooltip(**vars(tooltip_styles)),
                 rx.recharts.cartesian_grid(
-                    horizontal=True,
-                    vertical=False,
-                    class_name="opacity-25",
+                    horizontal=True, vertical=False, class_name="opacity-25"
                 ),
                 rx.recharts.area(
                     data_key="desktop",
@@ -48,13 +46,9 @@ def areachart_v3():
                 width="100%",
                 height=250,
             ),
-            info(
-                "Trending up by 5.2% this month",
-                "2",
-                "January - June 2024",
-                "start",
-            ),
+            info("Trending up by 5.2% this month", "2", "January - June 2024", "start"),
             width="100%",
+            class_name=tooltip_styles.general_style,
         ),
         width="100%",
         padding="0.5em",

@@ -52,6 +52,7 @@ def areachart_v1():
                 "start",
             ),
             width="100%",
+            class_name=tooltip_styles.general_style,
         ),
         width="100%",
         padding="0.5em",
