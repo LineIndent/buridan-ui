@@ -181,7 +181,6 @@ class NavigationRoutes:
         default_factory=lambda: [
             {"name": "Home", "path": "/"},
             {"name": "Getting Started", "path": GettingStartedRoutes[0]["path"]},
-            {"name": "Interactive Apps", "path": InteractiveRoutes[0]["path"]},
             {"name": "Blueprints", "path": BlueprintRoutes[0]["path"]},
             {"name": "Pantry", "path": PantryRoutes[0]["path"]},
             {"name": "Charts", "path": "/charts/ui"},

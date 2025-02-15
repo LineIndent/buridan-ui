@@ -6,7 +6,6 @@ from buridan_ui.routes.routes import (
     BlueprintRoutes,
     ChartRoutes,
     GettingStartedRoutes,
-    InteractiveRoutes,
     NavigationRoutes,
     PantryRoutes,
     AnalyticsRoutes,
@@ -28,9 +27,6 @@ class SiteRoutingState(rx.State):
     ]
     GettingStartedRoutes: list[dict[str, str]] = [
         {**route, **passive} for route in GettingStartedRoutes
-    ]
-    InteractiveRoutes: list[dict[str, str]] = [
-        {**route, **passive} for route in InteractiveRoutes
     ]
     BlueprintRoutes: list[dict[str, str]] = [
         {**route, **passive} for route in BlueprintRoutes
@@ -64,7 +60,6 @@ class SiteRoutingState(rx.State):
             # Update the menu for all routes
             results = await asyncio.gather(
                 self.update_menu_link(self.GettingStartedRoutes, data),
-                self.update_menu_link(self.InteractiveRoutes, data),
                 self.update_menu_link(self.ChartRoutes, data),
                 self.update_menu_link(self.PantryRoutes, data),
                 self.update_menu_link(self.BlueprintRoutes, data),

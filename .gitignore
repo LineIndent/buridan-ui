@@ -8,5 +8,5 @@
 __pycache__/
 assets/external/
 private/
-templates/lab/
-pages/landing/
+buridan_ui/pages/landing/
+buridan_ui/templates/lab/
