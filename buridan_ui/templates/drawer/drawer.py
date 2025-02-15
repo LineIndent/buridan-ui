@@ -40,10 +40,6 @@ def drawer():
                             SiteRoutingState.GettingStartedRoutes,
                         ),
                     ),
-                    drawer_menu_header("Interactive Apps"),
-                    drawer_menu_link(
-                        create_sidebar_menu_items(SiteRoutingState.InteractiveRoutes),
-                    ),
                     drawer_menu_header("Blueprint Templates"),
                     drawer_menu_link(
                         create_sidebar_menu_items(SiteRoutingState.BlueprintRoutes),

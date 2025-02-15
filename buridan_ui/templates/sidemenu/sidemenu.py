@@ -71,10 +71,6 @@ def sidemenu() -> rx.vstack:
                 [create_sidebar_menu_items(SiteRoutingState.GettingStartedRoutes)],
             ),
             menu_wrapper(
-                "Interactive Applications",
-                [create_sidebar_menu_items(SiteRoutingState.InteractiveRoutes)],
-            ),
-            menu_wrapper(
                 "Blueprint Templates",
                 [create_sidebar_menu_items(SiteRoutingState.BlueprintRoutes)],
             ),
