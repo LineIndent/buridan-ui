@@ -40,9 +40,7 @@ class TooltipStyles:
             "position": "relative",
         }
     )
-    general_style: str = (
-        "[&_.recharts-tooltip-item-unit]:text-slate-9 [&_.recharts-tooltip-item-unit]:font-mono [&_.recharts-tooltip-item-value]:!text-slate-12 [&_.recharts-tooltip-item-value]:!font-mono  [&_.recharts-tooltip-item-value]:mr-[0.2rem] [&_.recharts-tooltip-item]:flex [&_.recharts-tooltip-item]:items-center [&_.recharts-tooltip-item-name]:text-slate-9 [&_.recharts-tooltip-item-list]:flex [&_.recharts-tooltip-item-list]:flex-col [&_.recharts-tooltip-item-name]:pr-[3rem] [&_.recharts-tooltip-item-separator]:w-full"
-    )
+    general_style: str = "[&_.recharts-tooltip-item-separator]:w-full"
 
 
 tooltip_styles = TooltipStyles()

@@ -1,3 +1,4 @@
+.states
 *.db
 *.py[cod]
 .DS_Store
@@ -6,3 +7,6 @@
 .web
 __pycache__/
 assets/external/
+private/
+templates/lab/
+pages/landing/

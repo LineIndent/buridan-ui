@@ -20,7 +20,10 @@ TitlesShared: dict[str, str] = {"width": "100%", "spacing": "4"}
 @dataclass
 class LandingPageSectionWrapperStyle:
     wrapper: dict[str, str] = field(
-        default_factory=lambda: {"align": "start", **WrapperShared},
+        default_factory=lambda: {
+            "align": "center",
+            **WrapperShared,
+        },
     )
 
     wrapper_secondary: dict[str, str] = field(
@@ -29,8 +32,8 @@ class LandingPageSectionWrapperStyle:
 
     titles: dict[str, str] = field(
         default_factory=lambda: {
-            "align": "start",
-            "text_align": "start",
+            "align": "center",
+            "text_align": [*["start"] * 2, *["center"] * 4],
             "max_width": "48em",
             **TitlesShared,
         },

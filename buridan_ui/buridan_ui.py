@@ -5,7 +5,6 @@ import reflex as rx
 from .blueprints.exports import blueprint_export_config
 from .charts.exports import charts_exports_config
 from .pages.charts_landing.main import charts_landing_page
-from .pages.interactive.exports import interactive_config
 from .pages.landing.hero import landing_page
 from .pages.started_items.exports import getting_started_config
 from .pantry.exports import pantry_exports_config
@@ -58,14 +57,14 @@ def add_routes(
 
 # ... set the DEV var to True for faster hot reload
 # ... ... change the ENV to match the page in progress
-DEV: bool = False
+DEV: bool = True
 
 if DEV:
     # ... ex: working with X item Y -> set the ENV data as such:
     ENV = {
-        "path": "/charts/bar-charts",
+        "path": "/charts/area-charts",
         "name": "DEV MODE",
-        "dir": "bar",
+        "dir": "area",
         "config": charts_exports_config,
     }
 
@@ -73,14 +72,13 @@ if DEV:
     def __() -> callable:
         return [export() for export in ENV["config"][ENV["dir"]]]
 
-    # app.add_page(__(), "/")
-    app.add_page(landing_page(), route="/", title="Buridan UI")
+    app.add_page(__(), "/")
+    # app.add_page(landing_page(), route="/", title="Buridan UI")
 
 else:
     app.add_page(landing_page(), route="/", title="Buridan UI")
     app.add_page(charts_landing_page(), route="/charts/ui", title="Charts UI")
     app.add_page(analytics_landing_page(), route="/analytics/ui", title="Analytics UI")
-    add_routes(Routes.interactive, interactive_config)
     add_routes(Routes.blueprints, blueprint_export_config)
     add_routes(Routes.pantries, pantry_exports_config)
     add_routes(Routes.charts, charts_exports_config)

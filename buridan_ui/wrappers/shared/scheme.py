@@ -91,4 +91,7 @@ def component_wrapper_color_scheme_hero():
         *[color_scheme_boxes(color) for color in ["blue", "ruby", "jade", "gray"]],
         spacing="2",
         align="center",
+        width="100%",
+        height="100%",
+        justify="between",
     )

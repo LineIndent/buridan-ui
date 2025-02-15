@@ -65,3 +65,12 @@ def inputs_v4():
         max_width="25em",
         spacing="1",
     )
+
+
+def _inputs_v4():
+    return rx.vstack(
+        title("Show tooltip on focus"),
+        entry("Your password"),
+        width="100%",
+        spacing="1",
+    )

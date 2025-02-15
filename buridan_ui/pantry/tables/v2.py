@@ -108,3 +108,24 @@ def tables_v2():
         max_width="800px",
         size="2",
     )
+
+
+def _tables_v2():
+    return rx.table.root(
+        rx.table.header(
+            rx.table.row(
+                rx.foreach(
+                    ["Employee", "Job Title", "Email", "Phone", "", ""],
+                    lambda title: rx.table.column_header_cell(
+                        rx.text(title, font_size="12px", weight="bold"),
+                    ),
+                ),
+            ),
+        ),
+        rx.table.body(
+            rx.foreach(Table.data, create_data_row),
+        ),
+        width="100%",
+        variant="surface",
+        size="2",
+    )

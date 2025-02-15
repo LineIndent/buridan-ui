@@ -28,8 +28,7 @@ def areachart_v3():
                 rx.recharts.cartesian_grid(
                     horizontal=True,
                     vertical=False,
-                    fill_opacity=0.5,
-                    stroke=rx.color("slate", 5),
+                    class_name="opacity-25",
                 ),
                 rx.recharts.area(
                     data_key="desktop",
@@ -43,11 +42,11 @@ def areachart_v3():
                     tick_size=10,
                     tick_line=False,
                     custom_attrs={"fontSize": "12px"},
+                    interval="preserveStartEnd",
                 ),
                 data=data,
                 width="100%",
                 height=250,
-                margin={"left": 20},
             ),
             info(
                 "Trending up by 5.2% this month",
@@ -56,7 +55,6 @@ def areachart_v3():
                 "start",
             ),
             width="100%",
-            margin_right="20px",
         ),
         width="100%",
         padding="0.5em",

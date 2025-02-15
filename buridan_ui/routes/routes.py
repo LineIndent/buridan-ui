@@ -30,21 +30,6 @@ class Routes:
         ],
     )
 
-    interactive: list[dict[str, str]] = field(
-        default_factory=lambda: [
-            {
-                "name": "RAG Application",
-                "path": "/interactive/retrieval-augmented-generation",
-                "dir": "rag",
-            },
-            {
-                "name": "PubMed Application",
-                "path": "/interactive/pubmed-ai",
-                "dir": "pubmed",
-            },
-        ],
-    )
-
     blueprints: list[dict[str, str]] = field(
         default_factory=lambda: [
             {
@@ -134,11 +119,7 @@ class Routes:
                 "path": "/pantry/prompt-boxes",
                 "dir": "prompts",
             },
-            {
-                "name": "Cards",
-                "path": "/pantry/cards",
-                "dir": "cards",
-            },
+            {"name": "Cards", "path": "/pantry/cards", "dir": "cards", "is_new": True},
             {
                 "name": "Subscribe",
                 "path": "/pantry/subscribe",
@@ -212,7 +193,6 @@ class NavigationRoutes:
 Routes: Routes = Routes()
 
 GettingStartedRoutes: list[dict[str, str]] = Routes.started
-InteractiveRoutes: list[dict[str, str]] = Routes.interactive
 BlueprintRoutes: list[dict[str, str]] = Routes.blueprints
 PantryRoutes: list[dict[str, str]] = sorted(Routes.pantries, key=lambda x: x["name"])
 ChartRoutes: list[dict[str, str]] = sorted(Routes.charts, key=lambda x: x["name"])

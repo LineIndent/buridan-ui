@@ -7,11 +7,25 @@ from buridan_ui.templates.footer.footer import footer
 from buridan_ui.templates.navigation.navigation import landing_page_navigation
 
 from .features.feature import feature
+from .hero_grid_layout import responsive_grid, create_grid_item
 from .hero_landing.hero import hero
 from .items.charts import landing_page_chart_items
 from .items.pantry import landing_page_pantry_items
 from .style import LandingPageStyle
-from .wrapper.wrapper import landing_page_section_wrapper
+from .wrapper.wrapper import (
+    landing_page_section_wrapper,
+    landing_page_section_wrapper_main,
+)
+
+from buridan_ui.charts.bar.v1 import barchart_v1
+from buridan_ui.charts.bar._bar_test import *
+from buridan_ui.pantry.menus.v1 import menus_v1
+from buridan_ui.charts.line.v4 import linechart_v4
+from buridan_ui.analytics.stats.v1 import stats_v1
+from buridan_ui.pantry.tables.v2 import _tables_v2
+from buridan_ui.pantry.inputs.v4 import _inputs_v4
+from buridan_ui.pantry.subscribe.v1 import subscribe_v1
+from ...wrappers.shared.scheme import component_wrapper_color_scheme_hero
 
 
 def count_python_files_in_folder(folder_name):
@@ -23,12 +37,47 @@ def count_python_files_in_folder(folder_name):
     return total_files
 
 
+sum = count_python_files_in_folder("buridan_ui/charts") + count_python_files_in_folder(
+    "buridan_ui/pantry"
+)
+
+
 def landing_page() -> rx.vstack:
     return rx.vstack(
         drawer(),
         rx.vstack(
             landing_page_navigation(),
-            hero(),
+            rx.divider(height="4em", opacity="0"),
+            landing_page_section_wrapper_main(
+                # "Build your next web app faster than ever",
+                # "Beautifully designed, expertly crafted components and templates built for the Reflex framework, empowering you to develop web apps in pure Python.",
+                "Reflex components to build your web apps faster than ever",
+                f"Access {sum}+ high-quality, open-source components and templates for building production-ready web apps. Designed for the Reflex framework and Python.",
+            ),
+            responsive_grid(
+                create_grid_item(barchart_v1(), 1, 1, 2),
+                create_grid_item(bar_chart_2(), 1, 1, 1),
+                lg=3,
+            ),
+            responsive_grid(
+                rx.box(
+                    create_grid_item(menus_v1(), 1, 1, 1),
+                    create_grid_item(component_wrapper_color_scheme_hero(), 1, 1, 1),
+                    create_grid_item(subscribe_v1(), 1, 1, 1),
+                    create_grid_item(_inputs_v4(), 1, 1, 1),
+                    class_name="col-span-1 lg:col-span-1 flex flex-col gap-4",
+                ),
+                rx.box(
+                    create_grid_item(stats_v1(), 1, 1, 1),
+                    create_grid_item(linechart_v4(), 1, 1, 1),
+                    class_name="col-span-1 lg:col-span-1 flex flex-col gap-4",
+                ),
+                lg=2,
+            ),
+            responsive_grid(
+                create_grid_item(_tables_v2(), 1, 1, 1),
+                lg=1,
+            ),
             rx.divider(height="4em", opacity="0"),
             landing_page_section_wrapper(
                 "Full Stack Features",
@@ -50,8 +99,8 @@ def landing_page() -> rx.vstack:
             rx.divider(height="5em", opacity="0"),
             landing_page_section_wrapper(
                 "Chart Components",
-                "Powerful charting components, designed to visualize your data effortlessly.",
-                f"Explore {count_python_files_in_folder('buridan_ui/charts')}+ beautifully designed, fully responsive chart components ready to enhance your Reflex projects and visualize your data effectively.",
+                "Visualize your data with powerful charts.",
+                f"Explore {count_python_files_in_folder('buridan_ui/charts')}+ beautifully designed, fully responsive chart components ready to enhance your Reflex projects. Control? You got it.",
                 "Browse chart items →",
                 "/charts/ui",
                 [landing_page_chart_items()],

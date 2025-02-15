@@ -2,9 +2,8 @@ callback = """
 function getEditorContent() {
     var editor = ace.edit("editor");
     var code = editor.getValue();  // Get the content of the editor
-
-    // Optionally, you could update the content somewhere
-    // document.getElementById("codeOutput").textContent = code;
+    
+    console.log(code)
 }
 
 function setupEditor() {

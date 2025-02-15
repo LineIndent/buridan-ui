@@ -24,12 +24,13 @@ class NavigationStyle:
 
     logo: dict[str, str] = field(
         default_factory=lambda: {
-            "width": "22px",
-            "height": "22px",
-            "border_radius": "100%",
+            "width": "30px",
+            "height": "30px",
+            # "border_radius": "100%",
             "object_fit": "fit",
-            "border": f"1px solid {rx.color('slate', 12)}",
+            # "border": f"1px solid {rx.color('gray', 4)}",
             "display": ["none", "none", "none", "none", "flex", "flex"],
+            "class_name": "shadow-sm rounded-lg",
         },
     )
 
