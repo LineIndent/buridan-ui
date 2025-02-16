@@ -11,3 +11,6 @@ buridan_ui/private/
 buridan_ui/pages/landing/
 buridan_ui/templates/lab/
 buridan_ui/blueprints/
+buridan_ui/charts/bar/_bar_test.py
+buridan_ui/pantry/logins/_v3
+buridan_ui/wrappers/component/view_code.py
