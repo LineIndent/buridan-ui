@@ -12,7 +12,6 @@ class LoginStyle:
             "height": "100%",
             "justify": "center",
             "align": "center",
-            "padding": "3em 0em",
         },
     )
 

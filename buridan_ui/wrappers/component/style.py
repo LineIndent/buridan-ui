@@ -42,10 +42,9 @@ class ComponentWrapperStyle:
             "width": "100%",
             "font_size": "12px",
             "language": "python",
-            "wrap_long_lines": True,
             "scrollbar_width": "none",
             "code_tag_props": {"pre": "transparent"},
-            "custom_style": {"backgroundColor": "transparent"},
+            "border_radius": "10px",
         },
     )
 

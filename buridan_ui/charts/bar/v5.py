@@ -84,7 +84,6 @@ def barchart_v5():
         {"date": "2024-06-13", "desktop": 81, "mobile": 130},
         {"date": "2024-06-14", "desktop": 426, "mobile": 380},
         {"date": "2024-06-15", "desktop": 307, "mobile": 350},
-        {"date": "2024-06-16", "desktop": 371, "mobile": 310},
     ]
 
     formatted_data = [
@@ -129,7 +128,7 @@ def barchart_v5():
                 rx.recharts.bar(
                     data_key=Chart.current_data,
                     fill=ComponentWrapperState.default_theme[0],
-                    radius=[4, 4, 0, 0],
+                    radius=[2, 2, 0, 0],
                 ),
                 rx.recharts.y_axis(type_="number", hide=True),
                 rx.recharts.x_axis(
@@ -140,6 +139,7 @@ def barchart_v5():
                     tick_size=10,
                     tick_line=False,
                     custom_attrs={"fontSize": "12px"},
+                    interval="preserveStartEnd",
                 ),
                 data=formatted_data,
                 width="100%",

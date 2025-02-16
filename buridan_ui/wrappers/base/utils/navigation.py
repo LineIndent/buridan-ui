@@ -60,6 +60,7 @@ def render_prev_and_next_ui(routes: list[dict[str, str]]):
         z_index="20",
         variant="soft",
         backdrop_filter="blur(5px)",
+        color_scheme="blue",
     )
 
 

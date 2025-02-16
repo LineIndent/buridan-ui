@@ -47,8 +47,8 @@ def create_export(func, directory, version):
         return [
             func(),
             get_source(directory, f"v{version}.py"),
-            randint(0, 100000),
-            rx.spacer(),
+            # randint(0, 100000),
+            # rx.spacer(),
         ]
 
     return export

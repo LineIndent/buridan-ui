@@ -133,6 +133,44 @@ def areachart_v5():
                 wrap="wrap",
             ),
             rx.recharts.area_chart(
+                rx.el.svg.defs(
+                    rx.el.svg.linear_gradient(
+                        rx.el.svg.stop(
+                            stop_color=rx.color("blue", 7),
+                            offset="0%",
+                            stop_opacity=0.3,
+                        ),
+                        rx.el.svg.stop(
+                            stop_color=rx.color("blue", 8),
+                            offset="95%",
+                            stop_opacity=0.1,
+                        ),
+                        x1=0,
+                        x2=0,
+                        y1=0,
+                        y2=1,
+                        id="desktop",
+                    )
+                ),
+                rx.el.svg.defs(
+                    rx.el.svg.linear_gradient(
+                        rx.el.svg.stop(
+                            stop_color=rx.color("orange", 7),
+                            offset="0%",
+                            stop_opacity=0.3,
+                        ),
+                        rx.el.svg.stop(
+                            stop_color=rx.color("orange", 8),
+                            offset="95%",
+                            stop_opacity=0.1,
+                        ),
+                        x1=0,
+                        x2=0,
+                        y1=0,
+                        y2=1,
+                        id="mobile",
+                    )
+                ),
                 rx.recharts.graphing_tooltip(**vars(tooltip_styles)),
                 rx.recharts.cartesian_grid(
                     horizontal=True, vertical=False, class_name="opacity-25"
@@ -140,9 +178,13 @@ def areachart_v5():
                 *[
                     rx.recharts.area(
                         data_key=name,
-                        fill=ComponentWrapperState.default_theme[index],
+                        fill=f"url(#{name})",
                         stack_id="a",
-                        stroke=ComponentWrapperState.default_theme[index + 1],
+                        stroke=rx.cond(
+                            name == "desktop",
+                            rx.color("accent", 8),
+                            rx.color("orange", 8),
+                        ),
                     )
                     for index, name in enumerate(["desktop", "mobile"])
                 ],

@@ -3,7 +3,6 @@ from dataclasses import dataclass, field
 import reflex as rx
 
 
-
 @dataclass
 class SideMenuStyle:
     base: dict[str, str] = field(
@@ -11,7 +10,7 @@ class SideMenuStyle:
             "top": "0",
             "left": "0",
             "bottom": "0",
-             "width": "330px",
+            "width": "330px",
             "height": "100vh",
             "overflow": "auto",
             "position": "sticky",
